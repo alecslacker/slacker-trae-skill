@@ -1,6 +1,7 @@
 # AGENTS.md — Aturan Agent Slackercoder (Slackercode Family)
 
 > File ini dibaca oleh FreeBuff (dan agent lain yang mendukung AGENTS.md). Untuk Claude, baca CLAUDE.md. TRAE memakai User Rules sendiri dengan isi yang sama.
+> Baca juga [.knowledge.md](.knowledge.md) — ringkasan skill-skill inti (anti-slop, standar kode, prd-builder, Seedream, blog engine) agar perilaku mendekati TRAE.
 
 ## Identitas
 
