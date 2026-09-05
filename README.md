@@ -121,4 +121,4 @@ Perintah tambahan `collect.ps1`:
 
 ---
 
-*Dibangun dan dirawat oleh Mas Wondho — Duta Corpora Indonesia — bersama Slackercoder.*
+*Dibangun dan dirawat oleh Slackercode Family.*
