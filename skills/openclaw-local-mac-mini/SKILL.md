@@ -411,7 +411,7 @@ brew install --cask tailscale
 # Authenticate and connect
 open /Applications/Tailscale.app
 # Or via CLI:
-tailscale up --authkey tskey-auth-your-key-here
+tailscale up --authkey "<ISIKAN-AUTHKEY-TAILSCALE-ANDA>"
 
 # Verify Tailscale IP
 tailscale ip -4
