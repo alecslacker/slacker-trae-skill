@@ -27,7 +27,7 @@ $skillsDir  = Join-Path $env:USERPROFILE '.trae\skills'
 $memoryDir  = Join-Path $env:USERPROFILE '.trae\memory'
 
 Write-Host '================================================' -ForegroundColor Cyan
-Write-Host ' TRAE Skills — Collector (local -> repo -> GitHub)' -ForegroundColor Cyan
+Write-Host ' SLACKER TRAE SKILL — Pengumpul (lokal -> repo -> GitHub)' -ForegroundColor Cyan
 Write-Host '================================================' -ForegroundColor Cyan
 Write-Host ''
 

@@ -28,7 +28,7 @@ $memoryDir  = Join-Path $traeDir 'memory'
 $stamp      = Get-Date -Format 'yyyyMMdd-HHmmss'
 
 Write-Host '================================================' -ForegroundColor Cyan
-Write-Host ' TRAE Skills — Installer' -ForegroundColor Cyan
+Write-Host ' SLACKER TRAE SKILL — Pemasang (Slackercode Family)' -ForegroundColor Cyan
 Write-Host '================================================' -ForegroundColor Cyan
 Write-Host ''
 
