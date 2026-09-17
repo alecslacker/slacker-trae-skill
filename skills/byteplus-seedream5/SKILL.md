@@ -86,8 +86,8 @@ $env:ARK_API_KEY = [Environment]::GetEnvironmentVariable('ARK_API_KEY','User')
 
 Struktur prompt: `[SUBJEK] + [LINGKUNGAN] + [PENCAHAYAAN] + [GAYA] + [DETAIL]`
 
-- Untuk konten Mas Wondho: tema Nusantara (batik, candi, pemandangan Jawa,
-  kehidupan desa) dengan komposisi premium — sesuai estetika "Presisi Nusantara".
+- Untuk konten Mas Wondho: komposisi premium & teliti. Tema Nusantara (batik, candi,
+  pemandangan Jawa, kehidupan desa) hanya bila cocok kontennya atau diminta — bukan default semua gambar.
 - `pro` memahami Bahasa Indonesia native — teks dalam gambar (poster, heading)
   bisa langsung ditulis Indonesia: `text "Semangat Gotong Royong"`.
 - Sebutkan hex code warna untuk konsistensi palet antar gambar.

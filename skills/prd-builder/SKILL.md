@@ -19,6 +19,7 @@ Skill ini bertindak sebagai **Product Manager virtual + Art Director virtual** y
 8. **WAJIB gunakan AskUserQuestion** — Setiap pertanyaan HARUS ditampilkan sebagai kartu interaktif (bukan chat biasa). Lihat section "Format Tanya Jawab Interaktif" di bawah.
 9. **Anti-AI-Slop (WAJIB)** — Hasil rancangan TIDAK BOLEH terlihat generik ala AI. Design system ditetapkan EKSPLISIT (PRD Section 8), referensi konkret mengalahkan deskripsi verbal, semua edge state punya personality Bahasa Indonesia, dan desain final wajib lolos AI Test 7 pertanyaan sebelum dinyatakan selesai.
 10. **Reference-driven** — Untuk semua keputusan visual, dorong user menyebut referensi konkret ("layout seperti Linear") atau kirim screenshot (analisis via zai-vision). Deskripsi verbal seperti "modern dan clean" DILARANG jadi satu-satunya input desain.
+11. **Design Tokens 3 Tingkat (WAJIB)** — Section 8 menghasilkan token berarsitektur 3 tingkat (primitif → semantik → komponen, sejalan W3C DTCG). Komponen UI DILARANG memakai nilai mentah/hex langsung — hanya nama token semantik. Mode terang/gelap diselesaikan lewat swap nilai semantik, bukan duplikasi style. Detail di `references/question-bank.md` §8.
 
 ---
 
@@ -120,7 +121,7 @@ Semua output disimpan di `.trae/documents/` (buat folder jika belum ada):
 
 ## Project Memory Integration (WAJIB)
 
-TRAE punya sistem **project memory** di `.trae/memory/projects/<project-id>/project_memory.md`. Skill ini HARUS membaca dan menulis ke project memory agar konteks PRD persisten antar sesi.
+TRAE punya sistem **project memory** di `.trae/memory/project_memory.md`. Skill ini HARUS membaca dan menulis ke project memory agar konteks PRD persisten antar sesi.
 
 ### Aturan Wajib
 
@@ -142,7 +143,7 @@ TRAE punya sistem **project memory** di `.trae/memory/projects/<project-id>/proj
 
 ### Lokasi & Format Memory
 
-**Path**: `.trae/memory/projects/<project-id>/project_memory.md`
+**Path**: `.trae/memory/project_memory.md`
 
 **Contoh isi untuk proyek PRD**:
 
@@ -214,7 +215,7 @@ prd-warungpintar.md, plan-warungpintar.md, tasks-warungpintar.md — semua di .t
 | Section 5 (Architecture) | M008 + M009 | Arsitektur + Integrasi | Setelah konfirmasi user |
 | Section 6 (Database) | M010 | Database Schema | Setelah konfirmasi user |
 | Section 7 (Tech Stack) | M011 | Stack Final | Setelah konfirmasi user |
-| Section 8 (Design System) | M012 | Design Tokens: vibe, referensi, warna, font, mode, radius/motion | Setelah konfirmasi user |
+| Section 8 (Design System) | M012 | Design Tokens 3 tingkat: primitif, semantik (per-mode terang/gelap), komponen + vibe, referensi, font+alasan, dial, dose caps | Setelah konfirmasi user |
 | Phase 2 selesai | M001 (update) | PRD Status + Plan | Setelah plan digenerate |
 | Phase 3 selesai | M001 (update) | PRD Status + Plan + Tasks | Setelah tasks digenerate |
 | Phase 4 selesai | M001 (update) | PRD Status + Plan + Tasks + Wireframe | Setelah wireframe digenerate |
@@ -621,6 +622,9 @@ Chain: frontend-design / TDD / Context7 / web-design-guidelines (Design QA)
 - WAJIB tawarkan chain ke Phase berikutnya setelah Phase 3 selesai
 - WAJIB lakukan 4-cek anti-typo (ejaan, konsistensi, format, logika) sebelum generate file
 - DILARANG desain/coding UI tanpa Design System yang sudah dikonfirmasi (PRD Section 8) — kecuali user eksplisit bilang skip
+- DILARANG menulis hex/nilai mentah langsung di komponen UI — semua via token semantik (Design Tokens 3 Tingkat)
+- DILARANG memakai font/ikon set "bawaan AI" (Inter/Geist/Space Grotesk, Lucide dkk) tanpa alasan brand tertulis — kecuali mengikuti referensi user
+- DILARANG melewati dose caps antislop (glass/glow maks 1–2 elemen, shadow hanya yang terangkat, radius membedakan kategori, tanpa loop motion)
 - DILARANG pakai edge state copy generik ("No data found", "Something went wrong", "Loading...") — semua copy harus spesifik + Bahasa Indonesia natural
 - DILARANG generate aset visual tanpa konsistensi style dalam satu project (satu style, satu palette, satu mood — dari Design Tokens)
 - DILARANG menyatakan desain selesai sebelum AI Test 7 pertanyaan LULUS

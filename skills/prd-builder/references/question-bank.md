@@ -648,6 +648,16 @@ options:
 
 **Aturan emas section ini**: Deskripsi verbal menghasilkan output generik; referensi konkret menghasilkan output tertarget. Selalu dorong user ke referensi.
 
+**Output akhir section ini adalah DESIGN TOKENS 3 TINGKAT** (standar industri, sejalan W3C DTCG):
+
+| Tingkat | Apa itu | Contoh | Aturan pakai |
+|---------|---------|--------|--------------|
+| **1. Primitif** | Nilai mentah palet — punya nama, belum punya makna | `biru-600: #1d4ed8`, `abu-100: #f3f4f6`, `spacing-4: 16px` | DILARANG dipakai langsung di komponen |
+| **2. Semantik** | Peran/makna dalam produk — merujuk primitif | `action-primary → biru-600`, `text-body → abu-800`, `surface-card → putih` | Satu-satunya yang boleh dipakai di UI; nilainya swap otomatis saat mode terang/gelap |
+| **3. Komponen** | Ikatan ke komponen spesifik | `button-primary-bg → action-primary`, `card-radius → radius-md` | Opsional; hanya untuk komponen yang butuh nilai khusus |
+
+**Kenapa 3 tingkat**: ganti tema = cukup tukar rujukan tingkat 2 (satu tempat); ganti warna brand = sentuh primitif saja; komponen tidak pernah tahu nilai hex — semua konsep "ganti sekali, berubah semua". Ini juga bahasa asli Tailwind (`@theme` → CSS variables) dan shadcn/ui (`--primary`, `--background`).
+
 ### Q8.1 — Kepribadian Visual / Vibe (Wajib)
 
 **Tujuan**: Menentukan arah estetika keseluruhan. Ini keputusan paling berdampak — semua detail lain mengikuti.
@@ -742,11 +752,13 @@ options:
     description: "Netral, aman, mudah dibaca — prioritas keterbacaan"
 ```
 
-**Aksi agent**: Petakan ke pasangan font konkret DENGAN KARAKTER (hindari Inter/Roboto/Arial/system font generik — aturan anti-slop). Contoh pemetaan:
-- Tegas & serius → Heading: Space Grotesk/Geist; Body: IBM Plex Sans
+**Aksi agent**: Petakan ke pasangan font konkret DENGAN KARAKTER. **Aturan anti-slop (R-06)**: font yang jadi "bawaan AI" (Inter, Geist, Space Grotesk, Roboto, Arial, system-ui) TIDAK DILARANG mutlak, tapi **WAJIB punya alasan brand tertulis** — bila pakai hanya karena kebiasaan = FAIL. Prioritaskan font berkarakter dari referensi user. Contoh pemetaan (urutan preferensi, mulai dari yang berkarakter):
+- Tegas & serius → Heading: Instrument Sans/Archivo; Body: IBM Plex Sans
 - Ramah & bulat → Heading: Quicksand/Nunito; Body: Plus Jakarta Sans
 - Elegan & editorial → Heading: Instrument Serif/Fraunces; Body: DM Sans
 - Serbaguna standar → Heading: Public Sans; Body: Source Sans 3
+
+**Catatan referensi**: bila referensi user adalah Linear/Vercel (yang memang pakai Inter/Geist), pakai font yang sama adalah keputusan brand yang sah — tulis alasannya ("mengikuti referensi X").
 
 Verifikasi ketersediaan font via Context7/Google Fonts sebelum finalisasi. Tampilkan pasangan font untuk konfirmasi.
 
@@ -766,7 +778,15 @@ options:
     description: "Serahkan ke agent: tombol/input membulat, kartu lebih tegas, gerak menyesuaikan vibe"
 ```
 
-**Output Section 8**: Design tokens lengkap (typography 6 level, color semantic, spacing 8px scale, radius hierarchy, shadow elevation, motion duration+easing) — ditampilkan sebagai tabel untuk konfirmasi user, lalu disimpan sebagai M012 dan jadi bagian PRD Section 8 + input utama Phase 4 (Design Spec).
+**Aksi agent**: Selain menetapkan nilai, tetapkan juga **DOSE CAPS** (batas dosis — aturan antislop R-10..R-13, R-19):
+- Radius membulat membedakan kategori elemen (tombol ≠ kartu ≠ modal) — DILARANG semua elemen jadi pill sama besar
+- Shadow hanya untuk 1–2 elemen yang perlu "terangkat" — mayoritas elemen tetap flat
+- Glass/glow maksimal 1–2 elemen; sisanya matte
+- Motion: tetapkan dial 1–3 (1 = hover saja, 2 = +transisi state, 3 = +animasi entrance). DILARANG loop/pulse tanpa henti tanpa tujuan
+
+**Output Section 8**: Design tokens 3 tingkat LENGKAP (lihat tabel tingkat di atas) + typography 6 level + color semantic + spacing 8px scale + radius hierarchy + shadow elevation + motion duration+easing + dose caps + dial — ditampilkan sebagai tabel untuk konfirmasi user, lalu disimpan sebagai M012 dan jadi bagian PRD Section 8 + input utama Phase 4 (Design Spec).
+
+**Gate sebelum konfirmasi** (gagal satu = perbaiki dulu): ceklolos daftar tell antislop-ui — tanpa gradient blue-purple default, tanpa glass/glow berlebih, radius/shadow terdosis, palet maks 2–3 warna inti + 1 aksen, mode terang/gelap punya alasan (bukan sekadar "techy"), tipografi bukan pilihan bawaan tanpa alasan.
 
 ---
 
@@ -804,7 +824,7 @@ Saat menjalankan question flow, agent HARUS membaca dan menulis project memory d
 [Ringkasan ≤400 karakter]
 ```
 
-**Path**: `.trae/memory/projects/<project-id>/project_memory.md`
+**Path**: `.trae/memory/project_memory.md`
 
 **PENTING**: Jangan tampilkan proses baca/tulis memory ke user. Cukup tampilkan ringkasan saat resume sesi.
 

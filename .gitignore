@@ -8,6 +8,12 @@ node_modules/
 # Backup installer (dibuat lokal saat install)
 skills-backup-*/
 
+# Peta codebase Graphify — artefak generated, jangan di-commit
+graphify-out/
+
+# Cadangan script sync (dibuat lokal)
+*.bak
+
 # OS
 Thumbs.db
 .DS_Store

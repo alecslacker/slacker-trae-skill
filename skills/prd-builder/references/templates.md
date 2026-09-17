@@ -191,24 +191,49 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 
 ## 8. Design System (Anti-Slop)
 
-> Semua keputusan desain EKSPLISIT — tidak ada yang ditebak saat coding. Section ini jadi kontrak desain untuk Phase 4 (Design Spec) dan implementasi UI.
+> Semua keputusan desain EKSPLISIT — tidak ada yang ditebak saat coding. Section ini jadi kontrak desain untuk Phase 4 (Design Spec) dan implementasi UI. Token memakai arsitektur 3 tingkat (sejalan W3C DTCG; bahasa asli Tailwind v4 `@theme` dan shadcn/ui CSS variables).
 
 ### Arah Estetika
 - **Vibe**: [Q8.1 — contoh: Minimalis premium]
 - **Referensi**: [Q8.2 — website/aplikasi acuan + hasil analisis screenshot jika ada]
-- **Mode**: [Q8.3 — terang/gelap/keduanya]
+- **Mode**: [Q8.3 — terang/gelap/keduanya + ALASAN mode ini dipilih (bukan default "techy")]
+- **Dial**: RHYTHM [1-3] · MOTION [1-3] (ditetapkan dari vibe)
 
-### Design Tokens — Color
-| Token | Nilai (hex) | Penggunaan |
-|-------|-------------|------------|
-| primary | [hex] | Aksi utama, link, fokus |
-| primary-hover | [hex] | Hover state tombol utama |
-| surface | [hex] | Background halaman/kartu |
-| text-primary | [hex] | Teks utama |
-| text-secondary | [hex] | Teks pendukung/caption |
-| success | [hex] | Feedback sukses |
-| warning | [hex] | Feedback peringatan |
-| error | [hex] | Feedback error |
+### Design Tokens — Tingkat 1: Primitif (nilai mentah, tanpa makna)
+| Token | Nilai | Catatan |
+|-------|-------|---------|
+| [warna-brand-600] | [#hex] | Warna utama brand (dari referensi/Q8.4) |
+| [warna-brand-500] | [#hex] | Versi lebih terang |
+| [warna-brand-700] | [#hex] | Versi lebih gelap (hover) |
+| [netral-0] | [#ffffff] | Putih |
+| [netral-100] | [#hex] | Abu sangat terang |
+| [netral-900] | [#hex] | Abu sangat gelap |
+| spacing-scale | 4/8/16/24/32/48/64 px | Skala 8px |
+| radius-skala | sm/md/lg = [4/8/16]px | Hierarki sudut |
+
+> DILARANG memakai token primitif langsung di komponen — komponen hanya melihat token semantik.
+
+### Design Tokens — Tingkat 2: Semantik (peran produk; satu-satunya yang boleh dipakai UI)
+| Token | Terang (→ primitif) | Gelap (→ primitif) | Penggunaan |
+|-------|--------------------|--------------------|------------|
+| action-primary | [warna-brand-600] | [warna-brand-500] | Aksi utama, link |
+| action-primary-hover | [warna-brand-700] | [warna-brand-400] | Hover tombol utama |
+| surface-page | [netral-100] | [#0f1115] | Latar halaman |
+| surface-card | [netral-0] | [#181b22] | Kartu/panel |
+| text-body | [netral-900] | [#e6e8eb] | Teks utama |
+| text-secondary | [netral-600] | [#9aa0a8] | Teks pendukung |
+| feedback-success | [#16a34a] | [#22c55e] | Sukses |
+| feedback-warning | [#d97706] | [#f59e0b] | Peringatan |
+| feedback-error | [#dc2626] | [#ef4444] | Error |
+
+> Untuk mode "Terang saja"/"Gelap saja": kolom mode kedua dihapus + tulis ALASAN pemilihan mode. Ganti mode = cukup tukar nilai di tabel ini — komponen tidak pernah berubah.
+
+### Design Tokens — Tingkat 3: Komponen (opsional, ikatan khusus)
+| Token | → Semantik | Komponen |
+|-------|-----------|----------|
+| button-primary-bg | action-primary | Tombol utama |
+| input-border | border-subtle | Input form |
+| card-radius | radius-md | Kartu |
 
 ### Design Tokens — Typography
 | Level | Font | Ukuran | Weight | Penggunaan |
@@ -220,27 +245,35 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 | body | [Body font] | [16px] | 400 | Teks utama, line-height 1.6 |
 | caption | [Body font] | [14px] | 400 | Label, helper text |
 
-### Design Tokens — Spacing, Radius, Shadow, Motion
-| Token | Nilai | Catatan |
-|-------|-------|---------|
-| Spacing base | 8px (scale: 4/8/16/24/32/48/64) | Kelipatan grid konsisten |
-| Radius input | [4px] | Input field |
-| Radius kartu | [8-12px] | Card/panel |
-| Radius section | [16px] | Section besar |
-| Shadow sm/md/lg | [nilai konkret] | Elevation bertingkat |
-| Motion fast | [150ms, easing cubic-bezier] | Hover, toggle |
-| Motion normal | [250ms] | Modal, dropdown |
-| Motion slow | [400ms] | Page transition |
+> **Alasan font (WAJIB, R-06)**: [kenapa pasangan ini cocok dengan brand — bukan karena jadi bawaan]. Bila memakai font umum (Inter/Geist/Space Grotesk), alasan wajib eksplisit (mis. "mengikuti referensi Linear").
+
+### Design Tokens — Radius, Shadow, Motion (dengan DOSE CAPS)
+| Token | Nilai | Dose cap (antislop) |
+|-------|-------|---------------------|
+| radius | input [4px] · kartu [8-12px] · section [16px] | Radius MEMBEDAKAN kategori elemen — DILARANG semua pill sama besar (R-11) |
+| shadow | sm [nilai] · md [nilai] · lg [nilai] | Hanya 1–2 elemen terangkat; mayoritas flat (R-12) |
+| glass/glow | [nilai jika ada] | Maks 1–2 elemen; sisanya matte (R-10, R-13) |
+| motion-fast | [150ms, cubic-bezier] | Hover, toggle |
+| motion-normal | [250ms] | Modal, dropdown |
+| motion-slow | [400ms] | Page transition. DILARANG loop tanpa henti (R-19); ikuti MOTION dial |
 
 ### Iconography
-- [Set icon tunggal yang dipilih — contoh: Lucide, Heroicons. DILARANG campur set]
+- **Set**: [satu set konsisten — dipilih dari KARAKTER brand, bukan karena jadi bawaan. DILARANG campur set]
+- **Alasan (R-04)**: [kenapa set ini cocok dengan produk]
+- DILARANG glyph generik AI (sparkle/magic/robot) · DILARANG emoji dekoratif
 
-### Larangan Desain (Anti-Slop)
-- TIDAK ada font generik (Inter/Roboto/Arial) tanpa justifikasi eksplisit
-- TIDAK ada gradient background tanpa tujuan emosional
+### Kontrak ke Implementasi (jembatan ke Section 7)
+- Tailwind v4: primitif → `@theme { --color-brand-600: #... }`; semantik → CSS variable per mode (`.dark { ... }`)
+- shadcn/ui: `action-primary → --primary` · `surface-card → --card` · `text-body → --foreground`
+- Semua komponen HANYA memanggil nama token semantik — tidak pernah hardcode hex.
+
+### Larangan Desain (Anti-Slop — gate LULUS sebelum section dikonfirmasi)
+- TIDAK ada gradient blue-purple/glow/glass page-wide tanpa tujuan tertulis
+- TIDAK ada font generik tanpa alasan brand eksplisit
 - TIDAK ada drop shadow berlapis tanpa elevation system
-- TIDAK ada emoji berlebihan di UI
+- TIDAK ada emoji dekoratif, ikon sparkle/magic, atau left-stripe tanpa makna
 - TIDAK ada placeholder "Lorem ipsum" — semua copy realistis Bahasa Indonesia natural
+- TIDAK ada mode gelap tanpa alasan; TIDAK ada palet lebih dari 3 warna inti + 1 aksen
 ```
 
 ---

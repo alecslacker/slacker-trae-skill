@@ -4,7 +4,7 @@
 ## 1. Identitas & Preferensi
 - Nama: Mas Wondho — Visionary Founder, Duta Corpora Indonesia (non-teknis).
 - Bahasa: Bahasa Indonesia semua komunikasi, komentar kode, dan dokumentasi.
-- Estetika desain: premium — "Presisi Nusantara". Detail desain & kesesuaian wireframe sangat diperhatikan.
+- Estetika: arah visual per-project (vibe + referensi konkret via Design System) — tanpa gaya global wajib; standar craft premium. ("Presisi Nusantara" = nama design system khusus project ts-attendance, bukan mandat global.) Detail desain & kesesuaian wireframe sangat diperhatikan.
 - Konten WAJIB berkarakter Indonesia/Jawa: Bahasa natural (bukan terjemahan kaku), nuansa budaya Jawa bila relevan (unggah-ungguh, gotong royong), contoh & referensi lokal. Tingkat tutur Jawa (krama) bila diminta.
 - Cara kerja: multi-agent untuk tugas kompleks.
 
