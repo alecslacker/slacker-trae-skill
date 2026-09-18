@@ -1,32 +1,32 @@
-# Memory Protocol — Sambungan Antar Sesi (IRIT TOKEN)
+# Memory Protocol — Native TRAE (Path Resmi)
 
-> Tujuan: ganti sesi = tetap nyambung, biaya minimum. Baca 1× di awal, tulis hanya saat perlu.
-> Pemasangan: salin ke `~/.trae/user_rules/` (User Rules TRAE tersimpan lokal per komputer).
+> Tujuan: konteks antar sesi tetap nyambung, biaya token minimum, SATU lokasi kebenaran.
+> Path resmi mengikuti docs TRAE: Settings > Rules & Memories > Memory. Editing manual file memory DIDUKUNG resmi.
 
-## BACA — sekali di awal sesi baru (diam-diam, jangan dump isinya ke chat)
+## DUA LOKASI RESMI (native)
 
-1. Baca `~/.trae/memory/user_profile.md` (profil & preferensi global user).
-2. Baca `<folder-project>/.trae/memory/project_memory.md` jika ada (folder project = workspace yang terbuka).
-3. Kalau project memory ADA → buka respons pertama dengan ringkasan 2–3 kalimat ("Sesi terakhir kita sampai X, output sudah Y, berikutnya Z") lalu tanya: lanjut atau mulai hal baru?
-4. Kalau TIDAK ADA → mulai normal, jangan sebut memory sama sekali.
+1. GLOBAL: `~/.trae/memory/user_profile.md` — preferensi lintas project. Native TRAE otomatis inject & update. Agent TIDAK perlu menuliskannya kecuali diminta eksplisit.
+2. PROJECT: `~/.trae/memory/projects/<kunci-project>/project_memory.md` — konteks per project. Kunci = nama/slug project (contoh: `pepiling`, `slacker-coder`). Native otomatis membaca & menulis setelah sesi.
 
-## TULIS — sparse, hanya fakta yang berguna di sesi berikutnya
+DILARANG membuat/membaca memory di dalam folder project (`<project>/.trae/memory/...`) — sistem itu SUDAH DIHENTIKAN (keputusan Mas Wondho 2026-09-19).
 
-Simpan saat checkpoint/konfirmasi (bukan setiap giliran):
-- Keputusan teknis penting: stack final, arsitektur, pilihan library, integrasi pihak ketiga.
-- Preferensi user baru yang dikonfirmasi eksplisit.
-- Checkpoint progress: fase selesai, file output, task berikutnya, blocker aktif.
-- Bug + workaround yang sudah ditemukan (agar tidak diulang di sesi lain).
+## ALUR KONFIRMASI (WAJIB)
 
-## FORMAT & BATAS (inti dari irit token)
+- Jika ditemukan file memory di folder project ATAU instruksi lama (skill/rule/dokumen) yang menyebut `.trae/memory/project_memory.md` dalam project:
+  JANGAN langsung baca/tulis/hapus. TANYA dulu ke user: "Ada memory lama di folder project. Dipindah ke memory native, atau diabaikan?"
+- Setelah konfirmasi: pindahkan isinya (merge bila native sudah ada isinya) ke `~/.trae/memory/projects/<kunci>/project_memory.md`, lalu hapus folder `.trae/memory` di project.
 
-- Satu entri = `## [YYYY-MM-DD] Judul Singkat` + isi maksimal 400 karakter.
-- Maksimal 20 entri per file. Penuh → merge/hapus entri obsolete — JANGAN buat file baru.
-- Update entri lama lebih baik daripada append duplikat.
-- DILARANG menyimpan: transcript chat, secret/token/password, hal yang sudah ada di user_profile.md.
+## FORMAT & BATAS (irit token)
 
-## Larangan Ekstra
+- Satu entri: `## [YYYY-MM-DD] Judul` atau `### MXXX — Label`, isi ≤400 karakter.
+- Maksimal 20 entri per file. Saat checkpoint: bila file > 15 entri, PANGKAS — merge entri obsolete, hapus yang basi. Update entri lama > append duplikat.
+- Entri historis panjang diringkas per-fase; detail penuh tidak perlu (dokumen `.trae/documents/` = sumber detail).
+- DILARANG menyimpan: transcript chat, secret/token/password, isi user_profile.md (jangan duplikasi).
 
-- Jangan baca ulang memory berkali-kali dalam satu sesi (1× cukup — konteks sudah menempel di percakapan).
-- Jangan tampilkan isi mentah memory ke user — selalu ringkas.
-- File memory project hanya satu: `.trae/memory/project_memory.md` di root project — tidak per folders tambahan.
+## BACA — awal sesi
+
+Native TRAE sudah meng-inject ringkasan memory secara otomatis. Agent TIDAK perlu membaca ulang file memory kecuali: user meminta resume eksplisit, atau konteks yang tampak jelas kurang. Jangan dump isi memory ke chat — selalu ringkas.
+
+## TULIS — saat checkpoint (bukan tiap giliran)
+
+Simpan hanya: keputusan teknis penting (stack final, arsitektur, integrasi), preferensi user terkonfirmasi, progress checkpoint (fase/file/task berikutnya/blocker), bug + workaround yang tidak mau diulang di sesi lain.

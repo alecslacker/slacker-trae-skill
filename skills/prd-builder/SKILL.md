@@ -19,7 +19,7 @@ Skill ini bertindak sebagai **Product Manager virtual + Art Director virtual** y
 8. **WAJIB gunakan AskUserQuestion** — Setiap pertanyaan HARUS ditampilkan sebagai kartu interaktif (bukan chat biasa). Lihat section "Format Tanya Jawab Interaktif" di bawah.
 9. **Anti-AI-Slop (WAJIB)** — Hasil rancangan TIDAK BOLEH terlihat generik ala AI. Design system ditetapkan EKSPLISIT (PRD Section 8), referensi konkret mengalahkan deskripsi verbal, semua edge state punya personality Bahasa Indonesia, dan desain final wajib lolos AI Test 7 pertanyaan sebelum dinyatakan selesai.
 10. **Reference-driven** — Untuk semua keputusan visual, dorong user menyebut referensi konkret ("layout seperti Linear") atau kirim screenshot (analisis via zai-vision). Deskripsi verbal seperti "modern dan clean" DILARANG jadi satu-satunya input desain.
-11. **Design Tokens 3 Tingkat (WAJIB)** — Section 8 menghasilkan token berarsitektur 3 tingkat (primitif → semantik → komponen, sejalan W3C DTCG). Komponen UI DILARANG memakai nilai mentah/hex langsung — hanya nama token semantik. Mode terang/gelap diselesaikan lewat swap nilai semantik, bukan duplikasi style. Detail di `references/question-bank.md` §8.
+11. **Design Tokens 3 Tingkat (WAJIB)** — Section 8 menghasilkan token berarsitektur 3 tingkat (primitif → semantik → komponen — praktik industri yang dipakai IBM Carbon/Salesforce/Adobe; kompatibel format W3C DTCG, Tailwind v4 `@theme`, dan shadcn/ui CSS variables). Komponen UI DILARANG memakai nilai mentah/hex langsung — hanya nama token semantik. Mode terang/gelap diselesaikan lewat swap nilai semantik, bukan duplikasi style. Palet default framework (Tailwind default blue dkk) dilarang jadi identitas. Detail di `references/question-bank.md` §8.
 
 ---
 
@@ -121,16 +121,12 @@ Semua output disimpan di `.trae/documents/` (buat folder jika belum ada):
 
 ## Project Memory Integration (WAJIB)
 
-TRAE punya sistem **project memory** di `.trae/memory/project_memory.md`. Skill ini HARUS membaca dan menulis ke project memory agar konteks PRD persisten antar sesi.
+TRAE punya sistem **project memory native** di `~/.trae/memory/projects/<kunci-project>/project_memory.md` (path RESMI sesuai docs TRAE). Skill ini HARUS menulis keputusan PRD ke file itu agar konteks persisten antar sesi. Native TRAE otomatis meng-inject isinya tiap sesi — jangan duplikasi di folder project.
 
 ### Aturan Wajib
 
-1. **BACA di awal sesi** — Sebelum mulai Phase 0, WAJIB baca `project_memory.md` yang ada (jika ada). Ini untuk:
-   - Mengecek apakah PRD proyek ini sudah pernah dimulai di sesi sebelumnya
-   - Melanjutkan dari section terakhir yang tersimpan
-   - Tidak menanyakan ulang hal yang sudah pernah dijawab
-
-2. **TULIS setiap section selesai** — Setiap kali user konfirmasi sebuah section, simpan ringkasan ke project memory. Format:
+1. **JANGAN buat memory di folder project** — `<project>/.trae/memory/` SUDAH DIHENTIKAN. Bila ditemukan file itu, TANYA dulu ke user sebelum memindah/menghapus (lihat rule-memory-protocol).
+2. **TULIS setiap section selesai** — Setiap kali user konfirmasi sebuah section, simpan ringkasan ke project memory native. Format:
 
 ```markdown
 ### M[XX] — [Label]
@@ -143,7 +139,7 @@ TRAE punya sistem **project memory** di `.trae/memory/project_memory.md`. Skill 
 
 ### Lokasi & Format Memory
 
-**Path**: `.trae/memory/project_memory.md`
+**Path (resmi)**: `~/.trae/memory/projects/<kunci-project>/project_memory.md`
 
 **Contoh isi untuk proyek PRD**:
 

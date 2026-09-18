@@ -236,14 +236,17 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 | card-radius | radius-md | Kartu |
 
 ### Design Tokens — Typography
-| Level | Font | Ukuran | Weight | Penggunaan |
-|-------|------|--------|--------|------------|
-| h1 | [Heading font] | [48px] | 700 | Judul halaman |
-| h2 | [Heading font] | [32px] | 600 | Judul section |
-| h3 | [Heading font] | [24px] | 600 | Sub-judul |
-| h4 | [Heading font] | [20px] | 600 | Kartu/panel |
-| body | [Body font] | [16px] | 400 | Teks utama, line-height 1.6 |
-| caption | [Body font] | [14px] | 400 | Label, helper text |
+| Level | Font | Ukuran | Weight | Letter-spacing | Penggunaan |
+|-------|------|--------|--------|----------------|------------|
+| h1 | [Heading font] | [48px] | 700 | [-0.03em] | Judul halaman |
+| h2 | [Heading font] | [32px] | 600 | [-0.02em] | Judul section |
+| h3 | [Heading font] | [24px] | 600 | [-0.01em] | Sub-judul |
+| h4 | [Heading font] | [20px] | 600 | normal | Kartu/panel |
+| body | [Body font] | [16px] | 400 | normal | Teks utama, line-height 1.6 |
+| caption | [Body font] | [14px] | 400 | normal | Label, helper text |
+| mono | [Mono font, bila perlu] | [14px] | 400 | normal | Kode, angka teknis |
+
+> **Aturan**: display besar (h1-h2) wajib letter-spacing negatif — ciri estetika premium (Linear/Vercel/Anthropic). Body SELALU normal (negatif di body = keterbacaan rusak). Maks 2 keluarga + 1 mono opsional.
 
 > **Alasan font (WAJIB, R-06)**: [kenapa pasangan ini cocok dengan brand — bukan karena jadi bawaan]. Bila memakai font umum (Inter/Geist/Space Grotesk), alasan wajib eksplisit (mis. "mengikuti referensi Linear").
 
@@ -263,9 +266,14 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 - DILARANG glyph generik AI (sparkle/magic/robot) · DILARANG emoji dekoratif
 
 ### Kontrak ke Implementasi (jembatan ke Section 7)
-- Tailwind v4: primitif → `@theme { --color-brand-600: #... }`; semantik → CSS variable per mode (`.dark { ... }`)
-- shadcn/ui: `action-primary → --primary` · `surface-card → --card` · `text-body → --foreground`
-- Semua komponen HANYA memanggil nama token semantik — tidak pernah hardcode hex.
+- Tailwind v4: primitif → `@theme { --color-brand-600: #... }`; semantik per mode → `:root { ... }` + `.dark { ... }`. **WAJIB `@theme inline`** saat variable mereferensi variable lain (semua kasus shadcn) — tanpa ini utility class menyalin nilai mentah, bukan rujukan, dan dark mode rusak
+- Hapus palet default Tailwind saat identitas custom: `@theme { --color-*: initial; }` — palet bawaan (default blue/indigo) DILARANG jadi identitas
+- Dark mode class-based: `@custom-variant dark (&:is(.dark *));` + script blocking di `<head>` (baca `localStorage.theme` SEBELUM render → cegah flash putih/FOUC)
+- `:root { color-scheme: light dark; }` — scrollbar/form/ kontrol native ikut tema (standar W3C CSS Color Adjustment)
+- shadcn/ui: `action-primary → --primary` · `surface-card → --card` · `text-body → --foreground`; base radius tunggal `--radius` + skala `calc(var(--radius) * x)`
+- Semua komponen HANYA memanggil nama token semantik — tidak pernah hardcode hex
+- Shadow: low-alpha lembut (ala Tailwind default `0 1px rgb(0 0 0 / 0.05)`), BUKAN glow/gelap pekat
+- Motion: easing non-linear (cubic-bezier), durasi dari token motion; bukan linear mentah
 
 ### Larangan Desain (Anti-Slop — gate LULUS sebelum section dikonfirmasi)
 - TIDAK ada gradient blue-purple/glow/glass page-wide tanpa tujuan tertulis

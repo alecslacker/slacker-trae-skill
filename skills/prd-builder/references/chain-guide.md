@@ -11,7 +11,7 @@ File ini menjelaskan cara berpindah dari satu phase ke phase berikutnya, dan kap
 **Trigger**: User memulai proyek baru atau lanjut sesi.
 
 **Langkah**:
-1. **CEK** apakah `project_memory.md` sudah ada di `.trae/memory/projects/<project-id>/`
+1. **CEK** apakah `project_memory.md` sudah ada di `~/.trae/memory/projects/<kunci-project>/` (path resmi native; kunci = nama/slug project, BUKAN folder project)
 2. Jika **ada** → baca M001, tampilkan progress terakhir ke user, tanya: lanjut / mulai baru / revisi
 3. Jika **tidak ada** → mulai dari Phase 0 (Ice Break) normal
 4. Setelah Phase 0 selesai → **TULIS** M001 (PRD Status: "Phase 0 selesai, mulai Phase 1")

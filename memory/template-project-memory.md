@@ -1,7 +1,7 @@
 # Project Memory — [Nama Project]
 
-> Dibaca agent di awal setiap sesi (Memory Protocol). Update di setiap checkpoint.
-- Format: entri `## [YYYY-MM-DD] Judul` + isi ≤400 karakter. Maks 20 entri — penuh → merge entri obsolete.
+> Lokasi resmi (native TRAE): `~/.trae/memory/projects/<kunci-project>/project_memory.md` — kunci = nama/slug project. JANGAN letakkan di folder project.
+- Format: entri `## [YYYY-MM-DD] Judul` + isi ≤400 karakter. Maks 20 entri — >15 entri saat checkpoint → pangkas (merge entri obsolete).
 - Jangan simpan: transcript chat, secret/token, hal yang sudah ada di user_profile.md.
 
 ## [YYYY-MM-DD] Status

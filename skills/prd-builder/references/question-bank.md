@@ -720,17 +720,23 @@ question: "Warna identitas utama aplikasi? (Pilih yang paling dekat — bisa di-
 header: "Warna"
 multiSelect: false
 options:
+  - label: "Netral hangat premium"
+    description: "Latar ivory/gading hangat + satu aksen terracotta/oker — ala Claude/Anthropic. Terasa tenang, mahal, tidak umum. SANGAT DIREKOMENDASIKAN untuk anti-slop"
+  - label: "Monokrom + satu aksen"
+    description: "Hitam/putih/abu disiplin + SATU warna aksen fungsional — ala ChatGPT/Linear/Vercel. Canggih lewat tipografi & spacing, bukan warna"
   - label: "Biru — profesional"
-    description: "Kesan tepercaya dan tenang. Aman untuk hampir semua industri"
-  - label: "Hijau — tumbuh/sehat"
-    description: "Kesan segar, alami, atau finansial (uang). Cocok UMKM, kesehatan, lingkungan"
-  - label: "Merah/oranye — berani"
-    description: "Kesan energi dan semangat. Memancing aksi. Cocok marketplace, kuliner"
-  - label: "Sudah punya brand"
-    description: "Ada logo/warna brand sendiri — sebutkan kode warnanya (contoh: #1a5c2e)"
+    description: "Kesan tepercaya dan tenang. Aman untuk hampir semua industri (tapi paling sering dipakai — butuh eksekusi ekstra agar tidak generik)"
+  - label: "Hijau / Merah-oranye / brand sendiri"
+    description: "Hijau: segar/finansial (UMKM, kesehatan). Merah-oranye: berani (marketplace, kuliner). Atau pilih 'Other' dan sebutkan hex brand Anda (contoh: #1a5c2e)"
 ```
 
-**Aksi agent**: Dari jawaban + vibe, agent tetapkan hex code konkret: primary, primary-hover, background surface, text utama, text sekunder, aksen feedback (sukses/warning/error). Tampilkan sebagai tabel design tokens untuk konfirmasi.
+**Aksi agent**: Dari jawaban + vibe, agent tetapkan hex konkret SEMUA token tingkat 1+2 (palet primitif, primary+hover, surface, text, aksen feedback). Tampilkan sebagai tabel design tokens untuk konfirmasi.
+
+**Aturan palet premium (antislop + riset 2025-2026)**:
+- Palet inti MAKS 3 warna + 1 aksen; permukaan didominasi NETRAL (hangat/monokrom) — warna jenuh hanya untuk aksi/titik penting (CTA, link, status), bukan dekorasi
+- DILARANG memakai palet bawaan framework (Tailwind default blue/indigo/violet) sebagai identitas — berkesan generik AI. Bila Tailwind dipakai, hapus palet default (`--color-*: initial` di `@theme`) lalu isi palet custom hasil section ini
+- Netral jangan abu murni — pilih warm-neutral (sentuh hangat) atau cool-neutral konsisten; campuran keduanya = terlihat kotor
+- Hex referensi premium beredar dari ekstraksi komunitas (BUKAN resmi): Claude — ivory #FAF9F5, near-black #141413, terracotta #C96442; boleh jadi starting point, WAJIB disesuaikan + tulis alasannya
 
 ### Q8.5 — Kepribadian Tipografi (Wajib, disederhanakan)
 
@@ -752,15 +758,23 @@ options:
     description: "Netral, aman, mudah dibaca — prioritas keterbacaan"
 ```
 
-**Aksi agent**: Petakan ke pasangan font konkret DENGAN KARAKTER. **Aturan anti-slop (R-06)**: font yang jadi "bawaan AI" (Inter, Geist, Space Grotesk, Roboto, Arial, system-ui) TIDAK DILARANG mutlak, tapi **WAJIB punya alasan brand tertulis** — bila pakai hanya karena kebiasaan = FAIL. Prioritaskan font berkarakter dari referensi user. Contoh pemetaan (urutan preferensi, mulai dari yang berkarakter):
-- Tegas & serius → Heading: Instrument Sans/Archivo; Body: IBM Plex Sans
-- Ramah & bulat → Heading: Quicksand/Nunito; Body: Plus Jakarta Sans
-- Elegan & editorial → Heading: Instrument Serif/Fraunces; Body: DM Sans
-- Serbaguna standar → Heading: Public Sans; Body: Source Sans 3
+**Aksi agent**: Petakan ke **POLA tipografi** (bukan langsung nama font) — pola inilah yang membedakan estetika premium, nama font tinggal anggota polanya:
 
-**Catatan referensi**: bila referensi user adalah Linear/Vercel (yang memang pakai Inter/Geist), pakai font yang sama adalah keputusan brand yang sah — tulis alasannya ("mengikuti referensi X").
+| Pola | Karakter | Contoh anggota (open-source dulu) | Referensi produk nyata |
+|------|----------|-----------------------------------|------------------------|
+| **Serif display + Sans UI** | Elegan, editorial, hangat-premium | Fraunces / Instrument Serif (display) + Instrument Sans / Source Sans 3 (UI) | **Anthropic/Claude** (Styrene + Tiempos) |
+| **Grotesk netral + Mono teknis** | Presisi, developer-first | Space Grotesk / Archivo (display) + JetBrains Mono / IBM Plex Mono (kode) | **Linear** (Inter + Berkeley Mono), **Vercel** (Geist + Geist Mono) |
+| **Sans berkarakter tunggal** | Satu keluarga banyak weight, disiplin | Plus Jakarta Sans / Public Sans / IBM Plex Sans | **OpenAI/ChatGPT** (OpenAI Sans/Söhne) |
+| **Bulat ramah** | Hangat, konsumen | Quicksand / Nunito (display) + Plus Jakarta Sans (UI) | Notion, Duolingo |
 
-Verifikasi ketersediaan font via Context7/Google Fonts sebelum finalisasi. Tampilkan pasangan font untuk konfirmasi.
+**Aturan anti-slop (R-06)**: font "bawaan AI" (Inter, Geist, Space Grotesk, Roboto, Arial, system-ui) TIDAK DILARANG mutlak, tapi **WAJIB punya alasan brand tertulis** — bila dipakai hanya karena kebiasaan = FAIL. Prioritaskan font berkarakter dari referensi user; bila referensi user memang pakai font umum (Linear/Vercel → Inter/Geist), pakai font sama adalah keputusan brand yang sah — tulis alasannya ("mengikuti referensi X").
+
+**Aturan tambahan (riset estetika premium 2025-2026)**:
+- Heading display besar (h1 ≥ 40px) pakai **letter-spacing negatif** (-0.02em s/d -0.04em) — ciri khas Linear/Vercel/OpenAI
+- MAKS 2 keluarga font (display + UI/kode). 3+ keluarga = berantakan; 1 keluarga = pilih yang punya 5+ weight
+- Bila ada konten teknis/kode, wajib token font-mono terpisah (JetBrains Mono / IBM Plex Mono / Geist Mono)
+
+Verifikasi ketersediaan font via Context7/Google Fonts sebelum finalisasi. Tampilkan pola + pasangan font untuk konfirmasi.
 
 ### Q8.6 — Sudut & Gerakan (Wajib, singkat)
 
@@ -786,7 +800,9 @@ options:
 
 **Output Section 8**: Design tokens 3 tingkat LENGKAP (lihat tabel tingkat di atas) + typography 6 level + color semantic + spacing 8px scale + radius hierarchy + shadow elevation + motion duration+easing + dose caps + dial — ditampilkan sebagai tabel untuk konfirmasi user, lalu disimpan sebagai M012 dan jadi bagian PRD Section 8 + input utama Phase 4 (Design Spec).
 
-**Gate sebelum konfirmasi** (gagal satu = perbaiki dulu): ceklolos daftar tell antislop-ui — tanpa gradient blue-purple default, tanpa glass/glow berlebih, radius/shadow terdosis, palet maks 2–3 warna inti + 1 aksen, mode terang/gelap punya alasan (bukan sekadar "techy"), tipografi bukan pilihan bawaan tanpa alasan.
+**Opsi ekspor (tawarkan setelah konfirmasi)**: selain tabel Markdown, agent BISA mengekspor token tingkat 1-2 sebagai file **`tokens.tokens.json`** (format W3C DTCG: `{token: {$type, $value}}`, alias `{group.token}`) di `.trae/documents/` — interoperabel dengan tool ekosistem token (Style Dictionary dkk). Nilai plus saat handoff ke developer; wajib hanya bila user minta.
+
+**Gate sebelum konfirmasi** (gagal satu = perbaiki dulu): lolos daftar tell antislop-ui — tanpa gradient blue-purple default, tanpa glass/glow berlebih, radius/shadow terdosis, palet maks 3 warna inti + 1 aksen, permukaan didominasi netral, palet default framework TIDAK dipakai sebagai identitas, mode terang/gelap punya alasan (bukan sekadar "techy"), tipografi bukan pilihan bawaan tanpa alasan, letter-spacing negatif di display besar.
 
 ---
 
@@ -824,7 +840,7 @@ Saat menjalankan question flow, agent HARUS membaca dan menulis project memory d
 [Ringkasan ≤400 karakter]
 ```
 
-**Path**: `.trae/memory/project_memory.md`
+**Path (resmi)**: `~/.trae/memory/projects/<kunci-project>/project_memory.md` — JANGAN buat di folder project; bila ketemu `.trae/memory/` di project, TANYA dulu ke user (rule-memory-protocol).
 
 **PENTING**: Jangan tampilkan proses baca/tulis memory ke user. Cukup tampilkan ringkasan saat resume sesi.
 

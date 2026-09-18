@@ -44,7 +44,7 @@
 - Context7 = sumber kebenaran pertama untuk library eksternal (override training data).
 - Graphify (peta codebase lokal, binary `C:\Users\alecs\.local\bin`): `graphify-out/` = sumber kebenaran pertama struktur/arsitektur kode; belum ada → /graphify-build (`--code-only` wajib, tanpa API key); setelah edit signifikan → /graphify-update. Jangan commit/edit manual graphify-out.
 - Anti-Typo Triple-Gate: Struktur → Identifier → Semantik.
-- Memory: maks 20 entri per lapisan, 400 char/entri; pisahkan instruction vs learning memory; aturan konkret > abstrak.
+- Memory: native TRAE, path resmi `~/.trae/memory/` (user_profile global + projects/<kunci>/project_memory); maks 20 entri, 400 char/entri, >15 = pangkas; DILARANG memory di folder project; aturan konkret > abstrak.
 
 ## 7. Catatan Teknis Penting
 - Python skill blog: interpreter WAJIB `C:\Python312\python.exe` (3.12.4). "python"/"python3" di PATH TRAE VM = 3.10.11 TIDAK memenuhi syarat 3.11+.
