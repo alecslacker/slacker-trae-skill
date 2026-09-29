@@ -22,6 +22,8 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
 | `scripts/sync-zcode.ps1` | Sinkron repo → Z Code (`~/.zcode`) + MCP dari Claude |
 | `scripts/verify-sync.ps1` | Verifikasi silang repo vs TRAE/Claude/ZCode (jumlah skill + MD5 isi per folder) |
+| `scripts/check-upstream.ps1` | Cek update skill dari repo upstream GitHub (baca `upstream-manifest.json`) |
+| `upstream-manifest.json` | Daftar sumber upstream skill + versi terakhir tercatat |
 
 ---
 
@@ -103,6 +105,19 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 ```
 
 Yang disalin: 289 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`, dan 17 MCP kurasi → `~/.zcode/cli/config.json` (plugin lama dipertahankan, backup otomatis). Jalankan saat Z Code tertutup. Jika MCP tidak langsung muncul di Settings → MCP Servers, gunakan ikon **Import** (sumber: Claude Code) — satu klik, pilih Select all.
+
+---
+
+## Pantau Update Skill Upstream
+
+Skill dari repo eksternal (antislop, taste-*, blog multilingual) tidak update sendiri — pantau lewat manifest:
+
+```powershell
+.\scripts\check-upstream.ps1                  # cek semua sumber, tampilkan laporan
+.\scripts\check-upstream.ps1 -UpdateManifest  # sekalian catat versi terbaru ke manifest
+```
+
+Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang sudah kita tarik. Script memanggil API publik GitHub (tanpa API key) dan menandai `ADA UPDATE` bila ada rilis/commit lebih baru. **Skill baru dari repo eksternal = wajib tambah entrinya ke manifest.** Catatan: rilis upstream sering hanya menyentuh README/installer — selalu diff SKILL.md sebelum menyalin penuh.
 
 ---
 
