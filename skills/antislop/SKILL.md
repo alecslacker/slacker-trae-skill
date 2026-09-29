@@ -29,7 +29,7 @@ If no antislop pointer exists and this file is being read for the first time, ru
    - **2. `antislop-ui`** (UI / visual): pick this for building or editing a website, web app, or interface: color, layout, components, decoration, motion.
    - **3. `antislop-copywriting`** (copy & text): pick this for writing or editing copy: headlines, CTAs, value propositions, tone, landing-page text, product prose.
    - **4. `antislop-human`** (people): pick this for making sure a UI works for people with different eyes, hands, and setups: contrast, keyboard, focus, states.
-   - **5. `antislop-layoutmobile`** (mobile / responsive): pick this for layouts that have to hold up on a phone: breakpoints, scale, grids, overflow, tap targets.
+   - **5. `antislop-layoutmobile`** (mobile / responsive): pick this for layouts that have to reflow across screen sizes, phone to desktop: breakpoints, scale, grids, overflow, tap targets.
    - **6. `antislop-code`** (code comments): pick this for writing or editing code comments: remove generic AI-slop comments, keep the valuable ones, never touch the code.
    - New skills appear here as they ship; never offer a skill that does not exist in this version.
 
@@ -50,6 +50,7 @@ If no antislop pointer exists and this file is being read for the first time, ru
    - Mobile / responsive: `skills/antislop-layoutmobile/SKILL.md`
    - Code comments: `skills/antislop-code/SKILL.md`
    Before starting, ask the user when antislop applies: during the work, or after it is done.
+   To update antislop later: download `antislop.md` again, or run `npx antislop-ai --update` if it was installed as skill folders.
    <!-- antislop:end -->
    ```
    The packaged installers write the same two markers, so whichever install path runs last replaces the block instead of adding a second one. If an older antislop block exists (even without the markers), replace just that block instead of appending a duplicate.
@@ -59,6 +60,27 @@ Notes:
 - The entry file is read at the start of a session, so a newly written pointer takes effect from the **next** session.
 - The wizard needs file-write access for step 5 (the pointer block), and nothing else; the user approves once. It never needs network access.
 - The pointer block is the source of truth for which skills are installed. To add or remove a skill later, update the block to match (add or remove the file and its line).
+
+### Already installed, and the user asks how to update
+
+antislop never updates itself, and nothing announces a new release. Answer from the route the user installed with, and say which route you are assuming when you cannot tell. `npx antislop-ai --update` is the shortest path for the first two routes: it replaces every antislop folder it finds, at project and global scope, prints the release it replaced, and asks nothing.
+
+- **The installer** (`npx antislop-ai`): run it again, answer as before, and pick **Overwrite them**. It prints the version already on disk next to the version it carries, so nothing has to be compared by hand. *Keep what is there* installs nothing.
+- **The skills directory** (`npx skills add miqdadbadjuber/anti-slop`): run `npx skills update`, which asks which scope to update unless you pass `-p` or `-g`. An installer folder and a skills-directory folder hold the same files, so `--update` covers this route as well.
+- **A plugin door**: each agent keeps its own copy, and `--update` cannot reach those. The installer names the command for any door it finds installed; without it, these are the seven:
+  - **Claude Code**: `claude plugin update antislop@anti-slop`
+  - **Antigravity**: `agy plugin install https://github.com/miqdadbadjuber/anti-slop`
+  - **Codex**: `codex plugin marketplace upgrade anti-slop`
+  - **Cursor**: `agent plugin marketplace update https://github.com/miqdadbadjuber/anti-slop`
+  - **Kimi Code**: `/plugins install https://github.com/miqdadbadjuber/anti-slop`
+  - **Cline**: `cline plugin install https://github.com/miqdadbadjuber/anti-slop.git --force`
+  - **Oh My Pi**: `omp plugin marketplace update anti-slop` then `omp plugin upgrade antislop@anti-slop`
+- **The Pi package** (`pi install git:github.com/miqdadbadjuber/anti-slop`): run `pi update --extensions`. The declaration lives in Pi's settings file rather than in a folder, so `--update` cannot see it.
+- **This file alone**: download it again and replace the copy.
+
+The folder this skill sits in holds a `VERSION` file naming the release it came from, unless it was installed before that file shipped. The current release is on the repo's releases page.
+
+Skills load when a session starts, so the session asking the question keeps the old rules either way. Say so, and tell the user to start a new one.
 
 ---
 
@@ -74,6 +96,8 @@ antislop is used one of two ways. At the start of a session, ask the user which 
 
 - **Mode 1 (During):** follow the rules while generating. This prevents slop from the start and ends with the Delivery Gate. Use it when building new UI.
 - **Mode 2 (After):** audit an already-finished project. Produce a numbered findings list in `anti-slop/audit-001-YYYY-MM-DD.md` (numbers keep rising). Each finding cites the violated rule (R-XX) and a one-line reason. Priority follows the rule tier: Hard Gate = HIGH, Purpose-Gate = MEDIUM, Quality Locks = LOW. Do not modify anything until the user approves specific numbers; numbers not mentioned are not touched. Then fix the approved items and write a follow-up report.
+
+> **Three steps run in both modes, whatever else is driving the session.** Another skill or planning workflow, a brainstorm or a spec, may lead the work, but it never replaces these: settle direction before building (R-37), ask before creating any asset (R-23), and run the Delivery Gate before delivering. Naming a process is not the same as running it.
 
 ## What This Is (and What It Isn't)
 
@@ -198,6 +222,7 @@ These are the most common patterns found in AI-generated designs. Use this table
 | **Colored Left Stripe** | A thin colored vertical bar on the left edge of cards, rows, or section headers, as decoration |
 | **Small Arrows (→ / ↗)** | Placed on almost every button as pure decoration |
 | **AI Capsule Badges** | Pill shape, thin border, glow, small dot, uppercase, containing: "AI Powered", "Beta", "New" |
+| **Eyebrow Badge Above the Headline** | A small pill parked directly above the H1, often with a dot and a thin border, holding a category label the headline already says |
 | **Generic AI Typography** | Large monospace headings, HOW IT WORKS uppercase with wide tracking |
 | **Typeface Chosen Without Reason** | Font picked because it's the AI default, not because it fits brand character. Popular fonts like Inter are still valid if there's a reason |
 | **Generic Illustrations** | Undraw, Storyset, or 3D blob characters with no real connection to the product |
@@ -242,6 +267,7 @@ These rules protect honesty, function, and accessibility. Breaking any of them i
 - **FORBIDDEN**: em dash character (`—`) in any text
 - Use comma (`,`), period (`.`), colon (`:`), or parentheses `()` instead
 - Text must feel natural and human
+- **Scope**: the ban governs text the agent writes. A user's own writing sample is a direction, not agent copy, so a sample that uses em dashes goes through R-37's conflict protocol: name the character, name the rule, ask. Never keep or cut them silently.
 - **Carve-out**: documentation of this rule is exempt: the numbered section headings in this file (`R-XX — Title` rules and `C-1` to `C-5` principles), the em dash example in Part 1, the rule's own definition, any Delivery Gate item that quotes it, and the `Em Dashes` section in the copywriting skill (`skills/antislop-copywriting/SKILL.md`). These are documentation structure, not UI text.
 
 #### R-03 — Mobile Responsiveness
@@ -375,6 +401,9 @@ If an element genuinely cannot have a destination yet, remove it instead of ship
 - If no direction exists AND the user cannot be asked, the output MUST be labeled *"draft without direction"* AND use the honest default dials **ENERGY 1 / RHYTHM 1 / MOTION 1** (see Part 3). Never silently fall back to a neutral, sterile default
 - **FORBIDDEN**: designing without direction and silently falling into a neutral, sterile default
 - Style direction is the product owner's identity, not a slop pattern; this filter only applies on top of it
+- If `DESIGN.md`, or any direction the owner supplies (a brand guide, a writing sample), asks for a named slop pattern, do not silently follow it and do not silently override it: name the element, name the rule it collides with, and ask the owner to keep it or drop it
+- Ask only about a named pattern, never about a stylistic choice the direction is entitled to make: a bold palette or an unusual typeface is identity, not slop
+- Record the answer in one line: if the owner keeps it, proceed and note the override; if they drop it, apply the rule
 - A design built without direction is a draft, not a shippable result
 
 #### R-38 — Real Content or Honest Placeholder
@@ -546,7 +575,7 @@ A filter can remove slop, but it cannot add energy. Removing slop leaves a void,
 
 ### Three Dials (required)
 
-Every design must set three dials explicitly, derived from DESIGN.md or the Design Read, and hold them from the first section to the last:
+Every design must set three dials explicitly, derived from `DESIGN.md` or the Design Read, and hold them from the first section to the last:
 
 | Dial | 1 (Calm) | 2 (Balanced) | 3 (Bold) | What it answers |
 |---|---|---|---|---|
@@ -578,7 +607,7 @@ Before generating, declare one line:
 
 Example: *"Reading this as: B2B SaaS landing for technical buyers, with a Linear-style minimalist language, dial ENERGY 1 / RHYTHM 2 / MOTION 1."*
 
-1. **Direction exists** (DESIGN.md or a brief that expresses energy and mood): infer the dials from it and proceed. DESIGN.md may optionally include a line like `Dial: ENERGY 2 / RHYTHM 3 / MOTION 1`; if present, use it directly.
+1. **Direction exists** (`DESIGN.md` or a brief that expresses energy and mood): infer the dials from it and proceed. `DESIGN.md` may optionally include a line like `Dial: ENERGY 2 / RHYTHM 3 / MOTION 1`; if present, use it directly.
 2. **Direction is ambiguous**: ask exactly ONE decisive question, never a question dump. Example: *"Should this feel closer to Linear-clean or Awwwards-experimental?"* Use the answer to set the dials.
 3. **No direction and the user cannot be asked**: label the output *"draft without direction"*, set the honest default dials **ENERGY 1 / RHYTHM 1 / MOTION 1** (see R-37), and do not present it as a deliverable.
 
@@ -602,13 +631,15 @@ If none of these applies to an element, the element should not exist.
 Run this gate BEFORE delivering. Output its status with your deliverable as a **PASS/FAIL report**: one line per item, and every `PASS` backed by concrete evidence (e.g. "R-26 PASS: every button has a real `href` or `onClick`; no dead controls", "R-35 PASS: ran the build and clicked every control: Signup -> /signup, empty form -> validation, mobile menu -> opens, no console errors").
 If any item is **FAIL** (or any answer is **yes**), do not deliver: fix it first, then re-run. A report containing a FAIL must never be shipped.
 
+This gate cannot be delegated or replaced. If another workflow is leading the session, its own wrap-up or summary does not stand in for this report. A deliverable handed over without it is unfinished, not approved.
+
 The gate has four blocks: Hard Gate (absolute), Purpose-Gate (technique + written reason), Liveliness (dials + levers), Craftsmanship & Quality Locks (C-1..C-5 plus the consistency locks R-05, R-11, R-15, R-16, R-20, R-21, R-29, R-30, R-31).
 
 ### Block 1: Hard Gate (absolute)
 
 Before declaring the design done, answer every question below. All answers must be **no**:
 
-- [ ] Is there an em dash (`—`) anywhere in the text, outside the R-02 carve-out? *(R-02)*
+- [ ] Is there an em dash (`—`) anywhere in the text, outside the R-02 carve-out and any voice sample the owner approved under R-37? *(R-02)*
 - [ ] Is there any horizontal overflow, text escaping its container, or broken layout on mobile? *(R-03)*
 - [ ] Are there any statistics without a real source (10K+ Users, 99.9% Uptime, etc.)? *(R-17)*
 - [ ] Are there any fictional testimonials (AI avatars, random names or job titles)? *(R-18)*
@@ -635,7 +666,7 @@ For each technique, the technique itself is allowed. FAIL if it appears as a def
 - [ ] Is there a large monospace font, uppercase label with wide tracking, or a typeface chosen without a written brand-character reason? *(R-06)*
 - [ ] Is there a background grid, blueprint, graph paper, or dot pattern without a written visual-identity purpose? *(R-07)*
 - [ ] Are arrows (`→` / `↗`) placed on almost every button purely as decoration, with no written purpose? *(R-08)*
-- [ ] Are there capsule badges ("AI Powered", "Beta", "New", "Secure", "Fast") with no real function, or the full capsule + thin border + glow + uppercase combination? *(R-09)*
+- [ ] Are there capsule badges ("AI Powered", "Beta", "New", "Secure", "Fast") with no real function, the full capsule + thin border + glow + uppercase combination, or a pill parked above the H1 holding a label the headline already says? *(R-09)*
 - [ ] Is glassmorphism applied to more than 1-2 elements simultaneously (navbar + card + modal + sidebar)? *(R-10)*
 - [ ] Is a large shadow applied to every component, with no written elevation reason, making the page feel like it is floating? *(R-12)*
 - [ ] Is glow applied to cards, buttons, badges, icons, backgrounds, and borders simultaneously? *(R-13)*
