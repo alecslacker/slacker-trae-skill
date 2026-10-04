@@ -61,8 +61,9 @@ if ($Mirror) {
 }
 $skillCount = (Get-ChildItem $DstSkills -Directory).Count
 
-# --- 2. AGENTS.md global (dibaca ZCode setiap sesi) ---
+# --- 2. AGENTS.md global (dibaca ZCode setiap sesi) + BEST-PRACTICE.md (referensi) ---
 Copy-Item (Join-Path $SrcZcode 'AGENTS.md') (Join-Path $DstZcode 'AGENTS.md') -Force
+Copy-Item (Join-Path $SrcZcode 'BEST-PRACTICE.md') (Join-Path $DstZcode 'BEST-PRACTICE.md') -Force
 
 # --- 3. Commands ---
 if (-not (Test-Path $DstCommands)) { New-Item -ItemType Directory -Path $DstCommands | Out-Null }
