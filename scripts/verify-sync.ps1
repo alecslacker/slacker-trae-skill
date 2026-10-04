@@ -1,4 +1,4 @@
-# verify-taste-sync.ps1 — Verifikasi silang 13 skill taste-* + full-output-enforcement
+﻿# verify-taste-sync.ps1 — Verifikasi silang 13 skill taste-* + full-output-enforcement
 # Bandingkan repo (sumber kebenaran) dengan TRAE, Claude, ZCode:
 #   - jumlah folder skill
 #   - jumlah file per folder taste
@@ -10,6 +10,7 @@ $targets = [ordered]@{
     'TRAE ' = (Join-Path $HOME '.trae\skills')
     'CLAUDE'= (Join-Path $HOME '.claude\skills')
     'ZCODE' = (Join-Path $HOME '.zcode\skills')
+    'CODEX' = (Join-Path $HOME '.agents\skills')   # path resmi Codex user-scope
 }
 
 $tasteNames = (Get-ChildItem $src -Directory |
@@ -51,7 +52,7 @@ Write-Output ""
 # 2. Sidik jari per folder taste
 Write-Output "SIDIK JARI PER FOLDER (repo vs target):"
 $header = "  {0,-26} {1,-8} {2,-34} {3,-34} {4,-34}"
-Write-Output ($header -f 'FOLDER','FILE','REPO','TRAE','CLAUDE/ZCODE')
+Write-Output ($header -f 'FOLDER','FILE','REPO','TRAE','CLAUDE/ZCODE/CODEX')
 Write-Output ("  " + ('-' * 132))
 
 $mismatch = 0
@@ -66,12 +67,12 @@ foreach ($n in ($tasteNames | Sort-Object)) {
         if ($null -eq $fp) { $cols += 'HILANG'; $mismatch++ ; continue }
         if ($fp.Hash -eq $hRef) { $cols += 'OK' } else { $cols += "BEDA($($fp.Files)f)"; $mismatch++ }
     }
-    Write-Output ("  {0,-26} {1,-8} {2,-34} {3,-34} {4,-34}" -f $n, $fRef, $hRef.Substring(0,12), $cols[0], "$($cols[1]) / $($cols[2])")
+    Write-Output ("  {0,-26} {1,-8} {2,-34} {3,-34} {4,-34}" -f $n, $fRef, $hRef.Substring(0,12), $cols[0], "$($cols[1]) / $($cols[2]) / $($cols[3])")
 }
 
 Write-Output ""
 if ($mismatch -eq 0) {
-    Write-Host "HASIL: SEMUA COCOK — 13 folder identik di repo, TRAE, Claude, ZCode." -ForegroundColor Green
+    Write-Host "HASIL: SEMUA COCOK — 13 folder identik di repo, TRAE, Claude, ZCode, Codex." -ForegroundColor Green
 } else {
     Write-Host "HASIL: ADA $mismatch KETIDAKCOCOKAN. Perlu perbaikan." -ForegroundColor Yellow
 }

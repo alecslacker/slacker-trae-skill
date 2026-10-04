@@ -16,12 +16,14 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
 | `claude/` | Artefak Claude Code CLI: `CLAUDE.md` global, `commands/`, `settings.template.json` |
-| `zcode/` | Artefak Z Code: `AGENTS.md` global, `commands/` |
+| `zcode/` | Artefak Z Code: `AGENTS.md` global, `BEST-PRACTICE.md`, `commands/` |
+| `codex/` | Artefak Codex: `AGENTS.md` global (padanan Rules TRAE WORK), `BEST-PRACTICE.md` (riset 2026-10-05) |
 | `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE) |
 | `scripts/collect.ps1` | Pengumpul perubahan skill lokal → repo → GitHub (TRAE) |
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
 | `scripts/sync-zcode.ps1` | Sinkron repo → Z Code (`~/.zcode`) + MCP dari Claude |
-| `scripts/verify-sync.ps1` | Verifikasi silang repo vs TRAE/Claude/ZCode (jumlah skill + MD5 isi per folder) |
+| `scripts/sync-codex.ps1` | Sinkron repo → Codex (`~/.agents/skills` resmi + `~/.codex/skills` legacy + AGENTS.md) |
+| `scripts/verify-sync.ps1` | Verifikasi silang repo vs TRAE/Claude/ZCode/Codex (jumlah skill + MD5 isi per folder) |
 | `scripts/check-upstream.ps1` | Cek update skill dari repo upstream GitHub (baca `upstream-manifest.json`) |
 | `upstream-manifest.json` | Daftar sumber upstream skill + versi terakhir tercatat |
 
@@ -105,6 +107,17 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 ```
 
 Yang disalin: 289 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`, dan 17 MCP kurasi → `~/.zcode/cli/config.json` (plugin lama dipertahankan, backup otomatis). Jalankan saat Z Code tertutup. Jika MCP tidak langsung muncul di Settings → MCP Servers, gunakan ikon **Import** (sumber: Claude Code) — satu klik, pilih Select all.
+
+### Sinkron ke Codex
+
+**Codex** (OpenAI, CLI + desktop) memakai path skill resmi `~/.agents/skills` (standar agentskills.io) + `AGENTS.md` global di `~/.codex`:
+
+```powershell
+.\scripts\sync-codex.ps1          # skills (resmi + legacy) + AGENTS.md + BEST-PRACTICE.md
+.\scripts\sync-codex.ps1 -Mirror  # samakan 100% dengan repo (folder .system Codex tetap aman)
+```
+
+Yang disalin: 302 skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
 
 ---
 
