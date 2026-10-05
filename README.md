@@ -12,12 +12,13 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 
 | Folder / File | Isi |
 |---------------|-----|
-| `skills/` | 302 folder skill lengkap (lihat tabel di bawah) |
+| `skills/` | 391 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE — lihat tabel di bawah) |
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
 | `claude/` | Artefak Claude Code CLI: `CLAUDE.md` global, `commands/`, `settings.template.json` |
 | `zcode/` | Artefak Z Code: `AGENTS.md` global, `BEST-PRACTICE.md`, `commands/` |
 | `codex/` | Artefak Codex: `AGENTS.md` global (padanan Rules TRAE WORK), `BEST-PRACTICE.md` (riset 2026-10-05) |
+| `scripts/export-plugins.ps1` | Ekspor skill plugin TRAE resmi (superpowers, dev-skills, harness, dkk) → repo — skip plugin terikat MCP TRAE-only (lark, cloudflare, dll) |
 | `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE) |
 | `scripts/collect.ps1` | Pengumpul perubahan skill lokal → repo → GitHub (TRAE) |
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
