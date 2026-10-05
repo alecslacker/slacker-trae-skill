@@ -1,33 +1,57 @@
 {
-  "_penjelasan": "Manifest sumber upstream skill. Diisi manual saat skill baru dari repo eksternal ditambahkan. check-upstream.ps1 membaca file ini untuk memantau rilis baru.",
-  "_cara_kerja": "Setiap entri: folder = nama folder di skills/, repo = owner/name GitHub, metode = latest_tag|latest_commit, terakhir_dicek & upstream_terakhir diisi otomatis oleh script (jangan edit manual).",
-  "entries": [
-    {
-      "folder": "antislop",
-      "repo": "miqdadbadjuber/anti-slop",
-      "metode": "latest_tag",
-      "juga_mencakup": ["antislop-code", "antislop-copywriting", "antislop-human", "antislop-layoutmobile", "antislop-ui"],
-      "catatan": "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer — cek diff SKILL.md sebelum update penuh.",
-      "terakhir_dicek": "2026-09-29",
-      "upstream_terakhir": "v3.2.19"
-    },
-    {
-      "folder": "taste-frontend",
-      "repo": "Leonxlnx/taste-skill",
-      "metode": "latest_commit",
-      "juga_mencakup": ["taste-brandkit", "taste-brutalist", "taste-frontend-v1", "taste-gpt", "taste-image-to-code", "taste-imagegen-mobile", "taste-imagegen-web", "taste-minimalist", "taste-redesign", "taste-soft", "taste-stitch", "full-output-enforcement"],
-      "catatan": "Keluarga taste-* (13 skill) dari satu repo. Integrasi & aturan konflik: skills/_TASTE-SKILLS-INTEGRASI.md. Catatan: repo ini tidak pakai release/tag — metode latest_commit.",
-      "terakhir_dicek": "2026-09-30",
-      "upstream_terakhir": "ce26fc2 (2026-09-26)"
-    },
-    {
-      "folder": "blog-write",
-      "repo": "Chriss54/multilingual-int",
-      "metode": "latest_commit",
-      "juga_mencakup": ["blog-translate", "blog-localize", "blog-locale-audit", "blog-multilingual"],
-      "catatan": "REPO 404 sejak 2026-09-30 — kemungkinan sudah dihapus/di-private. Keluarga blog lainnya (v2.2.0) berasal dari skill pack internal tanpa repo publik yang diketahui. Entri dipertahankan sebagai pengingat; hapus bila dipastikan hilang permanen.",
-      "terakhir_dicek": "2026-09-30",
-      "upstream_terakhir": "TIDAK DITEMUKAN (404)"
-    }
-  ]
+    "_penjelasan":  "Manifest sumber upstream skill. Diisi manual saat skill baru dari repo eksternal ditambahkan. check-upstream.ps1 membaca file ini untuk memantau rilis baru.",
+    "_cara_kerja":  "Setiap entri: folder = nama folder di skills/, repo = owner/name GitHub, metode = latest_tag|latest_commit, terakhir_dicek \u0026 upstream_terakhir diisi otomatis oleh script (jangan edit manual).",
+    "entries":  [
+                    {
+                        "folder":  "antislop",
+                        "repo":  "miqdadbadjuber/anti-slop",
+                        "metode":  "latest_tag",
+                        "juga_mencakup":  [
+                                              "antislop-code",
+                                              "antislop-copywriting",
+                                              "antislop-human",
+                                              "antislop-layoutmobile",
+                                              "antislop-ui"
+                                          ],
+                        "catatan":  "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer Ã¢â‚¬â€ cek diff SKILL.md sebelum update penuh.",
+                        "terakhir_dicek":  "2026-10-05",
+                        "upstream_terakhir":  "v3.2.20"
+                    },
+                    {
+                        "folder":  "taste-frontend",
+                        "repo":  "Leonxlnx/taste-skill",
+                        "metode":  "latest_commit",
+                        "juga_mencakup":  [
+                                              "taste-brandkit",
+                                              "taste-brutalist",
+                                              "taste-frontend-v1",
+                                              "taste-gpt",
+                                              "taste-image-to-code",
+                                              "taste-imagegen-mobile",
+                                              "taste-imagegen-web",
+                                              "taste-minimalist",
+                                              "taste-redesign",
+                                              "taste-soft",
+                                              "taste-stitch",
+                                              "full-output-enforcement"
+                                          ],
+                        "catatan":  "Keluarga taste-* (13 skill) dari satu repo. Integrasi \u0026 aturan konflik: skills/_TASTE-SKILLS-INTEGRASI.md. Catatan: repo ini tidak pakai release/tag Ã¢â‚¬â€ metode latest_commit.",
+                        "terakhir_dicek":  "2026-09-30",
+                        "upstream_terakhir":  "ce26fc2 (2026-09-26)"
+                    },
+                    {
+                        "folder":  "blog-write",
+                        "repo":  "Chriss54/multilingual-int",
+                        "metode":  "latest_commit",
+                        "juga_mencakup":  [
+                                              "blog-translate",
+                                              "blog-localize",
+                                              "blog-locale-audit",
+                                              "blog-multilingual"
+                                          ],
+                        "catatan":  "REPO 404 sejak 2026-09-30 Ã¢â‚¬â€ kemungkinan sudah dihapus/di-private. Keluarga blog lainnya (v2.2.0) berasal dari skill pack internal tanpa repo publik yang diketahui. Entri dipertahankan sebagai pengingat; hapus bila dipastikan hilang permanen.",
+                        "terakhir_dicek":  "2026-09-30",
+                        "upstream_terakhir":  "TIDAK DITEMUKAN (404)"
+                    }
+                ]
 }

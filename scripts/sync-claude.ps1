@@ -1,4 +1,4 @@
-# sync-claude.ps1 — Sinkron repo trae-skills ke Claude Code CLI (~/.claude)
+﻿# sync-claude.ps1 — Sinkron repo trae-skills ke Claude Code CLI (~/.claude)
 # Sumber kebenaran: folder repo. Target: C:\Users\<user>\.claude\
 # Aman dijalankan berulang (idempoten). Tidak menyentuh agents/, rules/, memory/, plugins/.
 

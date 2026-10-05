@@ -1,4 +1,4 @@
-# check-upstream.ps1 — Pemantau update skill dari repo upstream GitHub
+﻿# check-upstream.ps1 — Pemantau update skill dari repo upstream GitHub
 # Membaca upstream-manifest.json, cek rilis/tag/commit terbaru tiap repo,
 # bandingkan dengan "upstream_terakhir" yang tercatat. TANPA API key (endpoint publik).
 # Pemakaian:
@@ -23,6 +23,10 @@ function Write-ManifestJson($obj, $path) {
 }
 
 $hasil = @()
+# PENTING: @() wajib — tanpa ini, saat entries hanya berisi 1 elemen, ConvertFrom-Json
+# (PS 5.1) mengubahnya jadi objek TUNGGAL (bukan array): foreach iterasi salah dan
+# Write-ManifestJson menimpa manifest dengan struktur rusak.
+$manifest.entries = @($manifest.entries)
 foreach ($e in $manifest.entries) {
     $apiUrl = switch ($e.metode) {
         'latest_tag'    { "https://api.github.com/repos/$($e.repo)/releases/latest" }

@@ -1,4 +1,4 @@
-# sync-zcode.ps1 — Sinkron repo trae-skills ke Z Code (~/.zcode)
+﻿# sync-zcode.ps1 — Sinkron repo trae-skills ke Z Code (~/.zcode)
 # Sumber kebenaran: folder repo. Target: C:\Users\<user>\.zcode\
 # - Skills  : repo/skills -> ~/.zcode/skills          (standar SKILL.md, sama seperti Claude)
 # - Aturan  : repo/zcode/AGENTS.md -> ~/.zcode/AGENTS.md (dibaca ZCode setiap sesi)
