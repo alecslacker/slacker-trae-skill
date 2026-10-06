@@ -19,7 +19,7 @@
 | `<project>/.zcode/config.json` | Override workspace (prioritas: workspace > user; `.zcode` > `.agents`). |
 
 **MCP — format kunci (dikoreksi hasil audit 2026-10-06):**
-- Nested `mcp.servers` di `~/.zcode/cli/config.json` = format kanonik SATU-SATUNYA yang kita pakai — 10 server terkurasi; daftar & aturan anti-redundansi di `AGENTS.md` bagian MCP.
+- Nested `mcp.servers` di `~/.zcode/cli/config.json` = format kanonik SATU-SATUNYA yang kita pakai — 8 server aktif (finalisasi 2026-10-07); daftar & aturan anti-redundansi di `AGENTS.md` bagian MCP.
 - Dual-write dua kunci (`mcpServers` flat + `mcp.servers` nested) via `sync-zcode.ps1` DIHAPUS: log runtime membuktikan kedua blok memang dibaca dan digabung (nested menimpa flat pada nama sama), tapi dual-write membuat dua set API key z.ai yang drift — itulah blok dobel yang ditemukan audit. Juga menimpa kurasi Z Code dengan daftar 17 server era Claude Code.
 - Sync script kini TIDAK menyentuh config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart). Fallback workspace: `.agents/mcp.json` hanya dibaca bila scope `.zcode` setempat tidak punya server MCP.
 - BREAKING: kunci config `mode` diganti `subagent` — edit manual config.json tidak dimigrasi otomatis.

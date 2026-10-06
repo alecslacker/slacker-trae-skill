@@ -135,7 +135,7 @@ Fallback riset umum: WebSearch/WebFetch bila Context7 tidak memadai.
 
 ## MCP yang Tersedia di Z Code
 
-Z Code membaca MCP dari blok kanonik `mcp.servers` di `~/.zcode/cli/config.json` — **satu blok saja, tanpa blok legacy `mcpServers` dobel** (dual-write era sync lama terbukti membuat dua set API key yang drift). Hasil audit 2026-10-06: 10 server terkurasi.
+Z Code membaca MCP dari blok kanonik `mcp.servers` di `~/.zcode/cli/config.json` — **satu blok saja, tanpa blok legacy `mcpServers` dobel** (dual-write era sync lama terbukti membuat dua set API key yang drift). Hasil audit 2026-10-06, difinalisasi 2026-10-07: **8 server aktif** (entri nonaktif/gagal dihapus lewat Settings → MCP).
 
 | Server | Fungsi / Catatan |
 |--------|------------------|
@@ -147,10 +147,8 @@ Z Code membaca MCP dari blok kanonik `mcp.servers` di `~/.zcode/cli/config.json`
 | `byteplus-image` | Generate gambar (Seedream) |
 | `publora` | Publishing sosmed Duta Corpora |
 | `ssh-admin` | Admin server Ubuntu via SSH — berjalan via wrapper `~/.zcode/bin/ssh-admin-mcp.cmd` + salinan config `~/.zcode/bin/ssh-admin-servers.json` (whitelist/blacklist array tertanam di file, karena mode `--config-file` ssh-mcp-server MENGABAIKAN `--whitelist` CLI). Salinan bisa stale bila `ssh-servers-multi.json` milik TRAE berubah — sinkronkan manual |
-| `needmcp` | Library komponen UI — BUG VENDOR (meng-echo protocolVersion klien tapi tanpa `resultType` di `tools/list`): akan selalu tampil "failed" di Settings → MCP. Jangan diutak-atik di config; tunggu perbaikan vendor atau laporkan ke mereka |
-| `web-reader` | Nonaktif (`enabled: false`) sebagai cadangan halaman berat JavaScript — WebFetch bawaan cukup untuk mayoritas kasus |
 
-**Aturan anti-redundansi (hasil audit):** sebelum menambah MCP baru, cek dulu kemampuan BAWAAN Z Code — Bash + Read/Write/Edit (setara desktop-commander), WebSearch/WebFetch (setara web-search-prime/zread/web-reader; WebSearch bawaan berjalan di backend z.ai), jam sistem + CronCreate/CronList (setara Time), Read gambar + `zai-mcp-server` (zai-vision cuma duplikat). DILARANG memasang ulang: `desktop-commander`, `Time`, `web-search-prime`, `zread`, `zai-vision`, `Google Maps` (package resmi sudah archived upstream), `sequential-thinking` (GLM sudah punya native thinking).
+**Aturan anti-redundansi (hasil audit):** sebelum menambah MCP baru, cek dulu kemampuan BAWAAN Z Code — Bash + Read/Write/Edit (setara desktop-commander), WebSearch/WebFetch (setara web-search-prime/zread/web-reader; WebSearch bawaan berjalan di backend z.ai), jam sistem + CronCreate/CronList (setara Time), Read gambar + `zai-mcp-server` (zai-vision cuma duplikat). DILARANG memasang ulang: `desktop-commander`, `Time`, `web-search-prime`, `zread`, `zai-vision`, `Google Maps` (package resmi sudah archived upstream), `sequential-thinking` (GLM sudah punya native thinking), `web-reader` (dihapus 2026-10-07 — WebFetch bawaan cukup), `needmcp` (dihapus 2026-10-07 — bug vendor: meng-echo protocolVersion klien tanpa `resultType` di `tools/list`, selalu failed; boleh dipasang lagi hanya SETELAH vendor memperbaiki).
 
 Routing: gambar/screenshot → `zai-mcp-server`; server SSH → `ssh-admin`; generate gambar → `byteplus-image`; komponen UI → MCP `shadcn-ui`; Figma → `Figma AI Bridge`. Sync script TIDAK menimpa config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart Z Code).
 

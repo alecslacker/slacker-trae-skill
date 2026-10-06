@@ -4,7 +4,7 @@
 # - Aturan  : repo/zcode/AGENTS.md -> ~/.zcode/AGENTS.md (dibaca ZCode setiap sesi)
 # - Commands: repo/zcode/commands -> ~/.zcode/commands
 # - MCP     : TIDAK disentuh — config Z Code (~/.zcode/cli/config.json) dikelola langsung
-#             (hasil audit 2026-10-06: satu blok kanonik "mcp.servers" berisi 10 server;
+#             (hasil audit 2026-10-06: satu blok kanonik "mcp.servers" berisi 8 server;
 #             penyalinan dari ~/.claude.json dihapus karena menimpa kurasi Z Code dan
 #             dual-write flat+nested membuat dua set API key yang drift).
 # Aman dijalankan berulang (idempoten). ZCode desktop sebaiknya ditutup saat sync.
@@ -73,9 +73,10 @@ $cmdCount = (Get-ChildItem $DstCommands -Filter *.md).Count
 
 # --- 4. MCP: TIDAK DISINKRONKAN ---
 # Sejak audit MCP 2026-10-06, config Z Code (~/.zcode/cli/config.json) adalah sumber
-# kebenarannya sendiri: satu blok kanonik "mcp.servers" berisi 10 server terkurasi
-# (context7, zai-mcp-server, web-reader [disabled], playwright, Figma AI Bridge,
-# shadcn-ui, byteplus-image, publora, needmcp, ssh-admin via wrapper).
+# kebenarannya sendiri: satu blok kanonik "mcp.servers" berisi 8 server aktif
+# (context7, zai-mcp-server, playwright, Figma AI Bridge, shadcn-ui, byteplus-image,
+# publora, ssh-admin via wrapper). web-reader & needmcp dihapus lewat Settings 2026-10-07
+# dan DILARANG dipasang ulang (web-reader: WebFetch cukup; needmcp: bug vendor protocolVersion).
 # Step lama (salin mcpServers dari ~/.claude.json + dual-write dua blok) DIHAPUS karena:
 #  - menimpa kurasi Z Code dengan daftar 17 server era Claude Code;
 #  - dual-write flat "mcpServers" + nested "mcp.servers" membuat dua set API key yang drift.

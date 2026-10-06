@@ -107,7 +107,7 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 .\scripts\sync-zcode.ps1 -Mirror  # samakan 100% dengan repo
 ```
 
-Yang disalin: 391 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (10 server kanonik di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
+Yang disalin: 391 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
 
 ### Sinkron ke Codex
 
