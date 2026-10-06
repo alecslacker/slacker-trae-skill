@@ -5,7 +5,9 @@
 #   - MD5 gabungan isi file per folder taste (deterministik)
 
 $ErrorActionPreference = 'Stop'
-$src    = 'C:\Users\alecs\AppData\Roaming\TRAE SOLO\ModularData\ai-agent\work-mode-projects\6a95030fe42ad49f5c0c5663\trae-skills\skills'
+# Portable: turunkan lokasi repo dari folder script ini (bukan path hardcoded per komputer)
+$RepoRoot = Split-Path -Parent $PSScriptRoot
+$src      = Join-Path $RepoRoot 'skills'
 $targets = [ordered]@{
     'TRAE ' = (Join-Path $HOME '.trae\skills')
     'CLAUDE'= (Join-Path $HOME '.claude\skills')
