@@ -8,7 +8,7 @@ Bangun knowledge graph Graphify untuk project pada direktori kerja saat ini, lal
 # Langkah-langkah
 1. **Siapkan PATH (Windows/PowerShell):** jalankan dulu:
    ```
-   $env:PATH = 'C:\Users\alecs\.local\bin;' + $env:PATH
+   $env:PATH = "$env:USERPROFILE\.local\bin;" + $env:PATH
    ```
    (Jika perintah `graphify` sudah dikenali, langkah ini boleh dilewati.)
 

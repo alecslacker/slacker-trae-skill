@@ -8,7 +8,7 @@ Perbarui knowledge graph Graphify project saat ini setelah perubahan kode — ha
 # Langkah-langkah
 1. **Siapkan PATH (Windows/PowerShell):**
    ```
-   $env:PATH = 'C:\Users\alecs\.local\bin;' + $env:PATH
+   $env:PATH = "$env:USERPROFILE\.local\bin;" + $env:PATH
    ```
 
 2. **Pastikan direktori benar:** direktori project yang sudah punya folder `graphify-out/`. Jika `graphify-out/` belum ada, beri tahu user untuk menjalankan `/graphify-build` dulu.
