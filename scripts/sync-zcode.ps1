@@ -3,8 +3,11 @@
 # - Skills  : repo/skills -> ~/.zcode/skills          (standar SKILL.md, sama seperti Claude)
 # - Aturan  : repo/zcode/AGENTS.md -> ~/.zcode/AGENTS.md (dibaca ZCode setiap sesi)
 # - Commands: repo/zcode/commands -> ~/.zcode/commands
-# - MCP     : salin mcpServers dari ~/.claude.json (kurasi aktif, tanpa mysql) -> ~/.zcode/cli/config.json
-# Aman dijalankan berulang (idempoten). Backup config otomatis. ZCode desktop sebaiknya ditutup saat sync.
+# - MCP     : TIDAK disentuh — config Z Code (~/.zcode/cli/config.json) dikelola langsung
+#             (hasil audit 2026-10-06: satu blok kanonik "mcp.servers" berisi 10 server;
+#             penyalinan dari ~/.claude.json dihapus karena menimpa kurasi Z Code dan
+#             dual-write flat+nested membuat dua set API key yang drift).
+# Aman dijalankan berulang (idempoten). ZCode desktop sebaiknya ditutup saat sync.
 
 param(
     [switch]$Mirror  # Hapus skill di ~/.zcode/skills yang tidak ada di repo
@@ -19,8 +22,6 @@ $SrcZcode = Join-Path $RepoRoot 'zcode'
 $DstZcode = Join-Path $HOME '.zcode'
 $DstSkills = Join-Path $DstZcode 'skills'
 $DstCommands = Join-Path $DstZcode 'commands'
-$ZcodeConfig = Join-Path $DstZcode 'cli\config.json'
-$ClaudeJson = Join-Path $HOME '.claude.json'
 
 foreach ($p in @($SrcSkills, $SrcZcode)) {
     if (-not (Test-Path $p)) { Write-Error "Folder sumber tidak ditemukan: $p" }
@@ -70,28 +71,14 @@ if (-not (Test-Path $DstCommands)) { New-Item -ItemType Directory -Path $DstComm
 Copy-Item (Join-Path $SrcZcode 'commands\*.md') $DstCommands -Force
 $cmdCount = (Get-ChildItem $DstCommands -Filter *.md).Count
 
-# --- 4. MCP: salin mcpServers kurasi dari ~/.claude.json -> ~/.zcode/cli/config.json ---
-$mcpCount = 0
-if ((Test-Path $ClaudeJson) -and (Test-Path $ZcodeConfig)) {
-    $claude = Get-Content $ClaudeJson -Raw | ConvertFrom-Json
-    $mcp = $claude.mcpServers
-    if ($mcp) {
-        Copy-Item $ZcodeConfig "$ZcodeConfig.bak" -Force
-        $cfg = Get-Content $ZcodeConfig -Raw | ConvertFrom-Json
-        # Tulis DUA format kunci (terverifikasi dari kode sumber ZCode v2):
-        #  - "mcpServers" (flat)      : dibaca agent CLI tertanam (kompatibilitas lama)
-        #  - "mcp.servers"  (nested)  : dibaca UI Settings -> MCP Servers v2
-        $cfg | Add-Member -NotePropertyName mcpServers -NotePropertyValue $mcp -Force
-        $nested = [pscustomobject]@{ servers = $mcp }
-        $cfg | Add-Member -NotePropertyName mcp -NotePropertyValue $nested -Force
-        # TULIS TANPA BOM — parser JSON Node (ZCode) menolak UTF-8 BOM (Set-Content UTF8 di PS5.1 menyisipkan BOM)
-        $json = $cfg | ConvertTo-Json -Depth 12
-        [System.IO.File]::WriteAllText($ZcodeConfig, $json, (New-Object System.Text.UTF8Encoding($false)))
-        $mcpCount = ($mcp.PSObject.Properties | Measure-Object).Count
-    }
-} else {
-    Write-Host "LEWATI MCP: ~/.claude.json atau config ZCode tidak ditemukan"
-}
+# --- 4. MCP: TIDAK DISINKRONKAN ---
+# Sejak audit MCP 2026-10-06, config Z Code (~/.zcode/cli/config.json) adalah sumber
+# kebenarannya sendiri: satu blok kanonik "mcp.servers" berisi 10 server terkurasi
+# (context7, zai-mcp-server, web-reader [disabled], playwright, Figma AI Bridge,
+# shadcn-ui, byteplus-image, publora, needmcp, ssh-admin via wrapper).
+# Step lama (salin mcpServers dari ~/.claude.json + dual-write dua blok) DIHAPUS karena:
+#  - menimpa kurasi Z Code dengan daftar 17 server era Claude Code;
+#  - dual-write flat "mcpServers" + nested "mcp.servers" membuat dua set API key yang drift.
 
 # --- Laporan ---
 Write-Host ""
@@ -99,9 +86,4 @@ Write-Host "=== SINKRON Z CODE SELESAI ===" -ForegroundColor Green
 Write-Host "Skills   : $skillCount folder -> $DstSkills"
 Write-Host "AGENTS.md: diperbarui (persona Slackercoder + hemat token)"
 Write-Host "Commands : $cmdCount file -> $DstCommands"
-Write-Host "MCP      : $mcpCount server -> $ZcodeConfig (backup: config.json.bak)"
-if ($mcpCount -gt 0) {
-    Write-Host ""
-    Write-Host "Catatan: buka ZCode -> Settings -> MCP Servers untuk melihat & mengaktifkan."
-    Write-Host "Jika tidak muncul, klik ikon Import di halaman MCP (sumber: Claude Code)."
-}
+Write-Host "MCP      : tidak disentuh (dikelola langsung di Z Code sejak audit 2026-10-06)"

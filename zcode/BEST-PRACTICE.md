@@ -18,10 +18,10 @@
 | `~/.zcode/{agents,skills,commands}/` | Subagent (`~/.zcode/agents/<name>.md`, user-level saja), skill (`SKILL.md`, panggil `$skill`), custom command (markdown, `/command`). |
 | `<project>/.zcode/config.json` | Override workspace (prioritas: workspace > user; `.zcode` > `.agents`). |
 
-**MCP — dua format kunci (penting untuk setup kita):**
-- Nested `mcp.servers` = format terdokumentasi resmi di `config.json`.
-- Flat `mcpServers` = jalur kompatibilitas gaya Claude Code (file `.agents/mcp.json` / manifest plugin).
-- Docs resmi tidak menyatakan satu file membaca keduanya → setup kita menulis KEDUA kunci di `config.json` (dual-write via `sync-zcode.ps1`) tetap merupakan solusi yang benar agar CLI & UI sama-sama melihat 17 MCP.
+**MCP — format kunci (dikoreksi hasil audit 2026-10-06):**
+- Nested `mcp.servers` di `~/.zcode/cli/config.json` = format kanonik SATU-SATUNYA yang kita pakai — 10 server terkurasi; daftar & aturan anti-redundansi di `AGENTS.md` bagian MCP.
+- Dual-write dua kunci (`mcpServers` flat + `mcp.servers` nested) via `sync-zcode.ps1` DIHAPUS: log runtime membuktikan kedua blok memang dibaca dan digabung (nested menimpa flat pada nama sama), tapi dual-write membuat dua set API key z.ai yang drift — itulah blok dobel yang ditemukan audit. Juga menimpa kurasi Z Code dengan daftar 17 server era Claude Code.
+- Sync script kini TIDAK menyentuh config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart). Fallback workspace: `.agents/mcp.json` hanya dibaca bila scope `.zcode` setempat tidak punya server MCP.
 - BREAKING: kunci config `mode` diganti `subagent` — edit manual config.json tidak dimigrasi otomatis.
 - JANGAN salin antar mesin: `~/.zcode/v2/credentials.json` (enkripsi per-device) & `telemetry-state.json` (device ID).
 - `setting.json` = format klien komunitas tidak resmi (zcode-app-cli npm) — bukan resmi.

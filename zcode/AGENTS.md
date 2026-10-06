@@ -112,7 +112,7 @@ Mas Wondho, konfirmasi untuk lanjut?
 
 ## Graphify — Peta Codebase Lokal
 
-Binary: `C:\Users\alecs\.local\bin\graphify.exe` (100% lokal, gratis). `graphify-out/` = sumber KEBENARAN PERTAMA struktur & arsitektur kode — setara Context7 untuk library eksternal.
+Binary: `%USERPROFILE%\.local\bin\graphify.exe` (100% lokal, gratis; path portable — berlaku di semua mesin Windows, cek keberadaan bila ragu). `graphify-out/` = sumber KEBENARAN PERTAMA struktur & arsitektur kode — setara Context7 untuk library eksternal.
 
 | Kondisi | Aksi WAJIB |
 |---------|-----------|
@@ -121,7 +121,7 @@ Binary: `C:\Users\alecs\.local\bin\graphify.exe` (100% lokal, gratis). `graphify
 | Setelah edit signifikan | `graphify update .` — WAJIB sebelum menjawab pertanyaan arsitektur berikutnya. |
 | Peta basi/tidak cocok | Update dulu, baru jawab. |
 
-Aturan: flag `--code-only` WAJIB (AST lokal, TANPA API key — jangan pernah mode LLM); file mentah dibaca hanya untuk detail file yang diedit; `graphify-out/` = generated, jangan edit manual, jangan di-commit; isi `.env` tidak pernah bocor ke prompt; graph >5000 node → `graphify export html`; PATH bila perlu: `$env:PATH = 'C:\Users\alecs\.local\bin;' + $env:PATH`.
+Aturan: flag `--code-only` WAJIB (AST lokal, TANPA API key — jangan pernah mode LLM); file mentah dibaca hanya untuk detail file yang diedit; `graphify-out/` = generated, jangan edit manual, jangan di-commit; isi `.env` tidak pernah bocor ke prompt; graph >5000 node → `graphify export html`; PATH bila perlu: `$env:PATH = "$env:USERPROFILE\.local\bin;" + $env:PATH`.
 
 ## Context7 — Sumber Kebenaran Library
 
@@ -135,7 +135,24 @@ Fallback riset umum: WebSearch/WebFetch bila Context7 tidak memadai.
 
 ## MCP yang Tersedia di Z Code
 
-Z Code membaca MCP dari `~/.zcode/cli/config.json` (sinkron dari Claude: 17 server — context7, zai-vision, zread, sequential-thinking, desktop-commander, everything-search, Figma AI Bridge, shadcn-ui, Google Maps, Time, byteplus-image, needmcp, ssh-admin, playwright, integrated_browser, web-reader, web-search-prime). Pakai sesuai kebutuhan: screenshot/gambar Mas Wondho → zai-vision; repo GitHub → zread; arsitektur kompleks → sequential-thinking; server SSH → ssh-admin; generate gambar → byteplus-image.
+Z Code membaca MCP dari blok kanonik `mcp.servers` di `~/.zcode/cli/config.json` — **satu blok saja, tanpa blok legacy `mcpServers` dobel** (dual-write era sync lama terbukti membuat dua set API key yang drift). Hasil audit 2026-10-06: 10 server terkurasi.
+
+| Server | Fungsi / Catatan |
+|--------|------------------|
+| `context7` | Sumber kebenaran library — WAJIB, lihat bagian Context7 |
+| `zai-mcp-server` | Analisis gambar/screenshot Mas Wondho (vision) |
+| `playwright` | Otomasi browser (webapp testing); skill `playwright-best-practices` bergantung padanya |
+| `Figma AI Bridge` | Desain Figma → kode; skill `figma` bergantung padanya |
+| `shadcn-ui` | Registry komponen shadcn/ui |
+| `byteplus-image` | Generate gambar (Seedream) |
+| `publora` | Publishing sosmed Duta Corpora |
+| `ssh-admin` | Admin server Ubuntu via SSH — berjalan via wrapper `~/.zcode/bin/ssh-admin-mcp.cmd` + salinan config `~/.zcode/bin/ssh-admin-servers.json` (whitelist/blacklist array tertanam di file, karena mode `--config-file` ssh-mcp-server MENGABAIKAN `--whitelist` CLI). Salinan bisa stale bila `ssh-servers-multi.json` milik TRAE berubah — sinkronkan manual |
+| `needmcp` | Library komponen UI — BUG VENDOR (meng-echo protocolVersion klien tapi tanpa `resultType` di `tools/list`): akan selalu tampil "failed" di Settings → MCP. Jangan diutak-atik di config; tunggu perbaikan vendor atau laporkan ke mereka |
+| `web-reader` | Nonaktif (`enabled: false`) sebagai cadangan halaman berat JavaScript — WebFetch bawaan cukup untuk mayoritas kasus |
+
+**Aturan anti-redundansi (hasil audit):** sebelum menambah MCP baru, cek dulu kemampuan BAWAAN Z Code — Bash + Read/Write/Edit (setara desktop-commander), WebSearch/WebFetch (setara web-search-prime/zread/web-reader; WebSearch bawaan berjalan di backend z.ai), jam sistem + CronCreate/CronList (setara Time), Read gambar + `zai-mcp-server` (zai-vision cuma duplikat). DILARANG memasang ulang: `desktop-commander`, `Time`, `web-search-prime`, `zread`, `zai-vision`, `Google Maps` (package resmi sudah archived upstream), `sequential-thinking` (GLM sudah punya native thinking).
+
+Routing: gambar/screenshot → `zai-mcp-server`; server SSH → `ssh-admin`; generate gambar → `byteplus-image`; komponen UI → MCP `shadcn-ui`; Figma → `Figma AI Bridge`. Sync script TIDAK menimpa config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart Z Code).
 
 Catatan: sebagian skill TRAE plugin-only (mis. `dev-fix`, `skill-creator`, `graphify` sebagai command) tidak punya plugin di Z Code — kerjakan mengikuti pola skill setara (mis. dev-fix → debugging sistematis + regression test) atau manual dengan standar yang sama.
 

@@ -103,11 +103,11 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 **Z Code** (aplikasi desktop Z.ai, agent GLM native) memakai standar yang sama — skill `SKILL.md` + `AGENTS.md` global:
 
 ```powershell
-.\scripts\sync-zcode.ps1          # skills + AGENTS.md + commands + MCP (disalin dari ~/.claude.json)
+.\scripts\sync-zcode.ps1          # skills + AGENTS.md + commands (config MCP TIDAK disentuh)
 .\scripts\sync-zcode.ps1 -Mirror  # samakan 100% dengan repo
 ```
 
-Yang disalin: 289 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`, dan 17 MCP kurasi → `~/.zcode/cli/config.json` (plugin lama dipertahankan, backup otomatis). Jalankan saat Z Code tertutup. Jika MCP tidak langsung muncul di Settings → MCP Servers, gunakan ikon **Import** (sumber: Claude Code) — satu klik, pilih Select all.
+Yang disalin: 391 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (10 server kanonik di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
 
 ### Sinkron ke Codex
 
