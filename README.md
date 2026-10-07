@@ -12,7 +12,7 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 
 | Folder / File | Isi |
 |---------------|-----|
-| `skills/` | 391 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE — lihat tabel di bawah) |
+| `skills/` | 392 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE + logo-design — lihat tabel di bawah) |
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
 | `claude/` | Artefak Claude Code CLI: `CLAUDE.md` global, `commands/`, `settings.template.json` |

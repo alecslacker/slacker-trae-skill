@@ -52,6 +52,15 @@
                         "catatan":  "REPO 404 sejak 2026-09-30 Ã¢â‚¬â€ kemungkinan sudah dihapus/di-private. Keluarga blog lainnya (v2.2.0) berasal dari skill pack internal tanpa repo publik yang diketahui. Entri dipertahankan sebagai pengingat; hapus bila dipastikan hilang permanen.",
                         "terakhir_dicek":  "2026-09-30",
                         "upstream_terakhir":  "TIDAK DITEMUKAN (404)"
+                    },
+                    {
+                        "folder":  "logo-design",
+                        "repo":  "kaankiziltug/logo-design-skill",
+                        "metode":  "latest_commit",
+                        "juga_mencakup":  [],
+                        "catatan":  "Skill desain logo (MIT, 2.2k stars): SKILL.md + library 1.400+ SVG logo referensi (assets/) + tools Python tanpa dependensi (audit SVG, test sheet, presentation board, favicon set). Ditambahkan 2026-10-07 atas permintaan Mas Wondho untuk desain logo aplikasi.",
+                        "terakhir_dicek":  "2026-10-07",
+                        "upstream_terakhir":  "0ecf52e (2026-09-30)"
                     }
                 ]
 }

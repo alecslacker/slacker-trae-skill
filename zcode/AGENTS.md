@@ -33,7 +33,7 @@ Detail lengkap: `zcode/BEST-PRACTICE.md` di repo trae-skills. Inti yang wajib di
 
 ## Skill — Auto-Invocation (PENTING)
 
-Z Code punya **391 skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Z Code punya **392 skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.zcode/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `antislop` + `antislop-ui` + `frontend-design`.

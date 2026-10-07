@@ -31,7 +31,7 @@ Detail lengkap: `~/.codex/BEST-PRACTICE.md`. Inti yang wajib dipatuhi:
 
 ## Skill — Auto-Invocation (PENTING)
 
-Codex punya **391 skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Codex punya **392 skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.agents/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual. Panggil via `$skill-name` bila perlu eksplisit.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `antislop` + `antislop-ui` + `frontend-design`.
