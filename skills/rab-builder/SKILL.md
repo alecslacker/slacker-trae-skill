@@ -10,11 +10,11 @@ Skill ini menghitung biaya PEMBUATAN sebuah sistem/aplikasi berdasarkan rancanga
 ## Prinsip Inti
 
 1. **Rancangan dulu, RAB kemudian** — RAB dihitung DARI desain rancangan (PRD prd-builder / DESIGN.md / deskripsi), bukan dari nol. Bila belum ada rancangan, arahkan ke `prd-builder` dulu.
-2. **Vibe coding economics** — biaya utama = langganan AI × durasi, bukan gaji developer × jam. Durasi ditentukan jumlah & kompleksitas fitur.
+2. **Vibe coding economics (INTERNAL SAJA)** — biaya utama = langganan AI × durasi, bukan gaji developer × jam. Durasi ditentukan jumlah & kompleksitas fitur. Ini BASIS HITUNG internal; ke klien tampil sebagai "biaya pengembangan sistem" profesional — DILARANG menyebut vibe coding, AI, z.ai, atau harga langganan model di dokumen klien (lihat Hard Rules).
 3. **Harga jangan basi** — harga langganan stabil boleh dari katalog (`references/price-catalog.md`); harga yang berubah cepat (hosting promo, fee payment, kurs) WAJIB diverifikasi live saat RAB dibuat.
 4. **Semua angka punya jejak** — tiap item biaya menyertakan asumsi (durasi, tier, jumlah unit). Ubah asumsi = angka ikut berubah, jadi asumsi wajib eksplisit.
 5. **Satu pertanyaan per giliran** — pakai `AskUserQuestion` untuk pertanyaan pilihan (pola prd-builder).
-6. **Output ke `.trae/documents/`** — `rab-[nama-proyek].md`.
+6. **Output ke `.trae/documents/`** — `rab-[nama-proyek].md` (versi kerja lengkap) dan `penawaran-[nama-aplikasi]-[nama-klien].md` (versi klien, bila diminta).
 
 ## Kapan Dipakai (Trigger)
 
@@ -30,7 +30,21 @@ Skill ini menghitung biaya PEMBUATAN sebuah sistem/aplikasi berdasarkan rancanga
 
 ---
 
-## Alur 4 Fase
+## Alur 5 Fase
+
+### Fase 0 — Identitas Klien & Aplikasi (Wajib Pertama)
+
+Dokumen RAB disesuaikan dengan nama aplikasi dan nama klien. Kumpulkan:
+
+1. **Nama aplikasi/sistem** (chat biasa): "Sistem/aplikasi ini mau dinamai apa?" — pakai untuk judul dokumen & seluruh penyebutan. Belum ada nama → gunakan nama proyek internal, tandai `[NAMA APLIKASI]` sebagai placeholder yang wajib dikonfirmasi sebelum final.
+2. **Nama klien** + bentuknya (chat biasa): "Untuk klien siapa? (sebutkan bentuk lengkap: PT/CV/perorangan/instansi)" — pakai di judul, intro, dan penjumlahan akhir.
+3. **Jenis dokumen** (`AskUserQuestion`):
+   - **RAB internal** — kerja lengkap: semua komponen + asumsi + jejak harga (tidak dikirim ke klien)
+   - **Penawaran klien** — dokumen resmi: kop PT, intro, judul per klien, komponen biaya klien-facing (metode & AI internal TIDAK tampil)
+   - **Keduanya** — hitung sekali (internal), render dua output
+4. Simpan jawaban; seluruh fase berikutnya otomatis memakai nama ini.
+
+Basis identitas perusahaan (kop, intro, kredibilitas) ambil dari `references/company-profile.md` — jangan karang data PT.
 
 ### Fase 1 — Pahami Stack dari Rancangan
 
@@ -105,12 +119,31 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 
 **Gate Fase 3**: tampilkan tabel komponen + subtotal → konfirmasi user.
 
-### Fase 4 — Generate Dokumen RAB
+### Fase 4 — Generate Dokumen
 
-1. Rangkai pakai template `references/rab-template.md`
-2. **Anti-typo check** (pola 4-cek prd-builder: ejaan, konsistensi istilah, format tabel, koherensi angka — pastikan subtotal/total aritmetikanya BENAR, hitung ulang)
-3. Simpan `rab-[nama-proyek].md` ke `.trae/documents/`
-4. Tawarkan: update `project_memory` (ringkasan RAB), export PDF/docx untuk klien, atau revisi asumsi (ubah durasi/kurs → regenerasi otomatis)
+Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
+
+1. **RAB internal** (`rab-[nama-proyek].md`): pakai template `references/rab-template.md` Section lengkap — termasuk komponen A (AI tooling), asumsi, jejak harga. Untuk kerja internal, bukan klien.
+2. **Penawaran klien** (`penawaran-[nama-aplikasi]-[nama-klien].md`): pakai bagian "Dokumen Penawaran Klien" di template yang sama — kop PT, judul "RAB Pengembangan [Nama Aplikasi] untuk [Nama Klien]", intro wajib (lihat bawah), komponen biaya klien-facing (biaya pengembangan sistem terintegrasi — breakdown tanpa sebut metode/AI), infrastruktur, layanan pihak ketiga, total IDR, syarat & ketentuan, rekening korporasi.
+
+**Intro wajib dokumen klien** (pola, personalisasi per klien — basis dari `references/company-profile.md`):
+- Paragraf 1: siapa kami (PT Duta Corpora Indonesia — 1 kalimat kredibilitas) + untuk apa dokumen ini (RAB pengembangan [Nama Aplikasi] untuk [Nama Klien])
+- Paragraf 2: 1-2 kalimat tentang aplikasi yang dianggarkan (dari PRD Overview) + klaim kredibilitas YANG RELEVAN dengan segmen klien (bank → BPD Jatim; desa/pemerintahan → SID Blitar; filantropi → LAZISNU; dst)
+
+3. **Anti-typo check** (pola 4-cek prd-builder) + hitung ulang aritmetika subtotal/total
+4. Simpan ke `.trae/documents/`
+5. Tawarkan: update `project_memory`, export PDF/docx, revisi asumsi
+
+**Konversi komponen internal → tampilan klien**:
+
+| Internal (RAB kerja) | Tampilan di dokumen klien |
+|----------------------|---------------------------|
+| A. AI Tooling (z.ai $80 × durasi) | "Biaya Pengembangan Sistem [Nama Aplikasi]" (satu angka profesional) |
+| B. Infra dev $0 | (tidak tampil) |
+| C. Infra produksi | "Infrastruktur & Penyelenggaraan" (VPS, domain — tetap rinci, itu biaya nyata klien) |
+| D. Layanan pihak ketiga | tetap rinci |
+| E. SDM $0 | (tidak tampil) |
+| F. Contingency | boleh masuk ke biaya pengembangan atau baris "Cadangan Operasional" |
 
 ---
 
@@ -124,11 +157,15 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 
 ## Hard Rules
 
+- DILARANG menyebut vibe coding, AI, z.ai, harga langganan model, atau "metode pengerjaan internal" di dokumen klien — itu basis hitung internal; di dokumen klien tampil sebagai "Biaya Pengembangan Sistem"
+- DILARANG generate dokumen klien tanpa: (1) nama aplikasi + nama klien di judul, (2) intro 2 paragraf (siapa kami + konteks aplikasi & kredibilitas relevan), (3) kop PT dari company-profile.md
+- DILARANG mengarang data PT Duta Corpora Indonesia — semua identitas/klaim dari `references/company-profile.md` saja
 - DILARANG menghitung RAB tanpa tabel stack yang dikonfirmasi (Fase 1 gate)
 - DILARANG memakai harga dari katalog yang bertanda VERIFIKASI LIVE atau tanggal cek > 3 bulan tanpa verifikasi ulang (WebSearch)
-- DILARANG menyembunyikan asumsi — durasi, tier, unit, kurs wajib tertulis di dokumen
+- DILARANG menyembunyikan asumsi — durasi, tier, unit, kurs wajib tertulis di dokumen internal; di dokumen klien, asumsi durasi tampil sebagai "estimasi waktu pengerjaan"
 - DILARANG memasukkan fee per-transaksi (payment gateway) sebagai biaya tetap — itu catatan operasional
 - DILARANG mengasumsikan SDM berbayar — default solo $0, kecuali user menyatakan
 - WAJIB hitung ulang aritmetika subtotal/total sebelum simpan file
 - WAJIB tulis kurs + tanggal kurs bila menampilkan IDR
+- WAJIB pakai nama aplikasi & nama klien konsisten di seluruh dokumen (1 konsep = 1 nama)
 - Satu pertanyaan per giliran; pertanyaan pilihan pakai `AskUserQuestion`

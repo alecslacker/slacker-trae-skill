@@ -1,53 +1,50 @@
-# Template Dokumen RAB — rab-builder
+# Template Dokumen — rab-builder
 
-**Nama file output**: `rab-[nama-proyek].md` di `.trae/documents/`
+Dua template dalam satu file: **A. RAB Internal** (kerja, semua detail) dan **B. Dokumen Penawaran Klien** (resmi, tanpa detail metode internal).
+
+**Lokasi output**: `.trae/documents/` — internal: `rab-[nama-proyek].md`; klien: `penawaran-[nama-aplikasi]-[nama-klien].md`
 
 ---
+
+## A. Template RAB Internal
+
+> TIDAK dikirim ke klien. Berisi basis hitung lengkap termasuk metode internal.
 
 ```markdown
-# RAB: [Nama Proyek]
+# RAB INTERNAL: [Nama Proyek]
 
-> **Status**: DRAFT / FINAL
-> **Tanggal**: [YYYY-MM-DD]
-> **Basis**: PRD [nama] v[x] · Metode: Vibe Coding · AI: z.ai Coding Plan Max ($80/bln)
+> **Status**: DRAFT / FINAL · **Tanggal**: [YYYY-MM-DD]
+> **Basis**: PRD [nama] v[x] · Metode internal: vibe coding, z.ai Coding Plan Max ($80/bln)
+> **Klien**: [Nama Klien] · **Aplikasi**: [Nama Aplikasi]
 > **Kurs**: 1 USD = Rp[X.XXX] ([sumber], [tanggal])
-
----
 
 ## 1. Ringkasan
 
 | | USD | IDR |
 |---|-----|-----|
-| **Total RAB** | **$X.XXX** | **RpXX.XXX.XXX** |
+| **Total** | **$X.XXX** | **RpXX.XXX.XXX** |
 
-Durasi pengerjaan: [X minggu/bulan] · Kategori: [MVP kecil/sedang/besar/enterprise]
-Contingency: [15%] · Periode infra produksi dihitung: [3 bulan pertama]
+Durasi: [X minggu] · Kategori: [MVP/sedang/besar/enterprise] · Contingency [15%] · Infra produksi dihitung [3 bulan pertama]
 
-## 2. Stack yang Dianggarkan (hasil Fase 1)
+## 2. Stack yang Dianggarkan (Fase 1)
 
 | Lapisan | Teknologi | Keterangan biaya |
 |---------|-----------|------------------|
-| Frontend | [X] | build-time |
-| Backend | [X] | — |
-| Database | [X] | [tier] |
-| [dst dari tabel stack] | | |
+| [dari tabel stack terkonfirmasi] | | |
 
 ## 3. Rincian Biaya
 
-### A. AI Tooling (vibe coding)
-
-| Item | Unit | Qty | Harga Satuan | Subtotal |
-|------|------|-----|--------------|----------|
-| z.ai Coding Plan Max | bulan | [durasi bln] | $80 | $X |
+### A. AI Tooling (internal — jangan tampil ke klien)
+| Item | Unit | Qty | Harga | Subtotal |
+|------|------|-----|-------|----------|
+| z.ai Coding Plan Max | bulan | [X] | $80 | $[X] |
 
 ### B. Infrastruktur Development
-
 | Item | Subtotal |
 |------|----------|
 | Staging (Laragon lokal) | $0 |
 
-### C. Infrastruktur Produksi (3 bulan pertama)
-
+### C. Infrastruktur Produksi ([3] bulan pertama)
 | Item | Unit | Qty | Harga | Subtotal |
 |------|------|-----|-------|----------|
 | VPS [spec] | bulan | 3 | $[X] | $[X] |
@@ -55,60 +52,132 @@ Contingency: [15%] · Periode infra produksi dihitung: [3 bulan pertama]
 | SSL Let's Encrypt | — | — | $0 | $0 |
 
 ### D. Layanan Pihak Ketiga
-
 | Item | Periode | Subtotal |
 |------|---------|----------|
 | [mis. Resend Pro] | [3 bln] | $[X] |
 
 ### E. SDM/Operator
-
 | Item | Subtotal |
 |------|----------|
 | Solo vibe coding | $0 |
 
-### F. Contingency (15% dari A+E)
+### F. Contingency (15% dari A+E): $[X]
 
-| | $[X] |
+### TOTAL: A $[X] + B $0 + C $[X] + D $[X] + E $[X] + F $[X] = **$[X]**
 
-### TOTAL
+## 4. Asumsi
+- Durasi [X minggu] — basis: [fitur + faktor pengali]
+- [Asumsi per item]
 
-| Kategori | USD |
-|----------|-----|
-| A. AI Tooling | $[X] |
-| B. Infra Dev | $0 |
-| C. Infra Produksi | $[X] |
-| D. Pihak Ketiga | $[X] |
-| E. SDM | $[X] |
-| F. Contingency | $[X] |
-| **TOTAL** | **$[X]** |
+## 5. Catatan Operasional Pasca-RAB
+- Biaya bulanan berjalan: [VPS + layanan = $X/bln]
+- Fee payment gateway per transaksi: [X%] — catatan, bukan biaya tetap
 
-## 4. Asumsi (ubah ini = angka berubah)
-
-- Durasi: [X minggu] — basis: [jumlah fitur, faktor pengali yang diterapkan]
-- Periode infra produksi dihitung: [3 bulan] (setelahnya = biaya operasional bulanan)
-- [Asumsi lain per item]
-
-## 5. Catatan Operasional Pasca-RAB (bukan bagian total)
-
-- Biaya bulanan berjalan setelah periode RAB: [VPS $X + domain prorata + layanan $X = $X/bln]
-- Fee payment gateway per transaksi: [X% + RpX] — mengikuti volume penjualan
-- Maintenance/iterasi lanjutan: [kesepakatan terpisah]
-
-## 6. Jejak Harga (verifikasi)
-
-| Item | Harga dipakai | Dicek | Sumber |
-|------|---------------|-------|--------|
-| z.ai Plan Max | $80/bln | [tgl] | langganan user |
-| [item VERIFIKASI LIVE] | [$X] | [tgl] | [URL/sumber] |
+## 6. Jejak Harga
+| Item | Harga | Dicek | Sumber |
+|------|-------|-------|--------|
+| z.ai Plan Max | $80/bln | [tgl] | langganan |
+| [item live] | [$X] | [tgl] | [sumber] |
 | Kurs | Rp[X]/USD | [tgl] | [sumber] |
 ```
 
 ---
 
-## Aturan Pengisian Template
+## B. Template Dokumen Penawaran Klien
 
-1. **Aritmetika WAJIB benar** — hitung ulang tiap subtotal dan total sebelum simpan (Hard Rule).
-2. Semua `[placeholder]` terganti — DILARANG ada yang tersisa di final.
-3. Tabel ID kolom konsisten — format uang seragam ($X atau RpX.XXX, pilih satu gaya per kolom).
-4. Section 5 memisahkan biaya RAB vs biaya operasional — jangan dicampur ke total.
-5. Status DRAFT → FINAL hanya setelah user konfirmasi.
+> Dokumen resmi. Kop dari `company-profile.md`. DILARANG sebut: vibe coding, AI, z.ai, langganan model, "operator". Komponen A+E+F dikonversi jadi "Biaya Pengembangan Sistem".
+
+```markdown
+<div align="center">
+
+## PT DUTA CORPORA INDONESIA
+### RAB PENGEMBANGAN [NAMA APLIKASI]
+
+**Disusun untuk: [Nama Klien]**
+
+Lingk. Dadapan RT 01 RW 01, Desa Kedungbunder, Kec. Sutojayan, Kab. Blitar, Jawa Timur 66172
+Telp. 0895-2000-1337 · halo@dutacorpora.co.id · dutacorpora.co.id
+
+</div>
+
+---
+
+**Nomor**: DCI/RAB/[XX]/[YYYY] · **Tanggal**: [DD Bulan YYYY] · **Berlaku hingga**: [tanggal +30 hari]
+
+## Pendahuluan
+
+[Paragraf 1 — siapa kami + tujuan dokumen. Pola:]
+PT Duta Corpora Indonesia adalah perusahaan teknologi informasi berbadan hukum yang telah melayani lebih dari 30 klien lintas segmen dengan lebih dari 110 dokumen transaksi terdokumentasi sejak 2022. Dokumen ini menyajikan Rencana Anggaran Biaya (RAB) pengembangan **[Nama Aplikasi]** untuk **[Nama Klien]**, disusun berdasarkan hasil perancangan sistem yang telah dilakukan.
+
+[Paragraf 2 — konteks aplikasi + kredibilitas relevan segmen klien. Pola:]
+[Nama Aplikasi] adalah [1-2 kalimat dari PRD Overview — apa yang dikerjakan, untuk siapa]. Pengalaman kami mengembangkan [kredibilitas relevan: sistem informasi skala institusi / layanan untuk bank pembangunan daerah / sistem informasi desa level kabupaten / dst.] menjadi dasar keyakinan kami bahwa [Nama Aplikasi] dapat diselesaikan dengan standar kualitas yang terdokumentasi dan teruji.
+
+## Ruang Lingkup Pekerjaan
+
+[Ringkas dari PRD Section 3 — fitur utama dalam bahasa klien, 5-8 butir, tanpa istilah teknis internal:]
+1. [Fitur 1 — manfaatnya bagi pengguna]
+2. [dst.]
+
+Estimasi waktu pengerjaan: [X minggu] sejak [kesepakatan/DP] — mencakup pengembangan, pengujian, dan serah terima.
+
+## Rincian Anggaran Biaya
+
+### 1. Pengembangan Sistem [Nama Aplikasi]
+| Komponen | Keterangan | Biaya |
+|----------|------------|-------|
+| Perancangan & pengembangan sistem | [X] modul sesuai ruang lingkup, termasuk pengujian & serah terima | Rp[X.XXX.XXX] |
+| Cadangan operasional | [mis. revisi sesuai masa garansi] | Rp[X.XXX.XXX] |
+
+### 2. Infrastruktur & Penyelenggaraan (per [3] bulan pertama)
+| Komponen | Periode | Biaya |
+|----------|---------|-------|
+| Server produksi [spec fungsional: mis. "server virtual kapasitas memadai untuk 50 pengguna aktif"] | 3 bulan | Rp[X.XXX.XXX] |
+| Domain [nama domain] | 1 tahun | Rp[X.XXX.XXX] |
+| Sertifikat keamanan SSL | — | Rp0 |
+
+### 3. Layanan Pendukung Pihak Ketiga
+| Komponen | Periode | Biaya |
+|----------|---------|-------|
+| [mis. Layanan email transaksional] | 3 bulan | Rp[X.XXX.XXX] |
+
+### Total Anggaran
+
+| No | Komponen | Jumlah |
+|----|----------|--------|
+| 1 | Pengembangan Sistem [Nama Aplikasi] | Rp[X.XXX.XXX] |
+| 2 | Infrastruktur & Penyelenggaraan | Rp[X.XXX.XXX] |
+| 3 | Layanan Pendukung | Rp[X.XXX.XXX] |
+| | **TOTAL** | **Rp[X.XXX.XXX]** |
+
+*(Terbilang: [jumlah terbilang] rupiah)*
+
+## Ketentuan Pembayaran
+- [DP %] di awal: Rp[X] · [termin %] serah terima: Rp[X] — [sesuaikan kesepakatan]
+- Pembayaran via transfer rekening korporasi: **Bank Jatim 1892017774 a.n. PT DUTA CORPORA INDONESIA**
+- Invoice resmi & faktur pajak diterbitkan untuk setiap pembayaran
+
+## Catatan
+- Biaya bulanan berjalan setelah periode ini: Rp[X]/bulan (server + layanan pendukung) — rincian menyusul saat serah terima
+- [Bila ada payment gateway: fee transaksi [X%] mengikuti penyedia jasa, tidak termasuk dalam total di atas]
+- Garansi perbaikan bug: [30 hari] pasca serah terima
+
+<div align="center">
+
+**PT DUTA CORPORA INDONESIA**
+
+Riswandha Irawan
+Founder
+
+</div>
+```
+
+---
+
+## Aturan Pengisian Kedua Template
+
+1. **Aritmetika WAJIB benar** — hitung ulang tiap subtotal & total sebelum simpan.
+2. Semua `[placeholder]` terganti di final — DILARANG tersisa.
+3. Template klien: jumlah dalam IDR + terbilang; kurs internal tidak perlu tampil ke klien (sudah terkonversi).
+4. Nama aplikasi & klien konsisten di seluruh dokumen — persis seperti Fase 0.
+5. Nomor dokumen klien format `DCI/RAB/[urut 2 digit]/[tahun]` — tanya user nomor urut bila tidak tahu.
+6. Status DRAFT → FINAL hanya setelah konfirmasi user.
