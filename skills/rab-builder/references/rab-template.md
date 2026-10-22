@@ -151,10 +151,48 @@ Estimasi waktu pengerjaan: [X minggu] sejak [kesepakatan/DP] — mencakup pengem
 
 *(Terbilang: [jumlah terbilang] rupiah)*
 
-## Ketentuan Pembayaran
-- [DP %] di awal: Rp[X] · [termin %] serah terima: Rp[X] — [sesuaikan kesepakatan]
+## Ketentuan Pembayaran — Skema [pilih salah satu sesuai Fase 3.5; hapus yang tidak dipakai]
+
+### Skema A — Pembayaran Sekaligus (One-Time)
+
+| Tahap | Pemicu | Jumlah |
+|-------|--------|--------|
+| DP 50% | Penandatanganan kesepakatan | Rp[X.XXX.XXX] |
+| Pelunasan 50% | Serah terima sistem | Rp[X.XXX.XXX] |
+| **Total** | | **Rp[X.XXX.XXX]** |
+
+Termasuk garansi perbaikan bug 30 hari pasca serah terima.
+
+### Skema B — Termin Bertahap
+
+| Termin | Milestone (terverifikasi) | Persentase | Jumlah |
+|--------|---------------------------|------------|--------|
+| 1 | Kick-off & perancangan disetujui | [30]% | Rp[X.XXX.XXX] |
+| 2 | [Milestone PRD — mis. modul inti selesai & diuji] | [40]% | Rp[X.XXX.XXX] |
+| 3 | Serah terima & pelatihan | [30]% | Rp[X.XXX.XXX] |
+| | **Total (sama dengan sekali bayar, tanpa biaya tambahan)** | 100% | **Rp[X.XXX.XXX]** |
+
+Setiap termin ditagih setelah milestone terkait diverifikasi bersama. Garansi bug 30 hari pasca serah terima.
+
+### Skema C — Langganan Bulanan
+
+| Komponen | Nilai |
+|----------|-------|
+| Uang muka | Rp[X.XXX.XXX] (1× bulanan) — saat penandatanganan |
+| Biaya bulanan | Rp[X.XXX.XXX]/bulan, selama [12] bulan |
+| Total selama tenor | Rp[X.XXX.XXX] *(selisih Rp[X] vs sekali bayar = biaya fleksibilitas skema)* |
+
+**Termasuk dalam langganan selama tenor**: pengembangan sistem sesuai ruang lingkup, hosting & infrastruktur, serta **pemeliharaan aktif** (pemantauan, pembaruan, perbaikan, dukungan teknis) — sistem terawat penuh tanpa biaya tambahan.
+
+**Ketentuan langganan**:
+- Keterlambatan [2] bulan berturut-turut = layanan penanganan data dihentikan sementara hingga tertagih (data tetap aman, tidak dihapus)
+- Pelunasan dini: sisa pokok dibayar sekaligus, premi sisa tenor dihapus
+- Setelah lunas (tenor habis ATAU pelunasan dini): **sistem menjadi milik penuh [Nama Klien]**; biaya pemeliharaan lanjutan opsional sesuai kesepakatan
+
+### Ketentuan Umum (semua skema)
+
 - Pembayaran via transfer rekening korporasi: **Bank Jatim 1892017774 a.n. PT DUTA CORPORA INDONESIA**
-- Invoice resmi & faktur pajak diterbitkan untuk setiap pembayaran
+- Invoice resmi & faktur pajak diterbitkan untuk setiap pembayaran/tagihan
 
 ## Catatan
 - Biaya bulanan berjalan setelah periode ini: Rp[X]/bulan (server + layanan pendukung) — rincian menyusul saat serah terima
@@ -175,9 +213,10 @@ Founder
 
 ## Aturan Pengisian Kedua Template
 
-1. **Aritmetika WAJIB benar** — hitung ulang tiap subtotal & total sebelum simpan.
-2. Semua `[placeholder]` terganti di final — DILARANG tersisa.
+1. **Aritmetika WAJIB benar** — hitung ulang tiap subtotal & total sebelum simpan. Termasuk skema: jumlah termin/seluruh bulanan harus = total anggaran (+premi bila langganan).
+2. Semua `[placeholder]` terganti di final — DILARANG tersisa. Skema yang tidak dipakai DIHAPUS dari dokumen final (jangan tiga-tiganya tampil sekaligus kecuali user minta opsi untuk klien).
 3. Template klien: jumlah dalam IDR + terbilang; kurs internal tidak perlu tampil ke klien (sudah terkonversi).
 4. Nama aplikasi & klien konsisten di seluruh dokumen — persis seperti Fase 0.
 5. Nomor dokumen klien format `DCI/RAB/[urut 2 digit]/[tahun]` — tanya user nomor urut bila tidak tahu.
 6. Status DRAFT → FINAL hanya setelah konfirmasi user.
+7. Skema langganan: total tenor + selisih vs one-time WAJIB tampil (transparansi biaya fleksibilitas); klausul pelunasan dini & kepemilikan tidak boleh dihilangkan.

@@ -30,7 +30,7 @@ Skill ini menghitung biaya PEMBUATAN sebuah sistem/aplikasi berdasarkan rancanga
 
 ---
 
-## Alur 5 Fase
+## Alur 5 Fase (3.5 opsional bila klien belum tentu)
 
 ### Fase 0 — Identitas Klien & Aplikasi (Wajib Pertama)
 
@@ -119,6 +119,29 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 
 **Gate Fase 3**: tampilkan tabel komponen + subtotal → konfirmasi user.
 
+### Fase 3.5 — Skema Pembayaran (sesuai kemampuan klien)
+
+Satu proyek, tiga cara bayar. Tanyakan via `AskUserQuestion` ("Skema mana yang cocok dengan kemampuan klien ini?"), boleh tampilkan simulasi ringkas tiap opsi sebagai description. Agent WAJIB menampilkan simulasi sebelum klien memilih.
+
+| Skema | Cocok untuk | Struktur |
+|-------|-------------|----------|
+| **One-time** | Klien beranggaran penuh (instansi/korporasi dengan dana siap) | 100% nilai proyek: DP 50% awal + 50% serah terima (2 transaksi). Termasuk garansi bug 30 hari |
+| **Termin bertahap** | Klien menengah — arus kas terbatas tapi proyek tetap sekali bayar | Nilai proyek dipecah 3-5 termin mengikuti milestone PRD (mis. 30/40/30 atau 25/25/25/25). Tiap termin = milestone terverifikasi. Total = sama dengan one-time (tanpa bunga) |
+| **Langganan bulanan** | Klien kecil/UMKM — modal terbatas, tapi butuh sistem berkelanjutan | Uang muka kecil (default 1× biaya bulanan) + bulanan tetap selama tenor. Tenor default 12 bulan; total = nilai proyek + premi langganan (default +15-25% sebagai kompensasi penundaan kas & risiko). SUDAH TERMASUK pemeliharaan aktif selama tenor (nilai tambah nyata, bukan sekadar cicilan) |
+
+**Aturan simulasi** (WAJIB tampilkan sebelum user pilih):
+- Hitung ketiganya dari total Fase 3 (konversi IDR pakai kurs aktif)
+- Langganan: `bulanan = ceil((nilai + premi) / tenor)` — pembulatan ke ribuan; tulis total bayar + selisih vs one-time (biaya skema)
+- Termin: susun % + nominal + milestone pengikat per termin
+- Tampilkan ketiganya berdampingan → user memilih berdasarkan kemampuan klien, bukan agent memutuskan
+
+**Catatan skema**:
+- Skema langganan selalu dilampiri klausul berhenti/pelunasan dini: sisa tenor dibayar sekaligus tanpa premi berjalan (discount premi sisa), sistem tetap milik klien setelah lunas
+- Boleh kombinasi (mis. termin 2x untuk pengembangan + langganan bulanan untuk maintenance pasca serah terima) — tawarkan bila user ragu
+- Pilihan skema tercatat di project memory (M-entry) karena memengaruhi penagihan berulang
+
+**Gate Fase 3.5**: skema terpilih + simulasi final dikonfirmasi user sebelum generate dokumen.
+
 ### Fase 4 — Generate Dokumen
 
 Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
@@ -164,6 +187,11 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 - DILARANG memakai harga dari katalog yang bertanda VERIFIKASI LIVE atau tanggal cek > 3 bulan tanpa verifikasi ulang (WebSearch)
 - DILARANG menyembunyikan asumsi — durasi, tier, unit, kurs wajib tertulis di dokumen internal; di dokumen klien, asumsi durasi tampil sebagai "estimasi waktu pengerjaan"
 - DILARANG memasukkan fee per-transaksi (payment gateway) sebagai biaya tetap — itu catatan operasional
+- DILARANG menawarkan skema pembayaran tanpa simulasi angka ketiganya (one-time vs termin vs langganan) — user memilih berdasarkan angka, bukan narasi
+- DILARANG skema langganan tanpa klausul pelunasan dini + kejelasan kepemilikan sistem setelah lunas
+- DILARANG premi langganan > 25% tanpa persetujuan eksplisit user (keadilan harga vs klien kecil)
+- WAJIB skema termin mengikat milestone terverifikasi (PRD) per termin — tidak ada termin tanpa deliverable
+- WAJIB catat skema terpilih ke project memory
 - DILARANG mengasumsikan SDM berbayar — default solo $0, kecuali user menyatakan
 - WAJIB hitung ulang aritmetika subtotal/total sebelum simpan file
 - WAJIB tulis kurs + tanggal kurs bila menampilkan IDR
