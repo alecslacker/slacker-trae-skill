@@ -61,6 +61,15 @@
                         "catatan":  "Skill desain logo (MIT, 2.2k stars): SKILL.md + library 1.400+ SVG logo referensi (assets/) + tools Python tanpa dependensi (audit SVG, test sheet, presentation board, favicon set). Ditambahkan 2026-10-07 atas permintaan Mas Wondho untuk desain logo aplikasi.",
                         "terakhir_dicek":  "2026-10-07",
                         "upstream_terakhir":  "0ecf52e (2026-09-30)"
+                    },
+                    {
+                        "folder":  "reverse-engineer-anything",
+                        "repo":  "morluto/rea",
+                        "metode":  "latest_tag",
+                        "juga_mencakup":  [],
+                        "catatan":  "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents — update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21. Ditambahkan 2026-10-23.",
+                        "terakhir_dicek":  "2026-10-23",
+                        "upstream_terakhir":  "v6.7.0"
                     }
                 ]
 }
