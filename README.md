@@ -12,7 +12,7 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 
 | Folder / File | Isi |
 |---------------|-----|
-| `skills/` | 393 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE + logo-design + rea — lihat tabel di bawah) |
+| `skills/` | 394 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE + logo-design + rea — lihat tabel di bawah) |
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
 | `claude/` | Artefak Claude Code CLI: `CLAUDE.md` global, `commands/`, `settings.template.json` |
@@ -107,7 +107,7 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 .\scripts\sync-zcode.ps1 -Mirror  # samakan 100% dengan repo
 ```
 
-Yang disalin: 391 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
+Yang disalin: 392 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
 
 ### Sinkron ke Codex
 
@@ -157,6 +157,7 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 | Keluarga antislop (v3.2.1 — sumber: [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop), MIT) | 6 | semua tugas UI / tulisan |
 | Keluarga taste-* (13 skill — sumber: [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT) | 13 | lihat `skills/_TASTE-SKILLS-INTEGRASI.md` |
 | prd-builder v2 | 1 | "buat PRD", "rancang aplikasi" |
+| rab-builder | 1 | "buat RAB", "hitung biaya pembuatan" (vibe coding, z.ai Max $80/bln) |
 | byteplus-seedream5 | 1 | "generate gambar", "hero banner" |
 | Skill pendukung lainnya | ±40 | frontend, pengujian, dokumen, dll |
 
