@@ -13,9 +13,9 @@
                                               "antislop-layoutmobile",
                                               "antislop-ui"
                                           ],
-                        "catatan":  "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer Ã¢â‚¬â€ cek diff SKILL.md sebelum update penuh.",
-                        "terakhir_dicek":  "2026-10-05",
-                        "upstream_terakhir":  "v3.2.20"
+                        "catatan":  "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer — cek diff SKILL.md sebelum update penuh. Update 2026-10-23 ke v3.2.21: hanya antislop-human berubah (logika kontras near-threshold + 2 script py). Ekstensi lokal di antislop-ui/SKILL.md: blok 'local-extension' berisi Liveliness Recipes + Blandness Test (anti-hambar) — WAJIB re-apply setelah menimpa SKILL.md dari upstream (2 titik: blok akhir file + baris Fix entri Sterile Default).",
+                        "terakhir_dicek":  "2026-10-23",
+                        "upstream_terakhir":  "v3.2.21"
                     },
                     {
                         "folder":  "taste-frontend",

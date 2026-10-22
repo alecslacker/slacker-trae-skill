@@ -76,7 +76,7 @@ allowed-tools: Read Write Edit Glob Grep
 
 - **Tell:** flat white or near-white, thin grey borders, small radius, no texture, generic font, no identity.
 - **Why:** this is the "safe" result of over-filtering without direction. It is not slop, but it is not design either: it is a void where a design should be.
-- **Fix:** this is a direction problem, not a filter problem. Add `DESIGN.md` or resolve the Design Read (core Part 3), then raise the liveliness dials. The fix is never more bans; it is state the purpose and add energy.
+- **Fix:** this is a direction problem, not a filter problem. Add `DESIGN.md` or resolve the Design Read (core Part 3), then raise the liveliness dials. The fix is never more bans; it is state the purpose and add energy. When direction exists and the page still reads flat, work through the Liveliness Recipes at the end of this file and re-check with the Blandness Test.
 
 ## Layout & Components
 
@@ -309,3 +309,81 @@ Run these alongside the core Delivery Gate when the task is UI work. All answers
 - [ ] Do empty form fields and table cells stay empty or carry honest placeholders (Your Name, email@example.com) instead of fake-looking data (John Doe, johndoe@example.com)? (R-23, R-38)
 - [ ] Do the empty, loading, and error states name the cause and the next action instead of saying "No data"? (R-27)
 - [ ] Does the page hold up at every breakpoint, theme, and state, and pass keyboard-only use? (R-03, R-34, C-4)
+
+<!-- local-extension:start (trae-skills, 2026-10-23). Saat sync dari upstream miqdadbadjuber/anti-slop: pertahankan blok ini, re-apply setelah menimpa SKILL.md. DUA titik modifikasi lokal: (1) blok ini di akhir file, (2) baris "Fix" pada entri Sterile Default yang menunjuk ke Liveliness Recipes. -->
+
+## Liveliness Recipes (anti-bland extension)
+
+> Local extension. The core skill sets the dials (ENERGY / RHYTHM / MOTION) and names the levers, but it never says HOW to lift a design that passes every filter and still reads as bland: clean, correct, lifeless. This section is that missing cookbook, and it is the concrete fix for the "Sterile Default" entry above. Every recipe respects the core rules; each cites the rule that governs it. None of these recipes overrides a ban: they say how to add energy, not how to sneak slop back in.
+
+Use it when the Delivery Gate passes but the page feels flat, or whenever ENERGY or RHYTHM is set above 1 and the draft does not visibly show it.
+
+### Recipe 1: Color that breathes
+
+- **Never ship default-flat backgrounds.** A whole page on `#FFFFFF` or flat `#000000` reads as un-chosen. Give the base a hue lean: warm off-whites like `#FAFAF7`, cool ones like `#F8F9FB`, or the brand hue tinted 2-4%. Dark bases live in the `#0A`-`#14` range *with a hue*, never neutral black.
+- **Build a tone scale, separate with tone.** Derive 4-6 steps from the base (e.g. base / +4% / +8% / dark / darker) and use tonal shifts between sections and layers instead of hairline borders. Tone separation is depth; a 1px grey border is the flat default.
+- **Two-temperature palette.** Pick a temperature lean for the neutrals (warm or cool) and lean the accent the opposite way. A single-temperature palette reads monotone no matter how many hues it lists.
+- **Saturation contrast, not saturation spread.** One saturated anchor color, everything else desaturated to support it. Two equally saturated colors fight; the eye loses the focal point (core: one deliberate accent).
+- **One colored beat.** A single section washed in the accent at 5-8% (a full-bleed band, a highlighted panel) is the emotional moment. The same wash everywhere is slop (R-01).
+- **Tint photography into the palette.** A duotone or a single hue overlay at low opacity unifies mixed image sources into one designed surface.
+
+### Recipe 2: Typography with a voice
+
+- **Scale jumps, not slides.** Adjacent type levels need at least a 3:1 size ratio to read as hierarchy (H1 64 / H2 21 / body 16 works; H1 48 / H2 40 / body 16 does not). One dramatic jump per page beats five medium ones.
+- **Skip the middle weights.** Body at 400, display at 600-700. A page where everything sits at 400-500 is mushy regardless of font choice.
+- **Pair by contrast.** Serif display + sans body, or humanist sans + geometric sans. If the whole page must be one family, differentiate through size, case, and weight extremes instead of subtle shifts.
+- **Uppercase only as micro-label.** Small sizes, 11-13px, tracking up to +8%, and only for true labels. Uppercase headings with wide tracking is the AI tell (R-06), not typography.
+- **Numeric craft.** Tabular figures for tables and counters, proportional for prose. Big numbers (3-5x body size) are a legitimate focal point on data-heavy screens.
+- **Real reading geometry.** 45-75ch measure, body line-height 1.5-1.7, display 1.05-1.2. Fluid size via `clamp()` so mobile keeps the drama instead of shrinking everything to sameness.
+- **One human aside.** A single italic phrase in an otherwise roman page is editorial voice when the brand allows it. Italic everywhere is noise.
+
+### Recipe 3: Layout with tension
+
+- **Asymmetry with a reason.** 5/7 column splits, offset imagery, and editorial pull-quotes create tension; centered symmetry everywhere is the bland default. Say the reason in one line (R-31).
+- **Overlap one layer.** An image crossing a section boundary or a card breaking the hero edge creates depth without blur or shadow stacking. One overlap per page, at the focal point.
+- **Scale drama.** One element 3-5x larger than its siblings (a number, a word, a photo) is the focal point the core requires. If everything is medium, nothing is foreground.
+- **Padding rhythm 2:1 or 3:1.** Alternate section padding (e.g. 160px / 80px) so the page breathes. Identical padding everywhere is the Uniform Spacing tell (R-05).
+- **Break your own grid once.** At the emotional center of the page, let one element ignore the columns deliberately. A grid broken by accident is an error; broken once on purpose is composition.
+- **Full-bleed moments.** Between contained sections, let one image or color band run edge to edge. The contrast between contained and open is what makes each readable.
+- **Alignment is the craft floor.** Every element aligns to something (column edge, baseline, image edge). Misalignment reads as a mistake, never as energy.
+
+### Recipe 4: Surface and material
+
+- **Off-flat surfaces.** Card borders tinted with the surface hue (not neutral grey), a 1px inset top highlight (white at 6-8%) for a lit edge, and tone shifts between section backgrounds give surfaces material without decoration (R-12 friendly).
+- **Grain with a job.** 2-4% noise on hero imagery or dark bands adds material and kills banding. Never on text areas, never as a page-wide texture without a written identity reason (R-07).
+- **Depth by stacking, not effects.** Two or three real planes (background band, content plane, one floating element) read as designed depth. Stacked blur + glow + shadow reads as effects (R-10, R-12, R-13).
+- **Radius language.** A deliberate radius scale (e.g. 4px inputs / 12px cards / 24px hero panels) where each step marks a component class. One radius everywhere is the pill tell (R-11); the scale is the fix.
+- **Mine the product's world.** If the product has a physical or cultural context (food, craft, architecture, geography), sample its colors, shapes, and textures into surfaces and motifs. This is the strongest anti-generic move available: a palette and texture no other product could ship.
+
+### Recipe 5: Motion in micro-doses
+
+- **Three visible states.** Default, hover, and active must each differ (color shift, 1-2px translate, or elevation change) on every interactive element. This is the cheapest liveliness there is, and it is functional, not decorative.
+- **One signature transition.** Pick one duration and easing (150-250ms, ease-out) and reuse it everywhere. Five different easings is mush; one repeated transition is a system.
+- **Motion hierarchy.** On scroll, only the focal element moves; support elements appear settled. Motion everywhere is wallpaper (R-19).
+- **Functional motion only for loops.** Counters filling, progress advancing, skeletons resolving while loading: these communicate state. Idle loops communicate nothing (R-19).
+- **Respect `prefers-reduced-motion`.** Always. Resilience is C-4.
+
+### Recipe 6: Mining the identity motif
+
+The core requires one identity motif but never says where to find it. Answer these three questions from the product itself:
+
+1. **What shapes live in the product's world?** A receipt, a route line, a strand of thread, an arch, a terraced field, a circuit trace. Abstract the shape into a simple gesture: a corner cut, a diagonal, a frame, a repeat pattern.
+2. **What is the product's verb?** Connect, guard, count, deliver, gather. Draw the verb as a line or movement and reuse it.
+3. **What does the brand already own?** Logo geometry, a letterform's curve, packaging colors, an existing mascot. Extend it instead of inventing parallel identity.
+
+Pick ONE answer. Reduce it to a gesture simple enough to repeat at three scales (micro: bullets and focus rings; mid: cards and dividers; macro: section frames and hero geometry). Repeat it at least three times across the page. Repetition across scales is what makes a design belong to the product (core Part 3: identity motif) and it is the single strongest answer to "would this still feel unique with the logo swapped out?"
+
+### The Blandness Test (run with the UI Skill Checklist)
+
+All answers must be **yes**. A page that passes the Delivery Gate but fails this test is not done; it is sterile:
+
+- [ ] Does the background read as a chosen tone (hue lean), not default white/black?
+- [ ] Do at least two sections use different compositions (not just different background colors)?
+- [ ] Does at least one element per screen carry real scale drama (3x or more vs its siblings)?
+- [ ] Is there tonal or stacked depth between layers, without relying on hairline borders alone?
+- [ ] Does the type scale contain at least one bold 3:1 jump between adjacent levels?
+- [ ] Does every interactive element show three visible states?
+- [ ] Is one identity motif repeated at three scales, drawn from the product's own world?
+- [ ] With the logo and name removed, does the page still feel owned by this brand?
+
+<!-- local-extension:end -->
