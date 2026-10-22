@@ -802,7 +802,11 @@ options:
 
 **Opsi ekspor (tawarkan setelah konfirmasi)**: selain tabel Markdown, agent BISA mengekspor token tingkat 1-2 sebagai file **`tokens.tokens.json`** (format W3C DTCG: `{token: {$type, $value}}`, alias `{group.token}`) di `.trae/documents/` — interoperabel dengan tool ekosistem token (Style Dictionary dkk). Nilai plus saat handoff ke developer; wajib hanya bila user minta.
 
-**Gate sebelum konfirmasi** (gagal satu = perbaiki dulu): lolos daftar tell antislop-ui — tanpa gradient blue-purple default, tanpa glass/glow berlebih, radius/shadow terdosis, palet maks 3 warna inti + 1 aksen, permukaan didominasi netral, palet default framework TIDAK dipakai sebagai identitas, mode terang/gelap punya alasan (bukan sekadar "techy"), tipografi bukan pilihan bawaan tanpa alasan, letter-spacing negatif di display besar.
+**Gate sebelum konfirmasi** (gagal satu = perbaiki dulu). Dua sisi, WAJIB keduanya:
+
+**Sisi A — daftar tell antislop-ui (tidak boleh ada)**: tanpa gradient blue-purple default, tanpa glass/glow berlebih, radius/shadow terdosis, palet maks 3 warna inti + 1 aksen, permukaan didominasi netral, palet default framework TIDAK dipakai sebagai identitas, mode terang/gelap punya alasan (bukan sekadar "techy"), tipografi bukan pilihan bawaan tanpa alasan, letter-spacing negatif di display besar.
+
+**Sisi B — Blandness Test (anti-hambar, wajib ADA — dari antislop-ui Liveliness Recipes)**: latar punya hue-lean yang dipilih (bukan putih/hitam netral polos), tone scale dipakai untuk memisahkan layer (bukan hanya hairline border), minimal satu rencana komposisi asimetris/beriwayat jika RHYTHM ≥ 2, ada satu beat warna/aksen pada momen kunci (bukan nol, bukan di mana-mana), skala tipografi punya minimal satu lompatan 3:1 antar level, motif identitas ditambang dari dunia produk (bentuk/kata kerja/aset brand — 3 pertanyaan mining Liveliness Recipes Recipe 6) dan direncanakan berulang di 3 skala. Lulus sisi A tapi gagal sisi B = desain steril ("clean tapi hambar") — TETAP FAIL, naikkan energi via Liveliness Recipes sebelum konfirmasi.
 
 ---
 

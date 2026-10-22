@@ -211,7 +211,7 @@ prd-warungpintar.md, plan-warungpintar.md, tasks-warungpintar.md — semua di .t
 | Section 5 (Architecture) | M008 + M009 | Arsitektur + Integrasi | Setelah konfirmasi user |
 | Section 6 (Database) | M010 | Database Schema | Setelah konfirmasi user |
 | Section 7 (Tech Stack) | M011 | Stack Final | Setelah konfirmasi user |
-| Section 8 (Design System) | M012 | Design Tokens 3 tingkat: primitif, semantik (per-mode terang/gelap), komponen + vibe, referensi, font+alasan, dial, dose caps | Setelah konfirmasi user |
+| Section 8 (Design System) | M012 | Design Tokens 3 tingkat: primitif, semantik (per-mode terang/gelap), komponen + vibe, referensi, anti-referensi, font+alasan, motif identitas, dial (ENERGY/RHYTHM/MOTION), dose caps + DESIGN.md diekspor | Setelah konfirmasi user |
 | Phase 2 selesai | M001 (update) | PRD Status + Plan | Setelah plan digenerate |
 | Phase 3 selesai | M001 (update) | PRD Status + Plan + Tasks | Setelah tasks digenerate |
 | Phase 4 selesai | M001 (update) | PRD Status + Plan + Tasks + Wireframe | Setelah wireframe digenerate |
@@ -291,8 +291,9 @@ Urutan 8 section (WAJIB berurutan):
 
 Setelah 8 section selesai:
 1. Generate `prd-[nama-proyek].md` menggunakan template dari `references/templates.md`
-2. Tampilkan ringkasan ke user
-3. Tawarkan chain: "Mau lanjut ke Implementation Plan dan Task Breakdown?"
+2. **Ekspor `DESIGN.md` ke root project** (WAJIB): distilasi Section 8 jadi file arah desain yang dibaca semua agent. Isi: identity (1 paragraf dari Overview), personality (vibe + referensi + anti-referensi), palette (token semantik terang/gelap), typography (pasangan font + alasan R-06 + skala), motif identitas (hasil mining Recipe 6 + 3 skala repetisi), larangan kunci (Sisi A gate), dan baris `Dial: ENERGY ?/RHYTHM ?/MOTION ?`. PRD tetap sumber detail; DESIGN.md = distilasi operasional harian. Bila `DESIGN.md` sudah ada (mis. dibuat via dev-design-context), UPDATE isinya dari PRD terbaru — jangan duplikat file.
+3. Tampilkan ringkasan ke user
+4. Tawarkan chain: "Mau lanjut ke Implementation Plan dan Task Breakdown?"
 
 ---
 
@@ -578,7 +579,7 @@ Detail chaining di `references/chain-guide.md`.
 | File | Isi | Kapan Dipakai |
 |------|-----|---------------|
 | `references/question-bank.md` | Bank pertanyaan adaptive per section | Phase 1 — saat menanyakan setiap section |
-| `references/templates.md` | Template PRD, Plan, Tasks, Wireframe | Phase 1-4 — saat generate output |
+| `references/templates.md` | Template PRD, DESIGN.md, Plan, Tasks, Wireframe | Phase 1-4 — saat generate output |
 | `references/chain-guide.md` | Cara chain antar phase & skill lain | Setelah Phase 3 — saat user mau lanjut |
 | `examples/example-prd.md` | Contoh PRD lengkap | Referensi format yang benar |
 
@@ -590,7 +591,7 @@ Detail chaining di `references/chain-guide.md`.
 Phase 0: Ice Break (nama, ide, prioritas)
     ↓
 Phase 1: PRD (Overview → Requirements → Features → Flow+EdgeState → Architecture → Database → Tech Stack → Design System)
-    ↓ Output: prd-[nama-proyek].md (8 section)
+    ↓ Output: prd-[nama-proyek].md (8 section) + DESIGN.md (ekspor root project)
 Phase 2: Implementation Plan (fase urut + dependency + complexity + Design QA tasks)
     ↓ Output: plan-[nama-proyek].md
 Phase 3: Task Breakdown (checklist - [ ] dengan tracking)
@@ -618,6 +619,8 @@ Chain: frontend-design / TDD / Context7 / web-design-guidelines (Design QA)
 - WAJIB tawarkan chain ke Phase berikutnya setelah Phase 3 selesai
 - WAJIB lakukan 4-cek anti-typo (ejaan, konsistensi, format, logika) sebelum generate file
 - DILARANG desain/coding UI tanpa Design System yang sudah dikonfirmasi (PRD Section 8) — kecuali user eksplisit bilang skip
+- DILARANG selesaikan PRD tanpa ekspor `DESIGN.md` ke root project (distilasi Section 8, Template 1b) — file itu kontrak desain yang dibaca antislop dan semua agent UI
+- DILARANG menganggap Section 8 lolos gate hanya karena bebas larangan (Sisi A) — Blandness Test (Sisi B, anti-hambar) WAJIB juga lulus
 - DILARANG menulis hex/nilai mentah langsung di komponen UI — semua via token semantik (Design Tokens 3 Tingkat)
 - DILARANG memakai font/ikon set "bawaan AI" (Inter/Geist/Space Grotesk, Lucide dkk) tanpa alasan brand tertulis — kecuali mengikuti referensi user
 - DILARANG melewati dose caps antislop (glass/glow maks 1–2 elemen, shadow hanya yang terangkat, radius membedakan kategori, tanpa loop motion)

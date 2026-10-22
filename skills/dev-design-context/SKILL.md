@@ -42,6 +42,7 @@ baseline 与本 skill 的关联点:
 
 Before asking questions, scan the project to discover what can be inferred:
 
+- **DESIGN.md in the project root (highest priority)**: if present, it is the project's design direction contract (usually exported from a PRD via `prd-builder`). Read it first, treat it as authoritative direction, and skip every question it already answers. Do not re-ask, do not contradict it; if something in it is unclear, ask about that specific gap only.
 - **README and docs**: project purpose, target audience, and stated goals
 - **Package / config files**: tech stack, dependencies, and design libraries
 - **Existing components**: layout patterns, spacing, typography, component conventions
@@ -101,6 +102,8 @@ Synthesize the codebase findings and the user's answers into this section:
 ```
 
 Write this section to `.design-context.md` in the project root. If the file already exists, update the `## Design Context` section in place instead of duplicating it.
+
+If a `DESIGN.md` exists in the project root, the `.design-context.md` output must NOT duplicate its content. Instead, `.design-context.md` should reference it: keep the `## Design Context` section short, state that `DESIGN.md` is the authoritative direction source, and add only what DESIGN.md does not cover (implementation-level conventions found in the codebase, accessibility constraints, and the 3-5 derived design principles). One direction, one file: DESIGN.md holds the direction; `.design-context.md` holds the working summary plus codebase facts.
 
 Then ask the user whether they also want the same Design Context appended to `.github/copilot-instructions.md`. If yes, append or update that section there as well.
 

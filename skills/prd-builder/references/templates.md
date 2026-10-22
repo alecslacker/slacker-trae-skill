@@ -196,8 +196,10 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 ### Arah Estetika
 - **Vibe**: [Q8.1 — contoh: Minimalis premium]
 - **Referensi**: [Q8.2 — website/aplikasi acuan + hasil analisis screenshot jika ada]
+- **Anti-referensi**: [apa yang JANGAN seperti — tanyakan bila user belum menyebut]
 - **Mode**: [Q8.3 — terang/gelap/keduanya + ALASAN mode ini dipilih (bukan default "techy")]
-- **Dial**: RHYTHM [1-3] · MOTION [1-3] (ditetapkan dari vibe)
+- **Motif Identitas**: [hasil mining Recipe 6 antislop-ui: bentuk/kata kerja/aset brand yang dipilih + alasan + rencana repetisi 3 skala]
+- **Dial**: ENERGY [1-3] · RHYTHM [1-3] · MOTION [1-3] (ditetapkan dari vibe)
 
 ### Design Tokens — Tingkat 1: Primitif (nilai mentah, tanpa makna)
 | Token | Nilai | Catatan |
@@ -275,13 +277,66 @@ File ini berisi template untuk semua 4 dokumen yang dihasilkan oleh skill. Gunak
 - Shadow: low-alpha lembut (ala Tailwind default `0 1px rgb(0 0 0 / 0.05)`), BUKAN glow/gelap pekat
 - Motion: easing non-linear (cubic-bezier), durasi dari token motion; bukan linear mentah
 
-### Larangan Desain (Anti-Slop — gate LULUS sebelum section dikonfirmasi)
+### Gate Desain (LULUS sebelum section dikonfirmasi — dua sisi, wajib keduanya)
+
+**Sisi A — Larangan (Anti-Slop — tidak boleh ada)**:
 - TIDAK ada gradient blue-purple/glow/glass page-wide tanpa tujuan tertulis
 - TIDAK ada font generik tanpa alasan brand eksplisit
 - TIDAK ada drop shadow berlapis tanpa elevation system
 - TIDAK ada emoji dekoratif, ikon sparkle/magic, atau left-stripe tanpa makna
 - TIDAK ada placeholder "Lorem ipsum" — semua copy realistis Bahasa Indonesia natural
 - TIDAK ada mode gelap tanpa alasan; TIDAK ada palet lebih dari 3 warna inti + 1 aksen
+
+**Sisi B — Blandness Test (anti-hambar — wajib ADA)**:
+- Latar punya hue-lean yang dipilih (bukan putih/hitam netral polos)
+- Tone scale memisahkan layer (bukan hanya hairline border)
+- Minimal satu komposisi asimetris/beriwayat bila RHYTHM ≥ 2
+- Satu beat warna/aksen pada momen kunci (bukan nol, bukan di mana-mana)
+- Skala tipografi punya minimal satu lompatan 3:1 antar level
+- [Motif identitas + alasan mining-nya + 3 skala repetisi]
+
+> Lulus Sisi A tapi gagal Sisi B = desain steril — TETAP FAIL. Perbaiki via Liveliness Recipes (antislop-ui) sebelum konfirmasi.
+```
+
+---
+
+## Template 1b: DESIGN.md (Ekspor Distilasi — WAJIB saat PRD selesai)
+
+**Nama file**: `DESIGN.md` (di ROOT project, bukan `.trae/documents/` — supaya semua agent menemukannya)
+
+**Sumber**: distilasi PRD Section 8. PRD = sumber detail lengkap; DESIGN.md = arah desain operasional harian yang dibaca antislop, dev-design-context, dan agent UI lain. Jangan tulis nilai yang tidak ada di PRD — semua harus bisa dilacak ke Section 8. Bila file sudah ada, UPDATE in place.
+
+```markdown
+# DESIGN.md — [Nama Proyek]
+
+> Distilasi dari PRD Section 8 (prd-[nama-proyek].md). Sumber detail tetap PRD.
+> File ini dibaca oleh agent sebelum kerja UI apa pun di project ini.
+
+## Identity
+[1 paragraf dari PRD Overview: produk apa, untuk siapa, satu kata perasaan yang ditimbulkan]
+
+## Personality
+- Vibe: [dari Q8.1]
+- Referensi: [Q8.2 — apa yang disukai dari masing-masing]
+- Anti-referensi: [apa yang JANGAN seperti + kenapa]
+
+## Palette
+[Tabel token semantik dari Tingkat 2 — terang/gelap. Tanpa penjelasan panjang, cukup tabel]
+
+## Typography
+- Pasangan: [display + UI/body] — alasan: [R-06]
+- Skala: [ringkas — h1/body/caption + ukuran]
+- Aturan: display letter-spacing negatif; maks 2 keluarga + 1 mono
+
+## Identity Motif
+- Motif: [bentuk/kata kerja/aset brand hasil mining Recipe 6]
+- Alasan: [kenapa motif ini milik produk ini]
+- Repetisi: [micro: ...] · [mid: ...] · [macro: ...]
+
+## Larangan Kunci (Sisi A gate)
+[5-6 larangan terpenting dari PRD Section 8 — versi ringkas]
+
+Dial: ENERGY [1-3] / RHYTHM [1-3] / MOTION [1-3]
 ```
 
 ---
