@@ -67,7 +67,7 @@
                         "repo":  "morluto/rea",
                         "metode":  "latest_tag",
                         "juga_mencakup":  [],
-                        "catatan":  "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents — update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21. Ditambahkan 2026-10-23.",
+                        "catatan":  "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents — update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21 + JAR JADX 0.7.1 (github.com/1013503897/jadx-headless-mcp, SHA-256 diverifikasi). Setup ulang komputer lain: scripts/install-rea.ps1. Ditambahkan 2026-10-23.",
                         "terakhir_dicek":  "2026-10-23",
                         "upstream_terakhir":  "v6.7.0"
                     }
