@@ -144,7 +144,17 @@ Satu proyek, tiga cara bayar. Tanyakan via `AskUserQuestion` ("Skema mana yang c
 |-------|-------------|----------|
 | **One-time** | Klien beranggaran penuh (instansi/korporasi dengan dana siap) | 100% nilai proyek: DP 50% awal + 50% serah terima (2 transaksi). Termasuk garansi bug 30 hari |
 | **Termin bertahap** | Klien menengah — arus kas terbatas tapi proyek tetap sekali bayar | Nilai proyek dipecah 3-5 termin mengikuti milestone PRD (mis. 30/40/30 atau 25/25/25/25). Tiap termin = milestone terverifikasi. Total = sama dengan one-time (tanpa bunga) |
-| **Langganan bulanan** | Klien kecil/UMKM — modal terbatas, tapi butuh sistem berkelanjutan | Uang muka kecil (default 1× biaya bulanan) + bulanan tetap selama tenor. Tenor default 12 bulan; total = nilai proyek + premi langganan (default +15-25% sebagai kompensasi penundaan kas & risiko). SUDAH TERMASUK pemeliharaan aktif selama tenor (nilai tambah nyata, bukan sekadar cicilan) |
+| **Langganan bulanan** | Klien kecil/UMKM — modal terbatas, tapi butuh sistem berkelanjutan | Uang muka kecil (default 1× biaya bulanan) + bulanan tetap selama tenor. **Tenor MINIMAL 6 bulan** (di bawah itu cicilannya sama beratnya dengan bayar sekali — skema kehilangan fungsi); **default 12 bulan** (titik manis: cicilan ringan + recurring setahun penuh). Total = nilai proyek + premi langganan sesuai skala tenor (lihat bawah). SUDAH TERMASUK pemeliharaan aktif selama tenor (nilai tambah nyata, bukan sekadar cicilan) |
+
+**Skala premi per tenor** (makin panjang makin murah per bulan — insentif kontrak panjang):
+
+| Tenor | Premi | Catatan |
+|-------|-------|---------|
+| 6 bulan (MINIMUM) | +25% | tenor pendek = risiko & admin terkonsentrasi |
+| 12 bulan (DEFAULT) | +20% | titik manis; ROU klien biasanya baru terasa setelah 3-6 bulan pemakaian |
+| 18-24 bulan | +15% | terbaik untuk recurring revenue; tawarkan aktif |
+
+**Klausul pengaman tenor panjang (WAJIB di dokumen klien skema C)**: sampai lunas, **aplikasi berjalan di server yang dikelola DCI + domain/akun layanan atas nama DCI**; setelah lunas (tenor habis atau pelunasan dini) → migrasi penuh ke milik klien. Ini menyeimbangkan: klien dapat sistem sejak bulan 1, kita tidak menanggung risiko tagihan 11 bulan tanpa jaminan.
 
 **Aturan simulasi** (WAJIB tampilkan sebelum user pilih):
 - Hitung ketiganya dari total Fase 3 (konversi IDR pakai kurs aktif)
@@ -210,7 +220,9 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 - DILARANG memasukkan fee per-transaksi (payment gateway) sebagai biaya tetap — itu catatan operasional
 - DILARANG menawarkan skema pembayaran tanpa simulasi angka ketiganya (one-time vs termin vs langganan) — user memilih berdasarkan angka, bukan narasi
 - DILARANG skema langganan tanpa klausul pelunasan dini + kejelasan kepemilikan sistem setelah lunas
-- DILARANG premi langganan > 25% tanpa persetujuan eksplisit user (keadilan harga vs klien kecil)
+- DILARANG skema langganan dengan tenor di bawah 6 bulan (skema kehilangan fungsi); default 12 bulan
+- DILARANG premi di luar skala tenor (6 bln +25% · 12 bln +20% · 18-24 bln +15%) tanpa persetujuan eksplisit user
+- WAJIB klausul "hosting di sisi DCI sampai lunas" (server + domain atas nama DCI, migrasi pasca-lunas) pada skema langganan — klien dapat sistem sejak bulan 1, risiko tagihan panjang terlindungi
 - WAJIB skema termin mengikat milestone terverifikasi (PRD) per termin — tidak ada termin tanpa deliverable
 - WAJIB catat skema terpilih ke project memory
 - DILARANG mengasumsikan operator tambahan — default solo 8 jam/hari; operator lain hanya bila user menyatakan

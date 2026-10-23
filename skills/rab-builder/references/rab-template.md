@@ -190,15 +190,16 @@ Setiap termin ditagih setelah milestone terkait diverifikasi bersama. Garansi bu
 | Komponen | Nilai |
 |----------|-------|
 | Uang muka | Rp[X.XXX.XXX] (1× bulanan) — saat penandatanganan |
-| Biaya bulanan | Rp[X.XXX.XXX]/bulan, selama [12] bulan |
-| Total selama tenor | Rp[X.XXX.XXX] *(selisih Rp[X] vs sekali bayar = biaya fleksibilitas skema)* |
+| Biaya bulanan | Rp[X.XXX.XXX]/bulan, selama [6/12/18/24] bulan |
+| Total selama tenor | Rp[X.XXX.XXX] *(termasuk biaya fleksibilitas skema [XX]% — tenor [6/12/18-24] bulan)* |
 
 **Termasuk dalam langganan selama tenor**: pengembangan sistem sesuai ruang lingkup, hosting & infrastruktur, serta **pemeliharaan aktif** (pemantauan, pembaruan, perbaikan, dukungan teknis) — sistem terawat penuh tanpa biaya tambahan.
 
 **Ketentuan langganan**:
 - Keterlambatan [2] bulan berturut-turut = layanan penanganan data dihentikan sementara hingga tertagih (data tetap aman, tidak dihapus)
 - Pelunasan dini: sisa pokok dibayar sekaligus, premi sisa tenor dihapus
-- Setelah lunas (tenor habis ATAU pelunasan dini): **sistem menjadi milik penuh [Nama Klien]**; biaya pemeliharaan lanjutan opsional sesuai kesepakatan
+- Selama masa tenor: **aplikasi berjalan di server yang dikelola PT Duta Corpora Indonesia dan domain/akun layanan terdaftar atas nama perusahaan** — [Nama Klien] menggunakan sistem penuh sejak bulan pertama
+- Setelah lunas (tenor habis ATAU pelunasan dini): **sistem, data, dan akses bermigrasi penuh menjadi milik [Nama Klien]**; biaya pemeliharaan lanjutan opsional sesuai kesepakatan
 
 ### Ketentuan Umum (semua skema)
 

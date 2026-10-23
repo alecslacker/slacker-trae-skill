@@ -31,6 +31,17 @@
 - Bila user minta diskon: batas sehat = jangan di bawah 2× harga pokok tanpa persetujuan eksplisit (tetap ada buffer rework).
 - Kecepatan vibe coding = daya saing utama: klien dibayar per hasil, kita selesai cepat → margin sehat + kapasitas proyek paralel lebih banyak per bulan.
 
+**Skala premi skema langganan (per tenor)**:
+
+| Tenor | Premi | Keterangan |
+|-------|-------|------------|
+| 6 bulan | +25% | MINIMUM tenor — di bawah ini skema kehilangan fungsi (cicilan sama berat dengan bayar sekali) |
+| 12 bulan | +20% | DEFAULT — cicilan ringan, recurring setahun penuh |
+| 18-24 bulan | +15% | terbaik utk recurring revenue; tawarkan aktif ke klien |
+
+- Rumus bulanan: `bulanan = ceil((nilai_jual + premi%) / tenor)` — pembulatan ke ribuan terdekat.
+- Klausul wajib dokumen: hosting di server DCI + domain atas nama DCI selama tenor; migrasi penuh ke klien setelah lunas (tenor habis atau pelunasan dini, premi sisa dihapus).
+
 ## G. Overhead Operasional (alokasi ke proyek)
 
 | Item | Nilai | Per | Status | dicek |
