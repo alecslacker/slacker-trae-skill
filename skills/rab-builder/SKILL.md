@@ -42,7 +42,11 @@ Dokumen RAB disesuaikan dengan nama aplikasi dan nama klien. Kumpulkan:
    - **RAB internal** — kerja lengkap: semua komponen + asumsi + jejak harga (tidak dikirim ke klien)
    - **Penawaran klien** — dokumen resmi: kop PT, intro, judul per klien, komponen biaya klien-facing (metode & AI internal TIDAK tampil)
    - **Keduanya** — hitung sekali (internal), render dua output
-4. Simpan jawaban; seluruh fase berikutnya otomatis memakai nama ini.
+4. **Segmen pasar klien** (`AskUserQuestion`) — menentukan kolom harga jual (katalog paket nilai punya 2 kolom):
+   - **Lokal Blitar/Jatim** — UMKM, desa, lembaga daerah, sekolah, usaha lokal (harga pasar lokal, harga-sensitif)
+   - **Korporasi nasional** — bank, BUMN, lembaga nasional, perusahaan besar (harga nasional)
+   - **Lainnya/ragu** → tanyakan skala organisasi + lokasi; default lokal bila berbasis Blitar/Jatim
+5. Simpan jawaban; seluruh fase berikutnya otomatis memakai nama + segmen ini.
 
 Basis identitas perusahaan (kop, intro, kredibilitas) ambil dari `references/company-profile.md` — jangan karang data PT.
 

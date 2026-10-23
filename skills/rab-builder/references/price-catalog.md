@@ -20,14 +20,25 @@
 
 **Harga paket nilai (harga jual ke klien — dasar penawaran)**:
 
-| Kategori | Durasi kerja (Fase 2) | Harga jual | Catatan |
-|----------|------------------------|------------|---------|
-| MVP kecil | 2-4 hari | Rp15-25 juta | positioning: "sistem siap pakai dalam hitungan hari" |
-| Aplikasi sedang | 1-2 minggu | Rp30-60 juta | |
-| Aplikasi besar | 3-6 minggu | Rp80-150 juta | |
-| Enterprise | 2-3 bulan | nego khusus (mulai Rp150 juta) | |
+> Basis lokasi: **Kabupaten Blitar, Jawa Timur** (riset pasar 2026-10-23). DCI layani DUA pasar: lokal Blitar/Jatim (UMKM, desa, lembaga) dan korporasi nasional (bank, LAZISNasional). Pilih kolom berdasarkan segmen klien dari Fase 0.
 
-- Aturan: harga jual = paket nilai (kecuali user override). Harga pokok TIDAK pernah ditampilkan ke klien.
+| Tier | Durasi kerja | Pasaran Blitar/Jatim lokal | Korporasi nasional | Catatan |
+|------|--------------|----------------------------|--------------------|---------|
+| Entry (web profil/toko sederhana) | 1-2 hari | Rp4-7 juta | Rp7-12 juta | kompetitor lokal (Divasoft Blitar) jual Rp4,5jt; template marketplace Rp200rb-1jt — nilai jual kita: sistem custom + badan hukum + pemeliharaan |
+| MVP kecil | 2-4 hari | Rp8-15 juta | Rp15-25 juta | positioning lokal: "sistem siap pakai dalam hitungan hari" |
+| Aplikasi sedang | 1-2 minggu | Rp18-35 juta | Rp30-60 juta | |
+| Aplikasi besar | 3-6 minggu | Rp50-100 juta | Rp80-150 juta | |
+| Enterprise | 2-3 bulan | nego (mulai Rp100 juta) | nego (mulai Rp150 juta) | SLA/multi-modul |
+
+**Konteks pasar yang mendasari (dicek 2026-10-23, verifikasi ulang >6 bulan)**:
+- UMK Kab. Blitar 2026: Rp2.567.744 (naik 6,37%); gaji programmer Malang median ~Rp3,8jt/bln; IT Jatim rata-rata Rp4,2jt
+- PDRB Blitar Rp51 T — agraris (pertanian 30,3%), kemiskinan 7,57% → pasar lokal harga-sensitif; korporasi (BPD Jatim, LAZISNU) sanggup harga nasional
+- Kompetitor: Divasoft Blitar web jadi Rp4,5jt; Malang toko online Rp3-10jt; web desa OpenSID Rp2,3jt; freelancer template Rp200rb-1jt
+- **Dana Desa Blitar 2026 anjlok**: rata-rata ~Rp350jt/desa (dari >Rp1 M); belanja TI wajar desa Rp3,5-10jt/tahun → skema langganan = senjata utama segmen desa saat ini
+- Margin check (lokal, MVP): jual Rp10jt vs pokok ~Rp3jt = margin ~70% — sehat
+- Langganan lokal MVP: Rp10jt +20% → ~Rp1jt/bln × 12 = 39% UMK — terjangkau, terendah di pasar untuk custom + maintenance
+
+- Aturan: harga jual = paket nilai kolom segmen klien (kecuali user override). Harga pokok TIDAK pernah ditampilkan ke klien.
 - Bila user minta diskon: batas sehat = jangan di bawah 2× harga pokok tanpa persetujuan eksplisit (tetap ada buffer rework).
 - Kecepatan vibe coding = daya saing utama: klien dibayar per hasil, kita selesai cepat → margin sehat + kapasitas proyek paralel lebih banyak per bulan.
 
