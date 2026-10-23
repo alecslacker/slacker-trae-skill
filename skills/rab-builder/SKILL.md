@@ -72,20 +72,24 @@ Ekstrak ke **Tabel Stack** (tampilkan ke user untuk konfirmasi):
 
 Klasifikasikan scope dari jumlah fitur (PRD Section 3) dan kompleksitas:
 
-| Kategori | Ciri | Durasi vibe coding |
-|----------|------|--------------------|
-| **Prototip/MVP kecil** | 3-5 fitur CRUD sederhana, 1 role, tanpa pembayaran | 1-2 minggu |
-| **Aplikasi sedang** | 6-10 fitur, auth multi-role, 1-2 integrasi (pembayaran/email) | 3-6 minggu |
-| **Aplikasi besar** | 10+ fitur, multi-role kompleks, integrasi banyak, laporan/analitik | 2-3 bulan |
-| **Sistem enterprise** | multi-modul, migrasi data, SLA, audit | 3+ bulan (pecah per modul) |
+**Premis durasi**: pengerjaan FULL vibe coding — Mas Wondho hanya memberi ide, arah, dan prompt; AI yang menulis seluruh kode. Kecepatan botleneck BUKAN mengetik kode, melainkan: loop prompt→review→koreksi (manusia memverifikasi hasil), kejelasan PRD (prompt dari rancangan yang jelas = iterasi sedikit), dan kompleksitas verifikasi (QA, integrasi, edge case tetap butuh ketelitian manusia).
+
+| Kategori | Ciri | Durasi vibe coding (full AI) |
+|----------|------|------------------------------|
+| **Prototip/MVP kecil** | 3-5 fitur CRUD sederhana, 1 role, tanpa pembayaran | 2-4 hari |
+| **Aplikasi sedang** | 6-10 fitur, auth multi-role, 1-2 integrasi (pembayaran/email) | 1-2 minggu |
+| **Aplikasi besar** | 10+ fitur, multi-role kompleks, integrasi banyak, laporan/analitik | 3-6 minggu |
+| **Sistem enterprise** | multi-modul, migrasi data, SLA, audit | 2-3 bulan (pecah per modul) |
 
 **Faktor pengali durasi** (jumlahkan bila relevan, sebutkan eksplisit):
-- Desain custom tinggi (bukan shadcn default): +20-30%
-- Migrasi data dari sistem lama: +15-25%
-- Integrasi pembayaran + webhook + rekonsiliasi: +10-20%
-- Kurang dari PRD lengkap (hanya deskripsi): +25-40% (risiko rework)
+- Desain custom tinggi (bukan shadcn default): +15-25% (iterasi prompt visual lebih banyak, bukan jam koding)
+- Migrasi data dari sistem lama: +15-25% (verifikasi & mapping data tetap kerja teliti)
+- Integrasi pembayaran + webhook + rekonsiliasi: +10-20% (pengujian end-to-end wajib)
+- Kurang dari PRD lengkap (hanya deskripsi): +20-30% (prompt ambigu = iterasi balik banyak)
 
-**Gate Fase 2**: tampilkan kategori + durasi + faktor → konfirmasi user. Durasi inilah yang mengalikan biaya langganan AI.
+**Konsekuensi ekonomi (WAJIB dipahami, JANGAN keliru)**: durasi pendek menurunkan HARGA POKOK internal (jasa = jam × tarif mengecil, langganan AI prorata mengecil) — tapi HARGA JUAL ke klien TIDAK ikut turun otomatis, karena dokumen klien memakai harga paket berbasis NILAI (katalog: MVP Rp15-25jt dst.), bukan tarif jam. Selisihnya = margin. RAB internal mencatat harga pokok yang jujur; penawaran klien memakai harga paket — dua angka berbeda itu disengaja dan sehat.
+
+**Gate Fase 2**: tampilkan kategori + durasi + faktor → konfirmasi user. Durasi inilah yang mengalikan biaya langganan AI dan jam jasa.
 
 ### Fase 3 — Susun Komponen Biaya
 
@@ -107,11 +111,12 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 - Subscription berbayar (Resend, Cloudinary, dll) selama periode RAB
 - Payment gateway: catat fee per transaksi sebagai CATATAN operasional (bukan biaya tetap RAB)
 
-**E. Jasa Pengembang (solo, 8 jam/hari — KOMPONEN HITUNG NYATA, bukan $0)**
-- Model kerja: Mas Wondho solo full-time 8 jam/hari, memikirkan seluruh proses (analisis, perancangan, coding, QA, manajemen, komunikasi klien)
-- Durasi kerja: 5 hari kerja/minggu × durasi_minggu × 8 jam = total jam kerja
-- Tarif jasa: dari `references/price-catalog.md` (tarif default + cara override per klien/proyek). Total jasa = tarif_per_jam × total_jam — atau tarif paket per kategori durasi (lihat katalog)
-- Jasa ini adalah KOMPONEN HARGA POKOK internal: menentukan nilai "Biaya Pengembangan Sistem" di dokumen klien (bersama A+F). Agent TIDAK menyarankan menjual di bawah harga pokok
+**E. Jasa Pengembang (solo — full vibe coding: ide + prompt + verifikasi)**
+- Model kerja: Mas Wondho 8 jam/hari memberi ide, arah, prompt, dan memverifikasi hasil AI; AI menulis seluruh kode
+- **Dua angka, dua peran (dari katalog)**: (1) HARGA POKOK internal = tarif_jam (default Rp75.000, peran prompter/verifier) × total jam — komponen RAB internal; (2) HARGA JUAL = paket nilai per kategori (MVP Rp15-25jt dst.) — angka yang masuk dokumen klien sebagai "Biaya Pengembangan Sistem". Selisih = margin, disengaja
+- Total jam kerja: 5 hari/minggu × durasi (dari Fase 2, durasi vibe coding yang pendek) × 8 jam
+- Harga jual TIDAK dihitung dari jam — jangan pernah tampilkan tarif jam ke klien
+- Agent WAJIB tampilkan kedua angka di RAB internal (pokok vs jual + margin %) agar user lihat kesehatan proyek
 - Operator tambahan (bila ada): input dari user, jangan diasumsikan
 
 **F. Contingency** — default 15% dari A+E (rework, scope creep, iterasi desain). Konfirmasi user.
@@ -173,7 +178,7 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 | C1. Server produksi | "Infrastruktur & Penyelenggaraan — Server" (biaya nyata klien, tetap rinci) |
 | C2. Domain | "Infrastruktur & Penyelenggaraan — Domain" (baris terpisah; hapus bila klien pakai domain sendiri) |
 | D. Layanan pihak ketiga | tetap rinci |
-| E. Jasa pengembang (tarif × jam) | melebur ke "Biaya Pengembangan Sistem" |
+| E. Jasa (pokok = Rp75rb×jam; JUAL = paket nilai) | "Biaya Pengembangan Sistem" diisi HARGA JUAL paket (bukan tarif jam) |
 | F. Contingency | melebur ke "Biaya Pengembangan Sistem" (atau baris "Cadangan Operasional") |
 | G. Overhead listrik+internet | melebur ke "Biaya Pengembangan Sistem" — DILARANG tampil sebagai baris klien |
 

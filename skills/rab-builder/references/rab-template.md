@@ -56,22 +56,25 @@ Durasi: [X minggu] · Kategori: [MVP/sedang/besar/enterprise] · Contingency [15
 |------|---------|----------|
 | [mis. Resend Pro] | [3 bln] | $[X] |
 
-### E. Jasa Pengembang (solo 8 jam/hari × 5 hari/minggu)
+### E. Jasa Pengembang (solo — ide + prompt + verifikasi, AI menulis kode)
 | Parameter | Nilai |
 |-----------|-------|
-| Total jam kerja | [X minggu] × 40 jam = [X] jam |
-| Tarif | Rp[X]/jam (default katalog Rp150.000 — atau paket: [sebutkan bila dipakai]) |
-| **Subtotal jasa** | **Rp[X]** |
+| Total jam kerja | [X hari] × 8 jam = [X] jam |
+| Tarif harga pokok | Rp[X]/jam (default Rp75.000) |
+| **Harga pokok jasa** | **Rp[X]** |
+| **Harga jual (paket nilai kategori [X])** | **Rp[X]** ← angka ini ke dokumen klien |
 
-### F. Contingency (15% dari A+E): $[X] / Rp[X]
+### F. Contingency (15% dari A+E_pokok): $[X] / Rp[X]
 
-### G. Overhead Operasional (prorata [X bulan])
+### G. Overhead Operasional (prorata [X hari/bulan])
 | Item | Per bulan | Durasi | Subtotal |
 |------|-----------|--------|----------|
-| Listrik | Rp400.000 | [X bln] | Rp[X] |
-| Internet | Rp350.000 | [X bln] | Rp[X] |
+| Listrik | Rp400.000 | [X] | Rp[X] |
+| Internet | Rp350.000 | [X] | Rp[X] |
 
-### TOTAL: A $[X] + B $0 + C1 $[X] + C2 $[X] + D $[X] + E Rp[X] + F Rp[X] + G Rp[X] = **$[X] + Rp[X]** (gabung kurs: Rp[total])
+### HARGA POKOK TOTAL (internal): A + C1 + C2 + D + E_pokok + F + G = Rp[X]
+### HARGA JUAL TOTAL (ke klien): E_jual + C1 + C2 + D = Rp[X]
+### MARGIN: Rp[X] ([XX]%) — sehat bila ≥ 50% dari harga jual proyek vibe coding
 
 ## 4. Asumsi
 - Durasi [X minggu] — basis: [fitur + faktor pengali]

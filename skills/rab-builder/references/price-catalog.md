@@ -4,16 +4,32 @@
 > Aturan: tanggal cek > 3 bulan ATAU bertanda **VERIFIKASI LIVE** → WAJIB verifikasi ulang via WebSearch sebelum dipakai di RAB.
 > Jangan pernah mengarang harga yang tidak ada di katalog ini tanpa verifikasi live.
 
-## E. Jasa Pengembang (solo — Mas Wondho, 8 jam/hari, 5 hari/minggu)
+## E. Jasa Pengembang (solo — Mas Wondho, full vibe coding: ide + prompt + verifikasi)
 
-> Basis harga pokok internal. Tampil ke klien hanya sebagai bagian "Biaya Pengembangan Sistem".
+> Dua angka BERBEDA dengan peran berbeda — jangan dicampur:
+> **Harga pokok internal** = tarif × jam (kecil, karena AI yang menulis kode) → dasar RAB internal.
+> **Harga paket nilai** = harga jual ke klien → dasar penawaran. Selisih = margin.
+
+**Harga pokok internal** (basis: peran manusia = ide, prompting, review, verifikasi — bukan koding manual):
 
 | Parameter | Nilai | Catatan |
 |-----------|-------|---------|
-| Jam kerja efektif | 40 jam/minggu (8 × 5) | basis hitung |
-| Tarif default | Rp150.000/jam | SETARA USER-OVERRIDABLE — konfirmasi tiap RAB; naikkan untuk kompleksitas tinggi/enterprise, turunkan untuk komunitas/kenalan (keputusan user) |
-| Paket per durasi (alternatif tarif×jam) | MVP kecil (1-2 bln): Rp15-25 juta · Sedang (1-5 bln): Rp30-60 juta · Besar (2-3 bln): Rp80-150 juta · Enterprise: nego khusus | sanity check: bandingkan hasil tarif×jam vs paket; pilih yang lebih masuk akal per proyek, sebutkan pemilihan |
-| Asumsi utilisation | 100% ke satu proyek aktif | proyek paralel → jasa dibagi per proyek secara proporsional durasi |
+| Jam kerja efektif | 40 jam/minggu (8 × 5) | sesi prompting + review + verifikasi + komunikasi klien |
+| Tarif harga pokok | Rp75.000/jam | USER-OVERRIDABLE per RAB — peran prompter/verifier, bukan developer manual; angka pokok boleh kecil karena volume jual ditentukan paket nilai |
+| Total pokok contoh | MVP 3 hari (24 jam): Rp1,8 jt · Sedang 1,5 bln (60 jam): Rp4,5 jt · Besar 1 bln (160 jam): Rp12 jt | turun otomatis karena durasi vibe coding pendek |
+
+**Harga paket nilai (harga jual ke klien — dasar penawaran)**:
+
+| Kategori | Durasi kerja (Fase 2) | Harga jual | Catatan |
+|----------|------------------------|------------|---------|
+| MVP kecil | 2-4 hari | Rp15-25 juta | positioning: "sistem siap pakai dalam hitungan hari" |
+| Aplikasi sedang | 1-2 minggu | Rp30-60 juta | |
+| Aplikasi besar | 3-6 minggu | Rp80-150 juta | |
+| Enterprise | 2-3 bulan | nego khusus (mulai Rp150 juta) | |
+
+- Aturan: harga jual = paket nilai (kecuali user override). Harga pokok TIDAK pernah ditampilkan ke klien.
+- Bila user minta diskon: batas sehat = jangan di bawah 2× harga pokok tanpa persetujuan eksplisit (tetap ada buffer rework).
+- Kecepatan vibe coding = daya saing utama: klien dibayar per hasil, kita selesai cepat → margin sehat + kapasitas proyek paralel lebih banyak per bulan.
 
 ## G. Overhead Operasional (alokasi ke proyek)
 
