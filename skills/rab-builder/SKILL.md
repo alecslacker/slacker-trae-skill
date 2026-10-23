@@ -201,6 +201,8 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 | F. Contingency | melebur ke "Biaya Pengembangan Sistem" (atau baris "Cadangan Operasional") |
 | G. Overhead listrik+internet | melebur ke "Biaya Pengembangan Sistem" — DILARANG tampil sebagai baris klien |
 
+**Renewal tahun ke-2+ (WAJIB di setiap RAB berbasis langganan)**: RAB langganan hanya menutup tahun ke-1 — dokumen WAJIB menyertakan proyeksi tahun ke-2 dari katalog (server renewal + domain + tier retainer maintenance Basic/Standar/Pro). Tawarkan dua opsi server: bundled di DCI (satu invoice) atau akun sendiri klien (DCI hanya tagih retainer). Posisi di dokumen: section "Pemeliharaan & Tahun Berikutnya" — bukan bagian total tahun ke-1. Ini juga pintu upsell retainer, backbone recurring DCI.
+
 ---
 
 ## Integrasi
@@ -227,6 +229,7 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 - DILARANG skema langganan dengan tenor di bawah 6 bulan (skema kehilangan fungsi); default 12 bulan
 - DILARANG premi di luar skala tenor (6 bln +25% · 12 bln +20% · 18-24 bln +15%) tanpa persetujuan eksplisit user
 - WAJIB klausul "hosting di sisi DCI sampai lunas" (server + domain atas nama DCI, migrasi pasca-lunas) pada skema langganan — klien dapat sistem sejak bulan 1, risiko tagihan panjang terlindungi
+- WAJIB dokumen berbasis langganan menyertakan section "Pemeliharaan & Tahun Berikutnya" (server renewal + domain + tier retainer dari katalog) — RAB yang berhenti di tahun ke-1 = RAB tidak lengkap
 - WAJIB skema termin mengikat milestone terverifikasi (PRD) per termin — tidak ada termin tanpa deliverable
 - WAJIB catat skema terpilih ke project memory
 - DILARANG mengasumsikan operator tambahan — default solo 8 jam/hari; operator lain hanya bila user menyatakan

@@ -53,6 +53,30 @@
 - Rumus bulanan: `bulanan = ceil((nilai_jual + premi%) / tenor)` — pembulatan ke ribuan terdekat.
 - Klausul wajib dokumen: hosting di server DCI + domain atas nama DCI selama tenor; migrasi penuh ke klien setelah lunas (tenor habis atau pelunasan dini, premi sisa dihapus).
 
+## Tahun Kedua & Berikutnya — Renewal (WAJIB dihitung di setiap RAB berbasis langganan)
+
+> RAB langganan 12 bulan hanya menutup tahun ke-1. Tahun ke-2+ = paket RENEWAL terpisah: biaya nyata (server + domain) + retainer maintenance. Ini juga model recurring revenue backbone DCI (belasan klien retainer aktif terbukti 2024-2025).
+
+### Komponen renewal (per tahun ke-2+)
+
+| Item | Harga | Keterangan |
+|------|-------|------------|
+| Server Lighthouse (lanjutan) | sesuai katalog §B (Starter ~$4-5, General ~$6-8, Besar ~$15-25)/bln | harga RENEWAL, bukan promo tahun pertama — katalog §B sudah aturan ini |
+| Domain (perpanjangan) | ± sama dengan harga beli (.com $10-15; .id Rp150-500rb) | VERIFIKASI LIVE |
+| SSL | $0 | Let's Encrypt |
+
+### Tier Retainer Maintenance (per tahun ke-2+, harga lokal Blitar — kalibrasi riset 2026-10-23)
+
+| Tier | Isi | Harga/bulan | Cocok untuk |
+|------|-----|-------------|-------------|
+| **Basic** | monitoring uptime + backup rutin + update patch + support email/WA jam kerja (respons ≤1 hari kerja) | Rp250-400rb | landing page, web profil, app jarang berubah |
+| **Standar** | Basic + perbaikan bug tanpa batas + perubahan konten/fitur kecil (≤2 jam/bulan) + laporan bulanan | Rp600rb-1,2jt | app operasional harian klien (pos, absensi, kas desa) |
+| **Pro** | Standar + pengembangan fitur lanjutan (≤8 jam/bulan) + prioritas respons ≤4 jam + review keamanan kuartalan | Rp1,5-3jt | sistem kritis multi-user, integrasi pembayaran |
+
+- Harga server di bundel renewal: **dua opsi penawaran** — (a) **bundled di DCI**: klien bayar sekali ke DCI (server + domain + maintenance satu invoice, margin server kecil menyusul retainer); (b) **akun sendiri klien**: klien bayar provider langsung, DCI hanya tagih retainer (transparan, cocok untuk korporasi yang punya kebijakan procurement)
+- Pembaruan harga retainer: komunikasikan naik-turun tahunan maksimal sesuai inflasi/kompleksitas yang tumbuh — jangan tiba-tiba tanpa notice
+- CATATAN operasional (bukan biaya RAB tahun ke-1): total renewal tahun ke-2 tipikal lokal = server $60-96/tahun + domain Rp150-500rb + retainer Rp3-14,4jt/tahun → sehat bagi klien karena setara 1-2× cicilan bulanannya saja
+
 ## G. Overhead Operasional (alokasi ke proyek)
 
 | Item | Nilai | Per | Status | dicek |

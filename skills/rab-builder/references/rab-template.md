@@ -81,7 +81,20 @@ Durasi: [X minggu] · Kategori: [MVP/sedang/besar/enterprise] · Contingency [15
 - [Asumsi per item]
 
 ## 5. Catatan Operasional Pasca-RAB
-- Biaya bulanan berjalan: [VPS + layanan = $X/bln]
+
+### Renewal tahun ke-2+ (retainer + infra — proyeksi pendapatan berulang)
+
+| Komponen | Per tahun | Margin |
+|----------|-----------|--------|
+| Retainer maintenance tier [Basic/Standar/Pro] — Rp[X]/bln × 12 | Rp[X] | ~[XX]% (biaya jam support minimal — vibe coding mempercepat perbaikan) |
+| Server Lighthouse [spec] (bila bundled) | Rp[X] | [X]% |
+| Domain (bila bundled) | Rp[X] | [X]% |
+| **Potensi recurring tahunan per klien** | **Rp[X]** | |
+
+- Opsi server: bundled di DCI (satu invoice, margin server) / akun sendiri klien (retainer saja)
+- [Bila ada payment gateway: fee [X%] per transaksi — operasional]
+
+### Lainnya
 - Fee payment gateway per transaksi: [X%] — catatan, bukan biaya tetap
 
 ## 6. Jejak Harga
@@ -205,11 +218,26 @@ Setiap termin ditagih setelah milestone terkait diverifikasi bersama. Garansi bu
 
 - Pembayaran via transfer rekening korporasi: **Bank Jatim 1892017774 a.n. PT DUTA CORPORA INDONESIA**
 - Invoice resmi & faktur pajak diterbitkan untuk setiap pembayaran/tagihan
-
-## Catatan
-- Biaya bulanan berjalan setelah periode ini: Rp[X]/bulan (server + layanan pendukung) — rincian menyusul saat serah terima
+- Garansi perbaikan bug: [30 hari] pasca serah terima (skema A/B); selama tenor aktif (skema C)
 - [Bila ada payment gateway: fee transaksi [X%] mengikuti penyedia jasa, tidak termasuk dalam total di atas]
-- Garansi perbaikan bug: [30 hari] pasca serah terima
+
+## Pemeliharaan & Tahun Berikutnya (Renewal — di luar total di atas)
+
+Biaya tahun pertama mencakup pengembangan sistem selama [tenor] bulan. Untuk tahun berikutnya, tersedia paket pemeliharaan berkelanjutan:
+
+| Paket | Cakupan | Biaya/bulan |
+|-------|---------|-------------|
+| **Basic** | Pemantauan sistem, backup rutin, pembaruan keamanan, dukungan via WhatsApp/email (respons ≤1 hari kerja) | Rp[250-400]rb |
+| **Standar** | Basic + perbaikan bug tanpa batas + perubahan konten kecil + laporan bulanan | Rp[600rb-1,2]jt |
+| **Pro** | Standar + pengembangan fitur lanjutan + respons prioritas ≤4 jam + tinjauan keamanan tiap kuartal | Rp[1,5-3]jt |
+
+**Biaya infrastruktur tahun ke-2+** (dibayar langsung ke penyedia, atau bundel bersama paket pemeliharaan — satu invoice dari kami):
+| Item | Perkiraan/tahun |
+|------|-----------------|
+| Server [spec] | Rp[X.XXX.XXX] |
+| Domain [nama] | Rp[X.XXX.XXX] |
+
+> Rekomendasi kami: paket **[Standar]** + bundel infrastruktur — total Rp[X.XXX.XXX]/tahun, setara [X]% dari nilai sistem di tahun pertama, memastikan [Nama Aplikasi] tetap berjalan aman, mutakhir, dan terawat tanpa biaya tak terduga.
 
 <div align="center">
 
