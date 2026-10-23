@@ -48,10 +48,15 @@ Basis identitas perusahaan (kop, intro, kredibilitas) ambil dari `references/com
 
 ### Fase 1 — Pahami Stack dari Rancangan
 
-Sumber input (urut prioritas):
-1. **PRD** (`prd-[nama].md` di `.trae/documents/`) — baca Section 3 (Features), 5 (Architecture), 7 (Tech Stack), 8 (Design System untuk skala UI)
-2. **DESIGN.md + dokumen lain** (plan-, wireframe-) bila ada
-3. **Deskripsi verbal user** — bila belum ada PRD, tanya inti: fitur apa saja, platform apa, integrasi apa
+**Deteksi dulu bentuk rancangan, lalu panggil perangkat yang tepat** (jangan baca manual bila ada tool yang lebih tepat):
+
+| Bentuk rancangan | Perangkat | Cara |
+|------------------|-----------|------|
+| **PRD dari prd-builder** (`prd-[nama].md` di `.trae/documents/`) | Baca langsung | Format terstandar: Section 3 (Features), 5 (Architecture), 7 (Tech Stack), 8 (Design System untuk skala UI). Plus `DESIGN.md`, `plan-`, `wireframe-` bila ada |
+| **Project/codebase existing** (sudah ada kode, minta RAB/replikasi) | **Graphify** | Cek `graphify-out/` → ada: pahami struktur dari GRAPH_REPORT.md + graph.json (hemat token, DILARANG grep massal); tidak ada: jalankan `graphify . --code-only` dulu (proyek besar 3-15 menit → konfirmasi user). Detail file kode mentah hanya untuk yang biaya-relevan (dependency berbayar di composer.json/package.json, integrasi API) |
+| **Codebase besar/arsitektur kompleks** | Agent `project-analyzer` | Bila Graphify tidak cukup (multi-repo, monorepo raksasa) — konfirmasi dulu ke user sebelum delegate, output di-review |
+| **Belum ada rancangan sama sekali** | Redirect `prd-builder` | "RAB butuh rancangan sebagai basis. Mau kita rancang dulu (prd-builder), atau RAB kasar dari deskripsi?" — bila paksa deskripsi verbal, catat kena faktor durasi (Fase 2) |
+| **Deskripsi verbal user** | Tanya terstruktur | Inti: fitur apa saja (jumlah = kategori Fase 2), platform, role, integrasi (apapun yang berbayar), ekspektasi timeline |
 
 Ekstrak ke **Tabel Stack** (tampilkan ke user untuk konfirmasi):
 
@@ -62,7 +67,7 @@ Ekstrak ke **Tabel Stack** (tampilkan ke user untuk konfirmasi):
 | Database | [mis. PostgreSQL Supabase / MySQL VPS] | tier free/berbayar? |
 | Auth | [mis. Better Auth / Sanctum] | — |
 | Integrasi | [mis. Midtrans, Resend, Cloudinary] | fee/subscription? |
-| Hosting produksi | [mis. VPS aaPanel / Vercel] | $/bulan, spec |
+| Hosting produksi | [Tencent Lighthouse / Vercel] | $/bulan, spec (katalog §B) |
 | Domain | [.com/.id] | $/tahun |
 | Aset visual | [Seedream via plan existing / desainer] | bila perlu |
 
@@ -188,8 +193,10 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 
 | Dari/Ke | Perilaku |
 |---------|----------|
-| `prd-builder` | Sumber utama input (PRD Section 3/5/7/8). Setelah PRD Phase 1 selesai, prd-builder boleh menawarkan chain ke skill ini |
-| `project memory` | Simpan ringkasan RAB (total, durasi, kurs, tanggal) sebagai entri MXXX setelah user setuju |
+| `prd-builder` | Sumber utama input (PRD Section 3/5/7/8). Setelah PRD Phase 1 selesai, prd-builder boleh menawarkan chain ke skill ini; sebaliknya RAB tanpa rancangan → redirect ke prd-builder |
+| `Graphify` (aturan global) | Untuk project/codebase existing: `graphify-out/` = sumber kebenaran pertama struktur & dependency; belum ada → build `--code-only` dulu |
+| Agent `project-analyzer` | Escape hatch codebase besar/multi-repo yang tidak memadai via Graphify — delegate hanya setelah konfirmasi user, output di-review |
+| `project memory` | Simpan ringkasan RAB (total, skema pembayaran, durasi, kurs, tanggal) sebagai entri MXXX setelah user setuju |
 | Klien/penawaran | Export via skill `docx`/`pdf`/`html-report`; untuk proposal pakai `consulting-analysis` |
 
 ## Hard Rules
