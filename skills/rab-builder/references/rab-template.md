@@ -44,26 +44,34 @@ Durasi: [X minggu] · Kategori: [MVP/sedang/besar/enterprise] · Contingency [15
 |------|----------|
 | Staging (Laragon lokal) | $0 |
 
-### C. Infrastruktur Produksi ([3] bulan pertama)
-| Item | Unit | Qty | Harga | Subtotal |
-|------|------|-----|-------|----------|
-| VPS [spec] | bulan | 3 | $[X] | $[X] |
-| Domain [nama] | tahun | 1 | $[X] | $[X] |
-| SSL Let's Encrypt | — | — | $0 | $0 |
+### C. Server Produksi & Domain ([3] bulan pertama — DIPISAH)
+| Komp | Item | Unit | Qty | Harga | Subtotal |
+|------|------|------|-----|-------|----------|
+| C1 | VPS/server produksi [spec] | bulan | 3 | $[X] | $[X] |
+| C2 | Domain [nama] (hapus bila klien punya domain sendiri) | tahun | 1 | $[X] | $[X] |
+| — | SSL Let's Encrypt | — | — | $0 | $0 |
 
 ### D. Layanan Pihak Ketiga
 | Item | Periode | Subtotal |
 |------|---------|----------|
 | [mis. Resend Pro] | [3 bln] | $[X] |
 
-### E. SDM/Operator
-| Item | Subtotal |
-|------|----------|
-| Solo vibe coding | $0 |
+### E. Jasa Pengembang (solo 8 jam/hari × 5 hari/minggu)
+| Parameter | Nilai |
+|-----------|-------|
+| Total jam kerja | [X minggu] × 40 jam = [X] jam |
+| Tarif | Rp[X]/jam (default katalog Rp150.000 — atau paket: [sebutkan bila dipakai]) |
+| **Subtotal jasa** | **Rp[X]** |
 
-### F. Contingency (15% dari A+E): $[X]
+### F. Contingency (15% dari A+E): $[X] / Rp[X]
 
-### TOTAL: A $[X] + B $0 + C $[X] + D $[X] + E $[X] + F $[X] = **$[X]**
+### G. Overhead Operasional (prorata [X bulan])
+| Item | Per bulan | Durasi | Subtotal |
+|------|-----------|--------|----------|
+| Listrik | Rp400.000 | [X bln] | Rp[X] |
+| Internet | Rp350.000 | [X bln] | Rp[X] |
+
+### TOTAL: A $[X] + B $0 + C1 $[X] + C2 $[X] + D $[X] + E Rp[X] + F Rp[X] + G Rp[X] = **$[X] + Rp[X]** (gabung kurs: Rp[total])
 
 ## 4. Asumsi
 - Durasi [X minggu] — basis: [fitur + faktor pengali]
@@ -132,7 +140,7 @@ Estimasi waktu pengerjaan: [X minggu] sejak [kesepakatan/DP] — mencakup pengem
 | Komponen | Periode | Biaya |
 |----------|---------|-------|
 | Server produksi [spec fungsional: mis. "server virtual kapasitas memadai untuk 50 pengguna aktif"] | 3 bulan | Rp[X.XXX.XXX] |
-| Domain [nama domain] | 1 tahun | Rp[X.XXX.XXX] |
+| Domain [nama domain] *(bila klien memakai domain sendiri, baris ini dihapus)* | 1 tahun | Rp[X.XXX.XXX] |
 | Sertifikat keamanan SSL | — | Rp0 |
 
 ### 3. Layanan Pendukung Pihak Ketiga

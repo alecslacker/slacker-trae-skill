@@ -4,7 +4,28 @@
 > Aturan: tanggal cek > 3 bulan ATAU bertanda **VERIFIKASI LIVE** → WAJIB verifikasi ulang via WebSearch sebelum dipakai di RAB.
 > Jangan pernah mengarang harga yang tidak ada di katalog ini tanpa verifikasi live.
 
-## A. AI Tooling (metode vibe coding)
+## E. Jasa Pengembang (solo — Mas Wondho, 8 jam/hari, 5 hari/minggu)
+
+> Basis harga pokok internal. Tampil ke klien hanya sebagai bagian "Biaya Pengembangan Sistem".
+
+| Parameter | Nilai | Catatan |
+|-----------|-------|---------|
+| Jam kerja efektif | 40 jam/minggu (8 × 5) | basis hitung |
+| Tarif default | Rp150.000/jam | SETARA USER-OVERRIDABLE — konfirmasi tiap RAB; naikkan untuk kompleksitas tinggi/enterprise, turunkan untuk komunitas/kenalan (keputusan user) |
+| Paket per durasi (alternatif tarif×jam) | MVP kecil (1-2 bln): Rp15-25 juta · Sedang (1-5 bln): Rp30-60 juta · Besar (2-3 bln): Rp80-150 juta · Enterprise: nego khusus | sanity check: bandingkan hasil tarif×jam vs paket; pilih yang lebih masuk akal per proyek, sebutkan pemilihan |
+| Asumsi utilisation | 100% ke satu proyek aktif | proyek paralel → jasa dibagi per proyek secara proporsional durasi |
+
+## G. Overhead Operasional (alokasi ke proyek)
+
+| Item | Nilai | Per | Status | dicek |
+|------|-------|-----|--------|-------|
+| Listrik | Rp400.000 | bulan | FIX (input user 2026-10-23) | 2026-10-23 |
+| Internet | Rp350.000 | bulan | FIX (input user 2026-10-23) | 2026-10-23 |
+
+- Alokasi: prorata durasi proyek; bila paralel N proyek → bagi rata, catat eksplisit.
+- Total overhead: Rp750.000/bulan penuh.
+
+## A. AI Tooling (metode vibe coding — INTERNAL SAJA)
 
 | Item | Harga | Per | Status | dicek |
 |------|-------|-----|--------|-------|

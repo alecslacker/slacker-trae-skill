@@ -99,21 +99,28 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 - Staging: default $0 (Laragon lokal / free tier) kecuali user minta VPS khusus
 - Tooling: $0 (repo GitHub private free, CI free tier)
 
-**C. Infrastruktur Produksi (periode awal — default 3 bulan pertama, konfirmasi user)**
-- VPS prod (spec dari beban estimasi: kecil 1-2GB RAM untuk MVP, 4GB+ untuk app sedang)
-- Domain per tahun
-- SSL: Let's Encrypt $0 (standar stack kita)
-- Backup storage (bila VPS tanpa snapshot gratis)
+**C. Server Produksi & Domain — DIPISAH TEGAS (periode awal, default 3 bulan pertama, konfirmasi user)**
+- **C1. Server/VPS produksi**: spec dari beban estimasi (kecil 1-2GB RAM untuk MVP, 4GB+ untuk app sedang); SSL Let's Encrypt $0; backup storage bila VPS tanpa snapshot gratis
+- **C2. Domain**: per tahun, per registrar — item terpisah agar klien bisa pakai domain sendiri / beli sendiri. Selalu tanyakan: "Klien sudah punya domain?" → bila ya, hapus C2 dari RAB
 
 **D. Layanan Pihak Ketiga** (dari tabel stack Fase 1)
 - Subscription berbayar (Resend, Cloudinary, dll) selama periode RAB
 - Payment gateway: catat fee per transaksi sebagai CATATAN operasional (bukan biaya tetap RAB)
 
-**E. SDM/Operator** (opsional)
-- Solo vibe coding (Mas Wondho sendiri): $0
-- Operator tambahan: input dari user, jangan diasumsikan
+**E. Jasa Pengembang (solo, 8 jam/hari — KOMPONEN HITUNG NYATA, bukan $0)**
+- Model kerja: Mas Wondho solo full-time 8 jam/hari, memikirkan seluruh proses (analisis, perancangan, coding, QA, manajemen, komunikasi klien)
+- Durasi kerja: 5 hari kerja/minggu × durasi_minggu × 8 jam = total jam kerja
+- Tarif jasa: dari `references/price-catalog.md` (tarif default + cara override per klien/proyek). Total jasa = tarif_per_jam × total_jam — atau tarif paket per kategori durasi (lihat katalog)
+- Jasa ini adalah KOMPONEN HARGA POKOK internal: menentukan nilai "Biaya Pengembangan Sistem" di dokumen klien (bersama A+F). Agent TIDAK menyarankan menjual di bawah harga pokok
+- Operator tambahan (bila ada): input dari user, jangan diasumsikan
 
 **F. Contingency** — default 15% dari A+E (rework, scope creep, iterasi desain). Konfirmasi user.
+
+**G. Overhead Operasional (alokasi ke proyek)**
+- Listrik: Rp400.000/bulan → alokasikan prorata durasi (durasi_bulan × Rp400.000)
+- Internet: Rp350.000/bulan → prorata durasi (durasi_bulan × Rp350.000)
+- Rumus alokasi: overhead dialokasikan 100% ke satu proyek bila hanya 1 proyek jalan; bila paralel N proyek → bagi rata per proyek, sebutkan pembagian eksplisit
+- Overhead masuk harga pokok internal (bobot kecil), TIDAK ditampilkan sebagai baris terpisah ke klien — melebur ke "Biaya Pengembangan Sistem"
 
 **Kurs**: tanya/verifikasi kurs USD→IDR saat RAB dibuat (WebSearch bila user minta IDR dan tidak kasih kurs). Tulis kurs + tanggal di RAB.
 
@@ -161,12 +168,14 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 
 | Internal (RAB kerja) | Tampilan di dokumen klien |
 |----------------------|---------------------------|
-| A. AI Tooling (z.ai $80 × durasi) | "Biaya Pengembangan Sistem [Nama Aplikasi]" (satu angka profesional) |
+| A. AI Tooling (z.ai $80 × durasi) | "Biaya Pengembangan Sistem [Nama Aplikasi]" — digabung dengan E, F, G jadi SATU angka profesional |
 | B. Infra dev $0 | (tidak tampil) |
-| C. Infra produksi | "Infrastruktur & Penyelenggaraan" (VPS, domain — tetap rinci, itu biaya nyata klien) |
+| C1. Server produksi | "Infrastruktur & Penyelenggaraan — Server" (biaya nyata klien, tetap rinci) |
+| C2. Domain | "Infrastruktur & Penyelenggaraan — Domain" (baris terpisah; hapus bila klien pakai domain sendiri) |
 | D. Layanan pihak ketiga | tetap rinci |
-| E. SDM $0 | (tidak tampil) |
-| F. Contingency | boleh masuk ke biaya pengembangan atau baris "Cadangan Operasional" |
+| E. Jasa pengembang (tarif × jam) | melebur ke "Biaya Pengembangan Sistem" |
+| F. Contingency | melebur ke "Biaya Pengembangan Sistem" (atau baris "Cadangan Operasional") |
+| G. Overhead listrik+internet | melebur ke "Biaya Pengembangan Sistem" — DILARANG tampil sebagai baris klien |
 
 ---
 
@@ -192,7 +201,10 @@ Render sesuai jenis dokumen dari Fase 0 (data hitungan sama):
 - DILARANG premi langganan > 25% tanpa persetujuan eksplisit user (keadilan harga vs klien kecil)
 - WAJIB skema termin mengikat milestone terverifikasi (PRD) per termin — tidak ada termin tanpa deliverable
 - WAJIB catat skema terpilih ke project memory
-- DILARANG mengasumsikan SDM berbayar — default solo $0, kecuali user menyatakan
+- DILARANG mengasumsikan operator tambahan — default solo 8 jam/hari; operator lain hanya bila user menyatakan
+- DILARANG menghitung jasa pengembang sebagai $0 — itu komponen harga pokok nyata (tarif × jam); skema diskon/ROI khusus = keputusan user eksplisit, dicatat sebagai margin yang disengaja
+- DILARANG menawarkan harga jual di bawah harga pokok (A+E+F+G) tanpa peringatan eksplisit ke user
+- WAJIB tanyakan "klien sudah punya domain?" sebelum finalisasi C2
 - WAJIB hitung ulang aritmetika subtotal/total sebelum simpan file
 - WAJIB tulis kurs + tanggal kurs bila menampilkan IDR
 - WAJIB pakai nama aplikasi & nama klien konsisten di seluruh dokumen (1 konsep = 1 nama)
