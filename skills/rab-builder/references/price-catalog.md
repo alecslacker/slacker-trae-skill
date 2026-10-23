@@ -52,13 +52,21 @@
 - Plan Max = plan utama user. Lite/Pro dicantumkan sebagai pembanding bila user pertimbangkan downgrade/upgrade.
 - Konversi prorata: 1 bulan = 4.33 minggu → $80/bulan ≈ $18.5/minggu.
 
-## B. Infrastruktur Produksi (standar stack Slackercoder: Ubuntu + OpenLiteSpeed + aaPanel)
+## B. Infrastruktur Produksi — ACUAN: Tencent Cloud Lighthouse (standar stack Slackercoder)
+
+> Server modal memakai Tencent Cloud Lighthouse (region Jakarta/Singapore). Karakter Lighthouse: harga flat all-in (CPU+RAM+SSD+traffic), sering ada promo tahun pertama jauh lebih murah — harga promo JANGAN dipakai untuk proyeksi tahunan; proyeksi pakai harga normal (renewal).
+
+| Paket Lighthouse | Spec | Harga normal | Cocok untuk | Status | dicek |
+|------------------|------|--------------|-------------|--------|-------|
+| Starter | 2 vCPU / 2 GB / 40 GB SSD | ≈ $4-5/bulan (Jakarta/Singapore) | MVP kecil, landing+app ringan, 1 aplikasi | VERIFIKASI LIVE | 2026-10-23 |
+| General | 2 vCPU / 4 GB / 60 GB SSD | ≈ $6-8/bulan | Aplikasi sedang multi-user, 2-3 app dalam 1 server | VERIFIKASI LIVE | 2026-10-23 |
+| Besar | 4 vCPU / 8 GB / 100+ GB SSD | ≈ $15-25/bulan | App besar/traffic tinggi, DB terpisah | VERIFIKASI LIVE | 2026-10-23 |
+
+- Node terdekat user Indonesia: **Jakarta** (latensi terbaik); Singapore alternatif bila butuh stabilitas regional.
+- Catatan multi-tenant: 1 Lighthouse General bisa menampung 2-3 aplikasi klien kecil via aaPanel + OpenLiteSpeed → di RAB skema langganan, server bisa dialokasikan per klien (dedicated, harga penuh) atau shared (alokasi proporsional) — sebutkan eksplisit per proyek.
 
 | Item | Harga | Per | Status | dicek |
 |------|-------|-----|--------|-------|
-| VPS kecil (1-2 GB RAM, 1 vCPU) — contoh Vultr/Hetzner CX22 class | $4-6 | bulan | VERIFIKASI LIVE (harga provider berubah) | 2026-10-23 |
-| VPS sedang (4 GB RAM, 2 vCPU) — app produksi multi-user | $8-15 | bulan | VERIFIKASI LIVE | 2026-10-23 |
-| VPS besar (8 GB RAM+) — traffic tinggi/enterprise | $20-40 | bulan | VERIFIKASI LIVE | 2026-10-23 |
 | Domain .com | $10-15 | tahun | VERIFIKASI LIVE (registrar berbeda-beda) | 2026-10-23 |
 | Domain .id | Rp150rb-500rb | tahun | VERIFIKASI LIVE | 2026-10-23 |
 | SSL Let's Encrypt | $0 | — | STABIL (standar stack) | 2026-10-23 |

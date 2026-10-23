@@ -104,7 +104,7 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 - Tooling: $0 (repo GitHub private free, CI free tier)
 
 **C. Server Produksi & Domain — DIPISAH TEGAS (periode awal, default 3 bulan pertama, konfirmasi user)**
-- **C1. Server/VPS produksi**: spec dari beban estimasi (kecil 1-2GB RAM untuk MVP, 4GB+ untuk app sedang); SSL Let's Encrypt $0; backup storage bila VPS tanpa snapshot gratis
+- **C1. Server/VPS produksi — acuan Tencent Cloud Lighthouse** (katalog §B): Starter 2C/2GB ≈ $4-5/bulan (MVP), General 2C/4GB ≈ $6-8/bulan (app sedang / multi-tenant 2-3 app via aaPanel), Besar 4C/8GB ≈ $15-25/bulan. Region default Jakarta. SSL Let's Encrypt $0; backup storage bila perlu. Ke skema langganan: pilih dedicated (harga penuh per klien) atau shared (alokasi proporsional) — sebutkan eksplisit
 - **C2. Domain**: per tahun, per registrar — item terpisah agar klien bisa pakai domain sendiri / beli sendiri. Selalu tanyakan: "Klien sudah punya domain?" → bila ya, hapus C2 dari RAB
 
 **D. Layanan Pihak Ketiga** (dari tabel stack Fase 1)
