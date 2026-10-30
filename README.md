@@ -1,4 +1,4 @@
-﻿# SLACKER TRAE SKILL
+# SLACKER TRAE SKILL
 
 > **Milik Slackercode Family** — kumpulan skill TRAE IDE, tersinkron otomatis antar komputer lewat GitHub.
 
@@ -177,7 +177,7 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 | DevOps-Security (BagelHole) | 163 | "k8s", "hardening", "SOC2", "vault" |
 | Marketing (Cesarjoquin v2.5.1) | 45 + tools | "copywriting", "CRO", "landing page" |
 | Playwright best practices | 1 | "test E2E", "perbaiki test flaky" |
-| Keluarga antislop (v3.2.1 — sumber: [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop), MIT) | 6 | semua tugas UI / tulisan |
+| Keluarga antislop (v3.2.24 — sumber: [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop), MIT) | 6 | tulisan/kode/a11y/mobile — arah desain frontend dipimpin design-taste-frontend |
 | Design taste frontend (v2.1.5 — sumber: [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT) | 1 | "landing page premium", "redesign", "page terlihat generik" — lihat `skills/_TASTE-SKILLS-INTEGRASI.md` |
 | prd-builder v2 | 1 | "buat PRD", "rancang aplikasi" |
 | rab-builder | 1 | "buat RAB", "hitung biaya pembuatan" (vibe coding, z.ai Max $80/bln) |

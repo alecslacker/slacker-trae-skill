@@ -19,7 +19,7 @@ Kamu punya **384<!--skill-count:384--> skill terpasang** di `~/.claude/skills/` 
 3. Tidak yakin skill apa yang ada: daftar via `ls ~/.claude/skills` — jangan menebak.
 4. Tidak ada yang cocok → kerjakan langsung, jangan paksakan.
 
-Domain prioritas: UI → `antislop` + `antislop-ui` + `frontend-design`; dokumen → `docx`/`pptx`/`xlsx`/`pdf`; riset → `research-guide`; fitur baru → `brainstorming` → `writing-plans` → `test-driven-development`; commit → `git-commit`; Laravel → `laravel-dev`; blog/SEO → keluarga `blog-*`.
+Domain prioritas: desain frontend/landing page → `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y); tulisan/komentar kode → `antislop-copywriting`/`antislop-code`; dokumen → `docx`/`pptx`/`xlsx`/`pdf`; riset → `research-guide`; fitur baru → `brainstorming` → `writing-plans` → `test-driven-development`; commit → `git-commit`; Laravel → `laravel-dev`; blog/SEO → keluarga `blog-*`.
 
 ## Hemat Token (Prioritas Mas Wondho)
 

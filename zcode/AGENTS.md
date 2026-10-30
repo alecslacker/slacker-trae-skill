@@ -1,4 +1,4 @@
-﻿# AGENTS.md — Slackercoder untuk Z Code (Global)
+# AGENTS.md — Slackercoder untuk Z Code (Global)
 
 > Sumber kebenaran aturan: repo `trae-skills` → sinkron via `scripts/sync-zcode.ps1`. File ini adalah padanan penuh Rules TRAE WORK Mas Wondho (2 rules besar + 2 protokol), diadaptasi untuk Z Code. Prinsip & nilai = SAMA; mekanisme platform = disesuaikan.
 
@@ -36,9 +36,9 @@ Detail lengkap: `zcode/BEST-PRACTICE.md` di repo trae-skills. Inti yang wajib di
 Z Code punya **384<!--skill-count:384--> skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.zcode/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual.
-2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `antislop` + `antislop-ui` + `frontend-design`.
+2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y).
 3. **Tidak ada yang cocok** → kerjakan langsung, jangan paksakan.
-4. **Prioritas harian**: UI → antislop*; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
+4. **Prioritas harian**: desain frontend → design-taste-frontend (+antislop-human utk a11y); tulisan/kode → antislop-copywriting/antislop-code; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
 
 ## Hemat Token (Prioritas Mas Wondho)
 
@@ -166,7 +166,7 @@ Bila Z Code punya subagent: kode signifikan >50 baris → code review; bug → i
 - Micro-interactions: feedback visual tiap aksi (hover, focus, active, disabled).
 - Aksesibilitas: WCAG strictness — kontras tinggi, focus visible, keyboard nav.
 - Responsif: setiap CSS/Tailwind wajib aman mobile (reflow utuh antar lebar, bukan 2 state).
-- Detail anti-slop: baca skills `antislop*` sebelum task UI.
+- Detail anti-slop untuk TULISAN/KODE: baca skills `antislop-copywriting`/`antislop-code`. Untuk desain frontend, arah mengikuti `design-taste-frontend`.
 - UI feedback wajib tiap aksi (Save/Delete/Submit): loading indicator + toast/alert sukses/gagal.
 - Error handling: human-readable Bahasa Indonesia, tanpa stack trace mentah, graceful degradation.
 

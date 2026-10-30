@@ -1,4 +1,4 @@
-﻿# AGENTS.md — Slackercoder untuk Codex (Global)
+# AGENTS.md — Slackercoder untuk Codex (Global)
 
 > Sumber kebenaran aturan: repo `trae-skills` → sinkron via `scripts/sync-codex.ps1`. File ini adalah padanan penuh Rules TRAE WORK Mas Wondho, diadaptasi untuk Codex. Prinsip & nilai = SAMA; mekanisme platform = disesuaikan. Jaga file ini < 30 KB (cap chain AGENTS.md Codex = 32 KiB gabungan global + project).
 
@@ -34,9 +34,9 @@ Detail lengkap: `~/.codex/BEST-PRACTICE.md`. Inti yang wajib dipatuhi:
 Codex punya **384<!--skill-count:384--> skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.agents/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual. Panggil via `$skill-name` bila perlu eksplisit.
-2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `antislop` + `antislop-ui` + `frontend-design`.
+2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y).
 3. **Tidak ada yang cocok** → kerjakan langsung, jangan paksakan.
-4. **Prioritas harian**: UI → antislop*; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
+4. **Prioritas harian**: desain frontend → design-taste-frontend (+antislop-human utk a11y); tulisan/kode → antislop-copywriting/antislop-code; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
 5. **Skill budget**: 384<!--skill-count:384--> skill berarti injeksi metadata besar tiap sesi. Bila auto-trigger melemah, panggil skill EKSPLISIT via `$name` — jangan menunggu trigger otomatis. Jangan menonaktifkan skill demi sinkronisasi.
 
 ## Hemat Token (Prioritas Mas Wondho)
@@ -148,7 +148,7 @@ Codex bisa punya reviewer otomatis (`approvals_reviewer = auto_review`). Kode si
 - Micro-interactions: feedback visual tiap aksi (hover, focus, active, disabled).
 - Aksesibilitas: WCAG strictness — kontras tinggi, focus visible, keyboard nav.
 - Responsif: setiap CSS/Tailwind wajib aman mobile (reflow utuh antar lebar, bukan 2 state).
-- Detail anti-slop: baca skills `antislop*` sebelum task UI.
+- Detail anti-slop untuk TULISAN/KODE: baca skills `antislop-copywriting`/`antislop-code`. Untuk desain frontend, arah mengikuti `design-taste-frontend`.
 - UI feedback wajib tiap aksi (Save/Delete/Submit): loading indicator + toast/alert sukses/gagal.
 - Error handling: human-readable Bahasa Indonesia, tanpa stack trace mentah, graceful degradation.
 

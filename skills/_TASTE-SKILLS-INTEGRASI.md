@@ -21,7 +21,7 @@ SKILL.md v2 memuat blok di bawah frontmatter (konvensi sama seperti v1):
 > [ATURAN] aturan kita menang kecuali user eksplisit ...
 ```
 
-**Prinsip resolusi konflik (tidak berubah dari v1):** aturan kita (`antislop` + `prd-builder` + `AGENTS.md`) **selalu menang** kecuali user eksplisit meminta arah taste-skill.
+**Prinsip resolusi konflik (DIPERBARUI 2026-10-30 — pembagian peran):** untuk **arah desain frontend/landing page**, `design-taste-frontend` adalah PEMIMPIN (deal direction → build → gate via inspector real-browser); antislop-* tidak lagi menyetir arah desain (akar masalah "Sterile Default" — filter tanpa arah menghasilkan hambar). Antislop tetap wajib di domain non-desain-arah: `antislop-copywriting` (tulisan), `antislop-code` (komentar/kode), `antislop-human` (aksesibilitas), `antislop-layoutmobile` (reflow mobile). Konstrain brand eksplisit di PRD Section 8 / DESIGN.md tetap menang atas keduanya bila user sudah memilih.
 
 ## Konflik yang Berlaku Terus (dari v1, masih relevan di v2)
 
