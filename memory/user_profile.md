@@ -38,7 +38,7 @@
   - antislop family (6): -copywriting (tulisan), -code (komentar/kode), -human (a11y), -layoutmobile (reflow) — WAJIB per domain; core & -ui tidak lagi menyetir arah desain (keputusan 2026-10-30).
   - byteplus-seedream5 v2: Dola-Seedream-5.0-pro ($0.045/gbr, default) + lite ($0.035/gbr, 2K-4K). ARK_API_KEY di user-level registry (load: [Environment]::GetEnvironmentVariable('ARK_API_KEY','User')).
 - MCP aktif: Context7 (WAJIB cek library), zai-vision (analisis gambar/screenshot user), zread, sequential-thinking, integrated_browser, playwright, desktop-commander, everything-search, Figma_AI_Bridge, shadcn-ui, Google_Maps, Time, byteplus-image, needmcp, ssh-admin, testsprite, Cloudflare.
-- Katalog lengkap: `indeks-skills-lengkap.md` (kategori A–P) + Skill Auto-Invocation Protocol (cek indeks → invoke SEBELUM kerja manual).
+- Katalog skill: daftar `available_skills` (otomatis ter-inject TRAE tiap sesi) + `skills/INVENTORY.md` di repo (auto-generated) + Skill Auto-Invocation Protocol (identifikasi domain → invoke SEBELUM kerja manual).
 
 ## 6. Aturan & Protokol Aktif
 - **Rules Slackercoder**: padanan lengkap tersinkron di `trae-rules.md` (repo) — dua jalur protokol, pembagian peran desain (taste pimpin UI, antislop per domain), Anti-Typo Triple-Gate, Context7, Graphify. Status: TERPASTE ke Settings Rules TRAE 2026-10-30 (versi aktif = versi repo).
