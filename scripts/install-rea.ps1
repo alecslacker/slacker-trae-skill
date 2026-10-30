@@ -25,7 +25,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # --- Versi terpasang (SATU sumber kebenaran — update di sini lalu push) ---
-$ReaVersion   = '6.7.0'
+$ReaVersion   = '6.8.0'
 $GhidraUrl    = 'https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip'
 $GhidraDir    = 'ghidra_12.1.4_PUBLIC'
 $JadxUrl      = 'https://github.com/1013503897/jadx-headless-mcp/releases/download/v0.7.1/jadx-headless-mcp-0.7.1-all.jar'
