@@ -34,7 +34,8 @@
   - Marketing-Skills v2.5.1 (Cesarjoquin): 45 skill (copywriting, cro, ai-seo, analytics, launch, emails, dst) + folder `marketing-tools` (REGISTRY.md pendamping utk link ../../tools/). CLI npm/Redis TIDAK diinstall — hanya markdown.
   - playwright-best-practices (currents-dev): 1 skill + 57 referensi 8 kategori (E2E, a11y, visual, i18n, Electron) — trigger: test Playwright, flaky test, E2E.
   - prd-builder v2: PRD 8 section (Design System anti-slop M012) + Design Spec (Sequential 7-step + Edge State + AI Test gate) + aset Seedream.
-  - antislop family (6): antislop core, -ui, -code, -copywriting, -human, -layoutmobile — WAJIB untuk task UI/tulisan.
+  - design-taste-frontend v2.1.5: PEMIMPIN arah desain frontend/landing page (deal direction dari library 247 situs + inspector real-browser; lihat skills/_TASTE-SKILLS-INTEGRASI.md).
+  - antislop family (6): -copywriting (tulisan), -code (komentar/kode), -human (a11y), -layoutmobile (reflow) — WAJIB per domain; core & -ui tidak lagi menyetir arah desain (keputusan 2026-10-30).
   - byteplus-seedream5 v2: Dola-Seedream-5.0-pro ($0.045/gbr, default) + lite ($0.035/gbr, 2K-4K). ARK_API_KEY di user-level registry (load: [Environment]::GetEnvironmentVariable('ARK_API_KEY','User')).
 - MCP aktif: Context7 (WAJIB cek library), zai-vision (analisis gambar/screenshot user), zread, sequential-thinking, integrated_browser, playwright, desktop-commander, everything-search, Figma_AI_Bridge, shadcn-ui, Google_Maps, Time, byteplus-image, needmcp, ssh-admin, testsprite, Cloudflare.
 - Katalog lengkap: `indeks-skills-lengkap.md` (kategori A–P) + Skill Auto-Invocation Protocol (cek indeks → invoke SEBELUM kerja manual).
