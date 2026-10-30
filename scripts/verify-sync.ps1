@@ -1,4 +1,4 @@
-﻿# verify-taste-sync.ps1 — Verifikasi silang 13 skill taste-* + full-output-enforcement
+﻿# verify-sync.ps1 — Verifikasi silang design-taste-frontend + full-output-enforcement
 # Bandingkan repo (sumber kebenaran) dengan TRAE, Claude, ZCode:
 #   - jumlah folder skill
 #   - jumlah file per folder taste
@@ -16,7 +16,7 @@ $targets = [ordered]@{
 }
 
 $tasteNames = (Get-ChildItem $src -Directory |
-    Where-Object { $_.Name -like 'taste-*' -or $_.Name -eq 'full-output-enforcement' }).Name
+    Where-Object { $_.Name -eq 'design-taste-frontend' -or $_.Name -eq 'full-output-enforcement' }).Name
 
 # Hitung sidik jari folder: gabungan (path relatif + MD5 file), lalu MD5-kan
 function Get-FolderFingerprint([string]$folder) {
@@ -38,7 +38,7 @@ function Get-FolderFingerprint([string]$folder) {
     }
 }
 
-Write-Output "=== VERIFIKASI SINKRON TASTE-SKILLS ==="
+Write-Output "=== VERIFIKASI SINKRON TASTE-SKILL (v2) ==="
 Write-Output ""
 
 # 1. Jumlah folder skill total
@@ -74,7 +74,7 @@ foreach ($n in ($tasteNames | Sort-Object)) {
 
 Write-Output ""
 if ($mismatch -eq 0) {
-    Write-Host "HASIL: SEMUA COCOK — 13 folder identik di repo, TRAE, Claude, ZCode, Codex." -ForegroundColor Green
+    Write-Host "HASIL: SEMUA COCOK — 2 folder identik di repo, TRAE, Claude, ZCode, Codex." -ForegroundColor Green
 } else {
     Write-Host "HASIL: ADA $mismatch KETIDAKCOCOKAN. Perlu perbaikan." -ForegroundColor Yellow
 }

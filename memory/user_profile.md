@@ -28,7 +28,7 @@
 - Spec model: context 1M, max output 128K; GLM-5.3 thinking selalu on (3 level: low/med/high).
 
 ## 5. Ecosystem Skills & MCP
-- **Total 395<!--skill-count:395--> skill terpasang.** Komponen utama:
+- **Total ±288 skill terpasang.** Komponen utama:
   - Blog engine claude-blog v2.2.0 (32 skill blog*, 5 agents) — trigger: tulis blog, audit SEO, topic cluster.
   - DevOps-Security 163 skill (BagelHole, MIT) — trigger: k8s, vault, hardening, compliance. Script .sh Linux-only.
   - Marketing-Skills v2.5.1 (Cesarjoquin): 45 skill (copywriting, cro, ai-seo, analytics, launch, emails, dst) + folder `marketing-tools` (REGISTRY.md pendamping utk link ../../tools/). CLI npm/Redis TIDAK diinstall — hanya markdown.

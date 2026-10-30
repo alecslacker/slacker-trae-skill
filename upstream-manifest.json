@@ -18,24 +18,13 @@
                         "upstream_terakhir":  "v3.2.24"
                     },
                     {
-                        "folder":  "taste-frontend",
+                        "folder":  "design-taste-frontend",
                         "repo":  "Leonxlnx/taste-skill",
                         "metode":  "latest_commit",
                         "juga_mencakup":  [
-                                              "taste-brandkit",
-                                              "taste-brutalist",
-                                              "taste-frontend-v1",
-                                              "taste-gpt",
-                                              "taste-image-to-code",
-                                              "taste-imagegen-mobile",
-                                              "taste-imagegen-web",
-                                              "taste-minimalist",
-                                              "taste-redesign",
-                                              "taste-soft",
-                                              "taste-stitch",
                                               "full-output-enforcement"
                                           ],
-                        "catatan":  "Keluarga taste-* (13 skill) dari satu repo. Integrasi \u0026 aturan konflik: skills/_TASTE-SKILLS-INTEGRASI.md. Catatan: repo ini tidak pakai release/tag ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â metode latest_commit.",
+                        "catatan":  "MIGRASI v1-\u003ev2 (2026-10-30): 13 skill taste-* diganti 1 skill design-taste-frontend v2.1.5 (39 file: library JSON + inspector browser). full-output-enforcement tetap skill mandiri dari repo yang sama (bukan bagian v2). Skill imagegen-* v1 TIDAK dimigrasi (konflik byteplus-seedream5). Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md. Repo tidak pakai release/tag - metode latest_commit.",
                         "terakhir_dicek":  "2026-10-30",
                         "upstream_terakhir":  "12af471 (2026-10-25)"
                     },

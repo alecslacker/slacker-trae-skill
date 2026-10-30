@@ -1,4 +1,4 @@
-﻿# SKILL INVENTORY — 395 Skill (Auto-Generated)
+﻿# SKILL INVENTORY — 384 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,7 +6,7 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-10-30 | Total: **395** skill
+Diperbarui: 2026-10-30 | Total: **384** skill
 
 ## Ringkasan Sumber
 
@@ -14,7 +14,7 @@ Diperbarui: 2026-10-30 | Total: **395** skill
 |---|---|---|
 | Kurasi pack / internal | 39 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 262 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 251 | scripts/check-upstream.ps1 |
 
 ## Kurasi Pack / Internal (39)
 
@@ -120,7 +120,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (262)
+## Repo GitHub Eksternal (251)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
@@ -383,19 +383,8 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 
 ### Leonxlnx/taste-skill (12af471 (2026-10-25), dicek 2026-10-30)
 
+- design-taste-frontend
 - full-output-enforcement
-- taste-brandkit
-- taste-brutalist
-- taste-frontend
-- taste-frontend-v1
-- taste-gpt
-- taste-imagegen-mobile
-- taste-imagegen-web
-- taste-image-to-code
-- taste-minimalist
-- taste-redesign
-- taste-soft
-- taste-stitch
 
 ### miqdadbadjuber/anti-slop (v3.2.24, dicek 2026-10-30)
 

@@ -90,4 +90,4 @@ Aturan tambahan:
 
 ## Saat Skill Tidak Tersedia
 
-Agent non-TRAE tidak memiliki 395<!--skill-count:395--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
+Agent non-TRAE tidak memiliki 384<!--skill-count:384--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.

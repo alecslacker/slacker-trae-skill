@@ -31,13 +31,13 @@ Detail lengkap: `~/.codex/BEST-PRACTICE.md`. Inti yang wajib dipatuhi:
 
 ## Skill — Auto-Invocation (PENTING)
 
-Codex punya **395<!--skill-count:395--> skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Codex punya **384<!--skill-count:384--> skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.agents/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual. Panggil via `$skill-name` bila perlu eksplisit.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `antislop` + `antislop-ui` + `frontend-design`.
 3. **Tidak ada yang cocok** → kerjakan langsung, jangan paksakan.
 4. **Prioritas harian**: UI → antislop*; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
-5. **Skill budget**: 395<!--skill-count:395--> skill berarti injeksi metadata besar tiap sesi. Bila auto-trigger melemah, panggil skill EKSPLISIT via `$name` — jangan menunggu trigger otomatis. Jangan menonaktifkan skill demi sinkronisasi.
+5. **Skill budget**: 384<!--skill-count:384--> skill berarti injeksi metadata besar tiap sesi. Bila auto-trigger melemah, panggil skill EKSPLISIT via `$name` — jangan menunggu trigger otomatis. Jangan menonaktifkan skill demi sinkronisasi.
 
 ## Hemat Token (Prioritas Mas Wondho)
 

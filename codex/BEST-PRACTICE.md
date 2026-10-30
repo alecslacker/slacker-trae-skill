@@ -27,7 +27,7 @@
 - Invokasi: eksplisit `$skill-name` / `/skills`, atau implisit via matching `description`. Disable per-skill via `[[skills.config]]` di config.toml atau `allow_implicit_invocation: false` di `agents/openai.yaml`.
 - Timeline: eksperimental v0.65.0 (2025-10-06) [SINGLE-SOURCE]; resmi Desember 2025 [MAJORITY].
 - Marketplace resmi ada, tapi unitnya **plugin**; skill kurasi via `$skill-installer` (mis. `$skill-installer linear`); repo resmi github.com/openai/skills.
-- **Implikasi 395<!--skill-count:395--> skill kita**: injeksi metadata besar tiap sesi → bila auto-trigger melemah, panggil eksplisit `$name`. Jangan disable demi sinkronisasi (identitas dengan TRAE dipertahankan).
+- **Implikasi 384<!--skill-count:384--> skill kita**: injeksi metadata besar tiap sesi → bila auto-trigger melemah, panggil eksplisit `$name`. Jangan disable demi sinkronisasi (identitas dengan TRAE dipertahankan).
 
 ## Memories
 
@@ -55,7 +55,7 @@
 1. **Mode sesuai risiko**: default aman sudah bagus. Naik ke `workspace-write` hanya saat butuh; `--yolo` hanya atas instruksi eksplisit Mas Wondho.
 2. **Headless (`codex exec`)**: pastikan prompt lengkap + plan jelas; tidak ada interaksi approval di tengah jalan.
 3. **AGENTS.md tetap ramping**: global < 30 KB; detail domain = skills (progressive disclosure); kontrol command = `rules/*.rules`.
-4. **Skills eksplisit** (`$name`) ketika auto-trigger tidak menangkap — 395<!--skill-count:395--> skill = injeksi besar.
+4. **Skills eksplisit** (`$name`) ketika auto-trigger tidak menangkap — 384<!--skill-count:384--> skill = injeksi besar.
 5. **Memories = recall** — jangan edit manual; guidance tetap di AGENTS.md.
 6. **Setelah edit besar**: `graphify update .` di project terkait (peta codebase tetap segar).
 7. **Verifikasi library**: web fetch dokumen resmi / Context7 MCP bila aktif di sesi — jangan andalkan ingatan model.
@@ -63,6 +63,6 @@
 ## Kapan Pakai Codex vs Lainnya
 
 - **Codex**: model frontier OpenAI (gpt-6-astra), sandbox Windows elevated, plugin dokumen (pdf/xlsx/pptx) & computer-use terintegrasi, ekosistem open source.
-- **TRAE WORK**: tool utama Mas Wondho — memory native, MCP luas, skills 395<!--skill-count:395--> terkurasi.
+- **TRAE WORK**: tool utama Mas Wondho — memory native, MCP luas, skills 384<!--skill-count:384--> terkurasi.
 - **Z Code**: kuota GLM termurah + bonus 1.5x.
 - **Claude Code**: terminal-first, hooks & plugin matang.
