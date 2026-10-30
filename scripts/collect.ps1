@@ -117,7 +117,9 @@ Write-Host "    Commit: $Message" -ForegroundColor Green
 # --- Push ------------------------------------------------------------------------
 if (-not $NoPush) {
     Write-Host '    Push ke GitHub...' -ForegroundColor Cyan
+    $ErrorActionPreference = 'Continue'
     git -C $repoRoot push 2>&1 | ForEach-Object { Write-Host "    $_" }
+    $ErrorActionPreference = $eapSebelumnya
     if ($LASTEXITCODE -eq 0) {
         Write-Host '    Push OK.' -ForegroundColor Green
     } else {
