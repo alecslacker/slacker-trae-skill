@@ -41,7 +41,7 @@
 - Katalog lengkap: `indeks-skills-lengkap.md` (kategori A–P) + Skill Auto-Invocation Protocol (cek indeks → invoke SEBELUM kerja manual).
 
 ## 6. Aturan & Protokol Aktif
-- **Rules Slackercoder v2** (`rules-slackercoder-v2.md`): ramping ~40% — mapping hanya skill/MCP terpasang; dua jalur protokol (task kecil = ringan, task besar = penuh: plan → checkpoint KERJAKAN/LANJUT → Cross-Check 6 Layer); Anti-AI-Slop diringkas → refer skills antislop*; full file adaptif (>200 baris → patch, full saat diminta). Status: menunggu dipaste ke Settings Rules TRAE.
+- **Rules Slackercoder**: padanan lengkap tersinkron di `trae-rules.md` (repo) — dua jalur protokol, pembagian peran desain (taste pimpin UI, antislop per domain), Anti-Typo Triple-Gate, Context7, Graphify. Status: TERPASTE ke Settings Rules TRAE 2026-10-30 (versi aktif = versi repo).
 - Context7 = sumber kebenaran pertama untuk library eksternal (override training data).
 - Graphify (peta codebase lokal, binary `C:\Users\alecs\.local\bin`): `graphify-out/` = sumber kebenaran pertama struktur/arsitektur kode; belum ada → /graphify-build (`--code-only` wajib, tanpa API key); setelah edit signifikan → /graphify-update. Jangan commit/edit manual graphify-out.
 - Anti-Typo Triple-Gate: Struktur → Identifier → Semantik.
