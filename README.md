@@ -29,6 +29,7 @@ Repo ini berisi **384<!--skill-count:384--> skill TRAE IDE** yang sudah dikurasi
 | `scripts/verify-sync.ps1` | Verifikasi silang repo vs TRAE/Claude/ZCode/Codex (jumlah skill + MD5 isi per folder) |
 | `scripts/check-upstream.ps1` | Cek update skill dari repo upstream GitHub (baca `upstream-manifest.json`) |
 | `upstream-manifest.json` | Daftar sumber upstream skill + versi terakhir tercatat |
+| `CHANGELOG.md` | Riwayat perubahan per rilis (Keep a Changelog) — update saat checkpoint besar |
 
 ---
 
