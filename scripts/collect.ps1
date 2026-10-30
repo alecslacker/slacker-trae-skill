@@ -56,6 +56,42 @@ if (Test-Path $memoryDir) {
     Write-Host '[2/3] Memory lokal tidak ada — lewati.' -ForegroundColor DarkGray
 }
 
+# --- Sinkron jumlah skill ke semua dokumen ber-marker --------------------------
+# Marker: <N><!--skill-count:N--> di dokumen repo. Saat skill ditambah/dihapus,
+# angka di SEMUA dokumen otomatis diperbarui di sini — konsistensi terjamin.
+Write-Host '[2.5/3] Sinkron jumlah skill -> dokumen...' -ForegroundColor Cyan
+$skillTotal = (Get-ChildItem $repoSkills -Directory).Count
+$docs = @(
+    (Join-Path $repoRoot 'README.md'),
+    (Join-Path $repoRoot 'AGENTS.md'),
+    (Join-Path $repoRoot '.knowledge.md'),
+    (Join-Path $repoRoot 'claude\CLAUDE.md'),
+    (Join-Path $repoRoot 'codex\AGENTS.md'),
+    (Join-Path $repoRoot 'codex\BEST-PRACTICE.md'),
+    (Join-Path $repoRoot 'zcode\AGENTS.md'),
+    (Join-Path $repoRoot 'zcode\BEST-PRACTICE.md'),
+    (Join-Path $repoRoot 'memory\user_profile.md')
+)
+$syncedDocs = 0
+foreach ($doc in $docs) {
+    if (-not (Test-Path $doc)) { continue }
+    $content = Get-Content $doc -Raw -Encoding UTF8
+    # Ganti angka di dalam marker + angka tampilan di depannya (idempoten)
+    $new = [regex]::Replace($content, '\d+<!--skill-count:\d+-->', "$skillTotal<!--skill-count:$skillTotal-->")
+    if ($new -ne $content) {
+        Set-Content -Path $doc -Value $new -Encoding UTF8 -NoNewline
+        Write-Host "    OK — $(Split-Path $doc -Leaf) -> $skillTotal"
+    }
+    $syncedDocs++
+}
+Write-Host "    OK — $syncedDocs dokumen dicek, jumlah skill: $skillTotal"
+
+# --- Regenerasi inventaris sumber skill (INVENTORY.md) -------------------------
+# Klasifikasi 394 skill per asal: kurasi internal / plugin resmi TRAE / repo GitHub
+# eksternal. Detail mekanisme ada di scripts/update-inventory.ps1.
+Write-Host '[2.6/3] Regenerasi skills/INVENTORY.md...' -ForegroundColor Cyan
+& (Join-Path $PSScriptRoot 'update-inventory.ps1')
+
 # --- Git commit -------------------------------------------------------------------
 Write-Host '[3/3] Git commit...' -ForegroundColor Cyan
 git -C $repoRoot add -A 2>&1 | Out-Null

@@ -2,7 +2,7 @@
 
 > **Milik Slackercode Family** — kumpulan skill TRAE IDE, tersinkron otomatis antar komputer lewat GitHub.
 
-Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya, dan siap pakai — dari blog engine, keamanan DevOps, marketing, sampai generator gambar Seedream.
+Repo ini berisi **394<!--skill-count:394--> skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya, dan siap pakai — dari blog engine, keamanan DevOps, marketing, sampai generator gambar Seedream.
 
 > ⚠️ **Repo ini PRIVATE, khusus Slackercode Family.** Folder `memory/` berisi profil preferensi pribadi — jangan pernah diubah ke publik.
 
@@ -12,13 +12,15 @@ Repo ini berisi **302 skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya,
 
 | Folder / File | Isi |
 |---------------|-----|
-| `skills/` | 394 folder skill lengkap (302 standalone + 89 ekspor plugin TRAE + logo-design + rea — lihat tabel di bawah) |
+| `skills/` | 394<!--skill-count:394--> folder skill — kurasi standalone + ekspor plugin TRAE resmi + logo-design + reverse-engineer-anything (lihat tabel di bawah) |
+| `skills/INVENTORY.md` | Inventaris 394 skill per sumber (kurasi internal / plugin TRAE / GitHub eksternal) — auto-generated oleh `scripts/update-inventory.ps1`, jawaban "skill X dari mana?" |
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
 | `claude/` | Artefak Claude Code CLI: `CLAUDE.md` global, `commands/`, `settings.template.json` |
 | `zcode/` | Artefak Z Code: `AGENTS.md` global, `BEST-PRACTICE.md`, `commands/` |
 | `codex/` | Artefak Codex: `AGENTS.md` global (padanan Rules TRAE WORK), `BEST-PRACTICE.md` (riset 2026-10-05) |
 | `scripts/export-plugins.ps1` | Ekspor skill plugin TRAE resmi (superpowers, dev-skills, harness, dkk) → repo — skip plugin terikat MCP TRAE-only (lark, cloudflare, dll) |
+| `scripts/install-rea.ps1` | Setup dependensi skill REA: rea-agents (npm) + JDK 21 + Ghidra 12.1.4 + jadx JAR + registrasi MCP — lihat bagian "Skill REA" |
 | `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE) |
 | `scripts/collect.ps1` | Pengumpul perubahan skill lokal → repo → GitHub (TRAE) |
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
@@ -94,7 +96,7 @@ Repo ini juga jadi sumber skill untuk **Claude Code CLI** — pengalaman identik
 .\scripts\sync-claude.ps1 -Mirror  # samakan 100% — skill lokal yang tidak ada di repo ikut dihapus
 ```
 
-Yang disalin: 289 skill → `~/.claude/skills`, `CLAUDE.md` global (persona Slackercoder + hemat token), commands `/graphify-build` `/graphify-update`. Settings digabung otomatis — **token, plugin z.ai, dan MCP lokal tetap dipertahankan** (backup `settings.json.bak`).
+Yang disalin: 394<!--skill-count:394--> skill → `~/.claude/skills`, `CLAUDE.md` global (persona Slackercoder + hemat token), commands `/graphify-build` `/graphify-update`. Settings digabung otomatis — **token, plugin z.ai, dan MCP lokal tetap dipertahankan** (backup `settings.json.bak`).
 
 Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku = `glm-5.3-flash[1m]`, konteks 1M aktif (`[1m]` diurai Claude Code jadi beta header). Ganti model cukup edit `claude/settings.template.json` lalu sync ulang.
 
@@ -107,7 +109,7 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 .\scripts\sync-zcode.ps1 -Mirror  # samakan 100% dengan repo
 ```
 
-Yang disalin: 392 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
+Yang disalin: 394<!--skill-count:394--> skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
 
 ### Sinkron ke Codex
 
@@ -118,7 +120,27 @@ Yang disalin: 392 skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder
 .\scripts\sync-codex.ps1 -Mirror  # samakan 100% dengan repo (folder .system Codex tetap aman)
 ```
 
-Yang disalin: 302 skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
+Yang disalin: 394<!--skill-count:394--> skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
+
+---
+
+## Skill REA (Reverse Engineer Anything)
+
+Skill `skills/reverse-engineer-anything/` untuk reverse engineering berkas hasil build (binary) — men-jelaskan fitur, membandingkan versi, dan dekompilasi kode. Cakupan target: **native (.exe/.dll/firmware via Ghidra), managed, Electron/JavaScript, packaged, dan APK Android (via jadx)**. Skill hanya berisi instruksi — **tidak membawa engine analisisnya**. Dependensi dipasang otomatis per komputer via:
+
+```powershell
+.\scripts\install-rea.ps1          # install/refresh semua dependensi (idempoten)
+.\scripts\install-rea.ps1 -Doctor  # hanya cek kesehatan (rea doctor)
+```
+
+| Dependensi | Fungsi | Dipasang ke |
+|------------|--------|-------------|
+| `rea-agents` (npm global, Node ≥ 22.19) | Server MCP + CLI REA | npm global |
+| JDK 21 (Temurin, portable) | Prasyarat Ghidra & jadx | `C:\tools\jdk-21` |
+| Ghidra 12.1.4 | Analisis native: exe/dll/ELF/firmware | `C:\tools\ghidra_12.1.4_PUBLIC` |
+| jadx-headless-mcp 0.7.1 (JAR, SHA-256 diverifikasi) | Dekompilasi APK Android | `C:\tools\jadx-headless-mcp-0.7.1-all.jar` |
+
+Script juga mengatur env user permanen (`GHIDRA_INSTALL_DIR`, `JAVA_HOME`, `REA_ANALYSIS_PROVIDER`, `REA_JADX_MCP_JAR`) dan mendaftarkan MCP `rea` ke Claude Code + Codex + Z Code. Catatan: REA dilarang meng-install sendiri alat di luar daftar ini — jangan ganti Ghidra ke 12.2+ sebelum REA mendukung.
 
 ---
 
@@ -146,7 +168,7 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 
 ---
 
-## Komponen Utama (289 Skill)
+## Komponen Utama (394<!--skill-count:394--> Skill)
 
 | Kategori | Jumlah | Contoh Pemicu |
 |----------|--------|---------------|

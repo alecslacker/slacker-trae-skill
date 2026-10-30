@@ -37,13 +37,13 @@
 6. **Idle-time tasks** (subscriber): kerja non-urgent dijalankan gratis di kapasitas kosong, tidak memotong kuota — cocok untuk cleanup/dokumentasi.
 7. **Subagent**: bawaan `general-purpose` + `Explore` (read-only); custom via Settings. Tanpa override, subagent mewarisi model sesi induk (bukan bug).
 
-## Skill Budget (RELEVAN UNTUK 302 SKILL KITA)
+## Skill Budget (RELEVAN UNTUK 394<!--skill-count:394--> SKILL KITA)
 
 - Tiap turn meng-inject metadata semua skill aktif (nama + deskripsi ≤250 kar per skill) ke context.
 - Terlalu banyak skill → injeksi terdegradasi jadi nama saja → **auto-trigger anjlok**.
 - `description` wajib spesifik KAPAN skill dipakai; maks **1024 karakter** (lebih → skill didrop).
 - Skill "terlihat tapi tak pernah kepakai" = checklist resmi: metadata terdegradasi / deskripsi vagu / allowlist `tools` subagent tak memuat / plugin induk disabled.
-- **Implikasi kita**: 302 skill = zona risiko. Bila auto-trigger melemah di Z Code, opsi = disable skill jarang pakai via Settings (di TRAE tetap penuh — karena kita memilih TIDAK mengubah isi skill agar identik; lihat AGENTS.md bagian Skill).
+- **Implikasi kita**: 394<!--skill-count:394--> skill = zona risiko. Bila auto-trigger melemah di Z Code, opsi = disable skill jarang pakai via Settings (di TRAE tetap penuh — karena kita memilih TIDAK mengubah isi skill agar identik; lihat AGENTS.md bagian Skill).
 
 ## Keamanan & Hygiene
 
