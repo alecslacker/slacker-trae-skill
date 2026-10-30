@@ -1,4 +1,4 @@
-# AGENTS.md — Aturan Agent Slackercoder (Slackercode Family)
+﻿# AGENTS.md — Aturan Agent Slackercoder (Slackercode Family)
 
 > File ini dibaca oleh agent non-TRAE yang mendukung standar AGENTS.md (FreeBuff dkk). Claude membaca CLAUDE.md (penunjuk ke sini). TRAE memakai User Rules — isi sama, lihat [trae-rules.md](trae-rules.md).
 >
@@ -90,4 +90,4 @@ Aturan tambahan:
 
 ## Saat Skill Tidak Tersedia
 
-Agent non-TRAE tidak memiliki 394<!--skill-count:394--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
+Agent non-TRAE tidak memiliki 395<!--skill-count:395--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
