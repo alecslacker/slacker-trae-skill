@@ -94,7 +94,12 @@ Write-Host '[2.6/3] Regenerasi skills/INVENTORY.md...' -ForegroundColor Cyan
 
 # --- Git commit -------------------------------------------------------------------
 Write-Host '[3/3] Git commit...' -ForegroundColor Cyan
+# Warning CRLF/LF dari git tidak boleh jadi exception ($ErrorActionPreference Stop
+# menganggap stderr NativeCommandError) — matikan sementara untuk pemanggilan git.
+$eapSebelumnya = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
 git -C $repoRoot add -A 2>&1 | Out-Null
+$ErrorActionPreference = $eapSebelumnya
 
 $status = git -C $repoRoot status --porcelain
 if (-not $status) {
