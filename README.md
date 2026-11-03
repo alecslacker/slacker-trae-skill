@@ -21,6 +21,10 @@ Repo ini berisi **384<!--skill-count:384--> skill TRAE IDE** yang sudah dikurasi
 | `codex/` | Artefak Codex: `AGENTS.md` global (padanan Rules TRAE WORK), `BEST-PRACTICE.md` (riset 2026-10-05) |
 | `scripts/export-plugins.ps1` | Ekspor skill plugin TRAE resmi (superpowers, dev-skills, harness, dkk) → repo — skip plugin terikat MCP TRAE-only (lark, cloudflare, dll) |
 | `scripts/install-rea.ps1` | Setup dependensi skill REA: rea-agents (npm) + JDK 21 + Ghidra 12.1.4 + jadx JAR + registrasi MCP — lihat bagian "Skill REA" |
+| `scripts/install.sh` | Padanan macOS `install.ps1` — pasang skills + memory ke `~/.trae/skills` |
+| `scripts/collect.sh` | Padanan macOS `collect.ps1` — kumpulkan skill/memory lokal → repo → GitHub |
+| `scripts/sync.sh` | Padanan macOS satu pintu: `./scripts/sync.sh claude\|zcode\|codex\|all [--mirror]` |
+| `scripts/verify.sh` | Padanan macOS `verify-sync.ps1` — jumlah skill + sidik jari folder taste |
 | `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE) |
 | `scripts/collect.ps1` | Pengumpul perubahan skill lokal → repo → GitHub (TRAE) |
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
@@ -122,6 +126,43 @@ Yang disalin: 384<!--skill-count:384--> skill → `~/.zcode/skills`, `AGENTS.md`
 ```
 
 Yang disalin: 384<!--skill-count:384--> skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
+
+### Dukungan macOS (MacBook)
+
+Semua perintah `.ps1` punya padanan bash. Prasyarat: macOS + Terminal + Git (`xcode-select --install` bila belum ada) + TRAE IDE. Jalankan sekali setelah clone:
+
+```bash
+chmod +x scripts/*.sh   # sekali saja setelah clone
+./scripts/install.sh             # pasang skills + memory ke ~/.trae/skills (backup otomatis)
+./scripts/install.sh --mirror    # identik 100% dengan repo
+./scripts/install.sh --skip-memory
+```
+
+Alur sinkron harian di MacBook:
+
+```bash
+./scripts/collect.sh                     # kumpulkan skill/memory lokal -> repo -> GitHub
+./scripts/collect.sh -m "pesan" --no-push
+
+git pull && ./scripts/install.sh         # terima pembaruan dari komputer lain
+
+./scripts/sync.sh claude                 # sinkron ke Claude Code CLI (~/.claude)
+./scripts/sync.sh zcode                  # sinkron ke Z Code (~/.zcode; MCP tidak disentuh)
+./scripts/sync.sh codex                  # sinkron ke Codex (~/.agents/skills + legacy)
+./scripts/sync.sh all --mirror           # semuanya sekaligus, identik penuh
+
+./scripts/verify.sh                      # verifikasi silang jumlah + sidik jari
+```
+
+Catatan macOS:
+
+| Hal | Keterangan |
+|-----|------------|
+| Python skill blog | Pakai `python3` sistem (butuh ≥ 3.11). Install: `brew install python@3.12` + `python3 -m pip install --user textstat beautifulsoup4` |
+| `ARK_API_KEY` | `echo 'export ARK_API_KEY=ark-xxx' >> ~/.zshrc && source ~/.zshrc` — tidak masuk git |
+| Skill REA | Belum tersedia di macOS (installer Windows-only: Ghidra/JDK di `C:\tools`) — gunakan mesin Windows untuk REA |
+| `update-inventory.ps1` | Hanya Windows — regenerasi `skills/INVENTORY.md` jalankan via `collect.ps1` di mesin Windows |
+| rsync/md5 | Bawaan macOS — tidak perlu install tambahan |
 
 ---
 

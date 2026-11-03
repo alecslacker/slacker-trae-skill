@@ -155,6 +155,15 @@ Urutan 1→2→3. Gagal di gate mana pun: fix, ulang dari Gate 1.
 
 Path resmi native TRAE: `~/.trae/memory/user_profile.md` (global) + `~/.trae/memory/projects/<kunci>/project_memory.md` (project). Native inject otomatis. DILARANG memory di folder project. Tulis sparse saat checkpoint (keputusan teknis, preferensi terkonfirmasi, progress, workaround); entri ≤400 char, maks 20/file, >15 = pangkas.
 
+
+## Branding & Authorship (WAJIB semua artefak)
+
+Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJIB menyertakan identitas Duta Corpora Indonesia:
+
+- **Komentar header kode/plugin** (PHP/JS/TS/dll, minimal di file utama): `Author: Mas Wondho — Duta Corpora Indonesia (DCI)` + `Copyright © <tahun> Duta Corpora Indonesia`.
+- **Copyright dokumen/deck**: `Copyright © <tahun> Duta Corpora Indonesia — All rights reserved` (footer/akhir dokumen).
+- **Prefix/namespace**: semua fungsi/hook/namespace/class karya baru pakai `dci_` / `DCI\` / `Dci` (wajib di WordPress/PHP, dianjurkan di project lain yang belum punya konvensi).
+- Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 ## Konten Indonesia/Jawa
 
 Tulisan/artikel/gambar berkarakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Krama bila diminta. Arah visual per-project via Design System eksplisit — tanpa gaya global wajib. Nusantara = opsi per-project bila cocok.

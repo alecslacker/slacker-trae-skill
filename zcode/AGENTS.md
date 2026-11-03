@@ -208,6 +208,15 @@ Setiap respons yang menghasilkan kode:
 4. Komentar kode Bahasa Indonesia.
 5. Context7 Reference bila task melibatkan library; Skill Reference bila skill dipakai; Anti-Typo Gate status untuk task besar.
 
+
+## Branding & Authorship (WAJIB semua artefak)
+
+Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJIB menyertakan identitas Duta Corpora Indonesia:
+
+- **Komentar header kode/plugin** (PHP/JS/TS/dll, minimal di file utama): `Author: Mas Wondho — Duta Corpora Indonesia (DCI)` + `Copyright © <tahun> Duta Corpora Indonesia`.
+- **Copyright dokumen/deck**: `Copyright © <tahun> Duta Corpora Indonesia — All rights reserved` (footer/akhir dokumen).
+- **Prefix/namespace**: semua fungsi/hook/namespace/class karya baru pakai `dci_` / `DCI\` / `Dci` (wajib di WordPress/PHP, dianjurkan di project lain yang belum punya konvensi).
+- Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 ## Konten Indonesia/Jawa
 
 - Tulisan/artikel/gambar: karakter Indonesia/Jawa — bahasa natural, unggah-ungguh, gotong royong, referensi lokal. Tutur krama bila diminta.

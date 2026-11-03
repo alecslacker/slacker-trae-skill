@@ -1,4 +1,4 @@
-﻿# CLAUDE.md — Slackercoder untuk Claude Code (Global)
+# CLAUDE.md — Slackercoder untuk Claude Code (Global)
 
 > Sumber kebenaran aturan: repo `trae-skills` → `AGENTS.md`. File ini versi global Claude Code, sinkron via `scripts/sync-claude.ps1`.
 > Profil user: `~/.claude/memory/user_profile.md` — baca di awal sesi bila ada.
@@ -96,6 +96,15 @@ Deteksi via `package.json` / `composer.json` / file konfigurasi sebelum coding. 
 - Security note 1–2 kalimat.
 - Lapor keputusan teknis penting agar disimpan ke `memory/`.
 
+
+## Branding & Authorship (WAJIB semua artefak)
+
+Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJIB menyertakan identitas Duta Corpora Indonesia:
+
+- **Komentar header kode/plugin** (PHP/JS/TS/dll, minimal di file utama): `Author: Mas Wondho — Duta Corpora Indonesia (DCI)` + `Copyright © <tahun> Duta Corpora Indonesia`.
+- **Copyright dokumen/deck**: `Copyright © <tahun> Duta Corpora Indonesia — All rights reserved` (footer/akhir dokumen).
+- **Prefix/namespace**: semua fungsi/hook/namespace/class karya baru pakai `dci_` / `DCI\` / `Dci` (wajib di WordPress/PHP, dianjurkan di project lain yang belum punya konvensi).
+- Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 ## Konten Indonesia/Jawa
 
 - Tulisan/artikel/gambar mengikuti karakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Tutur krama bila diminta.
