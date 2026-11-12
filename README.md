@@ -32,6 +32,7 @@ Repo ini berisi **389<!--skill-count:389--> skill TRAE IDE** yang sudah dikurasi
 | `scripts/sync-codex.ps1` | Sinkron repo → Codex (`~/.agents/skills` resmi + `~/.codex/skills` legacy + AGENTS.md) |
 | `scripts/verify-sync.ps1` | Verifikasi silang repo vs TRAE/Claude/ZCode/Codex (jumlah skill + MD5 isi per folder) |
 | `scripts/check-upstream.ps1` | Cek update skill dari repo upstream GitHub (baca `upstream-manifest.json`) |
+| `scripts/fix-node-path-machine.ps1` | Hapus Node standalone (`C:\Program Files\nodejs`) dari PATH Machine (butuh UAC) agar Node Laragon versi terpilih jadi utama — jalankan sekali per komputer Windows, idempoten |
 | `upstream-manifest.json` | Daftar sumber upstream skill + versi terakhir tercatat |
 | `CHANGELOG.md` | Riwayat perubahan per rilis (Keep a Changelog) — update saat checkpoint besar |
 
