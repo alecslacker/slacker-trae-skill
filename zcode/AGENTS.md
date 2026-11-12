@@ -1,4 +1,4 @@
-# AGENTS.md — Slackercoder untuk Z Code (Global)
+﻿# AGENTS.md — Slackercoder untuk Z Code (Global)
 
 > Sumber kebenaran aturan: repo `trae-skills` → sinkron via `scripts/sync-zcode.ps1`. File ini adalah padanan penuh Rules TRAE WORK Mas Wondho (2 rules besar + 2 protokol), diadaptasi untuk Z Code. Prinsip & nilai = SAMA; mekanisme platform = disesuaikan.
 
@@ -33,7 +33,7 @@ Detail lengkap: `zcode/BEST-PRACTICE.md` di repo trae-skills. Inti yang wajib di
 
 ## Skill — Auto-Invocation (PENTING)
 
-Z Code punya **384<!--skill-count:384--> skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Z Code punya **389<!--skill-count:389--> skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.zcode/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y).

@@ -3,6 +3,18 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [v26.11.09] — 2026-11-09
+
+Total skill: **389** (42 kurasi + 92 plugin + 255 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.
+
+### Ditambahkan
+- **4 skill dokumen dari anthropics/skills**: `docx`, `pdf`, `pptx`, `xlsx` — menutup gap yang sudah lama dirujuk rules (prioritas harian: dokumen → docx/pptx/xlsx/pdf). Salin via sparse-checkout; lisensi source-available tercatat di `upstream-manifest.json`.
+- Skill **`research-guide`** (kurasi internal DCI) — protokol riset: hierarki sumber, verifikasi klaim, label keyakinan, anti-fabrication. Menutup gap rujukan rules (riset → research-guide) dan prd-builder chain-guide.
+- Entri `anthropics/skills` di `upstream-manifest.json` (9 entri total).
+
+### Diperbaiki
+- Angka README plain-text ("302"/"289") yang tertinggal kini sepenuhnya dikelola marker skill-count.
+
 ## [v26.10.30] — 2026-10-30
 
 Total skill: **384** (39 kurasi + 94 plugin + 251 GitHub). Angka ini di 10 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.

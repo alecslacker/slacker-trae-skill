@@ -318,6 +318,19 @@
                         "upstream_terakhir":  "23b887f (2026-09-14)"
                     },
                     {
+                        "folder":  "docx",
+                        "repo":  "anthropics/skills",
+                        "metode":  "latest_commit",
+                        "juga_mencakup":  [
+                                              "pdf",
+                                              "pptx",
+                                              "xlsx"
+                                          ],
+                        "catatan":  "Sumber 4 skill dokumen (docx/pdf/pptx/xlsx) dari repo resmi Anthropic. PERHATIAN LISENSI: 4 skill ini source-available (bukan open source Apache) — dipakai sebagai referensi internal Slackercode Family, sesuai pernyataan README upstream. Salin manual (sparse-checkout) — bukan via check-upstream otomatis penuh.",
+                        "terakhir_dicek":  "2026-11-09",
+                        "upstream_terakhir":  "da20c92 (2026-05-29)"
+                    },
+                    {
                         "folder":  "playwright-best-practices",
                         "repo":  "currents-dev/playwright-best-practices-skill",
                         "metode":  "latest_commit",
