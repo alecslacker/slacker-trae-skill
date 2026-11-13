@@ -1,4 +1,4 @@
-﻿# SKILL INVENTORY — 390 Skill (Auto-Generated)
+﻿# SKILL INVENTORY — 391 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,19 +6,19 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-13 | Total: **390** skill
+Diperbarui: 2026-11-13 | Total: **391** skill
 
 ## Ringkasan Sumber
 
 | Sumber | Jumlah | Cara update |
 |---|---|---|
-| Kurasi pack / internal | 41 | Manual — skill standalone terkurasi + buatan sendiri |
+| Kurasi pack / internal | 42 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
 | Repo GitHub eksternal | 255 | scripts/check-upstream.ps1 |
 
-## Kurasi Pack / Internal (41)
+## Kurasi Pack / Internal (42)
 
-agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines
+agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 

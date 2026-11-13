@@ -2,7 +2,7 @@
 
 > **Milik Slackercode Family** — kumpulan skill TRAE IDE, tersinkron otomatis antar komputer lewat GitHub.
 
-Repo ini berisi **390<!--skill-count:390--> skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya, dan siap pakai — dari blog engine, keamanan DevOps, marketing, sampai generator gambar Seedream.
+Repo ini berisi **391<!--skill-count:391--> skill TRAE IDE** yang sudah dikurasi, diaudit keamanannya, dan siap pakai — dari blog engine, keamanan DevOps, marketing, sampai generator gambar Seedream.
 
 > ⚠️ **Repo ini PRIVATE, khusus Slackercode Family.** Folder `memory/` berisi profil preferensi pribadi — jangan pernah diubah ke publik.
 
@@ -12,7 +12,7 @@ Repo ini berisi **390<!--skill-count:390--> skill TRAE IDE** yang sudah dikurasi
 
 | Folder / File | Isi |
 |---------------|-----|
-| `skills/` | 390<!--skill-count:390--> folder skill — kurasi standalone + ekspor plugin TRAE resmi + logo-design + reverse-engineer-anything (lihat tabel di bawah) |
+| `skills/` | 391<!--skill-count:391--> folder skill — kurasi standalone + ekspor plugin TRAE resmi + logo-design + reverse-engineer-anything (lihat tabel di bawah) |
 | `skills/INVENTORY.md` | Inventaris 390 skill per sumber (kurasi internal / plugin TRAE / GitHub eksternal) — auto-generated oleh `scripts/update-inventory.ps1`, jawaban "skill X dari mana?" |
 | `memory/` | Profil preferensi (`user_profile.md`) + template project memory — dibaca TRAE tiap sesi via Memory Protocol |
 | `rules/` | Aturan perilaku tambahan (`critical-thinking.md`, `memory-protocol.md`) — sumber kebenaran; pasang manual ke `~/.trae/user_rules/` |
@@ -102,7 +102,7 @@ Repo ini juga jadi sumber skill untuk **Claude Code CLI** — pengalaman identik
 .\scripts\sync-claude.ps1 -Mirror  # samakan 100% — skill lokal yang tidak ada di repo ikut dihapus
 ```
 
-Yang disalin: 390<!--skill-count:390--> skill → `~/.claude/skills`, `CLAUDE.md` global (persona Slackercoder + hemat token), commands `/graphify-build` `/graphify-update`. Settings digabung otomatis — **token, plugin z.ai, dan MCP lokal tetap dipertahankan** (backup `settings.json.bak`).
+Yang disalin: 391<!--skill-count:391--> skill → `~/.claude/skills`, `CLAUDE.md` global (persona Slackercoder + hemat token), commands `/graphify-build` `/graphify-update`. Settings digabung otomatis — **token, plugin z.ai, dan MCP lokal tetap dipertahankan** (backup `settings.json.bak`).
 
 Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku = `glm-5.3-flash[1m]`, konteks 1M aktif (`[1m]` diurai Claude Code jadi beta header). Ganti model cukup edit `claude/settings.template.json` lalu sync ulang.
 
@@ -115,7 +115,7 @@ Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku
 .\scripts\sync-zcode.ps1 -Mirror  # samakan 100% dengan repo
 ```
 
-Yang disalin: 390<!--skill-count:390--> skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
+Yang disalin: 391<!--skill-count:391--> skill → `~/.zcode/skills`, `AGENTS.md` (persona Slackercoder + topologi MCP hasil audit 2026-10-06) → `~/.zcode/AGENTS.md`, commands graphify → `~/.zcode/commands`. Config MCP (`~/.zcode/cli/config.json`) **TIDAK disentuh** — MCP dikelola langsung di Z Code (8 server aktif di blok `mcp.servers`; sync lama dari `~/.claude.json` dihapus karena menimpa kurasi Z Code dan membuat blok dobel). Jalankan saat Z Code tertutup.
 
 ### Sinkron ke Codex
 
@@ -126,7 +126,7 @@ Yang disalin: 390<!--skill-count:390--> skill → `~/.zcode/skills`, `AGENTS.md`
 .\scripts\sync-codex.ps1 -Mirror  # samakan 100% dengan repo (folder .system Codex tetap aman)
 ```
 
-Yang disalin: 390<!--skill-count:390--> skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
+Yang disalin: 391<!--skill-count:391--> skill → `~/.agents/skills` (path resmi user-scope) dan `~/.codex/skills` (legacy, agar tidak basi; bundled `.system` tidak disentuh), `AGENTS.md` (padanan penuh Rules TRAE WORK) + `BEST-PRACTICE.md` → `~/.codex/` (backup lama otomatis), serta arsip otomatis `rules/slackercoder-rules.md` yang inert (engine rules Codex hanya membaca file `.rules` Starlark). Jalankan saat Codex tertutup. Catatan: memories Codex (`~/.codex/memories/`) = state generated, jangan edit manual — memory kanonik tetap di TRAE.
 
 ### Dukungan macOS (MacBook)
 
@@ -211,7 +211,7 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 
 ---
 
-## Komponen Utama (390<!--skill-count:390--> Skill)
+## Komponen Utama (391<!--skill-count:391--> Skill)
 
 | Kategori | Jumlah | Contoh Pemicu |
 |----------|--------|---------------|

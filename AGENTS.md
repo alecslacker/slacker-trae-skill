@@ -99,4 +99,4 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 
 ## Saat Skill Tidak Tersedia
 
-Agent non-TRAE tidak memiliki 390<!--skill-count:390--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
+Agent non-TRAE tidak memiliki 391<!--skill-count:391--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
