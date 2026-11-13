@@ -3,6 +3,18 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [v26.11.13] — 2026-11-13
+
+Total skill: **390** (41 kurasi + 94 plugin + 255 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.
+
+### Ditambahkan
+- Skill **`mastermind`** (persona internal Slackercoder Family, atribusi DCI) — pembangun alat keamanan: recon, scanner, fuzzer, harness PoC, exploit dev, kit phishing, checker massal, malware/implant ringan, plus analisis modus operandi dan laporan intelijen/kepolisian. Memuat 8 guardrail (scope, tier eksekusi, label bukti, safe-by-default, kredensial, cakupan uji, tanpa penolakan, kebersihan), tangga kematangan exploit (PoC → andal → senjata), dan serah terima bukti ke REA.
+- Baris `mastermind` di tabel komponen README.
+
+### Diubah
+- Tarik 2 commit upstream (fast-forward): 5 skill dokumen-riset (docx/pdf/pptx/xlsx/research-guide) + `scripts/fix-node-path-machine.ps1`.
+- Regenerasi `skills/INVENTORY.md`; klasifikasi plugin menyesuaikan keadaan lokal (hotl → superpowers, separateweb-capture & writers-loop tercatat sebagai plugin).
+
 ## [v26.11.09] — 2026-11-09
 
 Total skill: **389** (42 kurasi + 92 plugin + 255 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.

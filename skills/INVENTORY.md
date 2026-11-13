@@ -1,4 +1,4 @@
-﻿# SKILL INVENTORY — 389 Skill (Auto-Generated)
+﻿# SKILL INVENTORY — 390 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,21 +6,21 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-12 | Total: **389** skill
+Diperbarui: 2026-11-13 | Total: **390** skill
 
 ## Ringkasan Sumber
 
 | Sumber | Jumlah | Cara update |
 |---|---|---|
-| Kurasi pack / internal | 42 | Manual — skill standalone terkurasi + buatan sendiri |
-| Plugin resmi TRAE | 92 | scripts/export-plugins.ps1 (-Force untuk timpa) |
+| Kurasi pack / internal | 41 | Manual — skill standalone terkurasi + buatan sendiri |
+| Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
 | Repo GitHub eksternal | 255 | scripts/check-upstream.ps1 |
 
-## Kurasi Pack / Internal (42)
+## Kurasi Pack / Internal (41)
 
-agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, separateweb-capture, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines, writers-loop
+agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines
 
-## Plugin Resmi TRAE (92)
+## Plugin Resmi TRAE (94)
 
 Dihasilkan export-plugins.ps1 dari ~/.trae/plugins/trae-remote-official/ (plugin terikat MCP
 TRAE-only tidak diekspor; format: nama skill — plugin asal).
@@ -61,8 +61,8 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - dispatching-parallel-agents — superpowers
 - distill — development-skills
 - eval-regression — development-skills
-- executing-plans — hotl
-- finishing-a-development-branch — hotl
+- executing-plans — superpowers
+- finishing-a-development-branch — superpowers
 - frontend-app-builder — build-web-apps
 - frontend-dev — development-skills
 - frontend-testing-debugging — build-web-apps
@@ -80,15 +80,16 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - quality-gardening — agent-harness-skills
 - react-and-nextjs-data-visualization — build-web-data-visualization
 - react-best-practices — build-web-apps
-- receiving-code-review — hotl
+- receiving-code-review — superpowers
 - repo-contracts-and-boundaries — agent-harness-skills
 - repo-harness-assessment — agent-harness-skills
 - reports-pdfs-and-slide-automation — build-web-data-visualization
-- requesting-code-review — hotl
+- requesting-code-review — superpowers
 - resolve-merge — development-skills
 - roast-my-code — development-skills
 - runtime-evidence-and-tracing — agent-harness-skills
 - scrollytelling-and-parallax-data-visualization — build-web-data-visualization
+- separateweb-capture — separateweb-capture
 - shadcn-best-practices — build-web-apps
 - simple-man — simple-man
 - spec-workflow — spec-driven
@@ -99,7 +100,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - subagent-driven-development — superpowers
 - supabase-best-practices — build-web-apps
 - swift-dev — development-skills
-- systematic-debugging — hotl
+- systematic-debugging — superpowers
 - test-driven-development — superpowers
 - testing-data-visualizations — build-web-data-visualization
 - threejs-data-visualization — build-web-data-visualization
@@ -113,9 +114,10 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - using-git-worktrees — superpowers
 - using-superpowers — superpowers
 - validation-harness-design — agent-harness-skills
-- verification-before-completion — hotl
+- verification-before-completion — superpowers
 - visualization-strategy-and-critique — build-web-data-visualization
-- writing-plans — hotl
+- writers-loop — writers-loop
+- writing-plans — superpowers
 - writing-skills — superpowers
 
 ## Repo GitHub Eksternal (255)

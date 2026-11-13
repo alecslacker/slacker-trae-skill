@@ -12,7 +12,7 @@
 
 ## Skill — Auto-Invocation (PENTING)
 
-Kamu punya **389<!--skill-count:389--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
+Kamu punya **390<!--skill-count:390--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
 
 1. Sebelum task apa pun: identifikasi domain (UI? dokumen? security? database? riset? SEO?) → cari skill yang cocok → **WAJIB invoke Skill tool SEBELUM kerja manual**.
 2. 2+ skill relevan = pakai semuanya, urut dari yang paling spesifik.
