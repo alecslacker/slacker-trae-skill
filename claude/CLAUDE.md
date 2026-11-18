@@ -1,4 +1,4 @@
-﻿# CLAUDE.md — Slackercoder untuk Claude Code (Global)
+# CLAUDE.md — Slackercoder untuk Claude Code (Global)
 
 > Sumber kebenaran aturan: repo `trae-skills` → `AGENTS.md`. File ini versi global Claude Code, sinkron via `scripts/sync-claude.ps1`.
 > Profil user: `~/.claude/memory/user_profile.md` — baca di awal sesi bila ada.
@@ -12,7 +12,7 @@
 
 ## Skill — Auto-Invocation (PENTING)
 
-Kamu punya **391<!--skill-count:391--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
+Kamu punya **392<!--skill-count:392--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
 
 1. Sebelum task apa pun: identifikasi domain (UI? dokumen? security? database? riset? SEO?) → cari skill yang cocok → **WAJIB invoke Skill tool SEBELUM kerja manual**.
 2. 2+ skill relevan = pakai semuanya, urut dari yang paling spesifik.

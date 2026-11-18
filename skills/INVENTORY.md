@@ -1,4 +1,4 @@
-﻿# SKILL INVENTORY — 391 Skill (Auto-Generated)
+# SKILL INVENTORY — 392 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,7 +6,7 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-13 | Total: **391** skill
+Diperbarui: 2026-11-18 | Total: **392** skill
 
 ## Ringkasan Sumber
 
@@ -14,11 +14,11 @@ Diperbarui: 2026-11-13 | Total: **391** skill
 |---|---|---|
 | Kurasi pack / internal | 42 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 255 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 256 | scripts/check-upstream.ps1 |
 
 ## Kurasi Pack / Internal (42)
 
-agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines, wordpress-dev
+agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 
@@ -120,7 +120,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (255)
+## Repo GitHub Eksternal (256)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
@@ -241,9 +241,9 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - gcp-networking
 - gcp-secret-manager
 - gdpr-compliance
+- git-workflow
 - github-actions
 - gitlab-ci
-- git-workflow
 - gpu-kubernetes-operations
 - gpu-server-management
 - hashicorp-vault
@@ -341,8 +341,8 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - analytics
 - aso
 - churn-prevention
-- cold-email
 - co-marketing
+- cold-email
 - community-marketing
 - competitor-profiling
 - competitors
@@ -383,6 +383,10 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 ### currents-dev/playwright-best-practices-skill (283d5cb (2026-07-21), dicek 2026-10-30)
 
 - playwright-best-practices
+
+### haidrrrry/claude-remotion-skill (48acfe4 (2026-06-13), dicek 2026-10-31)
+
+- remotion-motion-graphics
 
 ### kaankiziltug/logo-design-skill (7340903 (2026-10-20), dicek 2026-10-30)
 
