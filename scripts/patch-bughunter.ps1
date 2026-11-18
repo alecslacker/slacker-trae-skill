@@ -164,6 +164,59 @@ def _run_shell(cmd: list[str], cwd: str | None = None, timeout: int = 3600,
     $applied++
 }
 
+# ---------- Patch 4: shim fcntl (modul Unix-only) ----------
+$spRoot = Join-Path $env:APPDATA 'uv\tools\agentic-bug-hunter\Lib\site-packages'
+$fcntlShim = Join-Path $spRoot 'fcntl.py'
+
+if (Test-Path $fcntlShim) {
+    Write-Host '[=] fcntl.py — shim sudah ada.' -ForegroundColor Green
+    $skipped++
+} else {
+    $shim = @'
+"""Windows compatibility shim for the Unix-only ``fcntl`` module.
+
+``fcntl`` does not exist on Windows, which breaks any module that imports it
+at top level (notably ``tools/lead_board.py`` and ``memory/audit_log.py`` in
+agentic-bug-hunter). Every use in that toolkit is advisory file locking around
+an append — ``fcntl.flock(fd, LOCK_EX)`` ... ``LOCK_UN`` — so a no-op
+implementation is safe here: concurrent writers still append atomically at the
+OS level, they just do not serialise against each other.
+
+Installed as a shadow module under the toolkit's ``site-packages`` so the
+import succeeds without patching each caller.
+
+Author: Mas Wondho — Duta Corpora Indonesia (DCI)
+Copyright (c) 2026 Duta Corpora Indonesia
+"""
+
+LOCK_EX = 2
+LOCK_SH = 1
+LOCK_NB = 4
+LOCK_UN = 8
+
+F_SETLK = 6
+F_SETLKW = 7
+F_GETLK = 5
+
+
+def flock(fd, operation):
+    """Advisory lock no-op on Windows (signature parity with fcntl)."""
+    return None
+
+
+def lockf(fd, cmd, len=0, start=0, whence=0):
+    """Parity shim for ``fcntl.lockf`` - also a no-op on Windows."""
+    return None
+
+
+def ioctl(fd, request, arg=0, mutate_flag=True):
+    raise OSError("fcntl.ioctl is not supported on Windows")
+'@
+    Set-Content -Path $fcntlShim -Value $shim -Encoding UTF8
+    Write-Host '[OK] fcntl.py — shim Windows dipasang.' -ForegroundColor Green
+    $applied++
+}
+
 Write-Host ''
 Write-Host "Selesai: $applied patch diterapkan, $skipped sudah ada." -ForegroundColor Cyan
 Write-Host 'Verifikasi: bughunter --no-banner status' -ForegroundColor DarkGray
