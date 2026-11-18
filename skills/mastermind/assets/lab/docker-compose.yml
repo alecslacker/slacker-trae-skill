@@ -1,0 +1,27 @@
+# Lab rentan lokal — templat.
+# Pakai: docker compose up -d  (lalu buka http://127.0.0.1:8080)
+# Versi sengaja dipin. Ganti tag untuk target uji lain; catat tag di laporan.
+services:
+  web:
+    image: php:7.4-apache
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./app:/var/www/html:ro
+    environment:
+      # contoh: tampilkan galat penuh agar mudah dipetakan
+      PHP_INI_SCAN_DIR: /usr/local/etc/php/conf.d
+    healthcheck:
+      test: ["CMD", "php", "-v"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Pembanding versi tertambal. Naikkan tag di atas ke versi fix,
+  # jalankan uji yang sama, dan buktikan perbedaan hasilnya.
+  # web-fixed:
+  #   image: php:8.3-apache
+  #   ports:
+  #     - "127.0.0.1:8081:80"
+  #   volumes:
+  #     - ./app:/var/www/html:ro

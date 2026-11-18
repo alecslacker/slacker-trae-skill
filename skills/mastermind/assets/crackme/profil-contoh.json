@@ -1,0 +1,13 @@
+{
+  "nama": "crackme-01-lewati-cek",
+  "versi_target": "hasil build lokal gcc -O0 (offset berbeda antar build)",
+  "catatan": "Contoh profil. Isi sha256_asli dengan Get-FileHash berkas hasil build sendiri, dan isi offset setelah memetakan instruksi percabangan lewat REA. sha256_asli boleh dihapus bila ingin memakai --abaikan-hash.",
+  "patch": [
+    {
+      "offset": 1234,
+      "dari": "75",
+      "ke": "EB",
+      "catatan": "jne -> jmp supaya cabang gagal tidak diambil"
+    }
+  ]
+}

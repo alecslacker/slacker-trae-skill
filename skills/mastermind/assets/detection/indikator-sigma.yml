@@ -1,0 +1,39 @@
+# Templat Sigma — perilaku, bukan nama berkas.
+# Konversi ke backend SIEM dulu, lalu uji dengan event nyata sebelum dipakai.
+title: MM Contoh Eksekusi Implan dari Direktori Sementara
+id: 00000000-0000-0000-0000-000000000000
+status: experimental
+description: Contoh kerangka. Ganti pola perintah sesuai hasil uji, bukan tebakan.
+references:
+  - isi Evidence ID atau URL laporan
+author: Slackercoder Family
+date: 2026/01/01
+tags:
+  - attack.execution
+  - attack.t1059
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  seleksi_induk:
+    ParentImage|endswith:
+      - '\winword.exe'
+      - '\excel.exe'
+  seleksi_anak:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\wscript.exe'
+  seleksi_pola:
+    CommandLine|contains:
+      - '-enc'
+      - 'FromBase64String'
+  kondisi: seleksi_induk and seleksi_anak and seleksi_pola
+fields:
+  - Image
+  - ParentImage
+  - CommandLine
+  - User
+falsepositives:
+  - Makro sah yang memanggil skrip internal
+  - Pembaruan perangkat lunak lewat Office
+level: medium

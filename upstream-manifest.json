@@ -343,6 +343,40 @@
       "catatan": "Skill motion graphics video dengan Remotion (MIT, dibuat @haidrrrry): SKILL.md + 10 aturan motion wajib + references/motion-patterns.md (17 komponen copy-paste) + references/design-rules.md + assets/theme.ts. Alur wajib: render -> ekstrak frame ffmpeg -> inspeksi -> fix -> re-render. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. Melengkapi skill video (HyperFrames) dengan pendekatan code-render deterministik.",
       "terakhir_dicek": "2026-10-31",
       "upstream_terakhir": "48acfe4 (2026-06-13)"
+    },
+    {
+      "folder": "bug-bounty",
+      "repo": "awarexone/Agentic-Bug-Hunter",
+      "metode": "latest_commit",
+      "juga_mencakup": [
+        "agentic-app-audit",
+        "argus",
+        "bb-methodology",
+        "bug-chaining",
+        "bugcrowd-reporting",
+        "cicd-security",
+        "client-reverse",
+        "cloud-pentest",
+        "credential-attack",
+        "graphql-audit",
+        "johnwick",
+        "jsmax",
+        "llm-redteam",
+        "mcp-server-audit",
+        "meme-coin-audit",
+        "mobile-pentest",
+        "omni-killchain",
+        "pii-hunter",
+        "report-writing",
+        "security-arsenal",
+        "triage-validation",
+        "web2-recon",
+        "web2-vuln-classes",
+        "web3-audit"
+      ],
+      "catatan": "Toolkit bug bounty AI (MIT, 5.6k stars). 25 skill + 43 command + CLI bughunter (PyPI/GitHub) + MCP server + plugin Claude Code. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. CATATAN PENTING: (1) PyPI 6.0.2 TIDAK memuat provider requesty - install dari git+https GitHub agar base_url kustom bisa dipakai; (2) brain.py perlu patch agar kompatibel gateway yang mengirim sentinel SSE data:[DONE] pada respons non-streaming - lihat scripts/patch-bughunter.ps1; (3) command (43) ada di folder commands/ repo upstream - disalin ke ~/.claude/commands dan ~/.zcode/commands secara terpisah, bukan bagian skills/.",
+      "terakhir_dicek": "2026-10-31",
+      "upstream_terakhir": "8060af0 (2026-10-28)"
     }
   ]
 }

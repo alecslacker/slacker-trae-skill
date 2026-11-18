@@ -1,4 +1,4 @@
-# SKILL INVENTORY — 392 Skill (Auto-Generated)
+# SKILL INVENTORY — 417 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,7 +6,7 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-18 | Total: **392** skill
+Diperbarui: 2026-11-18 | Total: **417** skill
 
 ## Ringkasan Sumber
 
@@ -14,7 +14,7 @@ Diperbarui: 2026-11-18 | Total: **392** skill
 |---|---|---|
 | Kurasi pack / internal | 42 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 256 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 281 | scripts/check-upstream.ps1 |
 
 ## Kurasi Pack / Internal (42)
 
@@ -120,7 +120,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (256)
+## Repo GitHub Eksternal (281)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
@@ -165,6 +165,34 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - pdf
 - pptx
 - xlsx
+
+### awarexone/Agentic-Bug-Hunter (8060af0 (2026-10-28), dicek 2026-10-31)
+
+- agentic-app-audit
+- argus
+- bb-methodology
+- bug-bounty
+- bug-chaining
+- bugcrowd-reporting
+- cicd-security
+- client-reverse
+- cloud-pentest
+- credential-attack
+- graphql-audit
+- johnwick
+- jsmax
+- llm-redteam
+- mcp-server-audit
+- meme-coin-audit
+- mobile-pentest
+- omni-killchain
+- pii-hunter
+- report-writing
+- security-arsenal
+- triage-validation
+- web2-recon
+- web2-vuln-classes
+- web3-audit
 
 ### BagelHole/DevOps-Security-Agent-Skills (0365f57 (2026-05-22), dicek 2026-10-30)
 
