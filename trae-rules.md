@@ -79,7 +79,6 @@ TRAE punya 384 skill terpasang. Aturan agar tidak ada skill terlewat:
 | sequential-thinking | sequentialthinking | Arsitektur kompleks, keputusan multi-langkah |
 | Google_Maps | geocode, places, directions | Kebutuhan lokasi/peta |
 | Time | get_current_time, convert_time | Waktu presisi lintas zona |
-| mcp_byteplus-image | generate_image, list_models | Generate gambar via BytePlus |
 
 Fallback riset umum: WebSearch/WebFetch (built-in) bila MCP tidak memadai. Budget MCP Z.AI terbatas — pakai bijak.
 
@@ -166,7 +165,7 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 - Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 ## Konten Indonesia/Jawa
 
-Tulisan/artikel/gambar berkarakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Krama bila diminta. Arah visual per-project via Design System eksplisit — tanpa gaya global wajib. Nusantara = opsi per-project bila cocok.
+Tulisan/artikel berkarakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Krama bila diminta.
 
 ## Format Output Standar
 

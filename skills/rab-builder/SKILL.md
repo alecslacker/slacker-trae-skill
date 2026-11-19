@@ -73,7 +73,7 @@ Ekstrak ke **Tabel Stack** (tampilkan ke user untuk konfirmasi):
 | Integrasi | [mis. Midtrans, Resend, Cloudinary] | fee/subscription? |
 | Hosting produksi | [Tencent Lighthouse / Vercel] | $/bulan, spec (katalog §B) |
 | Domain | [.com/.id] | $/tahun |
-| Aset visual | [Seedream via plan existing / desainer] | bila perlu |
+| Aset visual | [desainer / stock photo] | bila perlu |
 
 **Gate Fase 1**: tabel stack dikonfirmasi user sebelum lanjut. Setiap integrasi BERBAYAR wajib teridentifikasi di sini — yang lolos fase ini masuk RAB; yang tidak, tidak dihitung.
 
@@ -106,7 +106,7 @@ Hitung per kategori (harga dari `references/price-catalog.md`, verifikasi live b
 
 **A. AI Tooling (vibe coding)** — WAJIB
 - z.ai Coding Plan Max: $80/bulan, prorata per minggu ($80 × durasi_minggu / 4.33)
-- Lain-lain bila user sebut (mis. Seedream plan untuk aset)
+- Lain-lain bila user sebut (mis. plan aset visual)
 
 **B. Infrastruktur Development**
 - Staging: default $0 (Laragon lokal / free tier) kecuali user minta VPS khusus

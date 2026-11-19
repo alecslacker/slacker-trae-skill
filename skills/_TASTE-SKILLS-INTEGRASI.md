@@ -27,7 +27,7 @@ SKILL.md v2 memuat blok di bawah frontmatter (konvensi sama seperti v1):
 
 1. **Font serif**: taste-skill membanned Fraunces/Instrument Serif sebagai default; prd-builder kita merekomendasikan Instrument Serif untuk vibe editorial. Resolusi: user pilih vibe via PRD → prd-builder menang; tanpa arah eksplisit → ikuti taste-skill.
 2. **Inter/Geist**: taste-skill mengizinkan Inter untuk gaya neutral; antislop-ui kita menganggapnya *tell* bawaan AI. Resolusi: font apa pun boleh asal ada alasan brand tertulis (aturan kita).
-3. **Pipeline image generation**: skill imagegen-* dari v1 TIDAK ikut dimigrasi (konflik dengan `byteplus-seedream5` kita). Pinjam prinsipnya saja: 1 section = 1 gambar fresh, jangan kompres/crop.
+3. **Pipeline image generation**: skill imagegen-* dari v1 TIDAK dimigrasi. Pinjam prinsipnya saja: 1 section = 1 gambar fresh, jangan kompres/crop.
 
 ## Catatan Operasional v2
 

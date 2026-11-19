@@ -33,7 +33,7 @@ Detail lengkap: `zcode/BEST-PRACTICE.md` di repo trae-skills. Inti yang wajib di
 
 ## Skill — Auto-Invocation (PENTING)
 
-Z Code punya **417<!--skill-count:417--> skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Z Code punya **416<!--skill-count:416--> skill terpasang** di `~/.zcode/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE, Claude Code, dan Codex; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.zcode/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y).
@@ -144,13 +144,12 @@ Z Code membaca MCP dari blok kanonik `mcp.servers` di `~/.zcode/cli/config.json`
 | `playwright` | Otomasi browser (webapp testing); skill `playwright-best-practices` bergantung padanya |
 | `Figma AI Bridge` | Desain Figma → kode; skill `figma` bergantung padanya |
 | `shadcn-ui` | Registry komponen shadcn/ui |
-| `byteplus-image` | Generate gambar (Seedream) |
 | `publora` | Publishing sosmed Duta Corpora |
 | `ssh-admin` | Admin server Ubuntu via SSH — berjalan via wrapper `~/.zcode/bin/ssh-admin-mcp.cmd` + salinan config `~/.zcode/bin/ssh-admin-servers.json` (whitelist/blacklist array tertanam di file, karena mode `--config-file` ssh-mcp-server MENGABAIKAN `--whitelist` CLI). Salinan bisa stale bila `ssh-servers-multi.json` milik TRAE berubah — sinkronkan manual |
 
 **Aturan anti-redundansi (hasil audit):** sebelum menambah MCP baru, cek dulu kemampuan BAWAAN Z Code — Bash + Read/Write/Edit (setara desktop-commander), WebSearch/WebFetch (setara web-search-prime/zread/web-reader; WebSearch bawaan berjalan di backend z.ai), jam sistem + CronCreate/CronList (setara Time), Read gambar + `zai-mcp-server` (zai-vision cuma duplikat). DILARANG memasang ulang: `desktop-commander`, `Time`, `web-search-prime`, `zread`, `zai-vision`, `Google Maps` (package resmi sudah archived upstream), `sequential-thinking` (GLM sudah punya native thinking), `web-reader` (dihapus 2026-10-07 — WebFetch bawaan cukup), `needmcp` (dihapus 2026-10-07 — bug vendor: meng-echo protocolVersion klien tanpa `resultType` di `tools/list`, selalu failed; boleh dipasang lagi hanya SETELAH vendor memperbaiki).
 
-Routing: gambar/screenshot → `zai-mcp-server`; server SSH → `ssh-admin`; generate gambar → `byteplus-image`; komponen UI → MCP `shadcn-ui`; Figma → `Figma AI Bridge`. Sync script TIDAK menimpa config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart Z Code).
+Routing: gambar/screenshot → `zai-mcp-server`; server SSH → `ssh-admin`; komponen UI → MCP `shadcn-ui`; Figma → `Figma AI Bridge`. Sync script TIDAK menimpa config MCP — perubahan MCP dilakukan langsung di Z Code (Settings → MCP, atau edit config + restart Z Code).
 
 Catatan: sebagian skill TRAE plugin-only (mis. `dev-fix`, `skill-creator`, `graphify` sebagai command) tidak punya plugin di Z Code — kerjakan mengikuti pola skill setara (mis. dev-fix → debugging sistematis + regression test) atau manual dengan standar yang sama.
 
@@ -219,5 +218,4 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 - Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 ## Konten Indonesia/Jawa
 
-- Tulisan/artikel/gambar: karakter Indonesia/Jawa — bahasa natural, unggah-ungguh, gotong royong, referensi lokal. Tutur krama bila diminta.
-- Arah visual per-project via Design System eksplisit (vibe + referensi konkret + design token 3 tingkat) — tidak ada gaya global wajib. Craft tetap premium & teliti. Nuansa Nusantara valid bila cocok produknya, bukan default.
+- Tulisan/artikel: karakter Indonesia/Jawa — bahasa natural, unggah-ungguh, gotong royong, referensi lokal. Tutur krama bila diminta.

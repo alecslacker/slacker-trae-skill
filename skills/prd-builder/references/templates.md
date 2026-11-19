@@ -576,20 +576,6 @@ Setup → Database → Auth → Core Features → Integration → Testing → De
 
 ---
 
-## Aset Visual (Generate via byteplus-seedream5)
-
-Daftar aset yang digenerate dengan Seedream (prompt mengandung: tujuan + style konsisten + palette hex dari Design Tokens + mood + komposisi):
-
-| Aset | Model | Prompt Ringkas | Lokasi File |
-|------|-------|----------------|-------------|
-| Hero image | pro/lite | [prompt lengkap] | [path] |
-| Ilustrasi empty state | lite | [prompt lengkap, style konsisten] | [path] |
-| Logo/OG image | pro | [prompt lengkap, teks Indonesia] | [path] |
-
-Aturan konsistensi antar gambar: SATU style untuk semua (flat/isometric/3D — jangan campur), palette dari design tokens, mood sesuai vibe Section 8.
-
----
-
 ## AI Test — Final Gate (WAJIB lulus semua sebelum desain dinyatakan selesai)
 
 - [ ] 1. Apakah layout bisa ditebak dalam 3 detik oleh orang yang sering lihat AI-generated UI? (Jika ya → REDESAIN)

@@ -57,9 +57,8 @@ File ini menjelaskan cara berpindah dari satu phase ke phase berikutnya, dan kap
 **Langkah**:
 1. Tanya: "Mau lanjut bikin Design Spec tampilan UI/UX?"
 2. Jika ya → mulai Phase 4 dengan **Sequential Design Process** (lihat SKILL.md Phase 4): rough layout → hierarchy → tokens (dari PRD Section 8) → interaction → accessibility → edge state → AI Test
-3. Generate aset visual via `byteplus-seedream5` (style konsisten satu project)
-4. Jika tidak → tawarkan opsi lain (lihat Chain ke Skill Lain di bawah)
-5. Setelah Phase 4 selesai → **UPDATE** M001: "Design Spec selesai (wireframe-[nama].md v1.0, AI Test LULUS). Semua fase selesai."
+3. Jika tidak → tawarkan opsi lain (lihat Chain ke Skill Lain di bawah)
+4. Setelah Phase 4 selesai → **UPDATE** M001: "Design Spec selesai (wireframe-[nama].md v1.0, AI Test LULUS). Semua fase selesai."
 
 ---
 
@@ -140,11 +139,8 @@ Setelah Phase 3 (atau Phase 4) selesai, tawarkan opsi lanjutan:
 | Wireframe HTML interaktif | `dynamic-ui` atau `frontend-skill` |
 | Landing page / website visual kuat | `frontend-skill` |
 | Komponen UI production-grade | `frontend-design` (aesthetic bold, anti font generik) |
-| Generate hero/ilustrasi/logo aset visual | `byteplus-seedream5` (Dola Pro utk teks Indonesia, Lite utk 4K/batch) |
 | HTML report / dashboard | `html-report` |
 | HTML slide deck | `html-deck` |
-
-**Aturan aset visual (Anti-Slop Layer 7)**: prompt Seedream WAJIB memuat 5 elemen — (1) tujuan penggunaan, (2) style konsisten dgn aset lain di project sama, (3) palette hex dari Design Tokens PRD Section 8, (4) mood sesuai vibe, (5) komposisi. Semua aset satu project = satu style.
 
 ---
 

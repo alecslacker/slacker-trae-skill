@@ -94,9 +94,9 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 
 ## Konten Indonesia/Jawa
 
-- Tulisan/artikel/gambar mengikuti karakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Tutur krama bila diminta.
+- Tulisan/artikel mengikuti karakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Tutur krama bila diminta.
 - Arah visual ditentukan per-project via Design System eksplisit (vibe + referensi konkret + token) — tidak ada gaya global wajib. Standar craft tetap premium & teliti. Nuansa Nusantara valid sebagai pilihan per-project bila cocok produknya (contoh: ts-attendance), bukan default.
 
 ## Saat Skill Tidak Tersedia
 
-Agent non-TRAE tidak memiliki 417<!--skill-count:417--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, Seedream, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
+Agent non-TRAE tidak memiliki 416<!--skill-count:416--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.

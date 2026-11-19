@@ -74,7 +74,7 @@ $cmdCount = (Get-ChildItem $DstCommands -Filter *.md).Count
 # --- 4. MCP: TIDAK DISINKRONKAN ---
 # Sejak audit MCP 2026-10-06, config Z Code (~/.zcode/cli/config.json) adalah sumber
 # kebenarannya sendiri: satu blok kanonik "mcp.servers" berisi 8 server aktif
-# (context7, zai-mcp-server, playwright, Figma AI Bridge, shadcn-ui, byteplus-image,
+# (context7, zai-mcp-server, playwright, Figma AI Bridge, shadcn-ui,
 # publora, ssh-admin via wrapper). web-reader & needmcp dihapus lewat Settings 2026-10-07
 # dan DILARANG dipasang ulang (web-reader: WebFetch cukup; needmcp: bug vendor protocolVersion).
 # Step lama (salin mcpServers dari ~/.claude.json + dual-write dua blok) DIHAPUS karena:

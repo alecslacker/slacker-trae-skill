@@ -1,6 +1,6 @@
 ---
 name: "prd-builder"
-description: "Pandu user membuat PRD 8-section interaktif (termasuk Design System anti-AI-slop) via pertanyaan guided, lalu chain ke implementation plan, task breakdown trackable, dan design spec/wireframe dengan edge state + AI Test gate + generate aset visual via Seedream. Invoke saat user ingin merancang sistem/aplikasi baru sebelum coding, atau menyebut 'buat PRD', 'rancang aplikasi', 'desain sistem'."
+description: "Pandu user membuat PRD 8-section interaktif (termasuk Design System anti-AI-slop) via pertanyaan guided, lalu chain ke implementation plan, task breakdown trackable, dan design spec/wireframe dengan edge state + AI Test gate. Invoke saat user ingin merancang sistem/aplikasi baru sebelum coding, atau menyebut 'buat PRD', 'rancang aplikasi', 'desain sistem'."
 ---
 
 # PRD Builder — Product Requirements Document Interaktif
@@ -355,9 +355,8 @@ Jika ya, kerjakan dengan **Sequential Design Process** — JANGAN loncat ke styl
 6. **Step 5: Accessibility Audit** — kontras min 4.5:1 (target 7:1), tab order, aria-label
 7. **Step 6: Edge State Design** — tabel state kosong/loading/error/offline/success PER SCREEN dengan copy final Bahasa Indonesia natural (input dari Q4.5). DILARANG "No data found" atau "Something went wrong"
 8. **Step 7: Final Critique — AI Test** — jalankan 7 pertanyaan AI Test (lihat template). Jika ada jawaban gagal → kembali ke step yang relevan, revisi, ulangi test. Maksimal 3 iterasi.
-9. **Generate aset visual** via skill `byteplus-seedream5` (Dola Pro untuk teks dalam gambar, Lite untuk resolusi 4K/batch) — hero image, ilustrasi empty state, logo. Prompt WAJIB mengandung: tujuan penggunaan + style konsisten + palette hex dari Design Tokens + mood sesuai vibe + komposisi. Semua gambar dalam SATU project harus konsisten style.
-10. **Generate** `wireframe-[nama-proyek].md` (template Template 4)
-11. **Jika user mau visual lebih detail**, delegate ke skill `frontend-design` atau `frontend-skill`
+9. **Generate** `wireframe-[nama-proyek].md` (template Template 4)
+10. **Jika user mau visual lebih detail**, delegate ke skill `frontend-design` atau `frontend-skill`
 
 Jika AI Test tidak lulus setelah 3 iterasi → STOP, tampilkan hasil test dan rekomendasi ke user. Jangan paksa lanjut.
 
@@ -519,7 +518,6 @@ Skill ini bukan berdiri sendiri. Manfaatkan ekosistem plugins dan MCP yang terse
 |------|-------------|---------------|
 | `PureShowWidget` | Built-in tool | Render wireframe visual inline di chat |
 | `frontend-design` | Skill | Wireframe/UI production-grade (bukan ASCII) — aesthetic direction bold, anti font generik |
-| `byteplus-seedream5` | Skill lokal | Generate aset visual: hero, ilustrasi empty state, logo. Dola Pro (teks Indonesia dalam gambar) / Lite (4K, batch, hemat). Prompt wajib: tujuan+style+palette+mood+komposisi |
 | `get_figma_data` + `download_figma_images` | mcp_Figma_AI_Bridge | Import layout dari Figma jika ada desain |
 | `get-wireframe-tool` / `get-layouts-tool` | mcp_needmcp | Generate wireframe layout otomatis |
 | `uml-and-software-architecture-visualization` | build-web-data-visualization | Visualisasi arsitektur sistem (diagram) |
@@ -596,7 +594,7 @@ Phase 2: Implementation Plan (fase urut + dependency + complexity + Design QA ta
     ↓ Output: plan-[nama-proyek].md
 Phase 3: Task Breakdown (checklist - [ ] dengan tracking)
     ↓ Output: tasks-[nama-proyek].md
-Phase 4: Design Spec (Sequential Design 7-step + Edge State + Seedream assets + AI Test gate)
+Phase 4: Design Spec (Sequential Design 7-step + Edge State + AI Test gate)
     ↓ Output: wireframe-[nama-proyek].md
     ↓
 Chain: frontend-design / TDD / Context7 / web-design-guidelines (Design QA)

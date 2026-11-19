@@ -18,7 +18,7 @@ Diperbarui: 2026-11-18 | Total: **417** skill
 
 ## Kurasi Pack / Internal (42)
 
-agent-browser, brand-guidelines, byteplus-seedream5, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
+agent-browser, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 

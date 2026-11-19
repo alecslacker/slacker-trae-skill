@@ -38,7 +38,7 @@ Total skill: **384** (39 kurasi + 94 plugin + 251 GitHub). Angka ini di 10 dokum
 
 ### Diubah
 - **Update upstream masif**: antislop v3.2.21 → **v3.2.24** (struktur repo berubah — skill kini di subfolder `skills/`; ekstensi lokal antislop-ui *Liveliness Recipes* + patch *Sterile Default* di-re-apply otomatis), claude-blog 32 skill blog-* (commit 3544423), `openclaw-local-mac-mini`, `logo-design` (export_variants.py), REA 6.7.0 → **6.8.0** (skill v42 → v49, tools 207 → 229).
-- **Migrasi taste-skill v1 → v2.1.5**: 13 skill `taste-*` lama diganti 1 skill **`design-taste-frontend`** (39 file: library arah desain + real-browser inspector, commit 12af471) di repo + TRAE + Claude + ZCode + Codex. `full-output-enforcement` tetap skill mandiri. Skill `taste-imagegen-*` tidak dimigrasi (konflik dengan `byteplus-seedream5`).
+- **Migrasi taste-skill v1 → v2.1.5**: 13 skill `taste-*` lama diganti 1 skill **`design-taste-frontend`** (39 file: library arah desain + real-browser inspector, commit 12af471) di repo + TRAE + Claude + ZCode + Codex. `full-output-enforcement` tetap skill mandiri. Skill `taste-imagegen-*` tidak dimigrasi.
 - **Klasifikasi ulang 242 skill** yang selama ini tercatat "kurasi" ke sumber GitHub aslinya — hasil cross-check star list `ai-skills`: claude-blog (32), BagelHole DevOps-Security (163), Cesarjoquin Marketing (45), currents-dev playwright (1).
 - `upstream-manifest.json` kini 8 entri; entri Chriss54/multilingual-int (repo 404) diganti claude-blog.
 - `verify-sync.ps1` kini memverifikasi `design-taste-frontend` (bukan 13 taste-* lama).
