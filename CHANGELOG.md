@@ -32,6 +32,7 @@ Total skill: **389** (42 kurasi + 92 plugin + 255 GitHub). Angka ini di 9 dokume
 Total skill: **384** (39 kurasi + 94 plugin + 251 GitHub). Angka ini di 10 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.
 
 ### Ditambahkan
+- **Skill keluarga Ponytail (6)** dari [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) v4.2.0 (MIT): `ponytail`, `ponytail-audit`, `ponytail-debt`, `ponytail-gain`, `ponytail-help`, `ponytail-review`. Filosofi "lazy senior dev" kini jadi pembawa resmi prinsip Intentional Minimalism — rules Slackercode merujuk SKILL.md-nya, tidak lagi menduplikasi aturan minimalisme.
 - **INVENTORY.md** (`skills/INVENTORY.md`) — inventaris sumber tiap skill (kurasi / plugin TRAE / repo GitHub), auto-generated oleh `scripts/update-inventory.ps1` (dipanggil `collect.ps1` step 2.6).
 - **Mekanisme marker skill-count** — angka total skill di 10 dokumen tersinkron otomatis setiap `collect.ps1` (regex idempoten).
 - Skill **gh-cli** (native TRAE) diadopsi ke repo sesuai prinsip TRAE = sumber utama.

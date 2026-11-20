@@ -16,7 +16,7 @@
 1. **Eksekusi, Bukan Opini** — kerjakan yang diminta. Saran unsolicited hanya untuk security vulnerability fatal atau pelanggaran aksesibilitas.
 2. **Security First** — keamanan prioritas mutlak, bukan afterthought.
 3. **Full Code untuk File Baru** — file baru selalu utuh. Edit lokal di file panjang: patch (perubahan + konteks ±5 baris), tawarkan full file bila diminta.
-4. **Intentional Minimalism** — setiap elemen punya tujuan. Tidak ada tujuan = hapus.
+4. **Intentional Minimalism** — solusi terkecil yang benar-benar menyelesaikan task; tidak ada tujuan = hapus. Aturan lengkapnya dibawa skill `ponytail` (tangga keputusan, YAGNI, level `/ponytail lite|full|ultra`, review `ponytail-review`) — baca SKILL.md-nya saat coding, jangan diulang di sini.
 5. **Zero Typo, Zero Error** — lulus Anti-Typo Gate sebelum klaim selesai (lihat Verifikasi).
 6. **Anti-AI-Slop** — hasil kerja tidak boleh terlihat generik ala AI. Rincian lengkap di [.knowledge.md](.knowledge.md) §1.
 
@@ -99,4 +99,4 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 
 ## Saat Skill Tidak Tersedia
 
-Agent non-TRAE tidak memiliki 416<!--skill-count:416--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.
+Agent non-TRAE tidak memiliki 422<!--skill-count:422--> skill TRAE. Jika task menyentuh domain yang sudah didistilasi di [.knowledge.md](.knowledge.md) (anti-slop, PRD, blog, Playwright, Laravel), kerjakan manual mengikuti distilasi tersebut — jangan improvisasi menyimpang.

@@ -25,19 +25,19 @@ Detail lengkap: `~/.codex/BEST-PRACTICE.md`. Inti yang wajib dipatuhi:
 1. **Eksekusi, Bukan Opini** — kerjakan yang diminta. Saran unsolicited hanya untuk security vulnerability fatal atau isu WCAG.
 2. **Security First** — keamanan prioritas mutlak, bukan afterthought.
 3. **Full Code untuk File Baru** — file baru selalu utuh. Edit lokal file panjang: patch (perubahan + konteks ±5 baris), tawarkan full file bila diminta.
-4. **Intentional Minimalism** — tolak desain generik. Setiap elemen harus punya tujuan. Tidak ada tujuan = hapus.
+4. **Intentional Minimalism** — solusi terkecil yang benar-benar menyelesaikan task; tidak ada tujuan = hapus. Aturan lengkapnya dibawa skill `ponytail` (tangga keputusan, YAGNI, level `/ponytail lite|full|ultra`, review `ponytail-review`) — baca SKILL.md-nya saat coding, jangan diulang di sini.
 5. **Zero Typo, Zero Error** — lulus Anti-Typo Gate (lihat Verifikasi) sebelum klaim selesai.
 6. **Anti-AI-Slop** — hasil kerja tidak boleh terlihat generik ala AI. Skill keluarga `antislop*` adalah filter inti.
 
 ## Skill — Auto-Invocation (PENTING)
 
-Codex punya **416<!--skill-count:416--> skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
+Codex punya **422<!--skill-count:422--> skill terpasang** di `~/.agents/skills/` (sinkron dari repo trae-skills — identik dengan TRAE, Claude Code, dan Z Code; termasuk ekspor plugin TRAE: superpowers, dev-skills, agent-harness-skills, claude-code-harness, build-web-data-visualization, dkk).
 
 1. **SEBELUM task apa pun**: identifikasi domain (UI? dokumen? security? database? riset? devops? SEO?) → cari skill yang cocok di `~/.agents/skills/` → baca `SKILL.md`-nya SEBELUM kerja manual. Panggil via `$skill-name` bila perlu eksplisit.
 2. **2+ skill relevan** = pakai semuanya, urut dari yang paling spesifik. Contoh task UI: `design-taste-frontend` (pemimpin arah) + `antislop-human` (a11y).
 3. **Tidak ada yang cocok** → kerjakan langsung, jangan paksakan.
 4. **Prioritas harian**: desain frontend → design-taste-frontend (+antislop-human utk a11y); tulisan/kode → antislop-copywriting/antislop-code; dokumen → docx/pptx/xlsx/pdf; riset → research-guide; fitur baru → brainstorming → writing-plans → test-driven-development; commit → git-commit; sebelum klaim selesai → verification-before-completion; Laravel → laravel-dev; blog/SEO → keluarga blog-*.
-5. **Skill budget**: 416<!--skill-count:416--> skill berarti injeksi metadata besar tiap sesi. Bila auto-trigger melemah, panggil skill EKSPLISIT via `$name` — jangan menunggu trigger otomatis. Jangan menonaktifkan skill demi sinkronisasi.
+5. **Skill budget**: 422<!--skill-count:422--> skill berarti injeksi metadata besar tiap sesi. Bila auto-trigger melemah, panggil skill EKSPLISIT via `$name` — jangan menunggu trigger otomatis. Jangan menonaktifkan skill demi sinkronisasi.
 
 ## Hemat Token (Prioritas Mas Wondho)
 

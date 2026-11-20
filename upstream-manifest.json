@@ -3,6 +3,21 @@
   "_cara_kerja": "Setiap entri: folder = nama folder di skills/, repo = owner/name GitHub, metode = latest_tag|latest_commit, terakhir_dicek & upstream_terakhir diisi otomatis oleh script (jangan edit manual).",
   "entries": [
     {
+      "folder": "ponytail",
+      "repo": "DietrichGebert/ponytail",
+      "metode": "latest_tag",
+      "juga_mencakup": [
+        "ponytail-audit",
+        "ponytail-debt",
+        "ponytail-gain",
+        "ponytail-help",
+        "ponytail-review"
+      ],
+      "catatan": "Skill keluarga Ponytail v4.2.0 (MIT): mode 'lazy senior dev' — solusi terkecil yang menyelesaikan task, YAGNI, stdlib-first. Jadi pembawa resmi prinsip Intentional Minimalism di rules Slackercode (AGENTS.md prinsip #4 merujuk SKILL.md ponytail, tidak menduplikasi). Shortcut di kode ditandai komentar 'shortcut:'. Install 2026-11-20: salin skills/* dari repo.",
+      "terakhir_dicek": "2026-11-20",
+      "upstream_terakhir": "v4.2.0 (2026-11-13)"
+    },
+    {
       "folder": "antislop",
       "repo": "miqdadbadjuber/anti-slop",
       "metode": "latest_tag",

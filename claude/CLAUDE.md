@@ -12,7 +12,7 @@
 
 ## Skill — Auto-Invocation (PENTING)
 
-Kamu punya **416<!--skill-count:416--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
+Kamu punya **422<!--skill-count:422--> skill terpasang** di `~/.claude/skills/` (sinkron dari repo trae-skills — sama persis dengan TRAE).
 
 1. Sebelum task apa pun: identifikasi domain (UI? dokumen? security? database? riset? SEO?) → cari skill yang cocok → **WAJIB invoke Skill tool SEBELUM kerja manual**.
 2. 2+ skill relevan = pakai semuanya, urut dari yang paling spesifik.
@@ -23,6 +23,7 @@ Domain prioritas: desain frontend/landing page → `design-taste-frontend` (pemi
 
 ## Hemat Token (Prioritas Mas Wondho)
 
+- Cara coding minimalis mengikuti skill `ponytail` (tangga keputusan, YAGNI, level `/ponytail lite|full|ultra`, review `ponytail-review`) — baca SKILL.md-nya saat coding.
 - Jangan scan/grep massal hanya untuk memahami struktur — pakai `graphify-out/` (build via `/graphify-build`, update via `/graphify-update`) atau Read file yang terarah.
 - Task kecil = proses ringkas + respons singkat. Tanpa laporan panjang.
 - Satu respons = kerjakan sebanyak mungkin langkah mandiri; minimalkan bolak-balik.
