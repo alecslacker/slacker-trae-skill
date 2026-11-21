@@ -1,4 +1,4 @@
-# SKILL INVENTORY — 417 Skill (Auto-Generated)
+# SKILL INVENTORY — 430 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,19 +6,19 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-18 | Total: **417** skill
+Diperbarui: 2026-11-21 | Total: **430** skill
 
 ## Ringkasan Sumber
 
 | Sumber | Jumlah | Cara update |
 |---|---|---|
-| Kurasi pack / internal | 42 | Manual — skill standalone terkurasi + buatan sendiri |
+| Kurasi pack / internal | 49 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 281 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 287 | scripts/check-upstream.ps1 |
 
-## Kurasi Pack / Internal (42)
+## Kurasi Pack / Internal (49)
 
-agent-browser, brand-guidelines, canvas-design, ponytail, ponytail-audit, ponytail-debt, ponytail-gain, ponytail-help, ponytail-review, chart-visualization, consulting-analysis, data-analysis, electron, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, laravel-dev, local-computer-use, local-realtime-translator, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
+agent-browser, attribution, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, conversion-tracking, data-analysis, electron, events, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, influencer-marketing, laravel-dev, link-building, local-computer-use, local-realtime-translator, marketing-council, marketing-loops, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, reverse-engineer-marketing, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 
@@ -120,11 +120,11 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (281)
+## Repo GitHub Eksternal (287)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
-### AgriciDaniel/claude-blog (3544423 (2026-10-14), dicek 2026-10-30)
+### AgriciDaniel/claude-blog (4f9c2cb (2026-11-03), dicek 2026-11-21)
 
 - blog
 - blog-analyze
@@ -159,14 +159,14 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - blog-translate
 - blog-write
 
-### anthropics/skills (da20c92 (2026-05-29), dicek 2026-11-09)
+### anthropics/skills (e4bb5d9 (2026-11-16), dicek 2026-11-21)
 
 - docx
 - pdf
 - pptx
 - xlsx
 
-### awarexone/Agentic-Bug-Hunter (8060af0 (2026-10-28), dicek 2026-10-31)
+### awarexone/Agentic-Bug-Hunter (82f4512 (2026-11-12), dicek 2026-11-21)
 
 - agentic-app-audit
 - argus
@@ -360,7 +360,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - windows-server
 - zero-trust
 
-### Cesarjoquin/Marketing-Skills (23b887f (2026-09-14), dicek 2026-10-30)
+### coreyhaines31/marketingskills (5b2b400 (2026-11-19), dicek 2026-11-21)
 
 - ab-testing
 - ad-creative
@@ -408,15 +408,24 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - social
 - video
 
-### currents-dev/playwright-best-practices-skill (283d5cb (2026-07-21), dicek 2026-10-30)
+### currents-dev/playwright-best-practices-skill (0b75b58 (2026-11-08), dicek 2026-11-21)
 
 - playwright-best-practices
 
-### haidrrrry/claude-remotion-skill (48acfe4 (2026-06-13), dicek 2026-10-31)
+### DietrichGebert/ponytail (v5.3.3 (2026-10-29), dicek 2026-11-21)
+
+- ponytail
+- ponytail-audit
+- ponytail-debt
+- ponytail-gain
+- ponytail-help
+- ponytail-review
+
+### haidrrrry/claude-remotion-skill (1dcbe5e (2026-08-12), dicek 2026-11-21)
 
 - remotion-motion-graphics
 
-### kaankiziltug/logo-design-skill (7340903 (2026-10-20), dicek 2026-10-30)
+### kaankiziltug/logo-design-skill (e9eaddc (2026-11-13), dicek 2026-11-21)
 
 - logo-design
 
@@ -425,7 +434,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - design-taste-frontend
 - full-output-enforcement
 
-### miqdadbadjuber/anti-slop (v3.2.24, dicek 2026-10-30)
+### miqdadbadjuber/anti-slop (v3.2.32, dicek 2026-11-21)
 
 - antislop
 - antislop-code
@@ -434,7 +443,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - antislop-layoutmobile
 - antislop-ui
 
-### morluto/rea (v6.8.0, dicek 2026-10-30)
+### morluto/rea (rea-agents-6.10.1 (2026-11-20), dicek 2026-11-21)
 
 - reverse-engineer-anything
 

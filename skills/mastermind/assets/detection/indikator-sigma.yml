@@ -6,7 +6,7 @@ status: experimental
 description: Contoh kerangka. Ganti pola perintah sesuai hasil uji, bukan tebakan.
 references:
   - isi Evidence ID atau URL laporan
-author: Slackercoder Family
+author: Slackercode Family
 date: 2026/01/01
 tags:
   - attack.execution

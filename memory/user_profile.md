@@ -28,16 +28,17 @@
 - Spec model: context 1M, max output 128K; GLM-5.3 thinking selalu on (3 level: low/med/high).
 
 ## 5. Ecosystem Skills & MCP
-- **Total 422<!--skill-count:422--> skill terpasang.** Komponen utama:
+- **Total 430<!--skill-count:430--> skill terpasang.** Komponen utama:
   - Blog engine claude-blog v2.2.0 (32 skill blog*, 5 agents) — trigger: tulis blog, audit SEO, topic cluster.
   - DevOps-Security 163 skill (BagelHole, MIT) — trigger: k8s, vault, hardening, compliance. Script .sh Linux-only.
   - Marketing-Skills v2.5.1 (Cesarjoquin): 45 skill (copywriting, cro, ai-seo, analytics, launch, emails, dst) + folder `marketing-tools` (REGISTRY.md pendamping utk link ../../tools/). CLI npm/Redis TIDAK diinstall — hanya markdown.
   - playwright-best-practices (currents-dev): 1 skill + 57 referensi 8 kategori (E2E, a11y, visual, i18n, Electron) — trigger: test Playwright, flaky test, E2E.
-  - prd-builder v2: PRD 8 section (Design System anti-slop M012) + Design Spec (Sequential 7-step + Edge State + AI Test gate).
+  - prd-builder v2: PRD 8 section (Design System anti-slop M012) + Design Spec (Sequential 7-step + Edge State + AI Test gate) + aset Seedream.
   - design-taste-frontend v2.1.5: PEMIMPIN arah desain frontend/landing page (deal direction dari library 247 situs + inspector real-browser; lihat skills/_TASTE-SKILLS-INTEGRASI.md).
   - antislop family (6): -copywriting (tulisan), -code (komentar/kode), -human (a11y), -layoutmobile (reflow) — WAJIB per domain; core & -ui tidak lagi menyetir arah desain (keputusan 2026-10-30).
+  - byteplus-seedream5 v2: Dola-Seedream-5.0-pro ($0.045/gbr, default) + lite ($0.035/gbr, 2K-4K). ARK_API_KEY di user-level registry (load: [Environment]::GetEnvironmentVariable('ARK_API_KEY','User')).
   - mastermind: persona keamanan (internal, atribusi DCI). Alat recon/scanner/fuzzer/kit phishing/checker/malware ringan + analisis modus & laporan intelijen-polisi. 8 guardrail, default dry-run, bukti dari eksekusi; reversing diserahkan ke REA.
-- MCP aktif: Context7 (WAJIB cek library), zai-vision (analisis gambar/screenshot user), zread, sequential-thinking, integrated_browser, playwright, desktop-commander, everything-search, Figma_AI_Bridge, shadcn-ui, Google_Maps, Time, needmcp, ssh-admin, testsprite, Cloudflare.
+- MCP aktif: Context7 (WAJIB cek library), zai-vision (analisis gambar/screenshot user), zread, sequential-thinking, integrated_browser, playwright, desktop-commander, everything-search, Figma_AI_Bridge, shadcn-ui, Google_Maps, Time, byteplus-image, needmcp, ssh-admin, testsprite, Cloudflare.
 - Katalog skill: daftar `available_skills` (otomatis ter-inject TRAE tiap sesi) + `skills/INVENTORY.md` di repo (auto-generated) + Skill Auto-Invocation Protocol (identifikasi domain → invoke SEBELUM kerja manual).
 
 ## 6. Aturan & Protokol Aktif

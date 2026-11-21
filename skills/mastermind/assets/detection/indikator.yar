@@ -4,7 +4,7 @@
 rule MM_Contoh_Implan
 {
     meta:
-        penulis   = "Slackercoder Family"
+        penulis   = "Slackercode Family"
         versi     = "0"
         rujukan   = "isi Evidence ID"
         tanggal   = "YYYY-MM-DD"

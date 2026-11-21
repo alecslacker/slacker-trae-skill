@@ -102,6 +102,104 @@
         "References truelist.md or data-sources.md"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "I just built a tool that automates failed-payment follow-up for gym owners. I have no customers yet. Help me find my first ten — the people who are actually dealing with this problem right now.",
+      "expected_output": "Should select the Demand-signal branch (early-stage, first customers, evidence-of-demand) and load references/demand-signals.md — NOT the SMB/B2B list-building branches. Should start with a product brief, then mine the five signal buckets (explicit demand / pain / workaround / switching / timing) across public discourse (forums, communities, reviews, GitHub issues, job posts) — using last30days for recency, social-fetch/scraping to read original pages, not qualifying from snippets. Should score prospects on demand-fit (pain 25 / product fit 25 / timing 20 / reachability 15 / evidence quality 15, 0-100 with bands) rather than ICP-fit Hot/Warm/Cold, and require a cited public signal for every primary-shortlist prospect. Should draft source-based openers but never auto-send. Should produce an evidence report (verdict → ICP → top prospect → shortlist with sources+scores → repeated patterns → 7-day manual outreach plan → limits) and label prospects as 'potential customers based on public signals,' not confirmed buyers. Should honor the compliance guardrails including no data brokers/leaked data and no sensitive-trait targeting.",
+      "assertions": [
+        "Selects the Demand-signal branch, not the SMB/B2B/SaaS list-building branches",
+        "Mines the five signal buckets from public discourse rather than contact databases",
+        "Uses recency/original-source tooling (last30days, social-fetch, scraping) and does not qualify from snippets",
+        "Scores on the demand-fit rubric (0-100 weighted), not ICP-fit Hot/Warm/Cold",
+        "Requires a cited public signal for every primary-shortlist prospect",
+        "Drafts openers but never auto-sends; labels prospects as potential-based-on-public-signals",
+        "Produces the evidence report structure with a 7-day manual outreach plan and limits"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "I sell CRO services to B2B SaaS companies. How do I find companies that are likely to need us right now instead of just pulling a big list from Apollo?",
+      "expected_output": "Should load the signal plays reference. Should rank signals by closeness and pick ones that fit a CRO agency: recent funding (30-60 day window), a new VP Marketing or growth leader (first 90 days), open growth or performance marketing roles, a redesigned site or new pricing page, launched paid campaigns. Should stack signals with ICP fit rather than act on one weak signal, record signal dates, map signals to plays (value-first teardown), and assign account tiers (Tier 1 1:1 top 25-50 with account briefs, Tier 2 segments, Tier 3). Should name ways to detect each signal (job data, funding news, visitor ID) and warn against opening with the signal itself or mentioning tracked visits.",
+      "assertions": [
+        "Uses buying signals as a timing filter on top of ICP fit",
+        "Names signals relevant to a CRO agency",
+        "Gives freshness windows for signals",
+        "Maps signals to a play, including a value-first teardown",
+        "Assigns account tiers that set research depth",
+        "Says not to open with 'congrats on the raise' or mention tracked visits"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "About a fifth of the emails in my list come back as catch-all from our verifier. Should I send to them or drop them?",
+      "expected_output": "Should load the sourcing and enrichment reference and explain that catch-all domains accept any address, so basic SMTP verification can't confirm the person. Should recommend a policy: resolve catch-alls with a verifier that goes beyond SMTP checks; send resolved-valid ones from separate lower-volume mailboxes; send unresolved ones only to Tier 1 accounts while watching bounces; keep campaign bounces under 2% with automatic pause; re-verify within 7 days of sending. Should not recommend sending all of them blind or dropping all of them without considering account value.",
+      "assertions": [
+        "Explains why catch-all addresses can't be confirmed by basic verification",
+        "Recommends resolving catch-alls with a specialist verifier",
+        "Recommends separate lower-volume mailboxes for resolved catch-alls",
+        "Limits unresolved catch-alls to Tier 1",
+        "Keeps bounce rate under 2% with a pause rule",
+        "Neither sends all blindly nor drops all by default"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "We have 200 B2B prospects and several connected enrichment providers. Some records are fresh in our cache, some caches are expired, one API says429 and another finds a same-name company in the wrong country. Design a cost-bounded waterfall without overwriting verified CRM contacts.",
+      "expected_output": "Defines identity and accepted-field criteria, exact account/provider/input cache matching, differentiated expiry/no-match/error handling, and conditional ordered lookups. Preserves stronger CRM evidence, contact verification, and unresolved reasons.",
+      "assertions": [
+        "Reuses only applicable fresh cache entries",
+        "Does not treat429 or timeout as no-match",
+        "Rejects a wrong-entity result instead of counting any nonempty response as success",
+        "Stops when an accepted field is found instead of running every provider",
+        "Preserves stronger verified CRM fields and separate contact verification"
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "I'm a founder selling payroll software to 20-200 person companies. Cold email reply rates have cratered. I have about 4,000 LinkedIn connections and a busy calendar. Can I turn my own network into pipeline without spamming people?",
+      "expected_output": "Should load references/signal-plays.md (warm paths) and lay out: export LinkedIn connections, calendar attendees and inbox contacts (noting LinkedIn's export only includes emails for connections who allow it); enrich and score against the ICP; match against a target account list to find first- and second-degree paths; start with recent calendar meetings to find buying moments; recruit a connector per vertical and pay them per qualified meeting with the arrangement disclosed; use double opt-in intros only, with a human approving every intro and no contact asked to take intros for two vendors in the same week.",
+      "assertions": [
+        "Starts by exporting the network (LinkedIn, calendar, inbox)",
+        "Notes LinkedIn's export lacks emails for most connections",
+        "Matches contacts against target accounts for first- and second-degree paths",
+        "Suggests starting with recent calendar meetings",
+        "Recommends connectors with disclosed compensation",
+        "Requires double opt-in intros with a human approving each one"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "I run a landing page and tracking agency. Build me a list of B2B SaaS companies that are running Meta ads but have no pixel installed or are sending ad traffic to their homepage, and draft the opener.",
+      "expected_output": "Should load references/signal-plays.md (gap plays) and pair the ad-activity signal with gaps verified from outside: ad destinations from the Meta Ad Library, tags from page source, the network tab, or a tag checker. Should require evidence (date, URL or screenshot) for every gap and treat 'no gap found' as a valid result. Should caveat that server-side tracking (Conversions API, server-side GTM) is invisible from outside, so a missing browser pixel isn't proof, and that homepage destinations can be deliberate. Should re-verify the gap within 7 days of sending. The opener should state the observation and ask a question rather than accuse, and offer the teardown only after a yes.",
+      "assertions": [
+        "Uses the Meta Ad Library to confirm active ads and their destinations",
+        "Checks tags from outside (page source, network tab, or tag checker)",
+        "Requires dated evidence for each gap and allows 'no gap found'",
+        "Warns that server-side tracking can't be seen from outside",
+        "Re-verifies gaps within 7 days of sending",
+        "Opener is an observation plus a question, not an accusation"
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "The VP of Customer Success at one of our target accounts just left for another company, and they haven't announced a replacement. We sell a customer health scoring tool. Is that worth acting on, and how?",
+      "expected_output": "Should treat the departure as an org-shape signal: decisions wait during the gap, then a new owner reviews the tools. Should confirm the account still fits the ICP and record what was checked and when (the profile showing a new employer, the team page). Should say to write to whoever is covering the function (the departed leader's manager or the most senior person left on the team), about the situation the team is in. Should say not to name the person who left, guess why they went, or contact them for information about their former employer. Should give a time window: act from the departure until a replacement starts, then switch to the first-90-days play for the new leader. Should suggest an opening angle about what teams keep running during the gap or what is cheap to fix before a new leader arrives, and should not promise the signal means they will buy.",
+      "assertions": [
+        "Treats the departure as a timing signal, not proof of intent",
+        "Checks ICP fit and records the evidence with a date",
+        "Targets the person covering the function",
+        "Does not name or speculate about the person who left",
+        "Gives the window and the switch to the first-90-days play",
+        "Offers a situation-based opening angle"
+      ],
+      "files": []
     }
   ]
 }

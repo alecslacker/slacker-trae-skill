@@ -13,9 +13,9 @@
         "ponytail-help",
         "ponytail-review"
       ],
-      "catatan": "Skill keluarga Ponytail v4.2.0 (MIT): mode 'lazy senior dev' — solusi terkecil yang menyelesaikan task, YAGNI, stdlib-first. Jadi pembawa resmi prinsip Intentional Minimalism di rules Slackercode (AGENTS.md prinsip #4 merujuk SKILL.md ponytail, tidak menduplikasi). Shortcut di kode ditandai komentar 'shortcut:'. Install 2026-11-20: salin skills/* dari repo.",
-      "terakhir_dicek": "2026-11-20",
-      "upstream_terakhir": "v4.2.0 (2026-11-13)"
+      "catatan": "Skill keluarga Ponytail v4.2.0 (MIT): mode 'lazy senior dev' — solusi terkecil yang menyelesaikan task, YAGNI, stdlib-first. Jadi pembawa resmi prinsip Intentional Minimalism di rules Slackercode (AGENTS.md prinsip #4 merujuk SKILL.md ponytail, tidak menduplikasi). Shortcut di kode ditandai komentar 'shortcut:'. Install 2026-11-20: salin skills/* dari repo. Cek 2026-11-21: v5.3.3 = v4.2.0 untuk isi 6 SKILL.md (identik byte-per-byte, upstream hanya menambah hooks/benchmarks/i18n/packaging). Repo kompatibel lintas agent — tidak perlu bawa artefak non-skill.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "v5.3.3 (2026-10-29)"
     },
     {
       "folder": "antislop",
@@ -28,9 +28,9 @@
         "antislop-layoutmobile",
         "antislop-ui"
       ],
-      "catatan": "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer â€” cek diff SKILL.md sebelum update penuh. Update 2026-10-30 ke v3.2.24: struktur repo berubah â€” skill kini di subfolder skills/ (bukan root). SEMUA 6 skill berubah; antislop-ui patch Sterile Default + blok local-extension di re-apply otomatis. Ekstensi lokal di antislop-ui/SKILL.md: blok 'local-extension' berisi Liveliness Recipes + Blandness Test (anti-hambar) â€” WAJIB re-apply setelah menimpa SKILL.md dari upstream (2 titik: blok akhir file + baris Fix entri Sterile Default).",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "v3.2.24"
+      "catatan": "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer - cek diff SKILL.md sebelum update penuh. Update 2026-11-21 ke v3.2.32: antislop core drop Install Wizard + format allowed-tools diubah; antislop-ui tambah Scaffold Sidebar + baris Delivery Gate baru; antislop-copywriting +37 baris. Ekstensi lokal di antislop-ui/SKILL.md (blok local-extension Liveliness Recipes + baris Fix Sterile Default) SUDAH di-re-apply setelah overwrite.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "v3.2.32"
     },
     {
       "folder": "design-taste-frontend",
@@ -39,7 +39,7 @@
       "juga_mencakup": [
         "full-output-enforcement"
       ],
-      "catatan": "MIGRASI v1->v2 (2026-10-30): 13 skill taste-* diganti 1 skill design-taste-frontend v2.1.5 (39 file: library JSON + inspector browser). full-output-enforcement tetap skill mandiri dari repo yang sama (bukan bagian v2). Skill imagegen-* v1 TIDAK dimigrasi. Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md. Repo tidak pakai release/tag - metode latest_commit.",
+      "catatan": "MIGRASI v1->v2 (2026-10-30): 13 skill taste-* diganti 1 skill design-taste-frontend v2.1.5 (39 file: library JSON + inspector browser). full-output-enforcement tetap skill mandiri dari repo yang sama (bukan bagian v2). Skill imagegen-* v1 TIDAK dimigrasi. Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md. Repo tidak pakai release/tag - metode latest_commit. PENDING UPDATE 2026-11-21: upstream v2.1.5 -> v2.5.1 (repo berubah arah: folder skill jadi taste-skill/, 1631 file 35MB vs lokal 36 file 2.5MB, library dibedah jadi assets/ besar). Migrasi perlu keputusan manual Mas Wondho (struktur + integrasi _TASTE-SKILLS-INTEGRASI.md ikut berubah). Upstream terakhir f6b7657 (2026-11-07) BELUM ditarik.",
       "terakhir_dicek": "2026-10-30",
       "upstream_terakhir": "12af471 (2026-10-25)"
     },
@@ -49,17 +49,17 @@
       "metode": "latest_commit",
       "juga_mencakup": [],
       "catatan": "Skill desain logo (MIT, 2.2k stars): SKILL.md + library 1.400+ SVG logo referensi (assets/) + tools Python tanpa dependensi (audit SVG, test sheet, presentation board, favicon set). Ditambahkan 2026-10-07 atas permintaan Mas Wondho untuk desain logo aplikasi.",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "7340903 (2026-10-20)"
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "e9eaddc (2026-11-13)"
     },
     {
       "folder": "reverse-engineer-anything",
       "repo": "morluto/rea",
       "metode": "latest_tag",
       "juga_mencakup": [],
-      "catatan": "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents â€” update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21 + JAR JADX 0.7.1 (github.com/1013503897/jadx-headless-mcp, SHA-256 diverifikasi). Setup ulang komputer lain: scripts/install-rea.ps1. Update 2026-10-30 ke 6.8.0: skill v42->v49 (tools 207->229, command 153->175). Salinan skill di-replace dari paket npm (folder skills/ di dalam rea-agents) ke repo + TRAE + Claude + ZCode + Codex shared. Node >= 24.22.1 kini syarat (lokal 24.12.0 â€” upgrade Node disarankan). Stop proses rea.mjs dulu bila npm EBUSY.",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "v6.8.0"
+      "catatan": "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents â€” update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21 + JAR JADX 0.7.1 (github.com/1013503897/jadx-headless-mcp, SHA-256 diverifikasi). Setup ulang komputer lain: scripts/install-rea.ps1. Update 2026-10-30 ke 6.8.0: skill v42->v49 (tools 207->229, command 153->175). Salinan skill di-replace dari paket npm (folder skills/ di dalam rea-agents) ke repo + TRAE + Claude + ZCode + Codex shared. Node >= 24.22.1 kini syarat (lokal 24.12.0 â€” upgrade Node disarankan). Stop proses rea.mjs dulu bila npm EBUSY. PENDING 2026-11-21: rilis 6.10.1 belum ditarik - update via npm i -g rea-agents@latest + rea setup (perlu henti proses rea.mjs, risiko EBUSY). Node lokal 26.13.0 memenuhi syarat.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "rea-agents-6.10.1 (2026-11-20)"
     },
     {
       "folder": "blog-write",
@@ -98,9 +98,9 @@
         "blog-taxonomy",
         "blog-translate"
       ],
-      "catatan": "Sumber keluarga blog-* (32 skill): blog utk tulis/rewrite/audit/cluster/SEO/AI-citation. Terkonfirmasi 2026-10-30 via star list + spot-check. Superseded entri Chriss54/multilingual-int (repo 404) Ã¢â‚¬â€ 5 skill yang sebelumnya diatribusikan ke sana ternyata ada di sini. PERHATIAN: SKILL.md blog-write lokal beda ~1.6k karakter dari upstream (modifikasi/versi lokal) Ã¢â‚¬â€ cek diff sebelum menimpa saat update. Metode latest_commit (repo tidak pakai release).",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "3544423 (2026-10-14)"
+      "catatan": "Sumber keluarga blog-* (33 skill + root scripts/agents/data 20+5+2 file): blog utk tulis/rewrite/audit/cluster/SEO/AI-citation. PERHATIAN: SKILL.md blog-write lokal PERNAH beda dari upstream; cek 2026-11-21 = modifikasi lama kini sudah ada upstream, diff 58+/11- adalah konten upstream baru (Gate 1 preflight, persona untrusted-data, hero routing) - diambil penuh. Root scripts di repo upstream, salinan lokal menaruhnya di skills/blog/scripts (konsumen blog_preflight resolving $BLOG_SCRIPT_DIR tetap jalan). blog-google & pptx punya fungsi Get-Content array - berpotensi mismatch namun copy binary-safe.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "4f9c2cb (2026-11-03)"
     },
     {
       "folder": "threat-modeling",
@@ -276,7 +276,7 @@
     },
     {
       "folder": "cro",
-      "repo": "Cesarjoquin/Marketing-Skills",
+      "repo": "coreyhaines31/marketingskills",
       "metode": "latest_commit",
       "juga_mencakup": [
         "ab-testing",
@@ -324,9 +324,9 @@
         "social",
         "video"
       ],
-      "catatan": "Sumber 45 skill marketing/growth (semua cocok; spot-check cro identik Ã¢â‚¬â€ perbedaan hash hanya artefak encoding em-dash). Terkonfirmasi 2026-10-30 via star list. Metode latest_commit.",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "23b887f (2026-09-14)"
+      "catatan": "Sumber skill marketing/growth. REPO PINDAH: Cesarjoquin/Marketing-Skills sudah 404 (cek 2026-11-21), sekarang coreyhaines31/marketingskills (corey haines). Update 2026-11-21: 45 skill existing (v2.0.x - banyak +reference routing baru) + 8 skill baru: attribution, conversion-tracking, events, influencer-marketing, link-building, marketing-council, marketing-loops, reverse-engineer-marketing. Metode latest_commit.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "5b2b400 (2026-11-19)"
     },
     {
       "folder": "docx",
@@ -338,17 +338,17 @@
         "xlsx"
       ],
       "catatan": "Sumber 4 skill dokumen (docx/pdf/pptx/xlsx) dari repo resmi Anthropic. PERHATIAN LISENSI: 4 skill ini source-available (bukan open source Apache) — dipakai sebagai referensi internal Slackercode Family, sesuai pernyataan README upstream. Salin manual (sparse-checkout) — bukan via check-upstream otomatis penuh.",
-      "terakhir_dicek": "2026-11-09",
-      "upstream_terakhir": "da20c92 (2026-05-29)"
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "e4bb5d9 (2026-11-16)"
     },
     {
       "folder": "playwright-best-practices",
       "repo": "currents-dev/playwright-best-practices-skill",
       "metode": "latest_commit",
       "juga_mencakup": [],
-      "catatan": "Sumber skill playwright-best-practices (metadata author: currents.dev di SKILL.md lokal). Terkonfirmasi 2026-10-30 via star list. PERHATIAN: upstream +658 karakter lebih baru dari lokal Ã¢â‚¬â€ tarik update saat sempat. Metode latest_commit.",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "283d5cb (2026-07-21)"
+      "catatan": "Sumber skill playwright-best-practices (metadata author: currents.dev di SKILL.md lokal). Update 2026-11-21: tarik penuh (+658 karakter SKILL.md, 122 file total). Metode latest_commit.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "0b75b58 (2026-11-08)"
     },
     {
       "folder": "remotion-motion-graphics",
@@ -356,8 +356,8 @@
       "metode": "latest_commit",
       "juga_mencakup": [],
       "catatan": "Skill motion graphics video dengan Remotion (MIT, dibuat @haidrrrry): SKILL.md + 10 aturan motion wajib + references/motion-patterns.md (17 komponen copy-paste) + references/design-rules.md + assets/theme.ts. Alur wajib: render -> ekstrak frame ffmpeg -> inspeksi -> fix -> re-render. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. Melengkapi skill video (HyperFrames) dengan pendekatan code-render deterministik.",
-      "terakhir_dicek": "2026-10-31",
-      "upstream_terakhir": "48acfe4 (2026-06-13)"
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "1dcbe5e (2026-08-12)"
     },
     {
       "folder": "bug-bounty",
@@ -389,9 +389,9 @@
         "web2-vuln-classes",
         "web3-audit"
       ],
-      "catatan": "Toolkit bug bounty AI (MIT, 5.6k stars). 25 skill + 43 command + CLI bughunter (PyPI/GitHub) + MCP server + plugin Claude Code. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. CATATAN PENTING: (1) PyPI 6.0.2 TIDAK memuat provider requesty - install dari git+https GitHub agar base_url kustom bisa dipakai; (2) brain.py perlu patch agar kompatibel gateway yang mengirim sentinel SSE data:[DONE] pada respons non-streaming - lihat scripts/patch-bughunter.ps1; (3) command (43) ada di folder commands/ repo upstream - disalin ke ~/.claude/commands dan ~/.zcode/commands secara terpisah, bukan bagian skills/.",
-      "terakhir_dicek": "2026-10-31",
-      "upstream_terakhir": "8060af0 (2026-10-28)"
+      "catatan": "Toolkit bug bounty AI (MIT, 5.6k stars). 25 skill + 43 command + CLI bughunter (PyPI/GitHub) + MCP server + plugin Claude Code. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. CATATAN PENTING: (1) PyPI 6.0.2 TIDAK memuat provider requesty - install dari git+https GitHub agar base_url kustom bisa dipakai; (2) brain.py perlu patch agar kompatibel gateway yang mengirim sentinel SSE data:[DONE] pada respons non-streaming - lihat scripts/patch-bughunter.ps1; (3) command (43) ada di folder commands/ repo upstream - disalin ke ~/.claude/commands dan ~/.zcode/commands secara terpisah, bukan bagian skills/. Cek 2026-11-21: 25 skill IDENTIK dengan upstream; 43 command juga identik (lokal punya 1 ekstra README.md). Skill tidak perlu update; CLI bughunter (PyPI) terpisah dari skills.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "82f4512 (2026-11-12)"
     }
   ]
 }
