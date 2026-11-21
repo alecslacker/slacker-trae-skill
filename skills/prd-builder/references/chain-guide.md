@@ -122,6 +122,7 @@ Setelah Phase 3 (atau Phase 4) selesai, tawarkan opsi lanjutan:
 | Kondisi | Skill yang Dipakai | Alasan |
 |---------|-------------------|--------|
 | Task pertama dari breakdown | `test-driven-development` | Mulai dengan TDD untuk fondasi yang kuat |
+| Disiplin scope saat implementasi | `ponytail` | Tiap task dieksekusi dengan solusi terkecil yang menyelesaikannya — jangan bangun fitur di luar PRD Section 2-3 (Intentional Minimalism, prinsip #4 rules) |
 | Task setup/konfigurasi | Langsung kerjakan + `git-commit` | Setup biasanya straightforward |
 | Task UI/frontend | `frontend-design` atau `frontend-skill` | Untuk hasil UI yang polished |
 | Task melibatkan library eksternal | WAJIB cek Context7 dulu | Pastikan API terbaru |

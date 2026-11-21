@@ -1,36 +1,28 @@
 # TASTE SKILL — Catatan Integrasi dengan Ekosistem Kita
 
-> 1 skill: [design-taste-frontend](https://github.com/Leonxlnx/taste-skill) (MIT, **v2.1.5**, commit 12af471 2026-10-25).
-> Migrasi dari 13 skill v1 (prefix `taste-*`) pada 2026-10-30 — upstream menggabungkan semuanya jadi 1 skill besar (39 file: library arah desain JSON, script inspeksi real-browser, references, evals).
-> `full-output-enforcement` tetap skill mandiri (bukan bagian v2) dan tidak berubah.
+> 1 skill: [design-taste-frontend](https://github.com/Leonxlnx/taste-skill) (MIT, **v2.5.1**, commit f6b7657 2026-11-07).
+> Jalur migrasi: 13 skill v1 (prefix `taste-*`) → v2.1.5 (2026-10-30) → **v2.5.1 (2026-11-21)**.
+> Migrasi v2.5.1: folder skill di repo upstream ganti nama jadi `taste-skill/`, TAPI frontmatter `name` tetap `design-taste-frontend` — semua referensi di rules/PRD tidak perlu diubah. Isi membengkak 36 file (2.5 MB) → 1631 file (35 MB) karena library arah desain kini berupa asset CSS/JS/HTML besar (system.css 104 KB, backgrounds, components). `full-output-enforcement` tetap skill mandiri.
 
-## Identitas v2
+## Identitas v2.5.1
 
-- Nama skill: `design-taste-frontend` (folder sama dengan nama skill — konvensi upstream, tanpa prefix `taste-` lagi)
-- Sumber data: studi 247 situs galeri terkurasi (One Page Love, Awwwards)
-- Kemampuan v2: library arah desain (idea/composition/type/palette/photos/section blueprints), real-browser inspector (butuh Node + Chrome), look-and-fix loop pada screenshot, aturan app screens terpisah
-- Perbandingan v1: v1 = 13 skill markdown statis; v2 = 1 skill dengan tooling eksekusi. Isi aturan inti sebagian besar sama, difokuskan.
+- Nama skill: `design-taste-frontend` (folder lokal `design-taste-frontend/`; repo upstream memakai `skills/taste-skill/`)
+- Kemampuan baru sejak v2.1.5: deskripsi level "figma.com & x.ai sebagai bar", 9 house rules eksplisit yang menang atas semua isi skill, Stop-hook gate (Claude Code: jalankan `scripts/gate.mjs` otomatis saat Stop), aset background/component library siap pakai
+- Dependencies: Node **22+** (kita 26.13.0 — aman) + Chrome/Edge/Chromium; ffmpeg opsional
+- Tanpa Stop-hook (TRAE/ZCode/Codex): gate tetap bisa dijalankan manual `node scripts/gate.mjs` setelah build; tanpa Chrome, bagian library + rules tetap terbaca normal
 
 ## Header Integrasi
 
-SKILL.md v2 memuat blok di bawah frontmatter (konvensi sama seperti v1):
+SKILL.md memuat blok `[TASTE] / [RELASI] / [ATURAN]` di bawah frontmatter (konvensi sama sejak v1). Prinsip resolusi konflik tetap: untuk **arah desain frontend/landing page**, `design-taste-frontend` adalah PEMIMPIN (deal direction → build → gate via inspector real-browser); antislop-* tidak menyetir arah desain. Antislop wajib di domain non-desain-arah: copywriting, code, human (a11y), layoutmobile. Konstrain brand eksplisit di PRD Section 8 / DESIGN.md menang atas keduanya.
 
-```
-> [TASTE] sumber ...
-> [RELASI] KONFLIK PARSIAL — ...
-> [ATURAN] aturan kita menang kecuali user eksplisit ...
-```
+## Konflik yang Berlaku Terus
 
-**Prinsip resolusi konflik (DIPERBARUI 2026-10-30 — pembagian peran):** untuk **arah desain frontend/landing page**, `design-taste-frontend` adalah PEMIMPIN (deal direction → build → gate via inspector real-browser); antislop-* tidak lagi menyetir arah desain (akar masalah "Sterile Default" — filter tanpa arah menghasilkan hambar). Antislop tetap wajib di domain non-desain-arah: `antislop-copywriting` (tulisan), `antislop-code` (komentar/kode), `antislop-human` (aksesibilitas), `antislop-layoutmobile` (reflow mobile). Konstrain brand eksplisit di PRD Section 8 / DESIGN.md tetap menang atas keduanya bila user sudah memilih.
+1. **Font serif**: taste-skill membanned Fraunces/Instrument Serif sebagai default; prd-builder merekomendasikan Instrument Serif untuk vibe editorial. Resolusi: user pilih vibe via PRD → prd-builder menang; tanpa arah eksplisit → ikuti taste-skill.
+2. **Inter/Geist**: taste-skill mengizinkan Inter untuk gaya neutral; antislop-ui menganggapnya *tell* bawaan AI. Resolusi: font apa pun boleh asal ada alasan brand tertulis (aturan kita).
+3. **Pipeline image generation**: skill imagegen-* v1 tidak pernah dimigrasi. Prinsip tetap: 1 section = 1 gambar fresh, jangan kompres/crop.
 
-## Konflik yang Berlaku Terus (dari v1, masih relevan di v2)
+## Catatan Operasional v2.5.1
 
-1. **Font serif**: taste-skill membanned Fraunces/Instrument Serif sebagai default; prd-builder kita merekomendasikan Instrument Serif untuk vibe editorial. Resolusi: user pilih vibe via PRD → prd-builder menang; tanpa arah eksplisit → ikuti taste-skill.
-2. **Inter/Geist**: taste-skill mengizinkan Inter untuk gaya neutral; antislop-ui kita menganggapnya *tell* bawaan AI. Resolusi: font apa pun boleh asal ada alasan brand tertulis (aturan kita).
-3. **Pipeline image generation**: skill imagegen-* dari v1 TIDAK dimigrasi. Pinjam prinsipnya saja: 1 section = 1 gambar fresh, jangan kompres/crop.
-
-## Catatan Operasional v2
-
-- **Dependencies inspector**: script `scripts/*.mjs` butuh Node (≥18 aman; kita 26.13.0) + Chrome/Chromium lokal. Tanpa Chrome, bagian library + rules tetap terbaca normal sebagai markdown.
-- **Ukuran**: SKILL.md ~40 KB + references/ + library/*.json — agen boleh baca selektif per bagian; jangan dump seluruh library ke konteks.
-- **Update berikutnya**: tetap lewat `scripts/check-upstream.ps1` (entri manifest `design-taste-frontend`, metode `latest_commit`). Repo tidak pakai tag/release.
+- **Ukuran 35 MB**: agen WAJIB baca selektif — SKILL.md + references yang relevan saja. DILARANG dump library/assets ke konteks. Library CSS/JS dipakai saat build, bukan dibaca utuh.
+- **Stop-hook hanya efektif di Claude Code** (frontmatter `hooks.Stop`). Di TRAE/ZCode, disiplinkan gate manual via aturan di AGENTS.md/trae-rules.md.
+- **Update berikutnya**: tetap lewat `scripts/check-upstream.ps1` (entri manifest `design-taste-frontend`, metode `latest_commit`).

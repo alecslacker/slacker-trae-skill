@@ -39,9 +39,9 @@
       "juga_mencakup": [
         "full-output-enforcement"
       ],
-      "catatan": "MIGRASI v1->v2 (2026-10-30): 13 skill taste-* diganti 1 skill design-taste-frontend v2.1.5 (39 file: library JSON + inspector browser). full-output-enforcement tetap skill mandiri dari repo yang sama (bukan bagian v2). Skill imagegen-* v1 TIDAK dimigrasi. Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md. Repo tidak pakai release/tag - metode latest_commit. PENDING UPDATE 2026-11-21: upstream v2.1.5 -> v2.5.1 (repo berubah arah: folder skill jadi taste-skill/, 1631 file 35MB vs lokal 36 file 2.5MB, library dibedah jadi assets/ besar). Migrasi perlu keputusan manual Mas Wondho (struktur + integrasi _TASTE-SKILLS-INTEGRASI.md ikut berubah). Upstream terakhir f6b7657 (2026-11-07) BELUM ditarik.",
-      "terakhir_dicek": "2026-10-30",
-      "upstream_terakhir": "12af471 (2026-10-25)"
+      "catatan": "MIGRASI v2.1.5 -> v2.5.1 (2026-11-21): frontmatter name tetap design-taste-frontend (referensi rules/PRD tidak berubah); folder upstream jadi skills/taste-skill/. Isi 36 file 2.5MB -> 1631 file 35MB (library arah desain jadi asset CSS/JS/HTML besar). Baru: 9 house rules, Stop-hook gate (Claude Code saja; TRAE/ZCode gate manual node scripts/gate.mjs). Butuh Node 22+ + Chrome. Skill imagegen-* v1 tidak dimigrasi; full-output-enforcement tetap mandiri (tidak ada lagi di upstream, pertahankan salinan lokal). Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md.",
+      "terakhir_dicek": "2026-11-21",
+      "upstream_terakhir": "f6b7657 (2026-11-07)"
     },
     {
       "folder": "logo-design",
@@ -57,9 +57,9 @@
       "repo": "morluto/rea",
       "metode": "latest_tag",
       "juga_mencakup": [],
-      "catatan": "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents â€” update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21 + JAR JADX 0.7.1 (github.com/1013503897/jadx-headless-mcp, SHA-256 diverifikasi). Setup ulang komputer lain: scripts/install-rea.ps1. Update 2026-10-30 ke 6.8.0: skill v42->v49 (tools 207->229, command 153->175). Salinan skill di-replace dari paket npm (folder skills/ di dalam rea-agents) ke repo + TRAE + Claude + ZCode + Codex shared. Node >= 24.22.1 kini syarat (lokal 24.12.0 â€” upgrade Node disarankan). Stop proses rea.mjs dulu bila npm EBUSY. PENDING 2026-11-21: rilis 6.10.1 belum ditarik - update via npm i -g rea-agents@latest + rea setup (perlu henti proses rea.mjs, risiko EBUSY). Node lokal 26.13.0 memenuhi syarat.",
+      "catatan": "Skill REA (MIT): workflow reverse engineering terpandu (207 tool) utk native/Electron/.NET/web/APK. Skill berasal dari paket npm rea-agents â€” update via 'npm i -g rea-agents@latest; rea setup --skill-client' BUKAN salin repo GitHub langsung. MCP 'rea' terdaftar di Claude Code + Codex + ZCode (backup *.rea.backup). Provider Ghidra: C:\\tools\\ghidra_12.1.4 + JDK21 C:\\tools\\jdk-21 + JAR JADX 0.7.1 (github.com/1013503897/jadx-headless-mcp, SHA-256 diverifikasi). Setup ulang komputer lain: scripts/install-rea.ps1. Update 2026-10-30 ke 6.8.0: skill v42->v49 (tools 207->229, command 153->175). Salinan skill di-replace dari paket npm (folder skills/ di dalam rea-agents) ke repo + TRAE + Claude + ZCode + Codex shared. Node >= 24.22.1 kini syarat (lokal 24.12.0 â€” upgrade Node disarankan). Stop proses rea.mjs dulu bila npm EBUSY. PENDING 2026-11-21: rilis 6.10.1 belum ditarik - update via npm i -g rea-agents@latest + rea setup (perlu henti proses rea.mjs, risiko EBUSY). Node lokal 26.13.0 memenuhi syarat. Update 2026-11-21 ke 6.10.1 via npm (bukan copy repo): skill v49 -> v63, tool MCP 229 -> 263, cli_commands 204. rea doctor trae: healthy true, registration aligned di 11 klien (hermes/kilo/lm_studio stale - minor). PENTING: 6.10.1 mensyaratkan Ghidra >= 12.2 - lokal masih 12.1.4 (config_drift, provider Ghidra unavailable bila dipakai; provider jadx tetap healthy utk APK). Upgrade Ghidra ke 12.2+ di C:\\tools masih PENDING keputusan Mas Wondho.",
       "terakhir_dicek": "2026-11-21",
-      "upstream_terakhir": "rea-agents-6.10.1 (2026-11-20)"
+      "upstream_terakhir": "rea-agents-6.10.1"
     },
     {
       "folder": "blog-write",

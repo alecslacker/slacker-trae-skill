@@ -429,7 +429,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 
 - logo-design
 
-### Leonxlnx/taste-skill (12af471 (2026-10-25), dicek 2026-10-30)
+### Leonxlnx/taste-skill (f6b7657 (2026-11-07), dicek 2026-11-21)
 
 - design-taste-frontend
 - full-output-enforcement
@@ -443,7 +443,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - antislop-layoutmobile
 - antislop-ui
 
-### morluto/rea (rea-agents-6.10.1 (2026-11-20), dicek 2026-11-21)
+### morluto/rea (rea-agents-6.10.1, dicek 2026-11-21)
 
 - reverse-engineer-anything
 
