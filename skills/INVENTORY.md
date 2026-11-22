@@ -1,4 +1,4 @@
-# SKILL INVENTORY — 430 Skill (Auto-Generated)
+# SKILL INVENTORY — 437 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -6,7 +6,7 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-21 | Total: **430** skill
+Diperbarui: 2026-11-23 | Total: **437** skill
 
 ## Ringkasan Sumber
 
@@ -14,7 +14,7 @@ Diperbarui: 2026-11-21 | Total: **430** skill
 |---|---|---|
 | Kurasi pack / internal | 49 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 287 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 294 | scripts/check-upstream.ps1 |
 
 ## Kurasi Pack / Internal (49)
 
@@ -120,7 +120,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (287)
+## Repo GitHub Eksternal (294)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
@@ -424,6 +424,16 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 ### haidrrrry/claude-remotion-skill (1dcbe5e (2026-08-12), dicek 2026-11-21)
 
 - remotion-motion-graphics
+
+### JuliusBrussee/caveman (v4.1.0, dicek 2026-11-23)
+
+- caveman
+- caveman-commit
+- caveman-compress
+- caveman-help
+- caveman-review
+- megacave
+- ultracave
 
 ### kaankiziltug/logo-design-skill (e9eaddc (2026-11-13), dicek 2026-11-21)
 

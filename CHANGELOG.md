@@ -3,6 +3,17 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [v26.11.23] — 2026-11-23
+
+Total skill: **437** (49 kurasi + 94 plugin + 294 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.
+
+### Ditambahkan
+- **Keluarga caveman (7)** dari [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) v4.1.0 (Apache-2.0): `caveman`, `ultracave`, `megacave`, `caveman-commit`, `caveman-review`, `caveman-help`, `caveman-compress`. Voice "terse tapi substansi utuh" untuk hemat output token — answer first, tanpa ceremony, negasi dan payload (kode/path/angka/error) verbatim, dasar gaya ASD-STE100. Terbukti via JetBrains A/B (tanpa penurunan kualitas, p=0.82) dan paper Adobe CAVEWOMAN (biaya 1.4–2.4× lebih murah).
+- Entri `JuliusBrussee/caveman` di `upstream-manifest.json` (13 entri total).
+
+### Dipilih sengaja
+- 17 folder skill caveman lain TIDAK diambil: butuh CLI proxy `@caveman-ai/cli`, Caveman Cloud, atau hooks Claude Code (`caveman-stats`, `cavecrew`, `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-manage`, `caveman-optimize`, `caveman-learn`, `generated`, `native`, `migration`, `lean-build`, `investigate-first`, `safe-refactor`, `surgical-patch`, `verify-and-stop`, `caveman-explore`) — tidak berfungsi standalone lintas agent.
+
 ## [v26.11.13] — 2026-11-13
 
 Total skill: **390** (41 kurasi + 94 plugin + 255 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.

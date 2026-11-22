@@ -3,6 +3,22 @@
   "_cara_kerja": "Setiap entri: folder = nama folder di skills/, repo = owner/name GitHub, metode = latest_tag|latest_commit, terakhir_dicek & upstream_terakhir diisi otomatis oleh script (jangan edit manual).",
   "entries": [
     {
+      "folder": "caveman",
+      "repo": "JuliusBrussee/caveman",
+      "metode": "latest_tag",
+      "juga_mencakup": [
+        "ultracave",
+        "megacave",
+        "caveman-commit",
+        "caveman-review",
+        "caveman-help",
+        "caveman-compress"
+      ],
+      "catatan": "Keluarga caveman (Apache-2.0): voice 'terse tapi substansi utuh' untuk hemat output token — answer first, tanpa ceremony, negasi (not/never/no/only) & payload (kode/path/angka/error) verbatim, dasar ASD-STE100. Install 2026-11-23 dari tag v4.1.0 via sparse-checkout: hanya 7 skill standalone; 17 folder lain di-skip karena butuh CLI proxy @caveman-ai/cli / Caveman Cloud / hooks Claude Code (caveman-stats, cavecrew, setup, discover, evidence-review, manage, optimize, learn, generated, native, migration, lean-build, investigate-first, safe-refactor, surgical-patch, verify-and-stop, explore). Riset pendukung: JetBrains A/B (p=0.82, -8.5% output), Adobe CAVEWOMAN (biaya 1.4-2.4x lebih murah). catatan: rules skill sendiri ~1160 token input; hemat di model baru median ~3% (caveman) / ~35% (ultracave) di atas baseline 'be concise'.",
+      "terakhir_dicek": "2026-11-23",
+      "upstream_terakhir": "v4.1.0"
+    },
+    {
       "folder": "ponytail",
       "repo": "DietrichGebert/ponytail",
       "metode": "latest_tag",
