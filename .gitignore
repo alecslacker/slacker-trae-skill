@@ -14,6 +14,10 @@ graphify-out/
 # Cadangan script sync (dibuat lokal)
 *.bak
 
+# Gambar hasil generate dci-imagegen & hasil uji 9router — artefak lokal
+generated-images/
+hasil-tes-9router/
+
 # OS
 Thumbs.db
 .DS_Store
