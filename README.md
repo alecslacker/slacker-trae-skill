@@ -22,8 +22,11 @@ Repo ini berisi **437<!--skill-count:437--> skill TRAE IDE** yang sudah dikurasi
 | `scripts/export-plugins.ps1` | Ekspor skill plugin TRAE resmi (superpowers, dev-skills, harness, dkk) → repo — skip plugin terikat MCP TRAE-only (lark, cloudflare, dll) |
 | `scripts/install-rea.ps1` | Setup dependensi skill REA: rea-agents (npm) + JDK 21 + Ghidra 12.1.4 + jadx JAR + registrasi MCP — lihat bagian "Skill REA" |
 | `mcp/dci-imagegen/` | Kode sumber MCP pembuat gambar via 9router (`generate_image`, `list_image_models`) + tes. Runtime dipasang ke `~/.9router/mcp/dci-imagegen` oleh `scripts/install-imagegen.ps1` |
+| `mcp/dci-tts/` | Kode sumber MCP pembuat suara (TTS) via 9router (`text_to_speech`, `list_free_voices`) + tes. Runtime dipasang ke `~/.9router/mcp/dci-tts` oleh `scripts/install-tts.ps1` |
 | `scripts/install-imagegen.ps1` | Pasang runtime `dci-imagegen` ke `~/.9router/mcp/` (bawaan dry-run, `-Apply` untuk menulis) |
 | `scripts/register-imagegen.ps1` | Daftarkan/cabut (`-Hapus`) server ke TRAE, TRAE SOLO, ZCode, Claude Code. Bawaan dry-run, `-Apply` untuk menulis |
+| `scripts/install-tts.ps1` | Pasang runtime `dci-tts` ke `~/.9router/mcp/` (bawaan dry-run, `-Apply` untuk menulis) |
+| `scripts/register-tts.ps1` | Daftarkan/cabut (`-Hapus`) server `dci-tts` ke 4 agent. Bawaan dry-run, `-Apply` untuk menulis |
 | `scripts/install.sh` | Padanan macOS `install.ps1` — pasang skills + memory ke `~/.trae/skills` |
 | `scripts/collect.sh` | Padanan macOS `collect.ps1` — kumpulkan skill/memory lokal → repo → GitHub |
 | `scripts/sync.sh` | Padanan macOS satu pintu: `./scripts/sync.sh claude\|zcode\|codex\|all [--mirror]` |
@@ -223,6 +226,12 @@ Sinkron skill **tidak** memasang MCP dan **tidak** mengubah model Claude Code. S
    Keduanya dry-run sampai `-Apply` diberikan. Untuk sebagian agent: `-Agen trae`, `-Agen traesolo`, `-Agen zcode`, atau `-Agen claude`. Node default `C:\nvm4w\nodejs\node.exe` — ganti `-Node` bila beda.
 4. **Restart** TRAE, TRAE SOLO, ZCode, dan Claude Code agar config baru terbaca.
 5. **Uji.** Panggil `list_image_models`, lalu `generate_image` dengan `n=1` dan `output_dir = <folder project aktif>/generated-images`.
+
+### MCP `dci-tts` (pembuat suara) — langkah 2 dan 3 di atas menjadi:
+
+2b. **Pasang runtime.** `pwsh -File scripts/install-tts.ps1 -Apply`
+3b. **Daftarkan ke agent.** `pwsh -File scripts/register-tts.ps1 -Apply`
+5b. **Uji.** Panggil `list_free_voices`, lalu `text_to_speech` dengan `voice = edge-tts/id-ID-ArdiNeural` (gratis), `segments` teksnya, dan `output_dir = <folder project aktif>/generated-audio`. Batch maks 10 adegan; lebih dari 6 wajib `confirmed=true`. Suara premium (OpenAI/ElevenLabs/Gemini TTS) baru bisa dipakai setelah koneksi provider TTS ditambahkan di dashboard 9router — MCP tidak perlu diubah.
 
 Model utama Claude Code sekarang `glm-5.4[1m]`; Haiku tetap `glm-5.3-flash[1m]`. Jalankan `scripts/sync-claude.ps1` untuk menyelaraskan template — token dan plugin lokal dipertahankan. Cek dengan `/status` setelah restart. Koefisien kuota GLM-5.4 belum diverifikasi, jangan menganggapnya sama dengan GLM-5.3.
 

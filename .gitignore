@@ -14,8 +14,9 @@ graphify-out/
 # Cadangan script sync (dibuat lokal)
 *.bak
 
-# Gambar hasil generate dci-imagegen & hasil uji 9router — artefak lokal
+# Gambar hasil generate dci-imagegen, audio dci-tts & hasil uji 9router — artefak lokal
 generated-images/
+generated-audio/
 hasil-tes-9router/
 
 # OS

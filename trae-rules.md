@@ -80,6 +80,7 @@ TRAE punya 384 skill terpasang. Aturan agar tidak ada skill terlewat:
 | Google_Maps | geocode, places, directions | Kebutuhan lokasi/peta |
 | Time | get_current_time, convert_time | Waktu presisi lintas zona |
 | dci-imagegen | generate_image, list_image_models | Buat gambar/logo lewat 9router. `output_dir` = `<project>/generated-images`, `n=1` kecuali diminta varian, >4 butuh konfirmasi. Pakai kuota ChatGPT — jangan massal tanpa izin |
+| dci-tts | text_to_speech, list_free_voices | Buat suara/voice over lewat 9router. `output_dir` = `<project>/generated-audio`, batch maks 10 adegan, >6 butuh konfirmasi. Suara Ardi/Gadis (edge-tts) gratis; provider premium belum tersambung |
 
 Fallback riset umum: WebSearch/WebFetch (built-in) bila MCP tidak memadai. Budget MCP Z.AI terbatas — pakai bijak.
 

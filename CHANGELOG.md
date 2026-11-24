@@ -3,6 +3,24 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [Belum dirilis] — 2026-11-25
+
+### Ditambahkan
+- **MCP `dci-tts`** (`mcp/dci-tts/`): pembuat suara (TTS) lewat 9router `/v1/audio/speech`. Tool `text_to_speech` (teks tunggal atau batch maks 10 adegan paralel 2) dan `list_free_voices` (daftar statis suara gratis). 30 tes lulus. Suara default `edge-tts/id-ID-ArdiNeural` (gratis, noAuth). Kredensial dari `~/.9router/env`.
+- `scripts/install-tts.ps1` dan `scripts/register-tts.ps1` (dry-run bawaan, `-Apply`, `-Hapus`). Terdaftar di TRAE, TRAE SOLO, ZCode, Claude Code.
+- `.gitignore`: `generated-audio/`.
+- README: langkah pasang `dci-tts` di komputer lain.
+
+### Diperbaiki
+- Bug Task 4 `dci-tts`: argumen MCP `output_dir` tidak tersambung ke lapisan orkestrasi (`outputDir`), folder tujuan diabaikan diam-diam. Ditemukan lewat uji nyata MCP, diperbaiki, ditambah tes regresi (30 tes).
+
+### Fakta TTS 9router (terverifikasi API 2026-11-24/25)
+- Suara gratis terbukti: `edge-tts/id-ID-ArdiNeural`, `id-ID-GadisNeural` (natural), `google-tts/id` (datar). Provider premium (OpenAI/ElevenLabs/Gemini TTS) ditolak server sampai koneksi provider TTS ditambahkan di dashboard 9router.
+- `GET /v1/models/tts` kosong di server ini; `/v1/audio/voices` sering 502 — keduanya tidak dipakai MCP.
+
+### Keterbatasan yang diketahui
+- ffmpeg (untuk merakit voice over ke video) dipasang lokal via winget `Gyan.FFmpeg` — bukan bagian repo; terminal baru perlu refresh PATH.
+
 ## [Belum dirilis] — 2026-11-24
 
 ### Ditambahkan
