@@ -99,7 +99,7 @@ echo "  2. Skills otomatis terbaca dari ~/.trae/skills"
 if [ "$SKIP_MEMORY" -eq 0 ]; then
     echo ""
     echo -e "${D}Catatan memory: profil preferensi tersalin. Sesuaikan bila perlu${N}"
-    echo -e "${D}               (API key seperti ARK_API_KEY TIDAK ikut — set manual per komputer).${N}"
+    echo -e "${D}               (API key seperti NINEROUTER_KEY TIDAK ikut — set manual per komputer).${N}"
 fi
 echo ""
 echo -e "${D}Skill Python (blog) butuh python3 >= 3.11 — cek README bagian macOS.${N}"

@@ -91,7 +91,7 @@ Write-Host '  2. Skills otomatis terbaca dari ~/.trae/skills' -ForegroundColor W
 if (-not $SkipMemory) {
     Write-Host ''
     Write-Host 'Catatan memory: profil preferensi tersalin. Sesuaikan bila perlu' -ForegroundColor DarkGray
-    Write-Host '               (API key seperti ARK_API_KEY TIDAK ikut — set manual per komputer).' -ForegroundColor DarkGray
+    Write-Host '               (API key seperti NINEROUTER_KEY TIDAK ikut — set manual per komputer).' -ForegroundColor DarkGray
 }
 Write-Host ''
 Write-Host 'Skill Python (blog) butuh C:\Python312\python.exe — cek README.' -ForegroundColor DarkGray

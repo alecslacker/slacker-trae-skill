@@ -79,6 +79,7 @@ TRAE punya 384 skill terpasang. Aturan agar tidak ada skill terlewat:
 | sequential-thinking | sequentialthinking | Arsitektur kompleks, keputusan multi-langkah |
 | Google_Maps | geocode, places, directions | Kebutuhan lokasi/peta |
 | Time | get_current_time, convert_time | Waktu presisi lintas zona |
+| dci-imagegen | generate_image, list_image_models | Buat gambar/logo lewat 9router. `output_dir` = `<project>/generated-images`, `n=1` kecuali diminta varian, >4 butuh konfirmasi. Pakai kuota ChatGPT — jangan massal tanpa izin |
 
 Fallback riset umum: WebSearch/WebFetch (built-in) bila MCP tidak memadai. Budget MCP Z.AI terbatas — pakai bijak.
 

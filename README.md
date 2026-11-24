@@ -21,6 +21,9 @@ Repo ini berisi **437<!--skill-count:437--> skill TRAE IDE** yang sudah dikurasi
 | `codex/` | Artefak Codex: `AGENTS.md` global (padanan Rules TRAE WORK), `BEST-PRACTICE.md` (riset 2026-10-05) |
 | `scripts/export-plugins.ps1` | Ekspor skill plugin TRAE resmi (superpowers, dev-skills, harness, dkk) → repo — skip plugin terikat MCP TRAE-only (lark, cloudflare, dll) |
 | `scripts/install-rea.ps1` | Setup dependensi skill REA: rea-agents (npm) + JDK 21 + Ghidra 12.1.4 + jadx JAR + registrasi MCP — lihat bagian "Skill REA" |
+| `mcp/dci-imagegen/` | Kode sumber MCP pembuat gambar via 9router (`generate_image`, `list_image_models`) + tes. Runtime dipasang ke `~/.9router/mcp/dci-imagegen` oleh `scripts/install-imagegen.ps1` |
+| `scripts/install-imagegen.ps1` | Pasang runtime `dci-imagegen` ke `~/.9router/mcp/` (bawaan dry-run, `-Apply` untuk menulis) |
+| `scripts/register-imagegen.ps1` | Daftarkan/cabut (`-Hapus`) server ke TRAE, TRAE SOLO, ZCode, Claude Code. Bawaan dry-run, `-Apply` untuk menulis |
 | `scripts/install.sh` | Padanan macOS `install.ps1` — pasang skills + memory ke `~/.trae/skills` |
 | `scripts/collect.sh` | Padanan macOS `collect.ps1` — kumpulkan skill/memory lokal → repo → GitHub |
 | `scripts/sync.sh` | Padanan macOS satu pintu: `./scripts/sync.sh claude\|zcode\|codex\|all [--mirror]` |
@@ -104,7 +107,7 @@ Repo ini juga jadi sumber skill untuk **Claude Code CLI** — pengalaman identik
 
 Yang disalin: 437<!--skill-count:437--> skill → `~/.claude/skills`, `CLAUDE.md` global (persona Slackercoder + hemat token), commands `/graphify-build` `/graphify-update`. Settings digabung otomatis — **token, plugin z.ai, dan MCP lokal tetap dipertahankan** (backup `settings.json.bak`).
 
-Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.3[1m]`, Haiku = `glm-5.3-flash[1m]`, konteks 1M aktif (`[1m]` diurai Claude Code jadi beta header). Ganti model cukup edit `claude/settings.template.json` lalu sync ulang.
+Model aktif (GLM Coding Plan via `api.z.ai`): Sonnet/Opus = `glm-5.4[1m]`, Haiku = `glm-5.3-flash[1m]`, konteks 1M aktif (`[1m]` diurai Claude Code jadi beta header). Ganti model cukup edit `claude/settings.template.json` lalu sync ulang.
 
 ### Sinkron ke Z Code
 
@@ -206,6 +209,7 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 | Python 3.12 | Skill blog butuh Python 3.11+ | Pasang Python 3.12 ke `C:\Python312` |
 | Dependensi blog (`textstat`, `beautifulsoup4`) | Dipasang per komputer | `C:\Python312\python.exe -m pip install --user textstat beautifulsoup4` |
 | Server MCP (Context7, zai-vision, dll) | Dikelola TRAE per komputer | Aktifkan manual di pengaturan TRAE |
+| Kredensial 9router (`~/.9router/env`) | Rahasia, sengaja di luar repo | Buat file berisi `NINEROUTER_URL` dan `NINEROUTER_KEY`, lalu jalankan `install-imagegen.ps1 -Apply` dan `register-imagegen.ps1 -Apply` |
 
 ---
 

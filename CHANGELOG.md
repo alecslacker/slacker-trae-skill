@@ -3,6 +3,24 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [Belum dirilis] — 2026-11-24
+
+### Ditambahkan
+- **MCP `dci-imagegen`** (`mcp/dci-imagegen/`): pembuat gambar/logo lewat 9router produksi dengan model `cx/gpt-image-*` (bawaan `cx/gpt-image-2.6-sunburst`). Tool `generate_image` dan `list_image_models`. 38 tes lulus, 1 dilewati. Kredensial dibaca server dari `~/.9router/env`, tidak lewat env agent.
+- `scripts/install-imagegen.ps1` dan `scripts/register-imagegen.ps1` (dry-run bawaan, `-Apply`, `-Hapus`). Terdaftar di TRAE, TRAE SOLO, ZCode, Claude Code. Codex sengaja tidak dipasang.
+- Baris `dci-imagegen` di `trae-rules.md`, `zcode/AGENTS.md`, dan bagian "MCP Gambar" di `claude/CLAUDE.md`.
+- `.gitignore`: `generated-images/` dan `hasil-tes-9router/`.
+
+### Diubah
+- Model Claude Code: Sonnet/Opus `glm-5.3[1m]` → `glm-5.4[1m]` (template, `CLAUDE.md`, README, `sync-claude.ps1`). Haiku tetap `glm-5.3-flash[1m]`. Koefisien kuota GLM-5.4 belum diverifikasi.
+
+### Dihapus
+- Seluruh jejak BytePlus: MCP `byteplus-image`, `ARK_API_KEY`, dan key di cadangan config semua agent.
+
+### Keterbatasan yang diketahui
+- Ukuran piksel ditentukan model (parameter `size` tampak diabaikan), latar putih tanpa transparansi, mode edit tidak setia pada tata letak, paralel maksimal 2 gambar.
+- Uji nyata baru lulus di TRAE. Claude Code, TRAE SOLO, dan ZCode belum diuji.
+
 ## [v26.11.23] — 2026-11-23
 
 Total skill: **437** (49 kurasi + 94 plugin + 294 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.

@@ -32,9 +32,15 @@ Domain prioritas: desain frontend/landing page → `design-taste-frontend` (pemi
 
 ## Model
 
-- Endpoint: `api.z.ai` (GLM Coding Plan). Sonnet/Opus = `glm-5.3[1m]`, Haiku = `glm-5.3-flash[1m]`.
+- Endpoint: `api.z.ai` (GLM Coding Plan). Sonnet/Opus = `glm-5.4[1m]`, Haiku = `glm-5.3-flash[1m]`.
 - `/effort` mengatur intensitas reasoning: default hemat, `max` hanya untuk arsitektur kompleks.
-- GLM-5.3 = 3× kuota di jam sibuk (Sen–Jum 13.00–17.00 WIB), 1× di luar itu.
+- Koefisien kuota: GLM-5.3 = 3× di jam sibuk (Sen–Jum 13.00–17.00 WIB), 1× di luar itu. Koefisien GLM-5.4 belum diverifikasi — cek usage z.ai sebelum menganggapnya sama.
+
+## MCP Gambar
+
+- `dci-imagegen` (terdaftar di Claude Code, status Connected; panggilan nyata belum diuji di sini) membuat gambar/logo lewat 9router: `generate_image` dan `list_image_models`. Kredensial dibaca server sendiri dari `~/.9router/env` — jangan pernah menampilkan atau meminta key.
+- Isi `output_dir` = `<folder project aktif>/generated-images`. `n=1` kecuali diminta varian; maksimal 4 tanpa konfirmasi Mas Wondho. Setiap gambar memakai kuota ChatGPT di 9router — jangan generate massal tanpa izin.
+- Hasil: latar putih (tidak transparan), ukuran ditentukan model. Mode edit menggambar ulang dengan referensi, tidak setia pada tata letak asli.
 
 ## Tech Stack
 
