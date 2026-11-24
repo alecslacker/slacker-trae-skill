@@ -213,6 +213,27 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 
 ---
 
+## Update 2026-11-24 — Baca Dulu di Komputer Lain
+
+Sinkron skill **tidak** memasang MCP dan **tidak** mengubah model Claude Code. Setelah `pull`, lakukan sekali per komputer:
+
+1. **Kredensial.** Buat `~/.9router/env` berisi dua baris: `NINEROUTER_URL=https://...` dan `NINEROUTER_KEY=...`. Isinya rahasia — jangan commit, jangan tampilkan di chat atau log.
+2. **Pasang runtime.** `pwsh -File scripts/install-imagegen.ps1 -Apply`
+3. **Daftarkan ke agent.** `pwsh -File scripts/register-imagegen.ps1 -Apply`
+   Keduanya dry-run sampai `-Apply` diberikan. Untuk sebagian agent: `-Agen trae`, `-Agen traesolo`, `-Agen zcode`, atau `-Agen claude`. Node default `C:\nvm4w\nodejs\node.exe` — ganti `-Node` bila beda.
+4. **Restart** TRAE, TRAE SOLO, ZCode, dan Claude Code agar config baru terbaca.
+5. **Uji.** Panggil `list_image_models`, lalu `generate_image` dengan `n=1` dan `output_dir = <folder project aktif>/generated-images`.
+
+Model utama Claude Code sekarang `glm-5.4[1m]`; Haiku tetap `glm-5.3-flash[1m]`. Jalankan `scripts/sync-claude.ps1` untuk menyelaraskan template — token dan plugin lokal dipertahankan. Cek dengan `/status` setelah restart. Koefisien kuota GLM-5.4 belum diverifikasi, jangan menganggapnya sama dengan GLM-5.3.
+
+**Batas pemakaian:** setiap gambar memakai kuota ChatGPT di 9router. Pakai `n=1` kecuali diminta varian; lebih dari 4 butuh persetujuan. Hasil berlatar putih, ukuran ditentukan model, mode edit menggambar ulang (tidak setia pada tata letak), paralel maksimal 2 gambar. Folder hasil gambar sudah masuk `.gitignore`. Codex tidak dipasang karena sudah punya `$imagegen` sendiri.
+
+**BytePlus:** bila komputer lain masih punya MCP `byteplus-image` atau env `ARK_API_KEY`, cabut keduanya dan cabut izin key di console BytePlus. Cadangan config lama sengaja disensor, bukan dihapus.
+
+**Pembalikan:** `pwsh -File scripts/register-imagegen.ps1 -Hapus -Apply`.
+
+---
+
 ## Komponen Utama (437<!--skill-count:437--> Skill)
 
 | Kategori | Jumlah | Contoh Pemicu |
@@ -251,3 +272,5 @@ Cara kerja: `upstream-manifest.json` mencatat repo sumber + versi terakhir yang 
 ---
 
 *Dibangun dan dirawat oleh Slackercode Family.*
+
+Copyright © 2026 Duta Corpora Indonesia — All rights reserved
