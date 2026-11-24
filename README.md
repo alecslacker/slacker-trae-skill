@@ -234,6 +234,31 @@ Model utama Claude Code sekarang `glm-5.4[1m]`; Haiku tetap `glm-5.3-flash[1m]`.
 
 ---
 
+## Membuat MCP Baru — Pola `dci-imagegen`
+
+`mcp/dci-imagegen/` bisa dipakai sebagai acuan. Ini server **stdio** Node.js (`type: module`, Node ≥22) dengan SDK `@modelcontextprotocol/sdk` 1.32.2 dan `zod` 4.6.7 — versi dikunci di `package-lock.json`. Cek dokumentasi SDK lewat Context7 sebelum mengubah versi.
+
+| Berkas | Peran |
+|--------|-------|
+| `src/index.js` | Titik masuk. Hubungkan `buatServer()` ke `StdioServerTransport`. Hanya protokol MCP yang boleh keluar ke stdout; log pakai `console.error`. |
+| `src/server.js` | Definisi tool lewat `server.registerTool(nama, { description, inputSchema }, handler)`. Schema input pakai `zod`. Contoh: `list_image_models`, `generate_image`. |
+| `src/config.js` | Baca kredensial dari `~/.<nama>/env` (bukan dari config agent). Environment menimpa berkas; URL wajib HTTPS kecuali localhost. |
+| `src/router-client.js`, `src/generate.js`, `src/images.js`, `src/folders.js`, `src/errors.js` | Klien HTTP, logika bisnis, penyimpanan berkas, dan error yang disensor agar key tidak bocor. |
+| `test/*.test.js` | `npm test` → `node --test`. Kode awal: 39 tes, 38 lulus, 1 dilewati. Uji mutasi ada di `scripts/uji-mutasi.ps1`. |
+| `scripts/panggil.mjs` | Pemanggil manual untuk uji tanpa agent. |
+
+**Alur membuat MCP baru:**
+1. Salin folder sebagai template, ganti semua nama dengan prefix `dci_` dan sesuaikan `package.json` (`name`, `main`).
+2. Tambah tool di `src/server.js`. Letakkan aturan pemakaian (batas jumlah, butuh konfirmasi, folder hasil) di `description` supaya agent membacanya sebelum memanggil.
+3. Simpan rahasia di `~/.<nama>/env`, jangan pernah di config agent, README, atau log. Gunakan sanitasi error seperti `sensor()` di `src/errors.js`.
+4. Jalankan `npm test` di folder MCP. Tambah tes untuk setiap cabang baru.
+5. Adaptasi `scripts/install-imagegen.ps1` (tujuan runtime) dan `scripts/register-imagegen.ps1` (nama server, path entri, daftar agent). Keduanya dry-run sampai `-Apply`.
+6. Daftarkan, restart agent, lalu uji satu panggilan nyata dengan nilai terkecil. Cabut lewat `-Hapus -Apply` bila perlu.
+
+Header tiap berkas kode wajib memuat `Author: Mas Wondho — Duta Corpora Indonesia (DCI)` dan `Copyright © 2026 Duta Corpora Indonesia`. Kredensial dan hasil generate sengaja di luar repo.
+
+---
+
 ## Komponen Utama (437<!--skill-count:437--> Skill)
 
 | Kategori | Jumlah | Contoh Pemicu |

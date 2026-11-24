@@ -10,6 +10,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penom
 - `scripts/install-imagegen.ps1` dan `scripts/register-imagegen.ps1` (dry-run bawaan, `-Apply`, `-Hapus`). Terdaftar di TRAE, TRAE SOLO, ZCode, Claude Code. Codex sengaja tidak dipasang.
 - Baris `dci-imagegen` di `trae-rules.md`, `zcode/AGENTS.md`, dan bagian "MCP Gambar" di `claude/CLAUDE.md`.
 - `.gitignore`: `generated-images/` dan `hasil-tes-9router/`.
+- README: panduan pasang di komputer lain dan pola membuat MCP baru berbasis `dci-imagegen`.
 
 ### Diubah
 - Model Claude Code: Sonnet/Opus `glm-5.3[1m]` → `glm-5.4[1m]` (template, `CLAUDE.md`, README, `sync-claude.ps1`). Haiku tetap `glm-5.3-flash[1m]`. Koefisien kuota GLM-5.4 belum diverifikasi.
