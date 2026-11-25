@@ -92,6 +92,17 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 - **Prefix/namespace**: semua fungsi/hook/namespace/class karya baru pakai `dci_` / `DCI\` / `Dci` (wajib di WordPress/PHP, dianjurkan di project lain yang belum punya konvensi).
 - Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
 
+## Isolasi Antar Sesi (Multi-Session Paralel)
+
+Satu project bisa dijalankan beberapa sesi sekaligus. Agar sesi A tidak menyentuh/melanjutkan pekerjaan sesi B:
+
+- **WAJIB deklarasi scope di respons pertama**: sesi ini hanya mengerjakan [fitur X] di [folder/file Y]. Gunakan template pembatas scope dari [scripts/worktree-baru.ps1](scripts/worktree-baru.ps1) (di-generate bersama worktree).
+- **Git worktree = solusi utama** untuk pekerjaan paralel yang benar-benar terpisah: `scripts/worktree-baru.ps1` membuat folder + branch terpisah per fitur. Buka folder worktree sebagai workspace terpisah — file dan memory project otomatis terisolasi.
+- **Kalau tetap satu folder** (worktree tidak memungkinkan): perubahan working tree yang di luar scope deklarasi adalah milik sesi lain — DILARANG dibaca, dilanjutkan, ditanyakan, atau di-commit. `git status`/`git diff` hanya untuk file dalam scope sendiri.
+- **Satu sesi satu branch, satu scope.** Commit per path dalam scope sendiri (`git add <path>`, bukan `git add .`). Sebelum pindah sesi: commit dulu perubahan menggantung.
+- **Dokumen beri nama per fitur**: `plan-[nama-fitur].md`, jangan nama generik yang bisa tertukar antar sesi.
+- **Memory project beri label fitur**: `## [tanggal] [Fitur X] ...` supaya entri sesi lain tidak terbaca sebagai tugas sendiri.
+
 ## Konten Indonesia/Jawa
 
 - Tulisan/artikel mengikuti karakter Indonesia/Jawa: bahasa natural, unggah-ungguh, gotong royong, referensi lokal — hindari gaya asing buatan. Tutur krama bila diminta.

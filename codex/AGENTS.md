@@ -198,6 +198,17 @@ Setiap artefak hasil kerja agent — plugin, kode, dokumen, deck, gambar — WAJ
 - **Copyright dokumen/deck**: `Copyright © <tahun> Duta Corpora Indonesia — All rights reserved` (footer/akhir dokumen).
 - **Prefix/namespace**: semua fungsi/hook/namespace/class karya baru pakai `dci_` / `DCI\` / `Dci` (wajib di WordPress/PHP, dianjurkan di project lain yang belum punya konvensi).
 - Berlaku identik di TRAE, ZCode, Claude Code, dan Codex.
+
+## Isolasi Antar Sesi (Multi-Session Paralel)
+
+Satu project bisa dijalankan beberapa sesi sekaligus. Agar sesi A tidak menyentuh/melanjutkan pekerjaan sesi B:
+
+- **WAJIB deklarasi scope di respons pertama**: sesi ini hanya mengerjakan [fitur X] di [folder/file Y].
+- **Git worktree = solusi utama** untuk pekerjaan paralel: `scripts/worktree-baru.ps1 -Fitur "nama-fitur"` (di repo trae-skills) membuat folder + branch terpisah per fitur; jalankan sesi Codex di folder worktree itu.
+- **Satu folder tetap dipakai bersama**: perubahan working tree di luar scope deklarasi adalah milik sesi lain — DILARANG dibaca, dilanjutkan, ditanyakan, atau di-commit. `git status`/`git diff` hanya untuk file dalam scope sendiri.
+- **`codex exec` (headless) tanpa interaksi**: wajib pakai folder worktree sendiri atau scope file eksplisit di prompt — tidak ada checkpoint untuk menyelamatkan tabrakan.
+- **Satu sesi satu branch, satu scope.** Commit per path (`git add <path>`, bukan `git add .`); commit perubahan menggantung sebelum pindah sesi. Dokumen dinamai per fitur: `plan-[nama-fitur].md`.
+
 ## Konten Indonesia/Jawa
 
 - Tulisan/artikel: karakter Indonesia/Jawa — bahasa natural, unggah-ungguh, gotong royong, referensi lokal. Tutur krama bila diminta.
