@@ -31,6 +31,10 @@ Domain prioritas: desain frontend/landing page → `design-taste-frontend` (pemi
 - Jangan salin ulang isi file yang sudah dibaca ke dalam respons.
 - Konteks 1M aktif — hindari compact berulang dengan tidak membaca file tak perlu.
 
+## Graphify — WAJIB untuk Menjelajah Codebase
+
+Mencari file, memahami struktur, atau mempelajari project → WAJIB lewat graphify, bukan scan/grep massal. `graphify-out/` ADA = pahami dari `GRAPH_REPORT.md` → `graph.json`; TIDAK ADA = build dulu `graphify . --code-only` (tanpa API key); setelah edit signifikan = `graphify update .`. `graphify-out/` = generated: jangan edit manual, jangan commit. Grep/Glob terarah tetap sah untuk detail spesifik (string error, nama fungsi yang sudah diketahui).
+
 ## Model
 
 - Endpoint: `api.z.ai` (GLM Coding Plan). Sonnet/Opus = `glm-5.4[1m]`, Haiku = `glm-5.3-flash[1m]`.

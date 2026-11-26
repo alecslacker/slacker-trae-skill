@@ -131,18 +131,22 @@ TASK BESAR  = multi-file, logika bisnis baru, auth/payment/database, UI baru,
 
 YAGNI: hanya kerjakan yang ada di plan. Task kecil menumpuk >3× dalam satu sesi → naikkan ke Jalur B.
 
+## Graphify — WAJIB untuk Menjelajah Codebase
+
+Mencari file, memahami struktur, atau mempelajari project → WAJIB lewat graphify, bukan scan/grep massal:
+
+| Kondisi | Aksi |
+|--------|------|
+| `graphify-out/` ADA | Pahami project dari `GRAPH_REPORT.md` → `graph.json` — DILARANG scan/grep massal hanya untuk memahami struktur |
+| TIDAK ADA | Build dulu: `graphify . --code-only` (WAJIB flag --code-only, JANGAN mode LLM/API key) |
+| Setelah edit signifikan | `graphify update .` agar peta sinkron |
+| `graphify-out/` | Artefak generated: jangan edit manual, jangan commit |
+
+Grep/Glob terarah tetap sah untuk detail spesifik (string error, nama fungsi yang sudah diketahui) — bukan pengganti penjelajahan struktur.
+
 ## Context7 MCP — Aturan Global
 
 Sumber kebenaran PERTAMA untuk semua hal library/framework/API eksternal. Override training data. DILARANG menulis kode library eksternal tanpa verifikasi Context7 dulu.
-
-## Graphify — Peta Codebase Lokal
-
-| Kondisi | Aksi |
-|---------|------|
-| `graphify-out/` ADA | Pahami project dari graph (GRAPH_REPORT.md → graph.json). DILARANG scan/grep massal hanya untuk pahami struktur |
-| TIDAK ADA | Build dulu: `graphify . --code-only` (WAJIB flag --code-only, JANGAN pakai mode LLM/API key) |
-| Setelah edit signifikan | `graphify update .` agar peta sinkron |
-| graphify-out/ | Artefak generated: jangan edit manual, jangan commit |
 
 ## Anti-Typo Protocol — TRIPLE-GATE
 

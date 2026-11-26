@@ -60,6 +60,19 @@ Aturan tambahan:
 | `Stop` | hentikan semua aktivitas |
 | `Undo` | kembalikan ke state sebelumnya (bila memungkinkan) |
 
+## Graphify — WAJIB untuk Menjelajah Codebase
+
+Mencari file, memahami struktur, atau mempelajari project → WAJIB lewat graphify, bukan scan/grep massal:
+
+| Kondisi | Aksi |
+|--------|------|
+| `graphify-out/` ADA | Pahami project dari `GRAPH_REPORT.md` → `graph.json` — DILARANG scan/grep massal hanya untuk memahami struktur |
+| TIDAK ADA | Build dulu: `graphify . --code-only` (WAJIB flag --code-only, JANGAN mode LLM/API key) |
+| Setelah edit signifikan | `graphify update .` agar peta sinkron |
+| `graphify-out/` | Artefak generated: jangan edit manual, jangan commit |
+
+Grep/Glob terarah tetap sah untuk detail spesifik (string error, nama fungsi yang sudah diketahui) — bukan pengganti penjelajahan struktur.
+
 ## Verifikasi Sebelum Klaim Selesai
 
 1. Cek error/warning (diagnostik statis) dan cek runtime bila memungkinkan.

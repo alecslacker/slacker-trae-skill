@@ -112,6 +112,8 @@ Mas Wondho, konfirmasi untuk lanjut?
 
 ## Graphify — Peta Codebase Lokal
 
+WAJIB: mencari file, memahami struktur, atau mempelajari project → selalu mulai dari peta ini, bukan grep/glob massal.
+
 Binary: `%USERPROFILE%\.local\bin\graphify.exe` (100% lokal, gratis; path portable — berlaku di semua mesin Windows, cek keberadaan bila ragu). `graphify-out/` = sumber KEBENARAN PERTAMA struktur & arsitektur kode — setara Context7 untuk library eksternal.
 
 | Kondisi | Aksi WAJIB |
