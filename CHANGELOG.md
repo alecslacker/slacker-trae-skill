@@ -3,6 +3,22 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [v26.11.27] — 2026-11-27
+
+Total skill: **437** (48 kurasi + 94 plugin + 295 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.
+
+### Diubah
+- **`antislop` v3.2.32 → v3.2.33** (6 skill): `VERSION`, `SKILL.md` di `antislop-code`, `antislop-copywriting` (+266 baris), `antislop-human`, `antislop-ui`, plus `contrast-mcp.py`. Ekstensi lokal DCI di `antislop-ui/SKILL.md` (blok `local-extension` Liveliness Recipes + baris `Fix` Sterile Default) di-re-apply setelah timpa dan diverifikasi masih ada.
+- **`marketingskills` `5b2b400` → `2bf95ed`**: 10 file di `aso`, `customer-research`, `prospecting`, `seo-audit`, `social` (+132/−9 baris). `ads/references/conversion-tracking.md` sengaja dipertahankan meski upstream memindahkannya ke skill terpisah.
+
+### Ditambahkan
+- **`mastermind` dari repo resmi `alecslacker/mastermind-skill`** commit `1b9eb03` (2026-11-27): 16 file, termasuk `references/buku-besar/*` dan `scripts/verif.py`. Sebelumnya salinan repo hanya 9 file / 44 KB; ternyata header SKILL.md menunjuk repo resmi sebagai sumber kebenaran. Artefak `graphify-out/` tidak disalin. Klasifikasi inventory berubah dari kurasi internal ke GitHub eksternal (14 entri manifest).
+
+### Dicek, tanpa perubahan
+- **`caveman` v4.2.0** (7 skill): 7 `SKILL.md` + README + script identik byte-per-byte dengan v4.1.0; rilis hanya mengubah packaging `bin`/CLI/middleware. Manifest tetap dicatat `v4.2.0`.
+- **`taste-skill` `952435f`**: 1631 file identik byte-per-byte; perubahan upstream hanya README/sponsor.
+- 7 sumber lain (`ponytail`, `rea`, `logo-design`, `claude-blog`, `DevOps-Security-Agent-Skills`, `anthropics/skills`, `playwright-best-practices`, `remotion`, `Agentic-Bug-Hunter`) status TERBARU — tidak diubah.
+
 ## [Belum dirilis] — 2026-11-25
 
 ### Ditambahkan

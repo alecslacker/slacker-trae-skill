@@ -14,9 +14,9 @@
         "caveman-help",
         "caveman-compress"
       ],
-      "catatan": "Keluarga caveman (Apache-2.0): voice 'terse tapi substansi utuh' untuk hemat output token — answer first, tanpa ceremony, negasi (not/never/no/only) & payload (kode/path/angka/error) verbatim, dasar ASD-STE100. Install 2026-11-23 dari tag v4.1.0 via sparse-checkout: hanya 7 skill standalone; 17 folder lain di-skip karena butuh CLI proxy @caveman-ai/cli / Caveman Cloud / hooks Claude Code (caveman-stats, cavecrew, setup, discover, evidence-review, manage, optimize, learn, generated, native, migration, lean-build, investigate-first, safe-refactor, surgical-patch, verify-and-stop, explore). Riset pendukung: JetBrains A/B (p=0.82, -8.5% output), Adobe CAVEWOMAN (biaya 1.4-2.4x lebih murah). catatan: rules skill sendiri ~1160 token input; hemat di model baru median ~3% (caveman) / ~35% (ultracave) di atas baseline 'be concise'.",
-      "terakhir_dicek": "2026-11-23",
-      "upstream_terakhir": "v4.1.0"
+      "catatan": "Keluarga caveman (Apache-2.0): voice 'terse tapi substansi utuh' untuk hemat output token — answer first, tanpa ceremony, negasi (not/never/no/only) & payload (kode/path/angka/error) verbatim, dasar ASD-STE100. Install 2026-11-23 dari tag v4.1.0 via sparse-checkout: hanya 7 skill standalone; 17 folder lain di-skip karena butuh CLI proxy @caveman-ai/cli / Caveman Cloud / hooks Claude Code (caveman-stats, cavecrew, setup, discover, evidence-review, manage, optimize, learn, generated, native, migration, lean-build, investigate-first, safe-refactor, surgical-patch, verify-and-stop, explore). Riset pendukung: JetBrains A/B (p=0.82, -8.5% output), Adobe CAVEWOMAN (biaya 1.4-2.4x lebih murah). catatan: rules skill sendiri ~1160 token input; hemat di model baru median ~3% (caveman) / ~35% (ultracave) di atas baseline 'be concise'. Cek 2026-11-27: v4.2.0 (70f4f34, 2026-11-21) hanya mengubah packaging bin/CLI/middleware; 7 SKILL.md + README + script identik byte-per-byte dengan v4.1.0 — tidak ada salinan.",
+      "terakhir_dicek": "2026-11-27",
+      "upstream_terakhir": "v4.2.0"
     },
     {
       "folder": "ponytail",
@@ -44,9 +44,9 @@
         "antislop-layoutmobile",
         "antislop-ui"
       ],
-      "catatan": "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer - cek diff SKILL.md sebelum update penuh. Update 2026-11-21 ke v3.2.32: antislop core drop Install Wizard + format allowed-tools diubah; antislop-ui tambah Scaffold Sidebar + baris Delivery Gate baru; antislop-copywriting +37 baris. Ekstensi lokal di antislop-ui/SKILL.md (blok local-extension Liveliness Recipes + baris Fix Sterile Default) SUDAH di-re-apply setelah overwrite.",
-      "terakhir_dicek": "2026-11-21",
-      "upstream_terakhir": "v3.2.32"
+      "catatan": "Keluarga antislop (6 skill) dari satu repo. Rilis sering hanya README/installer - cek diff SKILL.md sebelum update penuh. Update 2026-11-21 ke v3.2.32: antislop core drop Install Wizard + format allowed-tools diubah; antislop-ui tambah Scaffold Sidebar + baris Delivery Gate baru; antislop-copywriting +37 baris. Ekstensi lokal di antislop-ui/SKILL.md (blok local-extension Liveliness Recipes + baris Fix Sterile Default) SUDAH di-re-apply setelah overwrite. Update 2026-11-27 ke v3.2.33 (f07c572): berubah VERSION, SKILL.md antislop-code/copywriting/human/ui + contrast-mcp.py (+266 baris di copywriting). Ekstensi lokal DCI di antislop-ui (blok local-extension Liveliness Recipes + baris Fix Sterile Default) SUDAH di-re-apply setelah timpa.",
+      "terakhir_dicek": "2026-11-27",
+      "upstream_terakhir": "v3.2.33"
     },
     {
       "folder": "design-taste-frontend",
@@ -55,9 +55,9 @@
       "juga_mencakup": [
         "full-output-enforcement"
       ],
-      "catatan": "MIGRASI v2.1.5 -> v2.5.1 (2026-11-21): frontmatter name tetap design-taste-frontend (referensi rules/PRD tidak berubah); folder upstream jadi skills/taste-skill/. Isi 36 file 2.5MB -> 1631 file 35MB (library arah desain jadi asset CSS/JS/HTML besar). Baru: 9 house rules, Stop-hook gate (Claude Code saja; TRAE/ZCode gate manual node scripts/gate.mjs). Butuh Node 22+ + Chrome. Skill imagegen-* v1 tidak dimigrasi; full-output-enforcement tetap mandiri (tidak ada lagi di upstream, pertahankan salinan lokal). Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md.",
-      "terakhir_dicek": "2026-11-21",
-      "upstream_terakhir": "f6b7657 (2026-11-07)"
+      "catatan": "MIGRASI v2.1.5 -> v2.5.1 (2026-11-21): frontmatter name tetap design-taste-frontend (referensi rules/PRD tidak berubah); folder upstream jadi skills/taste-skill/. Isi 36 file 2.5MB -> 1631 file 35MB (library arah desain jadi asset CSS/JS/HTML besar). Baru: 9 house rules, Stop-hook gate (Claude Code saja; TRAE/ZCode gate manual node scripts/gate.mjs). Butuh Node 22+ + Chrome. Skill imagegen-* v1 tidak dimigrasi; full-output-enforcement tetap mandiri (tidak ada lagi di upstream, pertahankan salinan lokal). Catatan integrasi: skills/_TASTE-SKILLS-INTEGRASI.md. Cek 2026-11-27: HEAD 952435f (merge PR sponsor/README) — 1631 file skill identik byte-per-byte dengan salinan repo, tidak ada salinan.",
+      "terakhir_dicek": "2026-11-27",
+      "upstream_terakhir": "952435f (2026-11-27)"
     },
     {
       "folder": "logo-design",
@@ -340,9 +340,9 @@
         "social",
         "video"
       ],
-      "catatan": "Sumber skill marketing/growth. REPO PINDAH: Cesarjoquin/Marketing-Skills sudah 404 (cek 2026-11-21), sekarang coreyhaines31/marketingskills (corey haines). Update 2026-11-21: 45 skill existing (v2.0.x - banyak +reference routing baru) + 8 skill baru: attribution, conversion-tracking, events, influencer-marketing, link-building, marketing-council, marketing-loops, reverse-engineer-marketing. Metode latest_commit.",
-      "terakhir_dicek": "2026-11-21",
-      "upstream_terakhir": "5b2b400 (2026-11-19)"
+      "catatan": "Sumber skill marketing/growth. REPO PINDAH: Cesarjoquin/Marketing-Skills sudah 404 (cek 2026-11-21), sekarang coreyhaines31/marketingskills (corey haines). Update 2026-11-21: 45 skill existing (v2.0.x - banyak +reference routing baru) + 8 skill baru: attribution, conversion-tracking, events, influencer-marketing, link-building, marketing-council, marketing-loops, reverse-engineer-marketing. Metode latest_commit. Update 2026-11-27 ke 2bf95ed: 10 file berubah di aso, customer-research, prospecting, seo-audit, social (+132/-9 baris). ads/references/conversion-tracking.md (sudah jadi skill terpisah) sengaja dipertahankan. Tidak ada folder skill baru (53 folder upstream semua sudah ada).",
+      "terakhir_dicek": "2026-11-27",
+      "upstream_terakhir": "2bf95ed (2026-11-26)"
     },
     {
       "folder": "docx",
@@ -408,6 +408,15 @@
       "catatan": "Toolkit bug bounty AI (MIT, 5.6k stars). 25 skill + 43 command + CLI bughunter (PyPI/GitHub) + MCP server + plugin Claude Code. Ditambahkan 2026-10-31 atas permintaan Mas Wondho. CATATAN PENTING: (1) PyPI 6.0.2 TIDAK memuat provider requesty - install dari git+https GitHub agar base_url kustom bisa dipakai; (2) brain.py perlu patch agar kompatibel gateway yang mengirim sentinel SSE data:[DONE] pada respons non-streaming - lihat scripts/patch-bughunter.ps1; (3) command (43) ada di folder commands/ repo upstream - disalin ke ~/.claude/commands dan ~/.zcode/commands secara terpisah, bukan bagian skills/. Cek 2026-11-21: 25 skill IDENTIK dengan upstream; 43 command juga identik (lokal punya 1 ekstra README.md). Skill tidak perlu update; CLI bughunter (PyPI) terpisah dari skills.",
       "terakhir_dicek": "2026-11-21",
       "upstream_terakhir": "82f4512 (2026-11-12)"
+    },
+    {
+      "folder": "mastermind",
+      "repo": "alecslacker/mastermind-skill",
+      "metode": "latest_commit",
+      "juga_mencakup": [],
+      "catatan": "Persona toolsmith keamanan DCI (Apache/MIT sesuai LICENSE upstream). Sebelumnya dikira internal; 2026-11-27 ditemukan repo resmi alecslacker/mastermind-skill sebagai sumber kebenaran (header SKILL.md menyebutnya). Di-update ke commit 1b9eb03 (2026-11-27): 16 file termasuk references/buku-besar/* + scripts/verif.py. Artefak graphify-out/ sengaja TIDAK disalin (generated). Klasifikasi berubah dari kurasi internal ke repo GitHub eksternal.",
+      "terakhir_dicek": "2026-11-27",
+      "upstream_terakhir": "1b9eb03 (2026-11-27)"
     }
   ]
 }

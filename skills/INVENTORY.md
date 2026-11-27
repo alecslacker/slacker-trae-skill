@@ -6,19 +6,19 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-23 | Total: **437** skill
+Diperbarui: 2026-11-27 | Total: **437** skill
 
 ## Ringkasan Sumber
 
 | Sumber | Jumlah | Cara update |
 |---|---|---|
-| Kurasi pack / internal | 49 | Manual — skill standalone terkurasi + buatan sendiri |
+| Kurasi pack / internal | 48 | Manual — skill standalone terkurasi + buatan sendiri |
 | Plugin resmi TRAE | 94 | scripts/export-plugins.ps1 (-Force untuk timpa) |
-| Repo GitHub eksternal | 294 | scripts/check-upstream.ps1 |
+| Repo GitHub eksternal | 295 | scripts/check-upstream.ps1 |
 
-## Kurasi Pack / Internal (49)
+## Kurasi Pack / Internal (48)
 
-agent-browser, attribution, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, conversion-tracking, data-analysis, electron, events, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, influencer-marketing, laravel-dev, link-building, local-computer-use, local-realtime-translator, marketing-council, marketing-loops, marketing-tools, mastermind, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, reverse-engineer-marketing, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
+agent-browser, attribution, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, conversion-tracking, data-analysis, electron, events, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, influencer-marketing, laravel-dev, link-building, local-computer-use, local-realtime-translator, marketing-council, marketing-loops, marketing-tools, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, reverse-engineer-marketing, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 
@@ -120,7 +120,7 @@ TRAE-only tidak diekspor; format: nama skill — plugin asal).
 - writing-plans — superpowers
 - writing-skills — superpowers
 
-## Repo GitHub Eksternal (294)
+## Repo GitHub Eksternal (295)
 
 Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan per repo asal.
 
@@ -158,6 +158,10 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - blog-taxonomy
 - blog-translate
 - blog-write
+
+### alecslacker/mastermind-skill (1b9eb03 (2026-11-27), dicek 2026-11-27)
+
+- mastermind
 
 ### anthropics/skills (e4bb5d9 (2026-11-16), dicek 2026-11-21)
 
@@ -360,7 +364,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - windows-server
 - zero-trust
 
-### coreyhaines31/marketingskills (5b2b400 (2026-11-19), dicek 2026-11-21)
+### coreyhaines31/marketingskills (2bf95ed (2026-11-26), dicek 2026-11-27)
 
 - ab-testing
 - ad-creative
@@ -425,7 +429,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 
 - remotion-motion-graphics
 
-### JuliusBrussee/caveman (v4.1.0, dicek 2026-11-23)
+### JuliusBrussee/caveman (v4.2.0, dicek 2026-11-27)
 
 - caveman
 - caveman-commit
@@ -439,12 +443,12 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 
 - logo-design
 
-### Leonxlnx/taste-skill (f6b7657 (2026-11-07), dicek 2026-11-21)
+### Leonxlnx/taste-skill (952435f (2026-11-27), dicek 2026-11-27)
 
 - design-taste-frontend
 - full-output-enforcement
 
-### miqdadbadjuber/anti-slop (v3.2.32, dicek 2026-11-21)
+### miqdadbadjuber/anti-slop (v3.2.33, dicek 2026-11-27)
 
 - antislop
 - antislop-code
