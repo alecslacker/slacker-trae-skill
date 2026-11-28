@@ -3,6 +3,19 @@
 Semua perubahan penting repo ini didokumentasikan di sini.
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/id/1.1.0/); penomoran versi pakai `vY.M.D` (tanggal rilis) selama repo belum memakai git tag.
 
+## [v26.11.29] — 2026-11-29
+
+Total skill: **437** (48 kurasi + 94 plugin + 295 GitHub).
+
+### Diubah
+- **`marketingskills` v2.9.1 (commit `8d7437f`)** — 53 skill diupdate dari `coreyhaines31/marketingskills`. Repo restructured ke subfolder `skills/`. Semua `SKILL.md` + `evals/` + `references/` ditimpa. `ads/references/conversion-tracking.md` (sudah jadi skill terpisah) dipertahankan lokal.
+- **Voicebox lokal** — Backend patched (OmniVoice `id` support) dipindah ke `C:\Users\alecs\voicebox-local` permanen + auto-start (Startup folder) + auto-restart watchdog. Web UI v2 (`generated-audio/voicebox-dci-id.html`) dibuat dengan desain `design-taste-frontend`: dark/light mode, tabs (Profil, Generate, History, Samples, Stories), modal Story Editor multi-track, waveform dummy, seed/instruct, upload sample, delete confirm.
+
+### Diperbaiki
+- Backend patch `id` ke `models.py` (5 regex), `backends/__init__.py` (LANGUAGE_CODE_TO_NAME + OmniVoice lang list), `omnivoice_backend.py` (no `id`→`ind` override — OmniVoice sudah pakai `id` apa adanya).
+- Transformers 5.3.0 compat: `hf_offline_patch.py` catch `AttributeError` untuk `_is_offline_mode` yg dihapus di TF 5.x.
+- FFmpeg via `imageio-ffmpeg` binary di venv `Scripts/ffmpeg.exe` (hindari PATH issue).
+
 ## [v26.11.27] — 2026-11-27
 
 Total skill: **437** (48 kurasi + 94 plugin + 295 GitHub). Angka ini di 9 dokumen dikelola otomatis via marker `<!--skill-count-->` oleh `collect.ps1`.

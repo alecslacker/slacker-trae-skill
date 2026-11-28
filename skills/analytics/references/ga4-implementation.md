@@ -27,14 +27,10 @@ Detailed implementation guide for Google Analytics 4.
 |-------|-------------|---------------|
 | page_view | Page loads | Automatic |
 | scroll | 90% scroll depth | Toggle on/off |
-| click | Outbound link click (`outbound: true`); cross-domain measurement domains are excluded | Toggle on/off |
-| view_search_results | Search results page with a configured search query parameter | Configure query parameters |
-| video_start, video_progress, video_complete | Embedded YouTube start, progress and completion | Toggle on/off; JS API support required |
+| outbound_click | Click to external domain | Automatic |
+| site_search | Search query used | Configure parameter |
+| video_engagement | YouTube video plays | Toggle on/off |
 | file_download | PDF, docs, etc. | Configurable extensions |
-
-Use these exact names in event filters and triggers. The option labels "outbound clicks", "site search" and "video engagement" are not automatic event names. For video, report starts, progress milestones and completions separately; adding all three counts double-counts a viewing journey. A custom event with one of the old labels needs its own implementation. Verify enabled options and observed parameters in DebugView before expecting data.
-
-Contract: [Google enhanced measurement events](https://support.google.com/analytics/answer/9216061).
 
 ### Recommended Events
 
@@ -65,8 +61,8 @@ Reference: https://support.google.com/analytics/answer/9267735
 ### gtag.js Implementation
 
 ```javascript
-// Recommended event (your plan's signup_completed maps to GA4's sign_up)
-gtag('event', 'sign_up', {
+// Basic event
+gtag('event', 'signup_completed', {
   'method': 'email',
   'plan': 'free'
 });
@@ -98,7 +94,7 @@ gtag('config', 'GA_MEASUREMENT_ID', {
 ### Google Tag Manager (dataLayer)
 
 ```javascript
-// Internal event name; a GTM GA4 Event tag sends it to GA4 as sign_up
+// Custom event
 dataLayer.push({
   'event': 'signup_completed',
   'method': 'email',

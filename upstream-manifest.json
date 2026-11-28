@@ -341,8 +341,8 @@
         "video"
       ],
       "catatan": "Sumber skill marketing/growth. REPO PINDAH: Cesarjoquin/Marketing-Skills sudah 404 (cek 2026-11-21), sekarang coreyhaines31/marketingskills (corey haines). Update 2026-11-21: 45 skill existing (v2.0.x - banyak +reference routing baru) + 8 skill baru: attribution, conversion-tracking, events, influencer-marketing, link-building, marketing-council, marketing-loops, reverse-engineer-marketing. Metode latest_commit. Update 2026-11-27 ke 2bf95ed: 10 file berubah di aso, customer-research, prospecting, seo-audit, social (+132/-9 baris). ads/references/conversion-tracking.md (sudah jadi skill terpisah) sengaja dipertahankan. Tidak ada folder skill baru (53 folder upstream semua sudah ada).",
-      "terakhir_dicek": "2026-11-27",
-      "upstream_terakhir": "2bf95ed (2026-11-26)"
+      "terakhir_dicek": "2026-11-28",
+      "upstream_terakhir": "v2.9.1 (2026-11-28)"
     },
     {
       "folder": "docx",

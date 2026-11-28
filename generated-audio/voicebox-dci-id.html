@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voicebox DCI — Voice Over Bahasa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0a0c10; --bg-elev:#111418; --card:#151920; --border:#242a35;
+    --text:#e8ebf0; --muted:#7a828e; --accent:#10b981; --accent-hover:#059669;
+    --accent-dim:#064e3b; --warn:#f59e0b; --err:#ef4444;
+    --focus:#10b981; --shadow:0 4px 24px -8px rgba(0,0,0,.6);
+    --radius:12px; --radius-sm:8px; --transition:150ms ease;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f8fafc; --bg-elev:#ffffff; --card:#ffffff; --border:#e2e8f0;
+      --text:#0f172a; --muted:#64748b; --accent:#059669; --accent-hover:#047857;
+      --accent-dim:#d1fae5; --shadow:0 4px 24px -8px rgba(15,23,42,.15); }
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  html { font-size:16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+  body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text);
+    min-height:100vh; line-height:1.6; transition:background var(--transition), color var(--transition); }
+  h1,h2,h3,h4 { font-family:'Space Grotesk',system-ui,sans-serif; font-weight:600; line-height:1.2; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .container { width:100%; max-width:1100px; margin:0 auto; padding:2rem 1.5rem; }
+  .header { text-align:center; margin-bottom:3rem; }
+  .header h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:700; letter-spacing:-0.02em; }
+  .header .badge { display:inline-block; margin-top:0.5rem; padding:0.25rem 0.75rem;
+    background:var(--accent-dim); color:var(--accent); font-size:0.7rem; font-weight:600;
+    border-radius:999px; text-transform:uppercase; letter-spacing:0.05em; }
+  .header p { color:var(--muted); font-size:1rem; max-width:60ch; margin:1rem auto 0; }
+  .grid { display:grid; gap:1.5rem; }
+  .grid-2 { grid-template-columns:repeat(2,1fr); }
+  .grid-3 { grid-template-columns:repeat(3,1fr); }
+  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns:1fr; } }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:1.5rem; box-shadow:var(--shadow); transition:border-color var(--transition), box-shadow var(--transition); }
+  .card:hover { border-color:var(--accent); box-shadow:0 8px 32px -12px rgba(16,185,129,.2); }
+  .section-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+  .section-title h2 { font-size:1.1rem; font-weight:600; }
+  .section-title .count { color:var(--muted); font-size:0.8rem; font-weight:500; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+    padding:0.7rem 1.25rem; font-family:inherit; font-size:0.9rem; font-weight:600;
+    border:none; border-radius:var(--radius-sm); cursor:pointer;
+    transition:background var(--transition), transform var(--transition), box-shadow var(--transition); }
+  .btn:disabled { opacity:0.5; cursor:not-allowed; }
+  .btn-primary { background:var(--accent); color:#022c1a; }
+  .btn-primary:hover:not(:disabled) { background:var(--accent-hover); box-shadow:0 4px 16px -4px rgba(16,185,129,.4); }
+  .btn-primary:active:not(:disabled) { transform:scale(0.98); }
+  .btn-secondary { background:var(--bg-elev); color:var(--text); border:1px solid var(--border); }
+  .btn-secondary:hover:not(:disabled) { background:var(--card); border-color:var(--accent); }
+  .btn-ghost { background:transparent; color:var(--muted); border:1px solid transparent; }
+  .btn-ghost:hover:not(:disabled) { color:var(--text); background:var(--bg-elev); }
+  .btn-danger { background:var(--err); color:white; }
+  .btn-sm { padding:0.5rem 1rem; font-size:0.8rem; }
+  .input-group { display:flex; flex-direction:column; gap:0.35rem; }
+  .input-group label { font-size:0.75rem; font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; }
+  .input-group input, .input-group select, .input-group textarea {
+    width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text);
+    padding:0.65rem 0.85rem; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem;
+    outline:none; transition:border-color var(--transition), box-shadow var(--transition); }
+  .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color:var(--focus); box-shadow:0 0 0 3px var(--accent-dim); }
+  .input-group textarea { min-height:120px; resize:vertical; line-height:1.6; }
+  .input-group .help { font-size:0.7rem; color:var(--muted); }
+  .input-row { display:flex; gap:1rem; }
+  .input-row > .input-group { flex:1; }
+  @media (max-width: 560px) { .input-row { flex-direction:column; } }
+  .status { padding:0.75rem 1rem; border-radius:var(--radius-sm); font-size:0.85rem; display:none; }
+  .status.show { display:block; animation:fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+  .status-info { background:var(--accent-dim); color:var(--accent); border:1px solid var(--accent); }
+  .status-success { background:#064e3b; color:#a7f3d0; border:1px solid #059669; }
+  .status-error { background:#7f1d1d; color:#fca5a5; border:1px solid #991b1b; }
+  .status-warn { background:#78350f; color:#fde68a; border:1px solid #b45309; }
+  .tabs { display:flex; gap:0.25rem; margin-bottom:1rem; border-bottom:1px solid var(--border); padding-bottom:0.5rem; }
+  .tab { padding:0.5rem 1rem; font-size:0.85rem; font-weight:500; color:var(--muted);
+    background:transparent; border:none; border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+    cursor:pointer; transition:color var(--transition), background var(--transition); }
+  .tab:hover { color:var(--text); background:var(--bg-elev); }
+  .tab.active { color:var(--accent); background:var(--accent-dim); }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; animation:fadeIn 0.2s ease; }
+  .profile-card { display:flex; align-items:center; gap:1rem; padding:1rem; background:var(--bg); border:1px solid var(--border);
+    border-radius:var(--radius-sm); transition:border-color var(--transition); }
+  .profile-card:hover { border-color:var(--accent); }
+  .profile-card input[type=radio] { accent-color:var(--accent); width:1.1rem; height:1.1rem; }
+  .profile-info { flex:1; min-width:0; }
+  .profile-name { font-weight:600; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .profile-meta { display:flex; gap:1rem; font-size:0.75rem; color:var(--muted); margin-top:0.25rem; }
+  .profile-meta span { display:flex; align-items:center; gap:0.25rem; }
+  .empty-state { text-align:center; padding:3rem 1rem; color:var(--muted); }
+  .empty-state svg { width:48px; height:48px; margin-bottom:1rem; opacity:0.5; }
+  .audio-player { width:100%; margin-top:0.5rem; }
+  .generation-item { display:flex; align-items:center; gap:1rem; padding:1rem; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); }
+  .generation-item.playing { border-color:var(--accent); background:var(--accent-dim); }
+  .generation-item .waveform { flex:1; height:40px; background:var(--card); border-radius:var(--radius-sm); position:relative; overflow:hidden; }
+  .generation-item .waveform canvas { width:100%; height:100%; display:block; }
+  .gen-meta { display:flex; flex-direction:column; gap:0.25rem; min-width:180px; }
+  .gen-text { font-size:0.85rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .gen-details { display:flex; gap:1rem; font-size:0.7rem; color:var(--muted); }
+  .gen-actions { display:flex; gap:0.5rem; }
+  .sample-item { display:flex; align-items:center; gap:1rem; padding:0.75rem; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); }
+  .sample-item .sample-audio { flex:1; }
+  .sample-item .sample-text { font-size:0.8rem; color:var(--muted); max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.7); backdrop-filter:blur(4px); z-index:1000; display:flex; align-items:center; justify-content:center; padding:1rem; opacity:0; pointer-events:none; transition:opacity var(--transition); }
+  .modal-overlay.open { opacity:1; pointer-events:auto; }
+  .modal { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; width:100%; max-width:500px; max-height:90vh; overflow:auto; transform:scale(0.95); transition:transform var(--transition); }
+  .modal-overlay.open .modal { transform:scale(1); }
+  .modal h3 { margin-bottom:1rem; }
+  .modal .btn { width:100%; }
+  .tooltip { position:relative; }
+  .tooltip::after { content:attr(data-tip); position:absolute; bottom:125%; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:0.4rem 0.6rem; border-radius:6px; font-size:0.7rem; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity var(--transition); z-index:10; }
+  .tooltip:hover::after { opacity:1; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1>Voicebox DCI</h1>
+    <span class="badge">OmniVoice + Bahasa Indonesia</span>
+    <p>Generate voice-over lokal dengan kloning suara — offline, tanpa biaya per karakter, engine multilingual</p>
+  </header>
+
+  <div id="statusBox" class="status" role="status" aria-live="polite"></div>
+
+  <div class="grid grid-2">
+    <!-- PROFIL PANEL -->
+    <section class="card" aria-labelledby="profile-title">
+      <div class="section-title">
+        <h2 id="profile-title">Profil Suara</h2>
+        <span class="count" id="profileCount">0</span>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-tab="profiles-list" aria-selected="true">Daftar</button>
+        <button class="tab" role="tab" data-tab="profiles-create" aria-selected="false">Buat Baru</button>
+      </div>
+
+      <div class="tab-panel active" id="profiles-list" role="tabpanel">
+        <div id="profilesContainer">
+          <div class="empty-state" id="profilesEmpty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <p>Belum ada profil suara. Klik tab "Buat Baru" atau buat di desktop app.</p>
+          </div>
+        </div>
+        <div style="margin-top:1rem;">
+          <button class="btn btn-secondary" id="refreshProfiles" style="width:100%;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            Refresh Profil
+          </button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="profiles-create" role="tabpanel">
+        <form id="createProfileForm">
+          <div class="input-group">
+            <label for="cpName">Nama Profil</label>
+            <input type="text" id="cpName" placeholder="mis. Mas Wondho" required>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label for="cpLang">Bahasa</label>
+              <select id="cpLang" required>
+                <option value="id" selected>id — Bahasa Indonesia</option>
+                <option value="en">en — English</option>
+                <option value="zh">zh — Chinese</option>
+                <option value="ja">ja — Japanese</option>
+                <option value="ko">ko — Korean</option>
+                <option value="de">de — German</option>
+                <option value="fr">fr — French</option>
+                <option value="es">es — Spanish</option>
+                <option value="pt">pt — Portuguese</option>
+                <option value="it">it — Italian</option>
+                <option value="ru">ru — Russian</option>
+                <option value="ar">ar — Arabic</option>
+                <option value="hi">hi — Hindi</option>
+                <option value="ms">ms — Malay</option>
+                <option value="nl">nl — Dutch</option>
+                <option value="pl">pl — Polish</option>
+                <option value="tr">tr — Turkish</option>
+                <option value="sw">sw — Swahili</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="cpEngine">Default Engine</label>
+              <select id="cpEngine">
+                <option value="omnivoice" selected>OmniVoice (Multilingual, Clone)</option>
+                <option value="qwen_custom_voice">Qwen CustomVoice</option>
+                <option value="qwen_voice_design">Qwen VoiceDesign</option>
+                <option value="chatterbox">Chatterbox</option>
+                <option value="chatterbox_turbo">Chatterbox Turbo (EN)</option>
+                <option value="tada">TADA</option>
+                <option value="kokoro">Kokoro</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="cpDesc">Deskripsi (opsional)</label>
+            <textarea id="cpDesc" placeholder="Catatan tentang profil ini..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Buat Profil</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- GENERATE PANEL -->
+    <section class="card" aria-labelledby="gen-title">
+      <div class="section-title">
+        <h2 id="gen-title">Generate Voice Over</h2>
+      </div>
+      <form id="generateForm">
+        <div class="input-group">
+          <label for="genProfile">Profil Suara</label>
+          <select id="genProfile" required>
+            <option value="">Pilih profil dulu (refresh tab Profil)</option>
+          </select>
+          <p class="help">Profil harus punya minimal 1 sample suara untuk engine clone</p>
+        </div>
+        <div class="input-group">
+          <label for="genText">Naskah Voice Over</label>
+          <textarea id="genText" placeholder="Tulis naskah Bahasa Indonesia di sini..." required></textarea>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="genEngine">Engine</label>
+            <select id="genEngine">
+              <option value="omnivoice" selected>OmniVoice (Multilingual, Clone)</option>
+              <option value="qwen_custom_voice">Qwen CustomVoice (Preset)</option>
+              <option value="qwen_voice_design">Qwen VoiceDesign (Deskripsi)</option>
+              <option value="chatterbox">Chatterbox (Emo Tag)</option>
+              <option value="chatterbox_turbo">Chatterbox Turbo (EN only)</option>
+              <option value="tada">TADA 1B/3B</option>
+              <option value="kokoro">Kokoro 82M</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="genLang">Bahasa</label>
+            <select id="genLang">
+              <option value="id" selected>id — Bahasa Indonesia</option>
+              <option value="en">en — English</option>
+              <option value="zh">zh — Chinese</option>
+              <option value="ja">ja — Japanese</option>
+              <option value="ko">ko — Korean</option>
+              <option value="de">de — German</option>
+              <option value="fr">fr — French</option>
+              <option value="es">es — Spanish</option>
+              <option value="pt">pt — Portuguese</option>
+              <option value="it">it — Italian</option>
+              <option value="ru">ru — Russian</option>
+              <option value="ar">ar — Arabic</option>
+              <option value="hi">hi — Hindi</option>
+              <option value="ms">ms — Malay</option>
+              <option value="nl">nl — Dutch</option>
+              <option value="pl">pl — Polish</option>
+              <option value="tr">tr — Turkish</option>
+              <option value="sw">sw — Swahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="genSeed">Seed (opsional)</label>
+            <input type="number" id="genSeed" placeholder="Kosong = acak" min="0" step="1">
+            <p class="help">Gunakan seed yang sama untuk hasil reproduktif</p>
+          </div>
+          <div class="input-group">
+            <label for="genInstruct">Instruct (VoiceDesign)</label>
+            <input type="text" id="genInstruct" placeholder="female, low pitch, british accent">
+            <p class="help">Hanya untuk Qwen VoiceDesign / Chatterbox</p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="generateBtn" style="width:100%; margin-top:0.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Generate Voice Over
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <!-- RESULT / HISTORY PANEL -->
+  <section class="card" aria-labelledby="result-title">
+    <div class="section-title">
+      <h2 id="result-title">Hasil & Riwayat</h2>
+      <span class="count" id="genCount">0 generation</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" data-tab="result-current" aria-selected="true">Hasil Terbaru</button>
+      <button class="tab" role="tab" data-tab="result-history" aria-selected="false">Riwayat</button>
+    </div>
+
+    <div class="tab-panel active" id="result-current" role="tabpanel">
+      <div class="empty-state" id="resultEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <p>Belum ada hasil generate. Isi naskah dan klik Generate.</p>
+      </div>
+      <div id="resultCurrent" style="display:none;">
+        <div class="audio-player" id="audioPlayerContainer"></div>
+        <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-secondary" id="downloadBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download WAV</button>
+          <button class="btn btn-secondary" id="replayBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Putar Ulang</button>
+          <button class="btn btn-secondary" id="addToStoryBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Tambah ke Story</button>
+        </div>
+        <p class="help" id="resultMeta"></p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="result-history" role="tabpanel">
+      <div id="historyContainer">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p>Riwayat generate akan muncul di sini.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLES PANEL -->
+  <section class="card" aria-labelledby="samples-title">
+    <div class="section-title">
+      <h2 id="samples-title">Sample Suara Profil</h2>
+      <span class="count" id="sampleCount">0</span>
+    </div>
+    <div id="samplesContainer">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        <p>Pilih profil di tab Profil untuk melihat sample, atau upload sample baru.</p>
+      </div>
+    </div>
+    <div style="margin-top:1rem; display:none;" id="uploadSampleForm">
+      <div class="input-group">
+        <label for="sampleFile">File Audio (WAV/MP3/M4A/OGG/FLAC)</label>
+        <input type="file" id="sampleFile" accept=".wav,.mp3,.m4a,.ogg,.flac,.aac,.webm,.opus" required>
+      </div>
+      <div class="input-group">
+        <label for="sampleRefText">Teks Referensi (transkripsi)</label>
+        <textarea id="sampleRefText" placeholder="Tulis apa yang diucapkan di audio..." required></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" id="uploadSampleBtn" style="width:100%;">Upload Sample</button>
+    </div>
+  </section>
+
+  <!-- STORIES PANEL (Timeline Editor) -->
+  <section class="card" aria-labelledby="stories-title">
+    <div class="section-title">
+      <h2 id="stories-title">Stories (Timeline Multi-Track)</h2>
+      <span class="count" id="storyCount">0</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" data-tab="stories-list" aria-selected="true">Daftar Story</button>
+      <button class="tab" role="tab" data-tab="stories-create" aria-selected="false">Buat Story</button>
+    </div>
+    <div class="tab-panel active" id="stories-list" role="tabpanel">
+      <div id="storiesContainer">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          <p>Belum ada story. Buat story baru untuk mengkomposisi voice-over multi-track.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="stories-create" role="tabpanel">
+      <form id="createStoryForm">
+        <div class="input-group">
+          <label for="storyName">Nama Story</label>
+          <input type="text" id="storyName" placeholder="mis. Video Promo Produk" required>
+        </div>
+        <div class="input-group">
+          <label for="storyDesc">Deskripsi</label>
+          <textarea id="storyDesc" placeholder="Catatan tentang story ini..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Buat Story</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- MODAL: Story Editor -->
+<div class="modal-overlay" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyModalTitle">
+  <div class="modal" style="max-width:900px;">
+    <h3 id="storyModalTitle">Editor Story</h3>
+    <div style="margin-bottom:1rem;">
+      <label class="tooltip" data-tip="Tambah generation ke track ini"><button type="button" class="btn btn-secondary btn-sm" id="addTrackBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Tambah Track</button></label>
+      <label class="tooltip" data-tip="Ekspor story sebagai WAV gabungan"><button type="button" class="btn btn-primary btn-sm" id="exportStoryBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Ekspor WAV</button></label>
+      <button type="button" class="btn btn-ghost btn-sm" id="closeStoryModal">Tutup</button>
+    </div>
+    <div id="storyTracks" style="display:grid; gap:1rem;"></div>
+  </div>
+</div>
+
+<!-- MODAL: Confirm Delete -->
+<div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:400px;">
+    <h3 id="confirmTitle">Konfirmasi</h3>
+    <p id="confirmMsg" style="margin:1rem 0; color:var(--muted);"></p>
+    <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
+      <button class="btn btn-secondary" id="confirmCancel">Batal</button>
+      <button class="btn btn-danger" id="confirmOk">Hapus</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = 'http://127.0.0.1:8765';
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+function showStatus(msg, type='info') {
+  const box = $('#statusBox');
+  box.textContent = msg;
+  box.className = 'status show ' + type;
+}
+function hideStatus() { $('#statusBox').className = 'status'; }
+
+function fmtTime(ms) {
+  if (ms == null) return '—';
+  const s = Math.floor(ms/1000), m = Math.floor(s/60), h = Math.floor(m/60);
+  return (h?h+':':'')+(m%60).toString().padStart(2,'0')+':'+(s%60).toString().padStart(2,'0');
+}
+function fmtDate(iso) { return new Date(iso).toLocaleString('id-ID',{dateStyle:'short',timeStyle:'short'}); }
+
+let state = {
+  profiles: [],
+  selectedProfileId: null,
+  currentGeneration: null,
+  history: [],
+  samples: [],
+  stories: [],
+  editingStoryId: null
+};
+
+// ---- TABS ----
+$$('.tabs').forEach(tabList => {
+  tabList.addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if (!tab) return;
+    const panelId = tab.dataset.tab;
+    tabList.querySelectorAll('.tab').forEach(t => {
+      t.classList.toggle('active', t===tab);
+      t.setAttribute('aria-selected', t===tab);
+    });
+    const panels = tabList.parentElement.querySelectorAll('.tab-panel');
+    panels.forEach(p => p.classList.toggle('active', p.id===panelId));
+  });
+});
+
+// ---- MODALS ----
+function openModal(overlay) { overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(overlay) { overlay.classList.remove('open'); document.body.style.overflow=''; }
+$('#closeStoryModal').onclick = () => closeModal($('#storyModal'));
+$('#confirmCancel').onclick = () => closeModal($('#confirmModal'));
+$$('.modal-overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) closeModal(o); }));
+
+// ---- API HELPERS ----
+async function api(path, opts={}) {
+  const res = await fetch(API+path, {headers:{'Content-Type':'application/json'}, ...opts});
+  const data = await res.json().catch(()=>({}));
+  if (!res.ok) throw new Error(data.detail || data.error || `HTTP ${res.status}`);
+  return data;
+}
+
+async function apiBlob(path) {
+  const res = await fetch(API+path);
+  if (!res.ok) throw new Error(await res.text());
+  return res.blob();
+}
+
+// ---- PROFIL ----
+async function loadProfiles() {
+  try {
+    state.profiles = await api('/profiles');
+    renderProfiles();
+    renderProfileSelects();
+  } catch(e) { showStatus('Gagal load profil: '+e.message, 'error'); }
+}
+function renderProfiles() {
+  const c = $('#profilesContainer');
+  if (state.profiles.length===0) {
+    c.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><p>Belum ada profil. Klik tab "Buat Baru".</p></div>`;
+    $('#profileCount').textContent = '0';
+    return;
+  }
+  c.innerHTML = state.profiles.map(p => `
+    <label class="profile-card tooltip" data-tip="Klik untuk pilih & load sample">
+      <input type="radio" name="profileRadio" value="${p.id}" ${state.selectedProfileId===p.id?'checked':''}>
+      <div class="profile-info">
+        <div class="profile-name">${escapeHtml(p.name)}</div>
+        <div class="profile-meta">
+          <span>🌐 ${p.language}</span>
+          <span>⚙️ ${p.default_engine||'qwen'}</span>
+          <span>🎤 ${p.sample_count} sample</span>
+          <span>📝 ${p.generation_count} gen</span>
+        </div>
+      </div>
+    </label>
+  `).join('');
+  $('#profileCount').textContent = state.profiles.length;
+  $$('#profilesContainer input[name=profileRadio]').forEach(r => r.addEventListener('change', e => {
+    state.selectedProfileId = e.target.value;
+    loadSamples(state.selectedProfileId);
+    renderProfileSelects();
+    renderProfiles();
+  }));
+}
+function renderProfileSelects() {
+  const opts = state.profiles.map(p => `<option value="${p.id}" ${state.selectedProfileId===p.id?'selected':''}>${escapeHtml(p.name)} (${p.language}, ${p.default_engine||'qwen'}, ${p.sample_count} sample)</option>`).join('');
+  $('#genProfile').innerHTML = '<option value="">Pilih profil</option>'+opts;
+  $('#cpLang').value = state.profiles.find(p=>p.id===state.selectedProfileId)?.language || 'id';
+}
+
+// ---- SAMPLES ----
+async function loadSamples(profileId) {
+  if (!profileId) { $('#samplesContainer').innerHTML = '<div class="empty-state"><p>Pilih profil dulu.</p></div>'; $('#sampleCount').textContent='0'; $('#uploadSampleForm').style.display='none'; return; }
+  try {
+    state.samples = await api('/profiles/'+profileId+'/samples');
+    renderSamples();
+    $('#uploadSampleForm').style.display='block';
+  } catch(e) { showStatus('Gagal load sample: '+e.message, 'error'); }
+}
+function renderSamples() {
+  const c = $('#samplesContainer');
+  if (state.samples.length===0) {
+    c.innerHTML = '<div class="empty-state"><p>Belum ada sample. Upload sample suara untuk kloning.</p></div>';
+    $('#sampleCount').textContent='0';
+    return;
+  }
+  c.innerHTML = state.samples.map(s => `
+    <div class="sample-item">
+      <audio class="sample-audio" controls src="${API}/samples/${s.id}"></audio>
+      <span class="sample-text">${escapeHtml(s.reference_text)}</span>
+      <button class="btn btn-ghost btn-sm" data-del-sample="${s.id}" title="Hapus sample"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+    </div>
+  `).join('');
+  $('#sampleCount').textContent = state.samples.length;
+  $$('[data-del-sample]').forEach(b => b.onclick = e => confirmDelete('sample', e.target.closest('button').dataset.delSample, 'Hapus sample ini?'));
+}
+
+// ---- GENERATE ----
+$('#generateForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const profileId = $('#genProfile').value;
+  const text = $('#genText').value.trim();
+  const engine = $('#genEngine').value;
+  const language = $('#genLang').value;
+  const seed = $('#genSeed').value ? parseInt($('#genSeed').value) : null;
+  const instruct = $('#genInstruct').value.trim() || null;
+  if (!profileId) return showStatus('Pilih profil dulu', 'error');
+  if (!text) return showStatus('Isi naskah voice over', 'error');
+
+  const btn = $('#generateBtn');
+  btn.disabled = true; btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Memproses...';
+  showStatus('Mengirim request...', 'info');
+
+  try {
+    const gen = await api('/generate', {method:'POST', body:JSON.stringify({profile_id:profileId, text, engine, language, seed, instruct})});
+    showStatus(`Generate dimulai (${gen.id.slice(0,8)}...). Menunggu...`, 'info');
+    await pollGeneration(gen.id);
+  } catch(err) { showStatus('Error: '+err.message, 'error'); }
+  finally { btn.disabled=false; btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Generate Voice Over'; }
+});
+
+async function pollGeneration(id) {
+  while (true) {
+    await new Promise(r=>setTimeout(r,800));
+    try {
+      const st = await api('/generate/'+id+'/status');
+      if (st.status==='completed') {
+        showStatus(`Selesai (${st.duration?.toFixed(2)}s). Memuat audio...`, 'success');
+        await loadResult(id);
+        break;
+      }
+      if (st.status==='failed') throw new Error(st.error||'Generate gagal');
+      showStatus(`Status: ${st.status}...`, 'info');
+    } catch(err) { showStatus('Error polling: '+err.message, 'error'); break; }
+  }
+}
+
+async function loadResult(genId) {
+  try {
+    const blob = await apiBlob('/audio/'+genId);
+    const url = URL.createObjectURL(blob);
+    $('#resultEmpty').style.display='none';
+    $('#resultCurrent').style.display='block';
+    $('#audioPlayerContainer').innerHTML = `<audio class="audio-player" controls src="${url}"></audio>`;
+    $('#downloadBtn').onclick = () => { const a=document.createElement('a'); a.href=url; a.download=`voiceover-${Date.now()}.wav`; a.click(); };
+    $('#replayBtn').onclick = () => { const a=$('#audioPlayerContainer audio'); if(a) a.currentTime=0, a.play(); };
+    const prof = state.profiles.find(p=>p.id===state.selectedProfileId);
+    $('#resultMeta').textContent = `Profil: ${prof?.name||'—'} • Engine: ${$('#genEngine').value} • Bahasa: ${$('#genLang').value} • ${(blob.size/1024).toFixed(1)} KB`;
+    state.currentGeneration = {id:genId, url, blob};
+    loadHistory(); // refresh history tab
+  } catch(e) { showStatus('Gagal load audio: '+e.message, 'error'); }
+}
+
+// ---- HISTORY ----
+async function loadHistory() {
+  try {
+    // use first profile to get history, or all
+    const res = await api('/history?limit=50');
+    state.history = res.items || [];
+    renderHistory();
+  } catch(e) { /* ignore */ }
+}
+function renderHistory() {
+  const c = $('#historyContainer');
+  if (state.history.length===0) {
+    c.innerHTML = '<div class="empty-state"><p>Belum ada riwayat.</p></div>';
+    $('#genCount').textContent = '0 generation';
+    return;
+  }
+  c.innerHTML = state.history.map(g => `
+    <div class="generation-item" data-gen="${g.id}" style="cursor:pointer;">
+      <div class="waveform"><canvas></canvas></div>
+      <div class="gen-meta">
+        <div class="gen-text">${escapeHtml(g.text.slice(0,80))}${g.text.length>80?'…':''}</div>
+        <div class="gen-details">
+          <span>${fmtDate(g.created_at)}</span>
+          <span>${g.language}</span>
+          <span>${g.engine}</span>
+          <span>${g.duration?g.duration.toFixed(1)+'s':'—'}</span>
+        </div>
+      </div>
+      <div class="gen-actions">
+        <button class="btn btn-ghost btn-sm" data-play="${g.id}" title="Putar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        <button class="btn btn-ghost btn-sm" data-download="${g.id}" title="Download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+        <button class="btn btn-ghost btn-sm" data-addstory="${g.id}" title="Tambah ke Story"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      </div>
+    </div>
+  `).join('');
+  $('#genCount').textContent = state.history.length+' generation';
+  // lazy waveform draw
+  $$('#historyContainer .generation-item').forEach((el,i) => {
+    const canvas = el.querySelector('canvas');
+    drawDummyWaveform(canvas);
+    el.querySelector('[data-play]').onclick = e => { e.stopPropagation(); playHistory(g.id); };
+    el.querySelector('[data-download]').onclick = e => { e.stopPropagation(); downloadHistory(g.id); };
+    el.querySelector('[data-addstory]').onclick = e => { e.stopPropagation(); addToStory(g.id); };
+    el.onclick = () => loadHistoryItem(g.id);
+  });
+}
+function drawDummyWaveform(canvas) {
+  const ctx=canvas.getContext('2d'), w=canvas.width=canvas.offsetWidth, h=canvas.height=40;
+  ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--border').trim()||'#242a35';
+  for(let i=0;i<w;i+=4){ const ht=Math.random()*h*0.6; ctx.fillRect(i,(h-ht)/2,2,ht); }
+}
+let currentAudio = null;
+async function playHistory(id) {
+  try {
+    const blob = await apiBlob('/audio/'+id);
+    const url = URL.createObjectURL(blob);
+    if (currentAudio) { currentAudio.pause(); URL.revokeObjectURL(currentAudio.src); }
+    currentAudio = new Audio(url);
+    currentAudio.play();
+    $$('#historyContainer .generation-item').forEach(el => el.classList.toggle('playing', el.dataset.gen===id));
+    currentAudio.onended = () => $$('#historyContainer .generation-item').forEach(el => el.classList.remove('playing'));
+  } catch(e) { showStatus('Gagal putar: '+e.message, 'error'); }
+}
+async function downloadHistory(id) {
+  try {
+    const blob = await apiBlob('/audio/'+id);
+    const url = URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download=`voiceover-${id.slice(0,8)}.wav`; a.click();
+  } catch(e) { showStatus('Gagal download: '+e.message, 'error'); }
+}
+function addToStory(genId) {
+  if (!state.editingStoryId) { showStatus('Buka story dulu di tab Stories', 'warn'); return; }
+  // add item to story - implement later
+  showStatus('Fitur tambah ke story: buka editor story', 'info');
+}
+function loadHistoryItem(id) { /* click handler */ }
+
+// ---- CREATE PROFILE ----
+$('#createProfileForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  try {
+    const p = await api('/profiles', {method:'POST', body:JSON.stringify({
+      name:$('#cpName').value.trim(),
+      language:$('#cpLang').value,
+      default_engine:$('#cpEngine').value,
+      description:$('#cpDesc').value.trim()||null,
+      voice_type:'cloned'
+    })});
+    showStatus('Profil dibuat: '+p.name, 'success');
+    $('#createProfileForm').reset();
+    $('#profiles-list .tab').click(); // switch to list tab
+    await loadProfiles();
+  } catch(err) { showStatus('Gagal buat profil: '+err.message, 'error'); }
+});
+
+// ---- UPLOAD SAMPLE ----
+$('#uploadSampleBtn').onclick = async () => {
+  const file = $('#sampleFile').files[0];
+  const refText = $('#sampleRefText').value.trim();
+  if (!file) return showStatus('Pilih file audio', 'error');
+  if (!refText) return showStatus('Isi teks referensi', 'error');
+  if (!state.selectedProfileId) return showStatus('Pilih profil dulu', 'error');
+
+  const form = new FormData();
+  form.append('file', file);
+  form.append('reference_text', refText);
+  showStatus('Upload sample...', 'info');
+  try {
+    const res = await fetch(API+'/profiles/'+state.selectedProfileId+'/samples', {method:'POST', body:form});
+    if (!res.ok) throw new Error(await res.text());
+    showStatus('Sample uploaded', 'success');
+    $('#sampleFile').value=''; $('#sampleRefText').value='';
+    await loadSamples(state.selectedProfileId);
+  } catch(err) { showStatus('Gagal upload: '+err.message, 'error'); }
+};
+
+// ---- STORIES ----
+async function loadStories() {
+  try { state.stories = await api('/stories'); renderStories(); }
+  catch(e) { /* ignore */ }
+}
+function renderStories() {
+  const c = $('#storiesContainer');
+  if (state.stories.length===0) {
+    c.innerHTML = '<div class="empty-state"><p>Belum ada story. Klik tab "Buat Story".</p></div>';
+    $('#storyCount').textContent='0';
+    return;
+  }
+  c.innerHTML = state.stories.map(s => `
+    <div class="generation-item" style="cursor:pointer;" data-story="${s.id}">
+      <div class="gen-meta" style="flex:1;">
+        <div class="gen-text">${escapeHtml(s.name)}</div>
+        <div class="gen-details"><span>${s.item_count||0} item</span><span>${fmtDate(s.updated_at)}</span></div>
+      </div>
+      <div class="gen-actions">
+        <button class="btn btn-ghost btn-sm" data-edit="${s.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+        <button class="btn btn-ghost btn-sm" data-del="${s.id}" title="Hapus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+      </div>
+    </div>
+  `).join('');
+  $('#storyCount').textContent = state.stories.length;
+  $$('[data-edit]').forEach(b => b.onclick = e => { e.stopPropagation(); openStoryEditor(b.dataset.edit); });
+  $$('[data-del]').forEach(b => b.onclick = e => { e.stopPropagation(); confirmDelete('story', b.dataset.del, 'Hapus story ini?'); });
+}
+$('#createStoryForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  try {
+    const s = await api('/stories', {method:'POST', body:JSON.stringify({name:$('#storyName').value.trim(), description:$('#storyDesc').value.trim()||null})});
+    showStatus('Story dibuat', 'success');
+    $('#createStoryForm').reset();
+    $('#stories-list .tab').click();
+    await loadStories();
+  } catch(err) { showStatus('Gagal buat story: '+err.message, 'error'); }
+});
+
+function openStoryEditor(storyId) {
+  state.editingStoryId = storyId;
+  const story = state.stories.find(s=>s.id===storyId);
+  $('#storyModalTitle').textContent = story ? 'Editor: '+story.name : 'Editor Story';
+  renderStoryTracks(storyId);
+  openModal($('#storyModal'));
+}
+
+async function renderStoryTracks(storyId) {
+  const c = $('#storyTracks');
+  c.innerHTML = '<div class="empty-state" style="padding:1rem;"><p>Memuat...</p></div>';
+  try {
+    const detail = await api('/stories/'+storyId);
+    if (detail.items.length===0) {
+      c.innerHTML = '<div class="empty-state" style="padding:1rem;"><p>Story kosong. Klik "Tambah Track" untuk menambahkan generation.</p></div>';
+      return;
+    }
+    // Group by track
+    const tracks = {};
+    detail.items.forEach(item => {
+      if (!tracks[item.track]) tracks[item.track] = [];
+      tracks[item.track].push(item);
+    });
+    c.innerHTML = Object.entries(tracks).sort((a,b)=>a[0]-b[0]).map(([trackNum, items]) => `
+      <div style="border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden;">
+        <div style="padding:0.5rem 1rem; background:var(--bg); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+          <strong>Track ${parseInt(trackNum)+1}</strong>
+          <button class="btn btn-ghost btn-sm" data-add-item="${trackNum}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+        <div style="display:flex; gap:0.5rem; padding:0.5rem; overflow-x:auto;">
+          ${items.map(item => `
+            <div class="generation-item" style="flex:0 0 auto; min-width:280px; cursor:pointer;" data-item="${item.id}">
+              <div class="waveform" style="height:30px;"><canvas></canvas></div>
+              <div class="gen-meta" style="min-width:0;">
+                <div class="gen-text" style="font-size:0.8rem;">${escapeHtml(item.text.slice(0,50))}</div>
+                <div class="gen-details" style="font-size:0.65rem;"><span>${item.duration?item.duration.toFixed(1)+'s':'—'}</span><span>${fmtTime(item.start_time_ms)}</span></div>
+              </div>
+              <div class="gen-actions">
+                <button class="btn btn-ghost btn-sm" data-play-item="${item.id}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+                <button class="btn btn-ghost btn-sm" data-del-item="${item.id}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+    $$('#storyTracks canvas').forEach(drawDummyWaveform);
+    $$('[data-add-item]').forEach(b => b.onclick = () => addItemToTrack(b.dataset.addItem));
+    $$('[data-play-item]').forEach(b => b.onclick = e => { e.stopPropagation(); playHistory(b.dataset.playItem); });
+    $$('[data-del-item]').forEach(b => b.onclick = e => { e.stopPropagation(); confirmDelete('storyItem', b.dataset.delItem, 'Hapus item dari story?'); });
+  } catch(e) { c.innerHTML = '<div class="empty-state" style="padding:1rem;"><p>Gagal load story: '+e.message+'</p></div>'; }
+}
+function addItemToTrack(trackNum) {
+  if (!state.currentGeneration) return showStatus('Generate dulu atau pilih dari riwayat', 'warn');
+  // POST /stories/{id}/items
+  showStatus('Fitur tambah item: implementasi lanjutan', 'info');
+}
+
+// ---- DELETE CONFIRM ----
+let pendingDelete = null;
+function confirmDelete(type, id, msg) {
+  pendingDelete = {type, id};
+  $('#confirmTitle').textContent = 'Hapus '+type;
+  $('#confirmMsg').textContent = msg;
+  openModal($('#confirmModal'));
+}
+$('#confirmOk').onclick = async () => {
+  if (!pendingDelete) return;
+  const {type, id} = pendingDelete;
+  try {
+    let path = '';
+    if (type==='sample') path = '/profiles/'+state.selectedProfileId+'/samples/'+id;
+    else if (type==='story') path = '/stories/'+id;
+    else if (type==='storyItem') path = '/stories/'+state.editingStoryId+'/items/'+id;
+    await api(path, {method:'DELETE'});
+    showStatus('Dihapus', 'success');
+    if (type==='sample') await loadSamples(state.selectedProfileId);
+    else if (type==='story') await loadStories();
+    else if (type==='storyItem' && state.editingStoryId) renderStoryTracks(state.editingStoryId);
+  } catch(e) { showStatus('Gagal hapus: '+e.message, 'error'); }
+  closeModal($('#confirmModal'));
+  pendingDelete = null;
+};
+
+// ---- EXPORT STORY ----
+$('#exportStoryBtn').onclick = async () => {
+  if (!state.editingStoryId) return;
+  showStatus('Ekspor story... (fitur butuh backend export)', 'info');
+};
+
+// ---- INIT ----
+async function init() {
+  await loadProfiles();
+  await loadStories();
+  // auto-select first profile
+  if (state.profiles.length>0 && !state.selectedProfileId) {
+    state.selectedProfileId = state.profiles[0].id;
+    renderProfiles();
+    await loadSamples(state.selectedProfileId);
+  }
+  renderProfileSelects();
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&','<':'<','>':'>','"':'"',"'":'''}[c])); }
+
+init();
+</script>
+</body>
+</html>

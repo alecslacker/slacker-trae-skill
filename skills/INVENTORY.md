@@ -6,7 +6,7 @@
 > + upstream-manifest.json.
 > Cek update skill GitHub eksternal: .\scripts\check-upstream.ps1
 
-Diperbarui: 2026-11-27 | Total: **437** skill
+Diperbarui: 2026-11-29 | Total: **437** skill
 
 ## Ringkasan Sumber
 
@@ -364,7 +364,7 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - windows-server
 - zero-trust
 
-### coreyhaines31/marketingskills (2bf95ed (2026-11-26), dicek 2026-11-27)
+### coreyhaines31/marketingskills (v2.9.1 (2026-11-28), dicek 2026-11-28)
 
 - ab-testing
 - ad-creative
