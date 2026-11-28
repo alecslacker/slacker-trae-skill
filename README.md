@@ -31,7 +31,7 @@ Repo ini berisi **437<!--skill-count:437--> skill TRAE IDE** yang sudah dikurasi
 | `scripts/collect.sh` | Padanan macOS `collect.ps1` — kumpulkan skill/memory lokal → repo → GitHub |
 | `scripts/sync.sh` | Padanan macOS satu pintu: `./scripts/sync.sh claude\|zcode\|codex\|all [--mirror]` |
 | `scripts/verify.sh` | Padanan macOS `verify-sync.ps1` — jumlah skill + sidik jari folder taste |
-| `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE) |
+| `scripts/install.ps1` | Pemasang skill untuk komputer baru (TRAE): skills + memory + **User Rules (3 file, otomatis)** |
 | `scripts/collect.ps1` | Pengumpul perubahan skill lokal → repo → GitHub (TRAE) |
 | `scripts/sync-claude.ps1` | Sinkron repo → Claude Code CLI (`~/.claude`) |
 | `scripts/sync-zcode.ps1` | Sinkron repo → Z Code (`~/.zcode`) + MCP dari Claude |

@@ -80,11 +80,64 @@ echo -e "${G}    OK — total $installed folder skill di ~/.trae/skills${N}"
 
 # --- Copy memory (opsional) -----------------------------------------------------
 if [ "$SKIP_MEMORY" -eq 0 ] && [ -d "$REPO_MEMORY" ]; then
-    echo -e "${C}[2/2] Copy memory (profil preferensi)...${N}"
+    echo -e "${C}[2/3] Copy memory (profil preferensi)...${N}"
     # Memory lokal yang sudah ada tetap dipertahankan; file repo menimpa versi lama
     find "$REPO_MEMORY" -maxdepth 1 -type f -exec cp {} "$MEMORY_DIR" \; -print | sed 's|.*/|    OK — |'
 else
-    echo -e "${D}[2/2] Memory dilewati (--skip-memory / tidak ada).${N}"
+    echo -e "${D}[2/3] Memory dilewati (--skip-memory / tidak ada).${N}"
+fi
+
+# --- Copy rules User Rules TRAE (step 3/3) --------------------------------------
+# Rules TRAE per komputer - installer yang menyinkronkan. Rules utama memakai
+# konten INTI saja (di bawah garis '---' pada trae-rules.md). macOS (BSD sed/grep)
+# tidak punya masalah BOM bawaan bila menulis via printf > file.
+RULES_DIR="$TRAE_DIR/user_rules"
+echo -e "${C}[3/3] Copy rules (User Rules TRAE)...${N}"
+if [ -d "$REPO_ROOT/rules" ]; then
+    mkdir -p "$RULES_DIR"
+
+    # 1. Rules utama: konten inti di bawah baris '---'
+    TRAE_RULES_PATH="$REPO_ROOT/trae-rules.md"
+    if [ -f "$TRAE_RULES_PATH" ]; then
+        KONTEN_INTI="$(awk 'f && NR>1 {print} /^---$/{f=1}' "$TRAE_RULES_PATH")"
+        # Cari file rules utama lama (berisi 'RULES SLACKERCODER', file terbesar)
+        TARGET_UTAMA=""
+        UKURAN_TERBESAR=0
+        for f in "$RULES_DIR"/rule-*.md; do
+            [ -f "$f" ] || continue
+            if grep -q 'RULES SLACKERCODER' "$f" 2>/dev/null; then
+                SZ=$(wc -c < "$f" | tr -d ' ')
+                if [ "$SZ" -gt "$UKURAN_TERBESAR" ]; then UKURAN_TERBESAR="$SZ"; TARGET_UTAMA="$f"; fi
+            fi
+        done
+        if [ -z "$TARGET_UTAMA" ]; then TARGET_UTAMA="$RULES_DIR/rule-$(date +%s)000.md"; fi
+        printf '%s\n' "$KONTEN_INTI" > "$TARGET_UTAMA"
+        echo -e "${G}    OK — rules utama (Slackercoder) -> $(basename "$TARGET_UTAMA")${N}"
+    else
+        echo -e "${Y}    [!] trae-rules.md tidak ada di repo — rules utama dilewati${N}"
+    fi
+
+    # 2-3. Memory protocol & critical thinking: salin apa adanya (carikan file lama by konten)
+    for pasangan in "memory-protocol.md:Memory Protocol" "critical-thinking.md:Anti-Sycophancy"; do
+        NAMA="${pasangan%%:*}"; PENGENAL="${pasangan##*:}"
+        SRC="$REPO_ROOT/rules/$NAMA"
+        if [ ! -f "$SRC" ]; then echo -e "${Y}    [!] $NAMA tidak ada di repo — dilewati${N}"; continue; fi
+        TARGET=""
+        for f in "$RULES_DIR"/rule-*.md; do
+            [ -f "$f" ] || continue
+            [ "$f" = "$TARGET_UTAMA" ] && continue
+            if grep -q "$PENGENAL" "$f" 2>/dev/null; then TARGET="$f"; break; fi
+        done
+        if [ -z "$TARGET" ]; then TARGET="$RULES_DIR/rule-$(date +%s)001.md"; fi
+        if [ -f "$TARGET" ] && diff -q <(sort "$SRC") <(sort "$TARGET") >/dev/null 2>&1; then
+            echo -e "${D}    OK — $NAMA sudah cocok${N}"
+        else
+            cp "$SRC" "$TARGET"
+            echo -e "${G}    OK — $NAMA -> $(basename "$TARGET")${N}"
+        fi
+    done
+else
+    echo -e "${D}[3/3] Folder rules repo tidak ada — dilewati.${N}"
 fi
 
 # --- Selesai ---------------------------------------------------------------------
