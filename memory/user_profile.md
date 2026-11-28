@@ -1,5 +1,5 @@
-# USER PROFILE — MAS WONDHO
-> Diperbarui total: 2026-09-03. Struktur tematik (bukan kronologis) agar efisien dibaca tiap sesi.
+﻿# USER PROFILE — MAS WONDHO
+> Diperbarui total: 2026-09-03 • +§9 Spesifikasi PC 2026-11-24. Struktur tematik (bukan kronologis) agar efisien dibaca tiap sesi.
 
 ## 1. Identitas & Preferensi
 - Nama: Mas Wondho — Visionary Founder, Duta Corpora Indonesia (non-teknis).
@@ -37,7 +37,7 @@
   - design-taste-frontend v2.1.5: PEMIMPIN arah desain frontend/landing page (deal direction dari library 247 situs + inspector real-browser; lihat skills/_TASTE-SKILLS-INTEGRASI.md).
   - antislop family (6): -copywriting (tulisan), -code (komentar/kode), -human (a11y), -layoutmobile (reflow) — WAJIB per domain; core & -ui tidak lagi menyetir arah desain (keputusan 2026-10-30).
   - Jalur gambar: 9router production lewat REST /v1/images/generations (model uji OK: cx/gpt-image-2.6-sunburst). URL + key di ~/.9router/env (netral lintas agent, izin hanya akun Mas Wondho, jangan di-commit); MCP dci-imagegen terpasang di TRAE, TRAE SOLO, ZCode, Claude Code (Codex tidak); terbukti jalan di TRAE (rencana: .trae/documents/plan-dci-imagegen.md). Output ke <project>/generated-images, n=1 default, memakai kuota ChatGPT. BytePlus/Seedream sudah dihapus 2026-11-24.
-  - mastermind: persona keamanan (internal, atribusi DCI). Alat recon/scanner/fuzzer/kit phishing/checker/malware ringan + analisis modus & laporan intelijen-polisi. 8 guardrail, default dry-run, bukti dari eksekusi; reversing diserahkan ke REA.
+  - mastermind: repo pribadi Mas Wondho; persona keamanan internal ber-atribusi "Alecs — Slackercode Family". Alecs/Slackercoder = alter ego Mas Wondho di repo ini (BUKAN orang lain, BUKAN DCI). Alat recon/scanner/fuzzer/kit phishing/checker/malware ringan + analisis modus & laporan intelijen-polisi. 8 guardrail, default dry-run, bukti dari eksekusi; reversing diserahkan ke REA.
 - MCP aktif: Context7 (WAJIB cek library), zai-vision (analisis gambar/screenshot user), zread, sequential-thinking, integrated_browser, playwright, desktop-commander, everything-search, Figma_AI_Bridge, shadcn-ui, Google_Maps, Time, needmcp, ssh-admin, testsprite, Cloudflare.
 - Katalog skill: daftar `available_skills` (otomatis ter-inject TRAE tiap sesi) + `skills/INVENTORY.md` di repo (auto-generated) + Skill Auto-Invocation Protocol (identifikasi domain → invoke SEBELUM kerja manual).
 
@@ -64,3 +64,17 @@
 - 1 sesi = 1 topik; /clear antar topik. Task input 4 elemen: Goal / Context (file spesifik) / Constraints / Done-when.
 - File besar: baca sebagian (offset), bukan utuh; auto-accept bijak saat eksplorasi.
 - Instruksi spesifik memangkas invokasi (~18× → ~10×).
+
+## 9. Spesifikasi PC Utama (WMI, 2026-11-24)
+### M-HW1 — Core
+i7-9700KF (8C/8T, LGA1151) • MSI MAG Z390 TOMAHAWK (MS-7B18), BIOS 1.D0 (2024-08) • RTX 2070 8GB (PCIe 3.0 x16, power limit 157W) • RAM 32GB = 4×8GB Corsair Vengeance LPX DDR4-2666 C16 (CMW16GX4M2A2666C16), 4 slot penuh, max 64GB • PSU & casing belum tercatat (cek fisik). Slot PCIe: 1× x16 CPU + 1× x16 (x4 chipset).
+### M-HW2 — Storage & OS
+Win10 Pro 22H2 (19045, EOL Okt-2025). C: 970 PRO 512GB NVMe (satu-satunya M.2, 71GB bebas) • D: 860 PRO 512GB SATA (105GB) • F: Intel 545s 256GB SATA (203GB) • E: Seagate 1TB HDD (263GB) • H: WD Elements 500GB USB.
+### M-HW3 — Rencana upgrade LLM lokal (budget Rp 35jt) — BELUM DIPUTUSKAN
+Target Mas Wondho: huihui-ai/Huihui-DeepSeek-V4.1-Flash-1017-abliterated-GGUF = 552B MoE + 196B Engram; GGUF terkecil UD-IQ1_S 233GB, IQ1_M 250GB. TIDAK feasible di 35jt: RDIMM 32GB copotan Rp 3,12jt/keping → 384GB = Rp 37jt; Mac M5 Ultra 512GB ~Rp 160jt+. Alternatif: model ≤35B (3090 24GB bekas Rp 12–15jt + PSU 1200W Rp 2,7–4,3jt), sewa cloud, atau budget Rp 45jt+. Mas Wondho memilih melupakan model ini.
+### M-HW4 — Rencana CPU/RAM (2026-11-24)
+i9-9900K/KF didukung (BIOS 7B18v1D terbaru, LGA1151 gen-9). Saran: 9900K bekas ~Rp3,5jt, jual 9700KF ~Rp2–2,5jt; hindari ES/QS & 9900KS. Target RAM 64GB belum tercapai (lihat M-HW6).
+### M-HW5 — Clock CPU 9700KF
+Task Manager/WMI 3,60GHz=base; perf counter 127%→≈4,57GHz aktual. Biarkan Auto; Turbo/SpeedStep/SpeedShift/C-States ON, Balanced. Pakai HWiNFO untuk clock.
+### M-HW6 — RAM T-Force 3600 (2026-11-24)
+Terpasang 4×8GB TEAMGROUP-UD4-3600 = 32GB (bukan 64GB). Auto 2400 @1,2V = JEDEC normal. Set 3600 manual gagal karena tegangan/timing XMP tidak ikut; aktifkan A-XMP Profile 1 (1,35V CL18). 4-DIMM 3600 di Z390 berat → 3200 lebih realistis. Update: XMP aktif tapi turun 2667 @1,25V = training fallback, BUKAN batas mobo (spec MSI 4400OC/128GB); coba 3200 1,35V atau 2-DIMM A2/B2.

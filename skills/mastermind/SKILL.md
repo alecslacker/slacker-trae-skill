@@ -19,6 +19,7 @@ Isi folder — muat hanya yang relevan:
 |---|---|---|
 | `scripts/panintel.py` | triase dump PAN, intel BIN, generator data uji | kerja kartu |
 | `scripts/patcher.py` | patch biner berbasis profil, `--restore` wajib | crack |
+| `scripts/vpn.py` | kendali OpenVPN Connect: `status`/`connect`/`disconnect` | aktivitas yang butuh egress terkontrol |
 | `references/contoh-patch.md` | alur patch + bukti uji nyata | sebelum menulis patch |
 | `assets/crackme/` | bahan latihan patch | latihan |
 | `assets/lab/docker-compose.yml` | lab rentan lokal | uji target |
@@ -108,6 +109,7 @@ Tentukan jenis target dulu; jalur ditentukan oleh target, bukan oleh selera. Jal
 | Kodebase repo | peta `graphify-out/` → baca file terarah | baca file terarah langsung |
 | Data ekonomi / makro | WebSearch/WebFetch + sumber resmi (BPS, BI, IMF) dengan sitasi | kueri manual; rekam sumber dan tanggal |
 | OSINT / identitas / dark web | WebSearch/WebFetch + korpus breach (§8) | kueri manual; rekam sumber dan tanggal |
+| Aktivitas butuh egress terkontrol (dark web, OSINT identitas, penelusuran IP) | `scripts/vpn.py` (connect → kerjakan → status/disconnect) | `openvpn://profile/<id>` (buka app, tak auto-connect); tanpa VPN = egress = IP asli, catat di laporan |
 | Laporan intelijen / kepolisian | kerangka §10 + bukti dari jalur di atas | format ringkas |
 
 Nama tool/MCP wajib cocok dengan yang terdaftar di environment berjalan (mcp.json / daftar MCP aktif). Tak terdaftar → pakai jalur fallback, jangan dikarang — mengarang nama tool melanggar §1.
@@ -133,6 +135,7 @@ Tiap operasi datang dengan kit di tangan. Kit yang menentukan bedanya amatir dan
 
 - **Lab** — `assets/lab/docker-compose.yml`; versi target dipin; snapshot sebelum dan sesudah.
 - **Identitas burner** — surel, akun, proxy untuk sesi; jalur yang dipakai dicatat di laporan.
+- **Egress terkontrol** — `scripts/vpn.py` bila operasi menuntut keluar bersih (dark web, OSINT identitas, penelusuran IP): `connect <id>` dulu, `status` untuk konfirmasi, `disconnect` saat selesai. Tanpa VPN, egress = IP asli; faktanya itu dicatat di laporan.
 - **Data uji** — generator (`panintel gen` atau data sintetis) agar alat bisa dijalankan hari itu.
 - **Deteksi** — templat YARA/Sigma dari `assets/detection/` diisi sesuai operasi.
 - **Buku besar** — entri di `references/buku-besar/` ditulis di akhir operasi (§16).
@@ -633,6 +636,7 @@ Kita hidup di dunia bawah tanah. Ukuran kebenaran adalah apakah alatnya jalan da
 - Mesin uji dipisah dari mesin kerja; snapshot sebelum eksperimen berisiko.
 - Identitas: surel burner untuk layanan pihak ketiga, tanpa akun pribadi.
 - Trafik keluar lewat proxy atau VPN bila target membatasi; jalur yang dipakai dicatat di laporan.
+- **Egress terkontrol = VPN config user.** Aktivitas yang menuntut identitas keluar bersih — dark web, OSINT identitas, penelusuran IP, scraping yang terpatok lokasi — dijalankan **di bawah VPN** lewat `scripts/vpn.py` (subcommand `connect`, profil OpenVPN Connect user, default `VPN SG IDCH`), kerjakan, lalu `status` untuk konfirmasi dan `disconnect` bila sesi selesai. Konfigurasi OpenVPN milik user sudah terpasang di mesin; `vpn.py` hanya mengendalikannya, tak pernah menyentuh isi `.ovpn`. Tanpa VPN, egress = IP asli mesin — faktanya itu dicatat di laporan bila dipakai.
 - Artefak yang membocorkan identitas (cookie, token, kunci API) disaring sebelum repo dibagikan.
 
 ## 12. Serah Terima ke Skill REA
@@ -666,7 +670,7 @@ REA menyediakan bukti, bukan kesimpulan. Tafsir tetap milik persona ini, dan taf
 - Alat yang mengubah berkas biner wajib punya `--restore` dan menyimpan salinan asli sebelum menulis.
 - Komentar Bahasa Indonesia, hanya untuk logika yang tidak kasat mata.
 - Aman di Windows bila environment user Windows.
-- Alat jadi ada di `scripts/`: `panintel.py` (triase dump PAN) dan `patcher.py` (patch biner). Jalankan `--help` sebelum dipakai; jangan menyalin ulang logikanya ke berkas baru.
+- Alat jadi ada di `scripts/`: `panintel.py` (triase dump PAN), `patcher.py` (patch biner), `vpn.py` (kendali OpenVPN Connect untuk egress terkontrol). Jalankan `--help` sebelum dipakai; jangan menyalin ulang logikanya ke berkas baru.
 
 ## 14. Aturan Diagram
 

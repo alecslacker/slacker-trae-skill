@@ -76,6 +76,7 @@ Di bawah kedua wujud itu berjalan **doktrin ke-segala-gaan** (§3 SKILL.md):
 | `SKILL.md` | Seluruh aturan persona. Ini berkas utama. |
 | `scripts/panintel.py` | Triase dump PAN: validasi Luhn, cocok BIN, masker, audit, generator data uji. |
 | `scripts/patcher.py` | Patch biner berbasis profil JSON, cadangan otomatis, `--restore`. |
+| `scripts/vpn.py` | Kendali OpenVPN Connect (status/connect/disconnect) untuk egress terkontrol. |
 | `scripts/verif.py` | Uji integritas skill: fence, penomoran §, path rujukan, frontmatter, nama terlarang. |
 | `references/contoh-patch.md` | Alur patch + bukti uji nyata, termasuk rantai REA. |
 | `references/buku-besar/` | Memori lintas sesi: entri operasi, proteksi target, daftar alat, jebakan. |
@@ -88,7 +89,15 @@ Tidak semua bagian harus dimuat agen setiap saat. `SKILL.md` memuat peta ini aga
 
 ## Pasang
 
-Skill global (berlaku lintas proyek):
+Skill global (berlaku lintas proyek) — lokasi pemasangan per agen:
+
+| Agen | Lokasi skill |
+|---|---|
+| TRAE | `~/.trae/skills/mastermind` |
+| Z Code | `~/.zcode/skills/mastermind` |
+| Agensi standar (`.agents`) | `~/.agents/skills/mastermind` |
+| Claude | `~/.claude/skills/mastermind` |
+| Hermes | `~/Hermes-Kerja/skills-dci/mastermind` |
 
 ```bash
 git clone https://github.com/alecslacker/mastermind-skill.git ~/.trae/skills/mastermind
@@ -102,20 +111,29 @@ git clone https://github.com/alecslacker/mastermind-skill.git "$env:USERPROFILE\
 
 Skill per proyek: taruh di `<proyek>/.trae/skills/mastermind/`.
 
+**Semua agen membaca berkas yang sama.** Satu sumber kebenaran per fakta (G8): `SKILL.md` di repo GitHub adalah induk; salinan di tiap lokasi agen harus identik. Setelah commit baru, sinkronkan salinan:
+
+```bash
+git archive main | tar -x -C ~/Hermes-Kerja/skills-dci/mastermind/
+```
+
+(atau ulang `git clone`/`git pull` di lokasi yang memakai clone). Cek akhir selalu `python scripts/verif.py` — exit 0 berarti skill utuh di lokasi itu, dan agen yang memuatnya otomatis paham seluruh kontrak, termasuk cara menjalankan `scripts/vpn.py` (doktrin egress terkontrol ada di `SKILL.md` §3.1, §3.3, §11 — tidak perlu instruksi tambahan per agen).
+
 Prasyarat alat — semuanya opsional kecuali Python untuk skrip:
 
 | Kebutuhan | Untuk apa | Wajib? | Versi |
 |---|---|---|---|
-| Python | `scripts/panintel.py`, `scripts/patcher.py`, `scripts/verif.py` | Ya, bila memakai skrip | 3.9+ |
+| Python | `scripts/panintel.py`, `scripts/patcher.py`, `scripts/vpn.py`, `scripts/verif.py` | Ya, bila memakai skrip | 3.9+ |
 | Docker + Compose | `assets/lab/docker-compose.yml` | Tidak | Docker 24+ |
 | `gcc` | mengompilasi `assets/crackme/crackme.c` | Tidak | apa pun yang mendukung C99 |
+| OpenVPN Connect (app desktop) | `scripts/vpn.py` mengendalikan koneksinya | Tidak | Windows |
 | Node.js | integrasi MCP REA | Tidak | 20+ |
 | Ghidra + JDK | provider analisis REA | Tidak | Ghidra 12.x + JDK 21 |
 | YARA / SIEM | menjalankan `assets/detection/` | Tidak | — |
 
-**Nol dependensi pihak ketiga.** Impor yang dipakai: `argparse`, `hashlib`, `json`, `os`, `pathlib`, `random`, `re`, `sys` — semuanya pustaka standar Python. Tidak ada `requirements.txt` karena tidak ada yang perlu dipasang. Alasan: alat keamanan yang butuh belasan paket lebih rapuh dan lebih sulit diaudit.
+**Nol dependensi pihak ketiga.** Impor yang dipakai: `argparse`, `hashlib`, `json`, `os`, `pathlib`, `platform`, `random`, `re`, `subprocess`, `sys`, `time` — semuanya pustaka standar Python. Tidak ada `requirements.txt` karena tidak ada yang perlu dipasang. Alasan: alat keamanan yang butuh belasan paket lebih rapuh dan lebih sulit diaudit.
 
-Tidak ada network call di kedua skrip. `panintel.py` menolak memakai socket; `patcher.py` hanya menyentuh berkas lokal yang diberikan.
+`panintel.py` menolak memakai socket; `patcher.py` hanya menyentuh berkas lokal yang diberikan; `vpn.py` tidak membuka socket sendiri — ia hanya membaca state lokal dan meluncurkan app OpenVPN Connect yang sudah terpasang.
 
 
 ## Cara kerja
@@ -199,6 +217,21 @@ Keluar 0 berhasil, 1 galat, 2 hash tidak cocok, 3 offset tidak sesuai, 4 sudah t
 
 Bukti uji ada di `references/contoh-patch.md`: patch banner `curl.exe` sampai berubah perilaku, lalu dipulihkan dengan hash kembali identik.
 
+### `scripts/vpn.py`
+
+Kendali OpenVPN Connect desktop untuk aktivitas yang butuh egress terkontrol (dark web, OSINT identitas, penelusuran IP). Membaca state koneksi dari `%APPDATA%\OpenVPN Connect\config.json` dan memicu connect/disconnect lewat flag command-line app. Windows saja.
+
+Sifatnya **per-operasi, bukan permanen**: nyalakan hanya selama operasi itu berjalan. Saat nyala, default route Windows dialihkan lewat tunnel; saat `disconnect`, route kembali normal dan tidak ada yang menetap di sistem. Jangan biarkan menyala berhari-hari.
+
+```bash
+python scripts/vpn.py profiles                 # daftar profil (id + nama)
+python scripts/vpn.py status                   # sedang terhubung? + IP TUN
+python scripts/vpn.py connect 1767186941079    # hubungkan (id atau nama profil)
+python scripts/vpn.py disconnect               # putuskan koneksi aktif
+```
+
+Keluar 0 tujuan tercapai, 1 masalah lingkungan (app tak ditemukan), 2 keadaan tak berubah/bertentangan. "Terhubung" ditentukan dari IPv4 non-link-local di adapter TUN, bukan dari state app (yang persisten/stale) — lihat catatan di kode. Siklus lazim: `connect` → kerjakan operasi → `status` → `disconnect`.
+
 ### `scripts/verif.py`
 
 Uji integritas skill itu sendiri: struktur, penomoran, rujukan, nama terlarang.
@@ -234,6 +267,7 @@ Status integrasi:
 | `scripts/patcher.py` — hash gate, backup, idempoten, restore | TERUJI pada biner nyata |
 | `scripts/panintel.py` — check/audit/gen | TERUJI |
 | `scripts/verif.py` — cek struktural + G8 (urutan guardrail, exit code, nama MCP) | TERUJI (positif exit 0, 3 negatif tertangkap) |
+| `scripts/vpn.py` — profiles/status/connect/disconnect | TERUJI live (2026-11-28: connect → TUN 192.168.219.5, disconnect → terputus) |
 | Rantai REA ke offset file | TERUJI dengan Evidence ID |
 | Kit phishing 3 langkah (demo di luar repo) | TERUJI penuh via curl + browser |
 | `assets/crackme` | HIPOTESIS — perlu `gcc` |

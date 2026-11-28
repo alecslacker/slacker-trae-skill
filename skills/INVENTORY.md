@@ -1,4 +1,4 @@
-# SKILL INVENTORY — 437 Skill (Auto-Generated)
+﻿# SKILL INVENTORY — 437 Skill (Auto-Generated)
 
 > **JANGAN EDIT MANUAL** — di-regenerate oleh scripts/update-inventory.ps1
 > (dipanggil otomatis oleh collect.ps1 step 2.6) tiap ada skill tambah/kurang.
@@ -18,7 +18,7 @@ Diperbarui: 2026-11-29 | Total: **437** skill
 
 ## Kurasi Pack / Internal (48)
 
-agent-browser, attribution, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, conversion-tracking, data-analysis, electron, events, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, influencer-marketing, laravel-dev, link-building, local-computer-use, local-realtime-translator, marketing-council, marketing-loops, marketing-tools, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, reverse-engineer-marketing, screenshot, security-best-practices, shadcn, slides, theme-factory, web-artifacts-builder, web-design-guidelines, webapp-testing, wordpress-dev
+agent-browser, attribution, brand-guidelines, canvas-design, chart-visualization, consulting-analysis, conversion-tracking, data-analysis, electron, events, figma, frontend-design, frontend-skill, gh-cli, git-commit, hook-analyzer-skill, html-deck, html-report, influencer-marketing, laravel-dev, link-building, local-computer-use, local-realtime-translator, marketing-council, marketing-loops, marketing-tools, mcp-builder, obsidian-bases, obsidian-cli, obsidian-markdown, ppt-page, prd-builder, rab-builder, react-native-skills, redis-development, report-generator-skill, report-page, research-guide, reverse-engineer-marketing, screenshot, security-best-practices, shadcn, slides, theme-factory, webapp-testing, web-artifacts-builder, web-design-guidelines, wordpress-dev
 
 ## Plugin Resmi TRAE (94)
 
@@ -273,9 +273,9 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - gcp-networking
 - gcp-secret-manager
 - gdpr-compliance
-- git-workflow
 - github-actions
 - gitlab-ci
+- git-workflow
 - gpu-kubernetes-operations
 - gpu-server-management
 - hashicorp-vault
@@ -373,8 +373,8 @@ Sumber + versi tercatat di upstream-manifest.json. Keluarga skill dikelompokkan 
 - analytics
 - aso
 - churn-prevention
-- co-marketing
 - cold-email
+- co-marketing
 - community-marketing
 - competitor-profiling
 - competitors

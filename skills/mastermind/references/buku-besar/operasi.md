@@ -50,3 +50,15 @@ Baca sebelum operasi baru; tulis entri baru di bawah. Tanpa tanggal = tidak berl
 - bukti: verif.py exit 0 di repo utama TANPA symlink apa pun; uji negatif: rujukan palsu `references/palsu-tidak-ada.md` tersisip di salinan uji → tertangkap; salinan Hermes di-sync ulang pasca-commit
 - jebakan: `ln -sfn` Git Bash dengan target format `C:/...` TIDAK membuat symlink — dia menyalin direktori (30 entri skill REA dobel di dua lokasi); hapus dengan rm -rf setelah dicek isinya; junction/symlink asli dibedakan lewat `cmd //c dir` (kolom <JUNCTION> vs <DIR>)
 - ulang: python3 scripts/verif.py (tanpa symlink) && python3 ~/Hermes-Kerja/skills-dci/mastermind/scripts/verif.py
+
+## [2026-11-28] skill mastermind — integrasi OpenVPN (scripts/vpn.py)
+- hasil: helper `scripts/vpn.py` (profiles/status/connect/disconnect, stdlib, exit 0/1/2) mengendalikan OpenVPN Connect desktop untuk egress terkontrol; SKILL.md +routing §3.1 + kit §3.3 + OPSEC §11 + §13; README +alat; buku besar alat.md [TERBUKTI]
+- bukti: trigger `--connect-shortcut=<id>` & `--disconnect-shortcut` diverifikasi dari `resources/app.asar` (dibaca `app.commandLine`, app wajib launch segar); uji live 2026-11-28: connect → TUN IP 192.168.219.5 + default route via tunnel, disconnect → terputus. Profil `VPN SG IDCH` (id 1767186941079, 103.187.146.110:10794)
+- jebakan: state app `connectorActive`/`connectedProfile` persisten/stale (tak di-clear saat disconnect) → "terhubung" WAJIB dari IPv4 non-link-local di adapter TUN (adapter TAP tetap "Up" saat mati, IP jadi APIPA 169.254.x.x); adapter bernama bebas ("OPEN VPN") → match deskripsi, bukan nama
+- ulang: python3 scripts/vpn.py status && python3 scripts/vpn.py profiles
+
+## [2026-11-29] README keseluruhan + sinkron 5 lokasi agen — commit 52e13da
+- hasil: seksi Pasang README = tabel 5 lokasi pemasangan (zcode/agents/trae/claude/Hermes) + doktrin "semua agen membaca berkas yang sama" (satu sumber kebenaran G8); blok vpn.py +siklus per-operasi; Status uji +vpn.py TERUJI live [TERBUKTI]
+- bukti: verif.py exit 0 di 6 lokasi (repo + 5 salinan) pasca-sync `git archive main | tar -x`; smoke `vpn.py profiles` di lokasi zcode = `VPN SG IDCH` id 1767186941079
+- jebakan: 5 lokasi = salinan (tanpa .git) → `git pull` tak berlaku, wajib `git archive`; 4 salinan agen ternyata masih state prap-VPN (tak pernah di-sync pasca 1b9eb03)
+- ulang: git archive main | tar -x -C <lokasi> lalu python -I scripts/verif.py

@@ -129,7 +129,7 @@ def cek(root):
     for berkas in ["operasi.md", "proteksi.md", "alat.md", "jebakan.md"]:
         if not (root / "references" / "buku-besar" / berkas).is_file():
             gagal.append("buku besar tidak ada: references/buku-besar/%s" % berkas)
-    for berkas in ["panintel.py", "patcher.py"]:
+    for berkas in ["panintel.py", "patcher.py", "vpn.py"]:
         if not (root / "scripts" / berkas).is_file():
             gagal.append("skrip tidak ada: scripts/%s" % berkas)
 
